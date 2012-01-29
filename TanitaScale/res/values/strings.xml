@@ -3,7 +3,10 @@
 
     <string name="hello">Enter and view your Tanita Scale relate info</string>
     <string name="app_name">TanitaScale</string>
-    <string name="add">Add a New Person</string>
-    <string name="view">View a Person</string>
+    <string name="addButton">Add a New Person</string>
+    <string name="viewButton">View a Person</string>
+    <string name="addTitle">Add a new person</string>
+    <string name="viewTitle">Pick a new person</string>
+    <string name="name">Name</string>
 
 </resources>
