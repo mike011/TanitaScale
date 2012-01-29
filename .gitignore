@@ -1,0 +1,6 @@
+gen/
+bin/
+*~
+proguard.cfg
+tmp/
+hs_err*

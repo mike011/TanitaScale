@@ -1,0 +1,21 @@
+Version 0.1
+
+A simple Android application to make entering and viewing Tanita Scale information trivial.
+
+Version 1.0
+- Using RoboGuice
+- High level (90%) of unit testing
+- Screens:
+--First screen is create a person / pick a person
+- If you pick create a person you get one screen to enter a bunch of data.
+- If you pick a person you go to the add a new entry / view old entries
+--For the add entry path each entry will be one screen
+--Viewing old entries will be simple table with values.
+
+Version 2.0
+- Add graphs when viewing data. Not sure what graph!
+- When entering new data and old data exists you'll be able to see where you sit
+- When entering new data the screen will have relevant information on the screen.
+
+Version 3.0
+- Ability to tie into web server / sql server that would allow viewing on a web page / desktop app.
