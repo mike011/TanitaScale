@@ -1,7 +1,7 @@
 package ca.charland.tanita;
 
 import roboguice.activity.RoboListActivity;
-import roboguice.inject.ContentView;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,7 +14,6 @@ import android.widget.ListView;
  * 
  * @author mcharland
  */
-@ContentView(R.layout.view)
 public class ViewActivity extends RoboListActivity {
 
 	/**
@@ -34,9 +33,10 @@ public class ViewActivity extends RoboListActivity {
 
 		ListView lv = getListView();
 		lv.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				//startActivity(new Intent(getBaseContext(), ViewActivity.class));
+			public void onItemClick(AdapterView<?> par, View view, int pos,
+					long id) {
+				startActivity(new Intent(getBaseContext(),
+						DateAndTimeActivity.class));
 			}
 		});
 	}
