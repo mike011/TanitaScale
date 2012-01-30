@@ -16,12 +16,7 @@ import android.widget.ListView;
  */
 public class ViewActivity extends RoboListActivity {
 
-	/**
-	 * Called when the activity is first created.
-	 * 
-	 * @param savedInstanceState
-	 *            the saved instance state
-	 */
+	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

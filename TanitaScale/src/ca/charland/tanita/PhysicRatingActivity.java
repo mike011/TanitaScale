@@ -9,12 +9,12 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * The Class DataAndTimeActivity.
+ * The Class PhysicRatingActivity.
  * 
  * @author mcharland
  */
-@ContentView(R.layout.date)
-public class DateAndTimeActivity extends RoboActivity {
+@ContentView(R.layout.physic_rating)
+public class PhysicRatingActivity extends RoboActivity {
 
 	/** The next button. */
 	@InjectView(R.id.next)
@@ -27,7 +27,7 @@ public class DateAndTimeActivity extends RoboActivity {
 		next.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				startActivity(new Intent(getBaseContext(),
-						WeightActivity.class));
+						ViewActivity.class));
 			}
 		});
 	}

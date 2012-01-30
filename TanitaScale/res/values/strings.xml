@@ -18,14 +18,14 @@
     <string name="muscle_mass_arm_right">Enter your Muscle for your Right Arm</string>
     <string name="muscle_mass_leg_left">Enter your Muscle for your Left Leg</string>
     <string name="muscle_mass_leg_right">Enter your Muscle for your Right Left</string>
-    <string name="muscle_mass_trunk">Enter your Muscle for your Trunk</string>
+    <string name="muscle_mass_total">Enter your Total Muscle Mass</string>
+    <string name="muscle_mass_trunk">Enter your Muscle for your Trunk</string>    
     <string name="bone_mass">Enter your Bone Mass</string>
     <string name="body_water_percentage">Enter your Body Water Percentage</string>
     <string name="body_fat_arm_left">Enter your Body Fat for your Left Arm</string>
     <string name="body_fat_arm_right">Enter your Body Fat for your Right Arm</string>
     <string name="body_fat_leg_left">Enter your Body Fat for your Left Leg</string>
     <string name="body_fat_leg_right">Enter your Body Fat for your Right Left</string>
+    <string name="body_fat_total">Enter your Total Body Fat</string>    
     <string name="body_fat_trunk">Enter your Body Fat for your Trunk</string>
-    <string name="body_fat_total">Enter your Total Body Fat</string>
-
 </resources>
