@@ -10,7 +10,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Black" >
-`
         <activity
             android:name=".TanitaScaleActivity"
             android:label="@string/app_name" >
@@ -20,52 +19,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="AddActivity" >
-        </activity>
-        <activity android:name="BodyFatLeftArmActivity" >
-        </activity>
-        <activity android:name="BodyFatLeftLegActivity" >
-        </activity>
-        <activity android:name="BodyFatRightArmActivity" >
-        </activity>
-        <activity android:name="BodyFatRightLegActivity" >
-        </activity>
-        <activity android:name="BodyFatTotalActivity" >
-        </activity>
-        <activity android:name="BodyFatTrunkActivity" >
-        </activity>
-        <activity android:name="BodyWaterPercentageActivity" >
-        </activity>
-        <activity android:name="BoneMassActivity" >
-        </activity>
-        <activity android:name="DateAndTimeActivity" >
-        </activity>
-        <activity android:name="DCIActivity" >
-        </activity>
-        <activity android:name="MetabolicAgeActivity" >
-        </activity>
-        <activity android:name="MuscleMassLeftArmActivity" >
-        </activity>
-        <activity android:name="MuscleMassLeftLegActivity" >
-        </activity>
-        <activity android:name="MuscleMassRightArmActivity" >
-        </activity>
-        <activity android:name="MuscleMassRightLegActivity" >
-        </activity>
-        <activity android:name="MuscleMassTotalActivity" >
-        </activity>
-        <activity android:name="MuscleMassTrunkActivity" >
-        </activity>
-        <activity android:name="PhysicRatingActivity" >
-        </activity>
-        <activity android:name="TanitaScaleActivity" >
-        </activity>
-        <activity android:name="ViewActivity" >
-        </activity>
-        <activity android:name="VisceralFatActivity" >
-        </activity>
-        <activity android:name="WeightActivity" >
-        </activity>
+        <activity android:name="AddActivity" />
+        <activity android:name="BodyFatLeftArmActivity" />
+        <activity android:name="BodyFatLeftLegActivity" />
+        <activity android:name="BodyFatRightArmActivity" />
+        <activity android:name="BodyFatRightLegActivity" />
+        <activity android:name="BodyFatTotalActivity" />
+        <activity android:name="BodyFatTrunkActivity" />
+        <activity android:name="BodyWaterPercentageActivity" />
+        <activity android:name="BoneMassActivity" />
+        <activity android:name="DateAndTimeActivity" />
+        <activity android:name="DCIActivity" />
+        <activity android:name="MetabolicAgeActivity" />
+        <activity android:name="MuscleMassLeftArmActivity" />
+        <activity android:name="MuscleMassLeftLegActivity" />
+        <activity android:name="MuscleMassRightArmActivity" />
+        <activity android:name="MuscleMassRightLegActivity" />
+        <activity android:name="MuscleMassTotalActivity" />
+        <activity android:name="MuscleMassTrunkActivity" />
+        <activity android:name="PickActivity" />
+        <activity android:name="PhysicRatingActivity" />
+        <activity android:name="TanitaScaleActivity" />
+        <activity android:name="ViewActivity" />
+        <activity android:name="VisceralFatActivity" />
+        <activity android:name="WeightActivity" />
     </application>
 
 </manifest>

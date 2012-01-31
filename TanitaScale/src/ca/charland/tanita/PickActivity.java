@@ -9,25 +9,25 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * The Class PhysicRatingActivity.
+ * The Class PickActivity.
  * 
  * @author mcharland
  */
-@ContentView(R.layout.physic_rating)
-public class PhysicRatingActivity extends RoboActivity {
+@ContentView(R.layout.pick)
+public class PickActivity extends RoboActivity {
 
 	/** The next button. */
-	@InjectView(R.id.next)
-	Button next;
+	@InjectView(R.id.add)
+	Button add;
 
 	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		next.setOnClickListener(new View.OnClickListener() {
+		add.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				startActivity(new Intent(getBaseContext(),
-						PickActivity.class));
+						DateAndTimeActivity.class));
 			}
 		});
 	}

@@ -31,7 +31,7 @@ public class ViewActivity extends RoboListActivity {
 			public void onItemClick(AdapterView<?> par, View view, int pos,
 					long id) {
 				startActivity(new Intent(getBaseContext(),
-						DateAndTimeActivity.class));
+						PickActivity.class));
 			}
 		});
 	}
