@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Black" >
         <activity
-            android:name=".TanitaScaleActivity"
+            android:name=".manage.TanitaScaleActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="AddActivity" />
+        <activity android:name=".manage.AddActivity" />
         <activity android:name="BodyFatLeftArmActivity" />
         <activity android:name="BodyFatLeftLegActivity" />
         <activity android:name="BodyFatRightArmActivity" />
@@ -37,10 +37,10 @@
         <activity android:name="MuscleMassRightLegActivity" />
         <activity android:name="MuscleMassTotalActivity" />
         <activity android:name="MuscleMassTrunkActivity" />
-        <activity android:name="PickActivity" />
+        <activity android:name=".manage.PickActivity" />
         <activity android:name="PhysicRatingActivity" />
         <activity android:name="TanitaScaleActivity" />
-        <activity android:name="ViewActivity" />
+        <activity android:name=".manage.ViewActivity" />
         <activity android:name="VisceralFatActivity" />
         <activity android:name="WeightActivity" />
     </application>

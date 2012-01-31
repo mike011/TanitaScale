@@ -1,4 +1,4 @@
-package ca.charland.tanita;
+package ca.charland.tanita.manage;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.ContentView;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import ca.charland.tanita.R;
 
 /**
  * The Class TanitaScaleActivity this is the first screen you will see and will
@@ -17,30 +18,32 @@ import android.widget.Button;
  */
 @ContentView(R.layout.main)
 public class TanitaScaleActivity extends RoboActivity {
+
+	/** The add button. */
 	@InjectView(R.id.add)
-	Button add;
+	private Button add;
 
+	/** The view button. */
 	@InjectView(R.id.view)
-	Button view;
+	private Button view;
 
-	/**
-	 * Called when the activity is first created.
-	 * 
-	 * @param savedInstanceState
-	 *            the saved instance state
-	 */
+	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
 		add.setOnClickListener(new OnClickListener() {
+			
+			/** {@inheritDoc} */
 			public void onClick(View view) {
 				startActivity(new Intent(getBaseContext(), AddActivity.class));
 			}
 		});
 
 		view.setOnClickListener(new OnClickListener() {
+			
+			/** {@inheritDoc} */
 			public void onClick(View view) {
 				startActivity(new Intent(getBaseContext(), ViewActivity.class));
 			}

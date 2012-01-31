@@ -1,4 +1,4 @@
-package ca.charland.tanita;
+package ca.charland.tanita.manage;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.ContentView;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import ca.charland.tanita.R;
 import ca.charland.tanita.db.PersonDataSource;
 
 /**

@@ -1,4 +1,4 @@
-package ca.charland.tanita;
+package ca.charland.tanita.manage;
 
 import roboguice.activity.RoboListActivity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import ca.charland.tanita.R;
 import ca.charland.tanita.db.Person;
 import ca.charland.tanita.db.PersonDataSource;
 
