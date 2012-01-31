@@ -1,4 +1,4 @@
-package ca.charland.tanita;
+package ca.charland.tanita.db;
 
 import java.util.ArrayList;
 import java.util.List;

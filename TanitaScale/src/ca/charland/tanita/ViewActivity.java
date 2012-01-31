@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import ca.charland.tanita.db.Person;
+import ca.charland.tanita.db.PersonDataSource;
 
 /**
  * The Class ViewActivity which views currently added people.
@@ -16,13 +18,19 @@ import android.widget.ListView;
  */
 public class ViewActivity extends RoboListActivity {
 
+	/** The database source. */
+	private PersonDataSource datasource;
+
 	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				R.layout.view, Database.getPeople());
+		datasource = new PersonDataSource(this);
+		datasource.open();
+
+		ArrayAdapter<Person> adapter = new ArrayAdapter<Person>(this,
+				R.layout.view, datasource.getAllPeople());
 
 		setListAdapter(adapter);
 
@@ -30,9 +38,22 @@ public class ViewActivity extends RoboListActivity {
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> par, View view, int pos,
 					long id) {
-				startActivity(new Intent(getBaseContext(),
-						PickActivity.class));
+				startActivity(new Intent(getBaseContext(), PickActivity.class));
 			}
 		});
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected void onResume() {
+		datasource.open();
+		super.onResume();
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected void onPause() {
+		datasource.close();
+		super.onPause();
 	}
 }
