@@ -58,11 +58,14 @@ public class PersonDataSource {
 	 * 
 	 * @param name
 	 *            The name of the person.
+	 * @return the long value
 	 */
-	public void createPerson(String name) {
+	public long createPerson(String name) {
 		ContentValues values = new ContentValues();
 		values.put(PeopleDatabaseHelper.COLUMN_NAME, name);
-		database.insert(PeopleDatabaseHelper.TABLE_PEOPLE, null, values);
+		long insert = database.insert(PeopleDatabaseHelper.TABLE_PEOPLE, null,
+				values);
+		return insert;
 	}
 
 	/**
@@ -70,12 +73,14 @@ public class PersonDataSource {
 	 * 
 	 * @param name
 	 *            the name
+	 * @return the return value
 	 */
-	public void deletePerson(Person name) {
+	public int deletePerson(Person name) {
 		long id = name.getId();
 		System.out.println("Person deleted with id: " + id);
-		database.delete(PeopleDatabaseHelper.TABLE_PEOPLE,
+		int delete = database.delete(PeopleDatabaseHelper.TABLE_PEOPLE,
 				PeopleDatabaseHelper.COLUMN_ID + " = " + id, null);
+		return delete;
 	}
 
 	/**
