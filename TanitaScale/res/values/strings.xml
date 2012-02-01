@@ -30,4 +30,5 @@
     <string name="body_fat_trunk">Enter your Body Fat for your Trunk</string>
     <string name="add">Add</string>
     <string name="view">View</string>
+    <string name="save">Save</string>
 </resources>
