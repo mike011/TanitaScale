@@ -45,7 +45,7 @@ public class TanitaScaleActivity extends RoboActivity {
 			
 			/** {@inheritDoc} */
 			public void onClick(View view) {
-				startActivity(new Intent(getBaseContext(), ViewActivity.class));
+				startActivity(new Intent(getBaseContext(), PeopleListActivity.class));
 			}
 		});
 	}

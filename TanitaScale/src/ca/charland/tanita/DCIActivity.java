@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
 import roboguice.inject.ContentView;
+import android.content.ContentValues;
 
 /**
  * The Class DCIActivity.
@@ -8,11 +9,17 @@ import roboguice.inject.ContentView;
  * @author mcharland
  */
 @ContentView(R.layout.dci)
-public class DCIActivity extends AbstractNextActivity {
-	
+public class DCIActivity extends AbstractBaseActivity {
+
 	/** {@inheritDoc} */
-	@Override	
+	@Override
 	public Class<?> getNextClass() {
 		return MetabolicAgeActivity.class;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected ContentValues getValues() {
+		return null;
 	}
 }

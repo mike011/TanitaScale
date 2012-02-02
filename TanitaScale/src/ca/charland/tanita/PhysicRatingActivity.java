@@ -1,7 +1,8 @@
 package ca.charland.tanita;
 
 import roboguice.inject.ContentView;
-import ca.charland.tanita.manage.PickActivity;
+import android.content.ContentValues;
+import ca.charland.tanita.manage.PersonHomeActivity;
 
 /**
  * The Class PhysicRatingActivity.
@@ -9,11 +10,18 @@ import ca.charland.tanita.manage.PickActivity;
  * @author mcharland
  */
 @ContentView(R.layout.physic_rating)
-public class PhysicRatingActivity extends AbstractNextActivity {
+public class PhysicRatingActivity extends AbstractBaseActivity {
 
 	/** {@inheritDoc} */
-	@Override	
+	@Override
 	public Class<?> getNextClass() {
-		return PickActivity.class;
+		return PersonHomeActivity.class;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected ContentValues getValues() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

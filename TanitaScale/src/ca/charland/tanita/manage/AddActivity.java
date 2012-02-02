@@ -39,7 +39,7 @@ public class AddActivity extends RoboActivity {
 
 		save.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				datasource.createPerson(name.getText().toString());
+				datasource.create(name.getText().toString());
 				name.setText("");
 			}
 		});

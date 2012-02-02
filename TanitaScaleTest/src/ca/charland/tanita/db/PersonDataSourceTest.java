@@ -32,41 +32,41 @@ public class PersonDataSourceTest {
 
 	/**
 	 * Test method for
-	 * {@link ca.charland.tanita.db.PersonDataSource#createPerson(java.lang.String)}
+	 * {@link ca.charland.tanita.db.PersonDataSource#create(java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testCreatePerson() {
 		PersonDataSource pds = new PersonDataSource(null);
 		pds.open();
-		long create = pds.createPerson("bob");
+		long create = pds.create("bob");
 		assertTrue(create != 0);
 		pds.close();
 	}
 
 	/**
 	 * Test method for
-	 * {@link ca.charland.tanita.db.PersonDataSource#deletePerson(ca.charland.tanita.db.Person)}
+	 * {@link ca.charland.tanita.db.PersonDataSource#delete(ca.charland.tanita.db.Person)}
 	 * .
 	 */
 	@Test
 	public void testDeletePerson() {
 		PersonDataSource pds = new PersonDataSource(null);
 		pds.open();
-		int delete = pds.deletePerson(new Person());
+		int delete = pds.delete(new Person());
 		assertEquals(0, delete);
 		pds.close();
 	}
 
 	/**
 	 * Test method for
-	 * {@link ca.charland.tanita.db.PersonDataSource#getAllPeople()}.
+	 * {@link ca.charland.tanita.db.PersonDataSource#getAll()}.
 	 */
 	@Test
 	public void testGetAllPeople() {
 		PersonDataSource pds = new PersonDataSource(null);
 		pds.open();
-		List<Person> allPeople = pds.getAllPeople();
+		List<AbstractData> allPeople = pds.getAll();
 		assertNotNull(allPeople);
 		pds.close();
 	}

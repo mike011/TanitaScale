@@ -17,11 +17,11 @@ import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 public class PeopleDatabaseHelperTest {
 
 	/**
-	 * Test method for {@link ca.charland.tanita.db.PeopleDatabaseHelper#PeopleDatabaseHelper(android.content.Context)}.
+	 * Test method for {@link ca.charland.tanita.db.DatabaseHelper#PeopleDatabaseHelper(android.content.Context)}.
 	 */
 	@Test
 	public void testPeopleDatabaseHelper() {
-		assertNotNull(new PeopleDatabaseHelper(null));
+		assertNotNull(new DatabaseHelper(null));
 	}
 
 }

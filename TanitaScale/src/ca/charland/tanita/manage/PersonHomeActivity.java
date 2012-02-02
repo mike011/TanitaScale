@@ -11,16 +11,16 @@ import ca.charland.tanita.DateAndTimeActivity;
 import ca.charland.tanita.R;
 
 /**
- * The Class PickActivity.
+ * This is the first person specific screen which allows you to choose what you want to do.
  * 
  * @author mcharland
  */
-@ContentView(R.layout.pick)
-public class PickActivity extends RoboActivity {
+@ContentView(R.layout.person_home)
+public class PersonHomeActivity extends RoboActivity {
 
 	/** The next button. */
 	@InjectView(R.id.add)
-	Button add;
+	private Button add;
 
 	/** {@inheritDoc} */
 	@Override
@@ -28,8 +28,10 @@ public class PickActivity extends RoboActivity {
 		super.onCreate(savedInstanceState);
 		add.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				startActivity(new Intent(getBaseContext(),
-						DateAndTimeActivity.class));
+				Intent intent = new Intent(getBaseContext(), DateAndTimeActivity.class);
+				Bundle extras = getIntent().getExtras();
+				intent.putExtra(PeopleListActivity.PERSON, extras.getLong(PeopleListActivity.PERSON));
+				startActivity(intent);
 			}
 		});
 	}

@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
 import roboguice.inject.ContentView;
+import android.content.ContentValues;
 
 /**
  * The Class BodyWaterPercentageActivity.
@@ -8,11 +9,18 @@ import roboguice.inject.ContentView;
  * @author mcharland
  */
 @ContentView(R.layout.body_water_percentage)
-public class BodyWaterPercentageActivity extends AbstractNextActivity {
-	
+public class BodyWaterPercentageActivity extends AbstractBaseActivity {
+
 	/** {@inheritDoc} */
-	@Override	
+	@Override
 	public Class<?> getNextClass() {
 		return VisceralFatActivity.class;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected ContentValues getValues() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

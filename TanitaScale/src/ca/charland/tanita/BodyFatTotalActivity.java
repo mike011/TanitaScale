@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
 import roboguice.inject.ContentView;
+import android.content.ContentValues;
 
 /**
  * The Class BodyFatTotalActivity.
@@ -8,11 +9,17 @@ import roboguice.inject.ContentView;
  * @author mcharland
  */
 @ContentView(R.layout.body_fat_total)
-public class BodyFatTotalActivity extends AbstractNextActivity {
+public class BodyFatTotalActivity extends AbstractBaseActivity {
 
 	/** {@inheritDoc} */
-	@Override	
+	@Override
 	public Class<?> getNextClass() {
 		return BodyFatLeftArmActivity.class;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected ContentValues getValues() {
+		return null;
 	}
 }

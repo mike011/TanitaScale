@@ -20,6 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".manage.AddActivity" />
+        <activity android:name=".manage.PeopleListActivity" />
+        <activity android:name=".manage.PersonHomeActivity" />
         <activity android:name="BodyFatLeftArmActivity" />
         <activity android:name="BodyFatLeftLegActivity" />
         <activity android:name="BodyFatRightArmActivity" />
@@ -37,10 +39,8 @@
         <activity android:name="MuscleMassRightLegActivity" />
         <activity android:name="MuscleMassTotalActivity" />
         <activity android:name="MuscleMassTrunkActivity" />
-        <activity android:name=".manage.PickActivity" />
         <activity android:name="PhysicRatingActivity" />
         <activity android:name="TanitaScaleActivity" />
-        <activity android:name=".manage.ViewActivity" />
         <activity android:name="VisceralFatActivity" />
         <activity android:name="WeightActivity" />
     </application>

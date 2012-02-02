@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
 import roboguice.inject.ContentView;
+import android.content.ContentValues;
 
 /**
  * The Class WeightActivity.
@@ -8,11 +9,18 @@ import roboguice.inject.ContentView;
  * @author mcharland
  */
 @ContentView(R.layout.weight)
-public class WeightActivity extends AbstractNextActivity {
+public class WeightActivity extends AbstractBaseActivity {
 
 	/** {@inheritDoc} */
-	@Override	
+	@Override
 	public Class<?> getNextClass() {
 		return DCIActivity.class;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected ContentValues getValues() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
