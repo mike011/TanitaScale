@@ -10,6 +10,12 @@ import android.database.Cursor;
  */
 public class TanitaDataSource extends AbstractDataSource {
 
+	/**
+	 * Instantiates a new tanita data source.
+	 * 
+	 * @param context
+	 *            the context
+	 */
 	public TanitaDataSource(Context context) {
 		super(context, TanitaDataTable.NAME);
 	}
