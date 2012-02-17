@@ -1,6 +1,5 @@
 package ca.charland.tanita;
 
-import roboguice.inject.ContentView;
 import android.content.ContentValues;
 
 /**
@@ -8,9 +7,14 @@ import android.content.ContentValues;
  * 
  * @author mcharland
  */
-@ContentView(R.layout.muscle_mass_right_leg)
 public class MuscleMassRightLegActivity extends AbstractBaseActivity {
 
+	/** {@inheritDoc} */
+	@Override
+	int getLayoutResID() {
+		return R.layout.muscle_mass_right_leg;
+	}
+	
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {

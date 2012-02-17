@@ -2,7 +2,6 @@ package ca.charland.tanita;
 
 import java.util.Date;
 
-import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 import android.content.ContentValues;
 import android.widget.DatePicker;
@@ -14,8 +13,13 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-@ContentView(R.layout.date)
 public class DateAndTimeActivity extends AbstractBaseActivity {
+	
+	/** {@inheritDoc} */
+	@Override
+	int getLayoutResID() {
+		return R.layout.date_view;
+	}
 	
 	/** The date. */
 	@InjectView(R.id.date)

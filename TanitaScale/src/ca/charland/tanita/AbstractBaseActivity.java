@@ -28,11 +28,19 @@ public abstract class AbstractBaseActivity extends RoboActivity {
 	@InjectView(R.id.next)
 	private Button next;
 
+	/**
+	 * Gets the layout res id.
+	 *
+	 * @return the layout res id
+	 */
+	abstract int getLayoutResID();
+	
 	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		setContentView(getLayoutResID());
 		datasource = new TanitaDataSource(this);
 		datasource.open();
 

@@ -1,6 +1,5 @@
 package ca.charland.tanita;
 
-import roboguice.inject.ContentView;
 import android.content.ContentValues;
 
 /**
@@ -8,9 +7,14 @@ import android.content.ContentValues;
  * 
  * @author mcharland
  */
-@ContentView(R.layout.body_fat_left_leg)
 public class BodyFatLeftLegActivity extends AbstractBaseActivity {
 
+	/** {@inheritDoc} */
+	@Override
+	int getLayoutResID() {
+		return R.layout.body_fat_left_leg;
+	}
+	
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {

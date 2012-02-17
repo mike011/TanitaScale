@@ -4,8 +4,8 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry kind="lib" path="lib/roboguice-2.0-SNAPSHOT.jar" sourcepath="lib/roboguice-2.0-SNAPSHOT-sources.jar"/>
 	<classpathentry kind="lib" path="lib/javax.inject.jar"/>
 	<classpathentry kind="lib" path="lib/guice-2.0-no_aop.jar" sourcepath="lib/guice-2.0-src.jar"/>
+	<classpathentry kind="lib" path="lib/roboguice-1.1.2.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

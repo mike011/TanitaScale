@@ -1,7 +1,6 @@
 package ca.charland.tanita.manage;
 
 import roboguice.activity.RoboActivity;
-import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +14,6 @@ import ca.charland.tanita.db.PersonDataSource;
  * 
  * @author mcharland
  */
-@ContentView(R.layout.add)
 public class AddActivity extends RoboActivity {
 
 	/** The database source. */
@@ -34,6 +32,7 @@ public class AddActivity extends RoboActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		setContentView(R.layout.add);
 		datasource = new PersonDataSource(this);
 		datasource.open();
 

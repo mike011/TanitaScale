@@ -1,7 +1,6 @@
 package ca.charland.tanita.manage;
 
 import roboguice.activity.RoboActivity;
-import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import ca.charland.tanita.R;
  * 
  * @author mcharland
  */
-@ContentView(R.layout.person_home)
 public class PersonHomeActivity extends RoboActivity {
 
 	/** The next button. */
@@ -26,6 +24,7 @@ public class PersonHomeActivity extends RoboActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.person_home);
 		add.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(getBaseContext(), DateAndTimeActivity.class);

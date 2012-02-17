@@ -10,7 +10,7 @@ import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 /**
  * Testing Person Data Source.
  * 
- * @author mcharland.
+ * @author mcharland
  * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)

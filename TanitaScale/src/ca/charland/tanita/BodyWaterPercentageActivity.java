@@ -1,6 +1,5 @@
 package ca.charland.tanita;
 
-import roboguice.inject.ContentView;
 import android.content.ContentValues;
 
 /**
@@ -8,9 +7,14 @@ import android.content.ContentValues;
  * 
  * @author mcharland
  */
-@ContentView(R.layout.body_water_percentage)
 public class BodyWaterPercentageActivity extends AbstractBaseActivity {
 
+	/** {@inheritDoc} */
+	@Override
+	int getLayoutResID() {
+		return R.layout.body_water_percentage;
+	}
+	
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {

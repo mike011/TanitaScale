@@ -1,7 +1,6 @@
 package ca.charland.tanita.manage;
 
 import roboguice.activity.RoboActivity;
-import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +15,8 @@ import ca.charland.tanita.R;
  * 
  * @author mcharland
  */
-@ContentView(R.layout.main)
 public class TanitaScaleActivity extends RoboActivity {
-
+	
 	/** The add button. */
 	@InjectView(R.id.add)
 	private Button add;

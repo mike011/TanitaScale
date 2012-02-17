@@ -1,6 +1,5 @@
 package ca.charland.tanita;
 
-import roboguice.inject.ContentView;
 import android.content.ContentValues;
 import ca.charland.tanita.manage.PersonHomeActivity;
 
@@ -9,9 +8,14 @@ import ca.charland.tanita.manage.PersonHomeActivity;
  * 
  * @author mcharland
  */
-@ContentView(R.layout.physic_rating)
 public class PhysicRatingActivity extends AbstractBaseActivity {
 
+	/** {@inheritDoc} */
+	@Override
+	int getLayoutResID() {
+		return R.layout.physic_rating;
+	}
+	
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {

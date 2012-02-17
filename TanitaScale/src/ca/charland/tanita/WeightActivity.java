@@ -1,6 +1,5 @@
 package ca.charland.tanita;
 
-import roboguice.inject.ContentView;
 import android.content.ContentValues;
 
 /**
@@ -8,8 +7,13 @@ import android.content.ContentValues;
  * 
  * @author mcharland
  */
-@ContentView(R.layout.weight)
 public class WeightActivity extends AbstractBaseActivity {
+
+	/** {@inheritDoc} */
+	@Override
+	int getLayoutResID() {
+		return R.layout.weight;
+	}
 
 	/** {@inheritDoc} */
 	@Override
