@@ -66,7 +66,7 @@ public abstract class AbstractBaseActivity extends RoboActivity {
 	}
 
 	/**
-	 * Gets the values to insert into the db.
+	 * Gets the values to insert into the database.
 	 * 
 	 * @return The values to insert.
 	 */

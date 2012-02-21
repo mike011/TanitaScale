@@ -1,31 +1,46 @@
 package ca.charland.tanita;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import android.content.Context;
+import android.content.ContentValues;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.tanita.db.TanitaDataTable;
 
 import com.google.inject.Inject;
 
 /**
- * @author michael
- *
+ * Tests for Date and Time Activity.
+ * 
+ * @author mcharland
+ * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DateAndTimeActivityTest {
 
-	@Inject Context context;
+	/** The class under test. */
+	@Inject
+	DateAndTimeActivity activity;
 
-    @Inject DateAndTimeActivity activity;
-    
+	/** {@inheritDoc} */
+	@Before
+	public void setup() {
+		activity.onCreate(null);
+	}
+
 	/**
 	 * Test method for {@link ca.charland.tanita.DateAndTimeActivity#getValues()}.
 	 */
 	@Test
 	public final void testGetValues() {
-		 activity.onCreate(null);
-		 activity.getValues();
+		ContentValues values = activity.getValues();
+		assertTrue(values.containsKey(TanitaDataTable.COLUMN_DATE));
+		Long object = (Long)values.get(TanitaDataTable.COLUMN_DATE);
+		assertTrue(object.intValue() < 0);
 	}
 
 	/**
@@ -33,7 +48,7 @@ public class DateAndTimeActivityTest {
 	 */
 	@Test
 	public final void testGetNextClass() {
-		 activity.getNextClass();
+		assertEquals(WeightActivity.class, activity.getNextClass());
 	}
 
 }

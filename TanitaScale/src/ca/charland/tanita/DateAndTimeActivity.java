@@ -22,11 +22,11 @@ public class DateAndTimeActivity extends AbstractBaseActivity {
 	}
 	
 	/** The date. */
-	@InjectView(R.id.date)
+	@InjectView(R.id.entry_date)
 	private DatePicker datePicker;
 
 	/** The time. */
-	@InjectView(R.id.time)
+	@InjectView(R.id.entry_time)
 	private TimePicker timePicker;
 
 	/** {@inheritDoc} */
@@ -42,8 +42,21 @@ public class DateAndTimeActivity extends AbstractBaseActivity {
 		int year = datePicker.getYear();
 		int month = datePicker.getMonth();
 		int day = datePicker.getDayOfMonth();
-		int hour = timePicker.getCurrentHour();
-		int minute = timePicker.getCurrentMinute();
+		System.out.println(timePicker);
+		System.out.println(timePicker.getCurrentHour());
+		
+		Integer hourObject = timePicker.getCurrentHour();
+		int hour = 0;
+		if(hourObject != null) {
+			hour = hourObject;
+		}
+		
+		Integer minuteObject = timePicker.getCurrentMinute();		
+		int minute = 0;
+		if(minuteObject != null) {
+			minute = minuteObject;
+		}
+		
 		Date date = new Date(year, month, day, hour, minute, 0);
 		values.put(TanitaDataTable.COLUMN_DATE, date.getTime());
 
