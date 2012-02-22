@@ -24,7 +24,7 @@ public class DateAndTimeActivityTest {
 
 	/** The class under test. */
 	@Inject
-	DateAndTimeActivity activity;
+	private DateAndTimeActivity activity;
 
 	/** {@inheritDoc} */
 	@Before
@@ -50,5 +50,4 @@ public class DateAndTimeActivityTest {
 	public final void testGetNextClass() {
 		assertEquals(WeightActivity.class, activity.getNextClass());
 	}
-
 }

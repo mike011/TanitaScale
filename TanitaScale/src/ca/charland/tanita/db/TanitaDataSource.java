@@ -11,7 +11,7 @@ import android.database.Cursor;
 public class TanitaDataSource extends AbstractDataSource {
 
 	/**
-	 * Instantiates a new tanita data source.
+	 * Instantiates a new Tanita data source.
 	 * 
 	 * @param context
 	 *            the context
@@ -20,16 +20,17 @@ public class TanitaDataSource extends AbstractDataSource {
 		super(context, TanitaDataTable.NAME);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected AbstractData cursorConverter(Cursor cursor) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	protected String[] getAllColumns() {
-		// TODO Auto-generated method stub
-		return null;
+		String[] allColumns = { TanitaDataTable.COLUMN_ID, TanitaDataTable.COLUMN_DATE };
+		return allColumns;
 	}
 
 }

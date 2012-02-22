@@ -42,8 +42,6 @@ public class DateAndTimeActivity extends AbstractBaseActivity {
 		int year = datePicker.getYear();
 		int month = datePicker.getMonth();
 		int day = datePicker.getDayOfMonth();
-		System.out.println(timePicker);
-		System.out.println(timePicker.getCurrentHour());
 		
 		Integer hourObject = timePicker.getCurrentHour();
 		int hour = 0;

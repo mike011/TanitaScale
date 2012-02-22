@@ -41,11 +41,11 @@ public abstract class AbstractBaseActivity extends RoboActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(getLayoutResID());
-		datasource = new TanitaDataSource(this);
-		datasource.open();
+		datasource = new TanitaDataSource(this);		
 
 		next.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				datasource.open();
 				ContentValues values = getValues();
 
 				Bundle bundle = getIntent().getExtras();
@@ -61,6 +61,7 @@ public abstract class AbstractBaseActivity extends RoboActivity {
 				intent.putExtra(ID, id);
 				
 				startActivity(intent);
+				datasource.close();
 			}
 		});
 	}

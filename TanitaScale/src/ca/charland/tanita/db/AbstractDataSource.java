@@ -66,7 +66,7 @@ public abstract class AbstractDataSource {
 	 */
 	public List<AbstractData> getAll() {
 		List<AbstractData> all = new ArrayList<AbstractData>();
-		Cursor cursor = database.query(PeopleTable.TABLE, getAllColumns(), null, null, null, null, null);
+		Cursor cursor = database.query(table, getAllColumns(), null, null, null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			AbstractData comment = cursorConverter(cursor);
