@@ -66,7 +66,7 @@ public abstract class AbstractDataSource {
 	 */
 	public List<AbstractData> getAll() {
 		List<AbstractData> all = new ArrayList<AbstractData>();
-		Cursor cursor = database.query(table, getAllColumns(), null, null, null, null, null);
+		Cursor cursor = database.query(table, getAllColumns().toArray(new String[0]), null, null, null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			AbstractData comment = cursorConverter(cursor);
@@ -92,7 +92,7 @@ public abstract class AbstractDataSource {
 	 * 
 	 * @return all columns
 	 */
-	protected abstract String[] getAllColumns();
+	protected abstract List<String> getAllColumns();
 
 	/**
 	 * Close the database connection.

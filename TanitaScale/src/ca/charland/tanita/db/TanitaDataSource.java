@@ -1,6 +1,8 @@
 package ca.charland.tanita.db;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -39,9 +41,12 @@ public class TanitaDataSource extends AbstractDataSource {
 
 	/** {@inheritDoc} */
 	@Override
-	protected String[] getAllColumns() {
-		String[] allColumns = { TanitaDataTable.Column.ID.toString(), TanitaDataTable.Column.PERSON.toString(),
-				TanitaDataTable.Column.DATE.toString(), TanitaDataTable.Column.WEIGHT.toString() };
+	protected List<String> getAllColumns() {
+		List<String> allColumns = new ArrayList<String>();
+		allColumns.add(TanitaDataTable.Column.ID.toString());
+		allColumns.add(TanitaDataTable.Column.PERSON.toString());
+		allColumns.add(TanitaDataTable.Column.DATE.toString());
+		allColumns.add(TanitaDataTable.Column.WEIGHT.toString());
 		return allColumns;
 	}
 

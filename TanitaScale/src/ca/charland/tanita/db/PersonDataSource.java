@@ -1,5 +1,8 @@
 package ca.charland.tanita.db;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -58,8 +61,10 @@ public class PersonDataSource extends AbstractDataSource {
 
 	/** {@inheritDoc} */
 	@Override
-	protected String[] getAllColumns() {
-		String[] allColumns = { PeopleTable.COLUMN_ID, PeopleTable.COLUMN_NAME };
+	protected List<String> getAllColumns() {
+		List<String>  allColumns = new ArrayList<String>();
+		allColumns.add(PeopleTable.COLUMN_ID);
+		allColumns.add(PeopleTable.COLUMN_NAME);
 		return allColumns;
 	}
 }

@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -70,12 +71,12 @@ public class TanitaDataSourceTest {
 	 */
 	@Test
 	public void testGetAllColumns() {
-		String[] allColumns = tds.getAllColumns();
+		List<String> allColumns = tds.getAllColumns();
 		assertNotNull(allColumns);
-		assertEquals(4, allColumns.length);
-		assertEquals("_id", allColumns[0]);
-		assertEquals("person", allColumns[1]);
-		assertEquals("date", allColumns[2]);
-		assertEquals("weight", allColumns[3]);
+		assertEquals(4, allColumns.size());
+		assertEquals("_id", allColumns.get(0));
+		assertEquals("person", allColumns.get(1));
+		assertEquals("date", allColumns.get(2));
+		assertEquals("weight", allColumns.get(3));
 	}
 }

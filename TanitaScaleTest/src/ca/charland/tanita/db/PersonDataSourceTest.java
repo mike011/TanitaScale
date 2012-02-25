@@ -98,10 +98,10 @@ public class PersonDataSourceTest {
 	 */
 	@Test
 	public void testGetAllColumns() {
-		String[] allColumns = pds.getAllColumns();
-		assertEquals(2, allColumns.length);
-		assertEquals("_id", allColumns[0]);
-		assertEquals("name", allColumns[1]);
+		List<String> allColumns = pds.getAllColumns();
+		assertEquals(2, allColumns.size());
+		assertEquals("_id", allColumns.get(0));
+		assertEquals("name", allColumns.get(1));
 	}
 
 }
