@@ -28,7 +28,7 @@ public class PersonHomeActivity extends RoboActivity {
 	/** The view button. */
 	@InjectView(R.id.view)
 	private Button view;
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,22 +42,22 @@ public class PersonHomeActivity extends RoboActivity {
 				startActivity(intent);
 			}
 		});
-		
+
 		view.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				TanitaDataSource tds = new TanitaDataSource(getBaseContext());
 				tds.open();
 
 				final List<AbstractData> data = tds.getAll();
-				for(AbstractData ad : data) {
-					TanitaData td = (TanitaData)ad;
-					if(td == null) {
+				for (AbstractData ad : data) {
+					TanitaData td = (TanitaData) ad;
+					if (td == null) {
 						System.out.println("null");
 					} else {
-						System.out.println(td.getDate());
+						System.out.println(td);
 					}
 				}
-				
+				tds.close();
 			}
 		});
 	}

@@ -1,80 +1,80 @@
 package ca.charland.tanita.db;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * The Class TanitaData which holds the row info of data.
  * 
  * @author mcharland
  */
-public class TanitaData extends AbstractData{
-	
+public class TanitaData extends AbstractData {
+
 	/** The person. */
 	private long person;
-	
+
 	/** The date. */
 	private Date date;
-	
+
 	/** The body fat total. */
 	private long bodyFatTotal;
-	
+
 	/** The body fat left arm. */
 	private long bodyFatLeftArm;
-	
+
 	/** The body fat right arm. */
 	private long bodyFatRightArm;
-	
+
 	/** The body fat right leg. */
 	private long bodyFatRightLeg;
-	
+
 	/** The body fat left leg. */
 	private long bodyFatLeftLeg;
-	
+
 	/** The body fat trunk. */
 	private long bodyFatTrunk;
-	
+
 	/** The muscle mass total. */
 	private long muscleMassTotal;
-	
+
 	/** The muscle mass left arm. */
 	private long muscleMassLeftArm;
-	
+
 	/** The muscle mass right arm. */
 	private long muscleMassRightArm;
-	
+
 	/** The muscle mass right leg. */
 	private long muscleMassRightLeg;
-	
+
 	/** The muscle mass left leg. */
 	private long muscleMassLeftLeg;
-	
+
 	/** The muscle mass trunk. */
 	private long muscleMassTrunk;
-	
+
 	/** The physic rating. */
 	private long physicRating;
-	
+
 	/** The weight. */
 	private long weight;
-	
+
 	/** The daily caloric intake. */
 	private int dailyCaloricIntake;
-	
+
 	/** The metabolic age. */
 	private int metabolicAge;
-	
+
 	/** The body water percentage. */
 	private long bodyWaterPercentage;
-	
+
 	/** The visceral fat. */
 	private int visceralFat;
-	
+
 	/** The Bone mass. */
 	private long boneMass;
 
 	/**
 	 * Gets the person.
-	 *
+	 * 
 	 * @return the person
 	 */
 	public long getPerson() {
@@ -83,8 +83,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the person.
-	 *
-	 * @param person the new person
+	 * 
+	 * @param person
+	 *            the new person
 	 */
 	public void setPerson(long person) {
 		this.person = person;
@@ -92,7 +93,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the date.
-	 *
+	 * 
 	 * @return the date
 	 */
 	public Date getDate() {
@@ -101,8 +102,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the date.
-	 *
-	 * @param date the new date
+	 * 
+	 * @param date
+	 *            the new date
 	 */
 	public void setDate(Date date) {
 		this.date = date;
@@ -110,7 +112,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the body fat total.
-	 *
+	 * 
 	 * @return the body fat total
 	 */
 	public long getBodyFatTotal() {
@@ -119,8 +121,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the body fat total.
-	 *
-	 * @param bodyFatTotal the new body fat total
+	 * 
+	 * @param bodyFatTotal
+	 *            the new body fat total
 	 */
 	public void setBodyFatTotal(long bodyFatTotal) {
 		this.bodyFatTotal = bodyFatTotal;
@@ -128,7 +131,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the body fat left arm.
-	 *
+	 * 
 	 * @return the body fat left arm
 	 */
 	public long getBodyFatLeftArm() {
@@ -137,8 +140,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the body fat left arm.
-	 *
-	 * @param bodyFatLeftArm the new body fat left arm
+	 * 
+	 * @param bodyFatLeftArm
+	 *            the new body fat left arm
 	 */
 	public void setBodyFatLeftArm(long bodyFatLeftArm) {
 		this.bodyFatLeftArm = bodyFatLeftArm;
@@ -146,7 +150,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the body fat right arm.
-	 *
+	 * 
 	 * @return the body fat right arm
 	 */
 	public long getBodyFatRightArm() {
@@ -155,8 +159,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the body fat right arm.
-	 *
-	 * @param bodyFatRightArm the new body fat right arm
+	 * 
+	 * @param bodyFatRightArm
+	 *            the new body fat right arm
 	 */
 	public void setBodyFatRightArm(long bodyFatRightArm) {
 		this.bodyFatRightArm = bodyFatRightArm;
@@ -164,7 +169,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the body fat right leg.
-	 *
+	 * 
 	 * @return the body fat right leg
 	 */
 	public long getBodyFatRightLeg() {
@@ -173,8 +178,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the body fat right leg.
-	 *
-	 * @param bodyFatRightLeg the new body fat right leg
+	 * 
+	 * @param bodyFatRightLeg
+	 *            the new body fat right leg
 	 */
 	public void setBodyFatRightLeg(long bodyFatRightLeg) {
 		this.bodyFatRightLeg = bodyFatRightLeg;
@@ -182,7 +188,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the body fat left leg.
-	 *
+	 * 
 	 * @return the body fat left leg
 	 */
 	public long getBodyFatLeftLeg() {
@@ -191,8 +197,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the body fat left leg.
-	 *
-	 * @param bodyFatLeftLeg the new body fat left leg
+	 * 
+	 * @param bodyFatLeftLeg
+	 *            the new body fat left leg
 	 */
 	public void setBodyFatLeftLeg(long bodyFatLeftLeg) {
 		this.bodyFatLeftLeg = bodyFatLeftLeg;
@@ -200,7 +207,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the body fat trunk.
-	 *
+	 * 
 	 * @return the body fat trunk
 	 */
 	public long getBodyFatTrunk() {
@@ -209,8 +216,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the body fat trunk.
-	 *
-	 * @param bodyFatTrunk the new body fat trunk
+	 * 
+	 * @param bodyFatTrunk
+	 *            the new body fat trunk
 	 */
 	public void setBodyFatTrunk(long bodyFatTrunk) {
 		this.bodyFatTrunk = bodyFatTrunk;
@@ -218,7 +226,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the muscle mass total.
-	 *
+	 * 
 	 * @return the muscle mass total
 	 */
 	public long getMuscleMassTotal() {
@@ -227,8 +235,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the muscle mass total.
-	 *
-	 * @param muscleMassTotal the new muscle mass total
+	 * 
+	 * @param muscleMassTotal
+	 *            the new muscle mass total
 	 */
 	public void setMuscleMassTotal(long muscleMassTotal) {
 		this.muscleMassTotal = muscleMassTotal;
@@ -236,7 +245,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the muscle mass left arm.
-	 *
+	 * 
 	 * @return the muscle mass left arm
 	 */
 	public long getMuscleMassLeftArm() {
@@ -245,8 +254,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the muscle mass left arm.
-	 *
-	 * @param muscleMassLeftArm the new muscle mass left arm
+	 * 
+	 * @param muscleMassLeftArm
+	 *            the new muscle mass left arm
 	 */
 	public void setMuscleMassLeftArm(long muscleMassLeftArm) {
 		this.muscleMassLeftArm = muscleMassLeftArm;
@@ -254,7 +264,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the muscle mass right arm.
-	 *
+	 * 
 	 * @return the muscle mass right arm
 	 */
 	public long getMuscleMassRightArm() {
@@ -263,8 +273,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the muscle mass right arm.
-	 *
-	 * @param muscleMassRightArm the new muscle mass right arm
+	 * 
+	 * @param muscleMassRightArm
+	 *            the new muscle mass right arm
 	 */
 	public void setMuscleMassRightArm(long muscleMassRightArm) {
 		this.muscleMassRightArm = muscleMassRightArm;
@@ -272,7 +283,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the muscle mass right leg.
-	 *
+	 * 
 	 * @return the muscle mass right leg
 	 */
 	public long getMuscleMassRightLeg() {
@@ -281,8 +292,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the muscle mass right leg.
-	 *
-	 * @param muscleMassRightLeg the new muscle mass right leg
+	 * 
+	 * @param muscleMassRightLeg
+	 *            the new muscle mass right leg
 	 */
 	public void setMuscleMassRightLeg(long muscleMassRightLeg) {
 		this.muscleMassRightLeg = muscleMassRightLeg;
@@ -290,7 +302,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the muscle mass left leg.
-	 *
+	 * 
 	 * @return the muscle mass left leg
 	 */
 	public long getMuscleMassLeftLeg() {
@@ -299,8 +311,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the muscle mass left leg.
-	 *
-	 * @param muscleMassLeftLeg the new muscle mass left leg
+	 * 
+	 * @param muscleMassLeftLeg
+	 *            the new muscle mass left leg
 	 */
 	public void setMuscleMassLeftLeg(long muscleMassLeftLeg) {
 		this.muscleMassLeftLeg = muscleMassLeftLeg;
@@ -308,7 +321,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the muscle mass trunk.
-	 *
+	 * 
 	 * @return the muscle mass trunk
 	 */
 	public long getMuscleMassTrunk() {
@@ -317,8 +330,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the muscle mass trunk.
-	 *
-	 * @param muscleMassTrunk the new muscle mass trunk
+	 * 
+	 * @param muscleMassTrunk
+	 *            the new muscle mass trunk
 	 */
 	public void setMuscleMassTrunk(long muscleMassTrunk) {
 		this.muscleMassTrunk = muscleMassTrunk;
@@ -326,7 +340,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the physic rating.
-	 *
+	 * 
 	 * @return the physic rating
 	 */
 	public long getPhysicRating() {
@@ -335,8 +349,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the physic rating.
-	 *
-	 * @param physicRating the new physic rating
+	 * 
+	 * @param physicRating
+	 *            the new physic rating
 	 */
 	public void setPhysicRating(long physicRating) {
 		this.physicRating = physicRating;
@@ -344,7 +359,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the weight.
-	 *
+	 * 
 	 * @return the weight
 	 */
 	public long getWeight() {
@@ -353,8 +368,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the weight.
-	 *
-	 * @param weight the new weight
+	 * 
+	 * @param weight
+	 *            the new weight
 	 */
 	public void setWeight(long weight) {
 		this.weight = weight;
@@ -362,7 +378,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the daily caloric intake.
-	 *
+	 * 
 	 * @return the daily caloric intake
 	 */
 	public int getDailyCaloricIntake() {
@@ -371,8 +387,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the daily caloric intake.
-	 *
-	 * @param dailyCaloricIntake the new daily caloric intake
+	 * 
+	 * @param dailyCaloricIntake
+	 *            the new daily caloric intake
 	 */
 	public void setDailyCaloricIntake(int dailyCaloricIntake) {
 		this.dailyCaloricIntake = dailyCaloricIntake;
@@ -380,7 +397,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the metabolic age.
-	 *
+	 * 
 	 * @return the metabolic age
 	 */
 	public int getMetabolicAge() {
@@ -389,8 +406,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the metabolic age.
-	 *
-	 * @param metabolicAge the new metabolic age
+	 * 
+	 * @param metabolicAge
+	 *            the new metabolic age
 	 */
 	public void setMetabolicAge(int metabolicAge) {
 		this.metabolicAge = metabolicAge;
@@ -398,7 +416,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the body water percentage.
-	 *
+	 * 
 	 * @return the body water percentage
 	 */
 	public long getBodyWaterPercentage() {
@@ -407,8 +425,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the body water percentage.
-	 *
-	 * @param bodyWaterPercentage the new body water percentage
+	 * 
+	 * @param bodyWaterPercentage
+	 *            the new body water percentage
 	 */
 	public void setBodyWaterPercentage(long bodyWaterPercentage) {
 		this.bodyWaterPercentage = bodyWaterPercentage;
@@ -416,7 +435,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the visceral fat.
-	 *
+	 * 
 	 * @return the visceral fat
 	 */
 	public int getVisceralFat() {
@@ -425,8 +444,9 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the visceral fat.
-	 *
-	 * @param visceralFat the new visceral fat
+	 * 
+	 * @param visceralFat
+	 *            the new visceral fat
 	 */
 	public void setVisceralFat(int visceralFat) {
 		this.visceralFat = visceralFat;
@@ -434,7 +454,7 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Gets the bone mass.
-	 *
+	 * 
 	 * @return the bone mass
 	 */
 	public long getBoneMass() {
@@ -443,11 +463,23 @@ public class TanitaData extends AbstractData{
 
 	/**
 	 * Sets the bone mass.
-	 *
-	 * @param boneMass the new bone mass
+	 * 
+	 * @param boneMass
+	 *            the new bone mass
 	 */
 	public void setBoneMass(long boneMass) {
 		this.boneMass = boneMass;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public String toString() {
+		// Only used for debugging.
+		StringBuilder result = new StringBuilder();
+		result.append("ID:").append(getId());
+		result.append(" Person:").append(getPerson());
+		result.append(" Date:").append(getDate().toGMTString());
+		return result.toString();
 	}
 
 }

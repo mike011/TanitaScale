@@ -1,5 +1,7 @@
 package ca.charland.tanita.db;
 
+import java.sql.Date;
+
 import android.content.Context;
 import android.database.Cursor;
 
@@ -11,7 +13,7 @@ import android.database.Cursor;
 public class TanitaDataSource extends AbstractDataSource {
 
 	/**
-	 * Instantiates a new Tanita data source.
+	 * Instantiates a new Tanita dawta source.
 	 * 
 	 * @param context
 	 *            the context
@@ -22,14 +24,19 @@ public class TanitaDataSource extends AbstractDataSource {
 
 	/** {@inheritDoc} */
 	@Override
-	protected AbstractData cursorConverter(Cursor cursor) {
-		return null;
+	protected TanitaData cursorConverter(Cursor cursor) {
+		TanitaData td = new TanitaData();
+		td.setId(cursor.getLong(0));
+		td.setPerson(cursor.getLong(1));
+		long rawDate = cursor.getLong(2);
+		td.setDate(new Date(rawDate));
+		return td;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	protected String[] getAllColumns() {
-		String[] allColumns = { TanitaDataTable.COLUMN_ID, TanitaDataTable.COLUMN_DATE };
+		String[] allColumns = { TanitaDataTable.COLUMN_ID, TanitaDataTable.COLUMN_PERSON, TanitaDataTable.COLUMN_DATE };
 		return allColumns;
 	}
 

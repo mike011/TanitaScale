@@ -245,5 +245,10 @@ public class TanitaDataTest {
 		data.setBoneMass(muscle);
 		assertEquals(muscle, data.getBoneMass());
 	}
+	
+	@Test
+	public void testToString() {
+		assertEquals("", data.toString());
+	}
 
 }

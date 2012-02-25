@@ -2,7 +2,8 @@ package ca.charland.tanita.db;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+
+import java.sql.Date;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,15 +47,21 @@ public class TanitaDataSourceTest {
 	@Test
 	public void testCursorConverter() {
 		long id = 5;
-		String name = "bob";
+		long person = 3;
+		Date name = new Date(1324);
 		
 		MyCursor cursor = new MyCursor();
 		cursor.setLong(id);
-		cursor.setString(name);
+		cursor.setLong(person);
+		cursor.setLong(name.getTime());
 		
-		AbstractData person = tds.cursorConverter(cursor);
+		TanitaData td = tds.cursorConverter(cursor);
 		
-		assertNull(person);
+		assertNotNull(td);
+		
+		assertEquals(id, td.getId());
+		assertEquals(person, td.getPerson());
+		assertEquals(name, td.getDate());
 	}
 
 	/**
@@ -64,8 +71,9 @@ public class TanitaDataSourceTest {
 	public void testGetAllColumns() {
 		String[] allColumns = tds.getAllColumns();
 		assertNotNull(allColumns);
-		assertEquals(2, allColumns.length);
+		assertEquals(3, allColumns.length);
 		assertEquals("_id", allColumns[0]);
-		assertEquals("date", allColumns[1]);
+		assertEquals("person", allColumns[1]);
+		assertEquals("date", allColumns[2]);
 	}
 }

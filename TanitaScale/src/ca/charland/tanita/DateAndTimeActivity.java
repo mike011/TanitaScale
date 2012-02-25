@@ -55,7 +55,7 @@ public class DateAndTimeActivity extends AbstractBaseActivity {
 			minute = minuteObject;
 		}
 		
-		Date date = new Date(year, month, day, hour, minute, 0);
+		Date date = new Date(year - 1900, month, day, hour, minute, 0);
 		values.put(TanitaDataTable.COLUMN_DATE, date.getTime());
 
 		return values;

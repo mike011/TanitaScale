@@ -1,4 +1,10 @@
+/*
+ * 
+ */
 package ca.charland.tanita.db;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import android.content.ContentResolver;
 import android.database.CharArrayBuffer;
@@ -16,7 +22,10 @@ import android.os.Bundle;
  */
 class MyCursor implements Cursor {
 
-	private long longValue;
+	/** The long value. */
+	private List<Long> longValue = new ArrayList<Long>();
+	
+	/** The string value. */
 	private String stringValue;
 
 	/** {@inheritDoc} */
@@ -94,22 +103,14 @@ class MyCursor implements Cursor {
 		return false;
 	}
 
-	/*
-	 * 
-	 * 
-	 * @see android.database.Cursor#getColumnIndex(java.lang.String)
-	 */
+	/** {@inheritDoc} */
 	@Override
 	public int getColumnIndex(String columnName) {
 
 		return 0;
 	}
 
-	/*
-	 * 
-	 * 
-	 * @see android.database.Cursor#getColumnIndexOrThrow(java.lang.String)
-	 */
+	/** {@inheritDoc} */
 	@Override
 	public int getColumnIndexOrThrow(String columnName) throws IllegalArgumentException {
 
@@ -184,11 +185,11 @@ class MyCursor implements Cursor {
 	@Override
 	public long getLong(int columnIndex) {
 
-		return longValue;
+		return longValue.get(columnIndex);
 	}
 	
 	void setLong(long newLongValue) {
-		this.longValue = newLongValue;
+		this.longValue.add(newLongValue);
 	}
 
 	/** {@inheritDoc} */
