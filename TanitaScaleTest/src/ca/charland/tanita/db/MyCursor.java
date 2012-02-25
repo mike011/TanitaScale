@@ -1,6 +1,3 @@
-/*
- * 
- */
 package ca.charland.tanita.db;
 
 import java.util.ArrayList;
@@ -22,11 +19,8 @@ import android.os.Bundle;
  */
 class MyCursor implements Cursor {
 
-	/** The long value. */
-	private List<Long> longValue = new ArrayList<Long>();
-	
-	/** The string value. */
-	private String stringValue;
+	/** The values. */
+	private List<Object> values = new ArrayList<Object>();
 
 	/** {@inheritDoc} */
 	@Override
@@ -85,144 +79,143 @@ class MyCursor implements Cursor {
 	/** {@inheritDoc} */
 	@Override
 	public boolean isLast() {
-
 		return false;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public boolean isBeforeFirst() {
-
 		return false;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public boolean isAfterLast() {
-
 		return false;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public int getColumnIndex(String columnName) {
-
 		return 0;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public int getColumnIndexOrThrow(String columnName) throws IllegalArgumentException {
-
 		return 0;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public String getColumnName(int columnIndex) {
-
 		return null;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public String[] getColumnNames() {
-
 		return null;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public int getColumnCount() {
-
 		return 0;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public byte[] getBlob(int columnIndex) {
-
 		return null;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public String getString(int columnIndex) {
-
-		return stringValue;
+		return (String) values.get(columnIndex);
 	}
-	
+
 	/**
 	 * Sets the string.
-	 *
-	 * @param newStringValue the new string
+	 * 
+	 * @param newStringValue
+	 *            the new string
 	 */
 	void setString(String newStringValue) {
-		this.stringValue = newStringValue;
+		values.add(newStringValue);
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public void copyStringToBuffer(int columnIndex, CharArrayBuffer buffer) {
-
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public short getShort(int columnIndex) {
-
 		return 0;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public int getInt(int columnIndex) {
-
 		return 0;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public long getLong(int columnIndex) {
-
-		return longValue.get(columnIndex);
+		return (Long) values.get(columnIndex);
 	}
-	
+
+	/**
+	 * Sets the long.
+	 * 
+	 * @param newLongValue
+	 *            the new long
+	 */
 	void setLong(long newLongValue) {
-		this.longValue.add(newLongValue);
+		values.add(newLongValue);
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public float getFloat(int columnIndex) {
-
 		return 0;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public double getDouble(int columnIndex) {
+		return (Double) values.get(columnIndex);
+	}
 
-		return 0;
+	/**
+	 * Sets the double.
+	 * 
+	 * @param d
+	 *            the double to set.
+	 * @return the double
+	 */
+	public void setDouble(double d) {
+		values.add(d);
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public boolean isNull(int columnIndex) {
-
 		return false;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public void deactivate() {
-
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public boolean requery() {
-
 		return false;
 	}
 

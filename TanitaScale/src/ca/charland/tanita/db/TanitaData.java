@@ -55,7 +55,7 @@ public class TanitaData extends AbstractData {
 	private long physicRating;
 
 	/** The weight. */
-	private long weight;
+	private double weight;
 
 	/** The daily caloric intake. */
 	private int dailyCaloricIntake;
@@ -362,7 +362,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the weight
 	 */
-	public long getWeight() {
+	public double getWeight() {
 		return weight;
 	}
 
@@ -372,7 +372,7 @@ public class TanitaData extends AbstractData {
 	 * @param weight
 	 *            the new weight
 	 */
-	public void setWeight(long weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
@@ -479,6 +479,7 @@ public class TanitaData extends AbstractData {
 		result.append("ID:").append(getId());
 		result.append(" Person:").append(getPerson());
 		result.append(" Date:").append(getDate().toGMTString());
+		result.append(" Weight:").append(getWeight());
 		return result.toString();
 	}
 

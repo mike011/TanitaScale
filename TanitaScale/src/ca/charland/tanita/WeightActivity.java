@@ -1,6 +1,9 @@
 package ca.charland.tanita;
 
+import roboguice.inject.InjectView;
 import android.content.ContentValues;
+import android.widget.TextView;
+import ca.charland.tanita.db.TanitaDataTable;
 
 /**
  * The Class WeightActivity.
@@ -8,6 +11,10 @@ import android.content.ContentValues;
  * @author mcharland
  */
 public class WeightActivity extends AbstractBaseActivity {
+
+	/** The weight. */
+	@InjectView(R.id.editTextEntry)
+	private TextView weight;
 
 	/** {@inheritDoc} */
 	@Override
@@ -24,7 +31,9 @@ public class WeightActivity extends AbstractBaseActivity {
 	/** {@inheritDoc} */
 	@Override
 	protected ContentValues getValues() {
-		// TODO Auto-generated method stub
-		return null;
+		ContentValues values = new ContentValues();
+		String string = weight.getText().toString();
+		values.put(TanitaDataTable.Column.WEIGHT.toString(), string);
+		return values;
 	}
 }

@@ -50,7 +50,7 @@ public abstract class AbstractBaseActivity extends RoboActivity {
 
 				Bundle bundle = getIntent().getExtras();
 				long person = bundle.getLong(PeopleListActivity.PERSON);
-				values.put(TanitaDataTable.COLUMN_PERSON, person);
+				values.put(TanitaDataTable.Column.PERSON.toString(), person);
 				long id = datasource.insert(values);
 				
 				Intent intent = new Intent(getBaseContext(), getNextClass());

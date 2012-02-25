@@ -191,9 +191,9 @@ public class TanitaDataTest {
 	 */
 	@Test
 	public void testWeight() {
-		long muscle = 12345L;
-		data.setWeight(muscle);
-		assertEquals(muscle, data.getWeight());
+		double weight = 12345L;
+		data.setWeight(weight);
+		assertEquals(weight, data.getWeight(), 5L);
 	}
 	
 	/**
@@ -245,10 +245,4 @@ public class TanitaDataTest {
 		data.setBoneMass(muscle);
 		assertEquals(muscle, data.getBoneMass());
 	}
-	
-	@Test
-	public void testToString() {
-		assertEquals("", data.toString());
-	}
-
 }
