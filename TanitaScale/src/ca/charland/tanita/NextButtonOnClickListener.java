@@ -42,14 +42,14 @@ class NextButtonOnClickListener implements View.OnClickListener {
 		ContentValues values = activity.getValues();
 
 		Bundle bundle = activity.getIntent().getExtras();
-		long person = bundle.getLong(PeopleListActivity.PERSON);
+		long person = bundle.getInt(PeopleListActivity.PERSON);
 		values.put(TanitaDataTable.Column.PERSON.toString(), person);
 		long id = datasource.insert(values);
 
 		Intent intent = new Intent(activity.getBaseContext(), activity.getNextClass());
 
 		Bundle extras = activity.getIntent().getExtras();
-		intent.putExtra(PeopleListActivity.PERSON, extras.getLong(PeopleListActivity.PERSON));
+		intent.putExtra(PeopleListActivity.PERSON, extras.getInt(PeopleListActivity.PERSON));
 
 		intent.putExtra(ID, id);
 
