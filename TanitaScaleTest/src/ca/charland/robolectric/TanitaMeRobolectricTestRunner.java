@@ -4,13 +4,12 @@ import java.io.File;
 
 import org.junit.runners.model.InitializationError;
 
+import roboguice.application.RoboApplication;
 import roboguice.inject.ContextScope;
 
 import com.google.inject.Injector;
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
-
-import roboguice.application.RoboApplication;
 
 
 /**

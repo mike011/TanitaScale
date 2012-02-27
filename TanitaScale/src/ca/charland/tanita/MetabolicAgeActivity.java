@@ -24,7 +24,6 @@ public class MetabolicAgeActivity extends AbstractBaseActivity {
 	/** {@inheritDoc} */
 	@Override
 	protected ContentValues getValues() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

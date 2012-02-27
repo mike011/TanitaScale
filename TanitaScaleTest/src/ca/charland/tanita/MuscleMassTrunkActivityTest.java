@@ -1,8 +1,7 @@
 package ca.charland.tanita;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,22 +9,21 @@ import org.junit.runner.RunWith;
 
 import android.content.ContentValues;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
-import ca.charland.tanita.db.TanitaDataTable;
 
 import com.google.inject.Inject;
 
 /**
- * Testing DCI Activity.
+ * Testing Muscle Mass Trunk Activity.
  * 
  * @author mcharland
  * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
-public class DCIActivityTest {
+public class MuscleMassTrunkActivityTest {
 
 	/** The class under test. */
 	@Inject
-	private DCIActivity activity;
+	private MuscleMassTrunkActivity activity;
 
 	/** Ran before each test. */
 	@Before
@@ -38,7 +36,7 @@ public class DCIActivityTest {
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.dci, activity.getLayoutResID());
+		assertEquals(R.layout.muscle_mass_trunk, activity.getLayoutResID());
 	}
 
 	/**
@@ -47,10 +45,7 @@ public class DCIActivityTest {
 	@Test
 	public void testGetValues() {
 		ContentValues values = activity.getValues();
-		assertNotNull(values);
-		assertTrue(values.containsKey(TanitaDataTable.Column.DAILY_CALORIC_INTAKE.toString()));
-		String s = (String) values.get(TanitaDataTable.Column.DAILY_CALORIC_INTAKE.toString());
-		assertEquals("", s);
+		assertNull(values);
 	}
 
 	/**
@@ -58,7 +53,7 @@ public class DCIActivityTest {
 	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(MetabolicAgeActivity.class, activity.getNextClass());
+		assertEquals(PhysicRatingActivity.class, activity.getNextClass());
 	}
 
 }
