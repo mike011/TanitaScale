@@ -1,13 +1,13 @@
 package ca.charland.tanita;
 
-import android.content.ContentValues;
+import ca.charland.tanita.db.TanitaDataTable;
 
 /**
  * The Class BodyFatLeftArmActivity.
  * 
  * @author mcharland
  */
-public class BodyFatLeftArmActivity extends AbstractBaseActivity {
+public class BodyFatLeftArmActivity extends AbstractTextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override
@@ -23,8 +23,7 @@ public class BodyFatLeftArmActivity extends AbstractBaseActivity {
 
 	/** {@inheritDoc} */
 	@Override
-	protected ContentValues getValues() {
-		// TODO Auto-generated method stub
-		return null;
+	protected TanitaDataTable.Column getColumnName() {
+		return TanitaDataTable.Column.BODY_FAT_LEFT_ARM;
 	}
 }

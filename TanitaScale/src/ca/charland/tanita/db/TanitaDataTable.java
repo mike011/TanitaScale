@@ -42,7 +42,7 @@ public class TanitaDataTable {
 		BODY_FAT_RIGHT_ARM("body_fat_right_arm"),
 
 		/** The Constant BODY_FAT_RIGHT_LEFT. */
-		BODY_FAT_RIGHT_LEFT("body_fat_right_leg"),
+		BODY_FAT_RIGHT_LEG("body_fat_right_leg"),
 
 		/** The Constant BODY_FAT_LEFT_LEG. */
 		BODY_FAT_LEFT_LEG("body_fat_left_leg"),
@@ -72,7 +72,7 @@ public class TanitaDataTable {
 		PHYSIC_RATING("physic_rating"),
 
 		/** The Constant DAILY_METABOLIC_AGE. */
-		DAILY_METABOLIC_AGE("metabolic_age"),
+		METABOLIC_AGE("metabolic_age"),
 
 		/** The Constant BODY_WATER_PERCENTAGE. */
 		BODY_WATER_PERCENTAGE("body_water_percentage"),
@@ -122,7 +122,7 @@ public class TanitaDataTable {
 		sql.append(Column.BODY_FAT_TOTAL).append(" integer, ");
 		sql.append(Column.BODY_FAT_LEFT_ARM).append(" integer, ");
 		sql.append(Column.BODY_FAT_RIGHT_ARM).append(" integer, ");
-		sql.append(Column.BODY_FAT_RIGHT_LEFT).append(" integer, ");
+		sql.append(Column.BODY_FAT_RIGHT_LEG).append(" integer, ");
 		sql.append(Column.BODY_FAT_LEFT_LEG).append(" integer, ");
 		sql.append(Column.BODY_FAT_TRUNK).append(" integer, ");
 		sql.append(Column.MUSCLE_MASS_TOTAL).append(" integer, ");
@@ -134,7 +134,7 @@ public class TanitaDataTable {
 		sql.append(Column.PHYSIC_RATING).append(" integer, ");
 		sql.append(Column.WEIGHT).append(" integer, ");
 		sql.append(Column.DAILY_CALORIC_INTAKE).append(" integer, ");
-		sql.append(Column.DAILY_METABOLIC_AGE).append(" integer, ");
+		sql.append(Column.METABOLIC_AGE).append(" integer, ");
 		sql.append(Column.BODY_WATER_PERCENTAGE).append(" integer, ");
 		sql.append(Column.VISCERAL_FAT).append(" integer, ");
 		sql.append(Column.BONE_MASS).append(" integer");

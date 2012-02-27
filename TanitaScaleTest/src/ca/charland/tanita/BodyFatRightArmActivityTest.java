@@ -1,14 +1,13 @@
 package ca.charland.tanita;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import android.content.ContentValues;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.tanita.db.TanitaDataTable;
 
 import com.google.inject.Inject;
 
@@ -40,12 +39,11 @@ public class BodyFatRightArmActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.BodyFatRightArmActivity#getValues()}.
+	 * Test method for {@link ca.charland.tanita.BodyFatRightArmActivity#getColumnName()}.
 	 */
 	@Test
-	public void testGetValues() {
-		ContentValues values = activity.getValues();
-		assertNull(values);
+	public void testGetColumnName() {
+		assertEquals(TanitaDataTable.Column.BODY_FAT_RIGHT_ARM, activity.getColumnName());
 	}
 
 	/**

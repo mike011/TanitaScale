@@ -1,14 +1,13 @@
 package ca.charland.tanita;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import android.content.ContentValues;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.manage.PersonHomeActivity;
 
 import com.google.inject.Inject;
@@ -41,12 +40,11 @@ public class PhysicRatingActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.PhysicRatingActivity#getValues()}.
+	 * Test method for {@link ca.charland.tanita.PhysicRatingActivity#getColumnName()}.
 	 */
 	@Test
-	public void testGetValues() {
-		ContentValues values = activity.getValues();
-		assertNull(values);
+	public void testGetColumnName() {
+		assertEquals(TanitaDataTable.Column.PHYSIC_RATING, activity.getColumnName());
 	}
 
 	/**

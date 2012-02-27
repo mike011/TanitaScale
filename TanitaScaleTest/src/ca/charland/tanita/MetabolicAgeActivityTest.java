@@ -1,14 +1,13 @@
 package ca.charland.tanita;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import android.content.ContentValues;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.tanita.db.TanitaDataTable;
 
 import com.google.inject.Inject;
 
@@ -38,14 +37,13 @@ public class MetabolicAgeActivityTest {
 	public void testGetLayoutResID() {
 		assertEquals(R.layout.metabolic_age, activity.getLayoutResID());
 	}
-
+	
 	/**
-	 * Test method for {@link ca.charland.tanita.MetabolicAgeActivity#getValues()}.
+	 * Test method for {@link ca.charland.tanita.MetabolicAgeActivity#getColumnName()}.
 	 */
 	@Test
-	public void testGetValues() {
-		ContentValues values = activity.getValues();
-		assertNull(values);
+	public void testGetColumnName() {
+		assertEquals(TanitaDataTable.Column.METABOLIC_AGE, activity.getColumnName());
 	}
 
 	/**

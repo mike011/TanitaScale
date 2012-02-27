@@ -1,14 +1,11 @@
 package ca.charland.tanita;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import android.content.ContentValues;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaDataTable;
 
@@ -45,14 +42,10 @@ public class WeightActivityTest {
 	 * Test method for {@link ca.charland.tanita.WeightActivity#getValues()}.
 	 */
 	@Test
-	public void testGetValues() {
-		ContentValues values = activity.getValues();
-		assertNotNull(values);
-		assertTrue(values.containsKey(TanitaDataTable.Column.WEIGHT.toString()));
-		String s = (String)values.get(TanitaDataTable.Column.WEIGHT.toString());
-		assertEquals("", s);
+	public void testGetColumnName() {
+		assertEquals(TanitaDataTable.Column.WEIGHT, activity.getColumnName());
 	}
-
+	
 	/**
 	 * Test method for {@link ca.charland.tanita.WeightActivity#getNextClass()}.
 	 */

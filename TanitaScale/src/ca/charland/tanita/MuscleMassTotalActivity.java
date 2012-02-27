@@ -1,13 +1,13 @@
 package ca.charland.tanita;
 
-import android.content.ContentValues;
+import ca.charland.tanita.db.TanitaDataTable;
 
 /**
  * The Class MuscleMassTotalActivity.
  * 
  * @author mcharland
  */
-public class MuscleMassTotalActivity extends AbstractBaseActivity {
+public class MuscleMassTotalActivity extends AbstractTextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override
@@ -23,8 +23,7 @@ public class MuscleMassTotalActivity extends AbstractBaseActivity {
 
 	/** {@inheritDoc} */
 	@Override
-	protected ContentValues getValues() {
-		// TODO Auto-generated method stub
-		return null;
+	protected TanitaDataTable.Column getColumnName() {
+		return TanitaDataTable.Column.MUSCLE_MASS_TOTAL;
 	}
 }

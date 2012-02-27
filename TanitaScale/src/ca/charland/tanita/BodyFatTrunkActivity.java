@@ -1,13 +1,13 @@
 package ca.charland.tanita;
 
-import android.content.ContentValues;
+import ca.charland.tanita.db.TanitaDataTable;
 
 /**
  * The Class BodyFatTrunkActivity.
  * 
  * @author mcharland
  */
-public class BodyFatTrunkActivity extends AbstractBaseActivity {
+public class BodyFatTrunkActivity extends AbstractTextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override
@@ -23,7 +23,7 @@ public class BodyFatTrunkActivity extends AbstractBaseActivity {
 
 	/** {@inheritDoc} */
 	@Override
-	protected ContentValues getValues() {
-		return null;
+	protected TanitaDataTable.Column getColumnName() {
+		return TanitaDataTable.Column.BODY_FAT_TRUNK;
 	}
 }

@@ -1,6 +1,6 @@
 package ca.charland.tanita;
 
-import android.content.ContentValues;
+import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.manage.PersonHomeActivity;
 
 /**
@@ -8,7 +8,7 @@ import ca.charland.tanita.manage.PersonHomeActivity;
  * 
  * @author mcharland
  */
-public class PhysicRatingActivity extends AbstractBaseActivity {
+public class PhysicRatingActivity extends AbstractTextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override
@@ -24,8 +24,7 @@ public class PhysicRatingActivity extends AbstractBaseActivity {
 
 	/** {@inheritDoc} */
 	@Override
-	protected ContentValues getValues() {
-		// TODO Auto-generated method stub
-		return null;
+	protected TanitaDataTable.Column getColumnName() {
+		return TanitaDataTable.Column.PHYSIC_RATING;
 	}
 }

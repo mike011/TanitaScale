@@ -1,14 +1,11 @@
 package ca.charland.tanita;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import android.content.ContentValues;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaDataTable;
 
@@ -40,17 +37,13 @@ public class DCIActivityTest {
 	public void testGetLayoutResID() {
 		assertEquals(R.layout.dci, activity.getLayoutResID());
 	}
-
+	
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getValues()}.
+	 * Test method for {@link ca.charland.tanita.DCIActivity#getColumnName()}.
 	 */
 	@Test
-	public void testGetValues() {
-		ContentValues values = activity.getValues();
-		assertNotNull(values);
-		assertTrue(values.containsKey(TanitaDataTable.Column.DAILY_CALORIC_INTAKE.toString()));
-		String s = (String) values.get(TanitaDataTable.Column.DAILY_CALORIC_INTAKE.toString());
-		assertEquals("", s);
+	public void testGetColumnName() {
+		assertEquals(TanitaDataTable.Column.DAILY_CALORIC_INTAKE, activity.getColumnName());
 	}
 
 	/**

@@ -1,20 +1,13 @@
 package ca.charland.tanita;
 
-import roboguice.inject.InjectView;
 import ca.charland.tanita.db.TanitaDataTable;
-import android.content.ContentValues;
-import android.widget.TextView;
 
 /**
  * The Class DCIActivity.
  * 
  * @author mcharland
  */
-public class DCIActivity extends AbstractBaseActivity {
-
-	/** The weight. */
-	@InjectView(R.id.editTextEntry)
-	private TextView dci;
+public class DCIActivity extends AbstractTextViewActivity {
 	
 	/** {@inheritDoc} */
 	@Override
@@ -30,10 +23,7 @@ public class DCIActivity extends AbstractBaseActivity {
 
 	/** {@inheritDoc} */
 	@Override
-	protected ContentValues getValues() {
-		ContentValues values = new ContentValues();
-		String string = dci.getText().toString();
-		values.put(TanitaDataTable.Column.DAILY_CALORIC_INTAKE.toString(), string);
-		return values;
+	protected TanitaDataTable.Column getColumnName() {
+		return TanitaDataTable.Column.DAILY_CALORIC_INTAKE;
 	}
 }

@@ -38,7 +38,7 @@ public class PersonHomeActivity extends RoboActivity {
 			public void onClick(View v) {
 				Intent intent = new Intent(getBaseContext(), DateAndTimeActivity.class);
 				Bundle extras = getIntent().getExtras();
-				intent.putExtra(PeopleListActivity.PERSON, extras.getLong(PeopleListActivity.PERSON));
+				intent.putExtra(PeopleListActivity.PERSON, extras.getInt(PeopleListActivity.PERSON));
 				startActivity(intent);
 			}
 		});

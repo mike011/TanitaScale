@@ -1,14 +1,14 @@
 package ca.charland.tanita;
 
-import android.content.ContentValues;
+import ca.charland.tanita.db.TanitaDataTable;
 
 /**
  * The Class MetabolicAgeActivity.
  * 
  * @author mcharland
  */
-public class MetabolicAgeActivity extends AbstractBaseActivity {
-
+public class MetabolicAgeActivity extends AbstractTextViewActivity {
+	
 	/** {@inheritDoc} */
 	@Override
 	int getLayoutResID() {
@@ -23,7 +23,7 @@ public class MetabolicAgeActivity extends AbstractBaseActivity {
 
 	/** {@inheritDoc} */
 	@Override
-	protected ContentValues getValues() {
-		return null;
+	protected TanitaDataTable.Column getColumnName() {
+		return TanitaDataTable.Column.METABOLIC_AGE;
 	}
 }
