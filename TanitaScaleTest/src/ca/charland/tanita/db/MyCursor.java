@@ -160,7 +160,18 @@ class MyCursor implements Cursor {
 	/** {@inheritDoc} */
 	@Override
 	public int getInt(int columnIndex) {
-		return 0;
+		return (Integer) values.get(columnIndex);
+	}
+
+	/**
+	 * Sets the int.
+	 * 
+	 * @param amount
+	 *            the new int
+	 */
+	public void setInt(int amount) {
+		values.add(amount);
+
 	}
 
 	/** {@inheritDoc} */
@@ -259,28 +270,23 @@ class MyCursor implements Cursor {
 	/** {@inheritDoc} */
 	@Override
 	public void setNotificationUri(ContentResolver cr, Uri uri) {
-
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public boolean getWantsAllOnMoveCalls() {
-
 		return false;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public Bundle getExtras() {
-
 		return null;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public Bundle respond(Bundle extras) {
-
 		return null;
 	}
-
 }

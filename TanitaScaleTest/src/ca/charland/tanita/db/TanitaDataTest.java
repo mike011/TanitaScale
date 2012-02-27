@@ -31,7 +31,7 @@ public class TanitaDataTest {
 	 */
 	@Test
 	public void testId() {
-		long id = 12345L;
+		int id = 12345;
 		data.setId(id);
 		assertEquals(id, data.getId());
 	}

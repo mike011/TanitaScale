@@ -18,7 +18,7 @@ public class PersonTest {
 	@Test
 	public void testID() {
 		Person p = new Person();
-		long id = 1234L;
+		int id = 1234;
 		p.setId(id);
 		assertEquals(id, p.getId());
 

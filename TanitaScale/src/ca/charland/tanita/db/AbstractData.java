@@ -9,14 +9,14 @@ package ca.charland.tanita.db;
 public class AbstractData {
 
 	/** The id. */
-	private long id;
+	private int id;
 	
 	/**
 	 * Gets the id.
 	 * 
 	 * @return the id
 	 */
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -26,7 +26,7 @@ public class AbstractData {
 	 * @param id
 	 *            the new id
 	 */
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

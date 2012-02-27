@@ -28,13 +28,15 @@ public class TanitaDataSource extends AbstractDataSource {
 	@Override
 	protected TanitaData cursorConverter(Cursor cursor) {
 		TanitaData td = new TanitaData();
-		td.setId(cursor.getLong(TanitaDataTable.Column.ID.ordinal()));
-		td.setPerson(cursor.getLong(TanitaDataTable.Column.PERSON.ordinal()));
+		td.setId(cursor.getInt(TanitaDataTable.Column.ID.ordinal()));
+		td.setPerson(cursor.getInt(TanitaDataTable.Column.PERSON.ordinal()));
 
 		long rawDate = cursor.getLong(TanitaDataTable.Column.DATE.ordinal());
 		td.setDate(new Date(rawDate));
 
 		td.setWeight(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.WEIGHT.ordinal())));
+		
+		td.setDailyCaloricIntake(cursor.getInt(TanitaDataTable.Column.DAILY_CALORIC_INTAKE.ordinal()));
 
 		return td;
 	}
@@ -47,6 +49,7 @@ public class TanitaDataSource extends AbstractDataSource {
 		allColumns.add(TanitaDataTable.Column.PERSON.toString());
 		allColumns.add(TanitaDataTable.Column.DATE.toString());
 		allColumns.add(TanitaDataTable.Column.WEIGHT.toString());
+		allColumns.add(TanitaDataTable.Column.DAILY_CALORIC_INTAKE.toString());
 		return allColumns;
 	}
 

@@ -80,11 +80,11 @@ public class PersonDataSourceTest {
 	 */
 	@Test
 	public void testCursorConverter() {
-		long id = 5;
+		int id = 5;
 		String name = "bob";
 		
 		MyCursor cursor = new MyCursor();
-		cursor.setLong(id);
+		cursor.setInt(id);
 		cursor.setString(name);
 		
 		Person person = pds.cursorConverter(cursor);

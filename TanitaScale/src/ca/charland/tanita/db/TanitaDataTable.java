@@ -11,7 +11,9 @@ public class TanitaDataTable {
 	static final String NAME = "tanita_data";
 
 	/**
-	 * The Class Column. Info.
+	 * The enumeration Column which contains the column names and there index based off of the ordering they are defined.
+	 * 
+	 * @author mcharland
 	 */
 	public static enum Column {
 
@@ -23,9 +25,12 @@ public class TanitaDataTable {
 
 		/** The Constant DATE. */
 		DATE("date"),
-		
+
 		/** The Constant WEIGHT. */
 		WEIGHT("weight"),
+
+		/** The Constant DAILY_CALORIC_INTAKE. */
+		DAILY_CALORIC_INTAKE("daily_caloric_intake"),
 
 		/** The Constant BODY_FAT_TOTAL. */
 		BODY_FAT_TOTAL("body_fat_total"),
@@ -66,9 +71,6 @@ public class TanitaDataTable {
 		/** The Constant PHYSIC_RATING. */
 		PHYSIC_RATING("physic_rating"),
 
-		/** The Constant DAILY_CALORIC_INTAKE. */
-		DAILY_CALORIC_INTAKE("daily_caloric_intake"),
-
 		/** The Constant DAILY_METABOLIC_AGE. */
 		DAILY_METABOLIC_AGE("metabolic_age"),
 
@@ -80,7 +82,7 @@ public class TanitaDataTable {
 
 		/** The Constant BONE_MASS. */
 		BONE_MASS("bone_mass");
-		
+
 		/** The name. */
 		private final String name;
 
@@ -89,8 +91,8 @@ public class TanitaDataTable {
 		 * 
 		 * @param name
 		 *            the name
-		 * @param Column.
-		 *            the Column.
+		 * @param Column
+		 *            . the Column.
 		 */
 		Column(String name) {
 			this.name = name;
