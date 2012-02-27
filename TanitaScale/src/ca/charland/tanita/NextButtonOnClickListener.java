@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
-import ca.charland.tanita.manage.PeopleListActivity;
 
 /**
  * The listener interface for receiving nextButtonOnClick events. The class that is interested in processing a nextButtonOnClick event implements this
@@ -22,7 +21,7 @@ import ca.charland.tanita.manage.PeopleListActivity;
 class NextButtonOnClickListener implements View.OnClickListener {
 
 	/** The Constant ID. */
-	private static final String ID = "ROW_ID";
+	static final String ID = "ROW_ID";
 
 	/** The data source. */
 	private final TanitaDataSource datasource;
@@ -41,19 +40,27 @@ class NextButtonOnClickListener implements View.OnClickListener {
 		datasource.open();
 		ContentValues values = activity.getValues();
 
-		Bundle bundle = activity.getIntent().getExtras();
-		long person = bundle.getInt(PeopleListActivity.PERSON);
-		values.put(TanitaDataTable.Column.PERSON.toString(), person);
-		long id = datasource.insert(values);
+		long id = -1;
+		Intent intent = activity.getIntent();
+		if (intent != null) {
+			// Don't know how inject extras in testing.
+			Bundle extras = intent.getExtras();
+			if (extras.containsKey(ID)) {
+				id = extras.getLong(ID);
+			}
+		}
+		
+		// Check to see if you've already inserted the row.
+		if (id == -1) {
+			id = datasource.insert(values);
+		} else {
+			datasource.update(TanitaDataTable.Column.ID.toString(), id, values);
+		}
 
-		Intent intent = new Intent(activity.getBaseContext(), activity.getNextClass());
+		Intent newIntent = new Intent(activity.getBaseContext(), activity.getNextClass());
+		newIntent.putExtra(ID, id);
 
-		Bundle extras = activity.getIntent().getExtras();
-		intent.putExtra(PeopleListActivity.PERSON, extras.getInt(PeopleListActivity.PERSON));
-
-		intent.putExtra(ID, id);
-
-		activity.startActivity(intent);
+		activity.startActivity(newIntent);
 		datasource.close();
 	}
 }

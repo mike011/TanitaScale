@@ -60,6 +60,18 @@ public abstract class AbstractDataSource {
 	}
 
 	/**
+	 * Updates the table row.
+	 * 
+	 * @param values
+	 *            the values
+	 * @return The number or rows effected.
+	 */
+	public long update(String id, Object idValue, ContentValues values) {
+		long effected = database.update(table, values, id + '=' + idValue, null);
+		return effected;
+	}
+
+	/**
 	 * Gets the all values.
 	 * 
 	 * @return the all values

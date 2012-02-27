@@ -1,9 +1,9 @@
 package ca.charland.tanita;
 
-import ca.charland.tanita.db.TanitaDataTable;
 import android.content.ContentValues;
 import android.os.Bundle;
 import android.widget.TextView;
+import ca.charland.tanita.db.TanitaDataTable;
 
 /**
  * Since most of the classes have a text view when entering data a specific class was created.

@@ -4,6 +4,8 @@ import java.util.Date;
 
 import roboguice.inject.InjectView;
 import android.content.ContentValues;
+import android.content.Intent;
+import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import ca.charland.tanita.db.TanitaDataTable;
@@ -14,13 +16,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * @author mcharland
  */
 public class DateAndTimeActivity extends AbstractBaseActivity {
-	
-	/** {@inheritDoc} */
-	@Override
-	int getLayoutResID() {
-		return R.layout.date_view;
-	}
-	
+
 	/** The date. */
 	@InjectView(R.id.entry_date)
 	private DatePicker datePicker;
@@ -31,6 +27,12 @@ public class DateAndTimeActivity extends AbstractBaseActivity {
 
 	/** {@inheritDoc} */
 	@Override
+	int getLayoutResID() {
+		return R.layout.date_view;
+	}
+
+	/** {@inheritDoc} */
+	@Override
 	public Class<?> getNextClass() {
 		return WeightActivity.class;
 	}
@@ -38,23 +40,36 @@ public class DateAndTimeActivity extends AbstractBaseActivity {
 	/** {@inheritDoc} */
 	@Override
 	protected ContentValues getValues() {
+
 		ContentValues values = new ContentValues();
+		
+		// This is the first item and needs to add the person.
+		long person = -1;
+		Intent intent = getIntent();
+		if(intent != null) {
+			// Don't know how inject extras in testing.
+			Bundle extras = intent.getExtras();
+			person = extras.getInt(TanitaDataTable.Column.PERSON.toString());
+		}
+		values.put(TanitaDataTable.Column.PERSON.toString(), person);
+		
+		// Now add the date and time.
 		int year = datePicker.getYear();
 		int month = datePicker.getMonth();
 		int day = datePicker.getDayOfMonth();
-		
+
 		Integer hourObject = timePicker.getCurrentHour();
 		int hour = 0;
-		if(hourObject != null) {
+		if (hourObject != null) {
 			hour = hourObject;
 		}
-		
-		Integer minuteObject = timePicker.getCurrentMinute();		
+
+		Integer minuteObject = timePicker.getCurrentMinute();
 		int minute = 0;
-		if(minuteObject != null) {
+		if (minuteObject != null) {
 			minute = minuteObject;
 		}
-		
+
 		Date date = new Date(year - 1900, month, day, hour, minute, 0);
 		values.put(TanitaDataTable.Column.DATE.toString(), date.getTime());
 

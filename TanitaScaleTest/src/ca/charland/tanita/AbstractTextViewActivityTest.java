@@ -39,6 +39,7 @@ public class AbstractTextViewActivityTest {
 	public void testGetValues() {
 		ContentValues values = activity.getValues();
 		assertEquals(1, values.size());
+		
 		assertTrue(values.containsKey(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()));
 		assertEquals("", values.get(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()));
 	}
