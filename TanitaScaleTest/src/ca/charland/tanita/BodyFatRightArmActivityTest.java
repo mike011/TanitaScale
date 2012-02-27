@@ -32,7 +32,7 @@ public class BodyFatRightArmActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.BodyFatRightArmActivity#getLayoutResID()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
@@ -40,7 +40,7 @@ public class BodyFatRightArmActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getValues()}.
+	 * Test method for {@link ca.charland.tanita.BodyFatRightArmActivity#getValues()}.
 	 */
 	@Test
 	public void testGetValues() {
@@ -49,7 +49,7 @@ public class BodyFatRightArmActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getNextClass()}.
+	 * Test method for {@link ca.charland.tanita.BodyFatRightArmActivity#getNextClass()}.
 	 */
 	@Test
 	public void testGetNextClass() {

@@ -33,7 +33,7 @@ public class PhysicRatingActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.PhysicRatingActivity#getLayoutResID()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
@@ -41,7 +41,7 @@ public class PhysicRatingActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getValues()}.
+	 * Test method for {@link ca.charland.tanita.PhysicRatingActivity#getValues()}.
 	 */
 	@Test
 	public void testGetValues() {
@@ -50,7 +50,7 @@ public class PhysicRatingActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getNextClass()}.
+	 * Test method for {@link ca.charland.tanita.PhysicRatingActivity#getNextClass()}.
 	 */
 	@Test
 	public void testGetNextClass() {

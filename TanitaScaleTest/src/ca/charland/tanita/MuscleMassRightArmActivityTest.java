@@ -32,7 +32,7 @@ public class MuscleMassRightArmActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.MuscleMassRightArmActivity#getLayoutResID()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
@@ -40,7 +40,7 @@ public class MuscleMassRightArmActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getValues()}.
+	 * Test method for {@link ca.charland.tanita.MuscleMassRightArmActivity#getValues()}.
 	 */
 	@Test
 	public void testGetValues() {
@@ -49,7 +49,7 @@ public class MuscleMassRightArmActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getNextClass()}.
+	 * Test method for {@link ca.charland.tanita.MuscleMassRightArmActivity#getNextClass()}.
 	 */
 	@Test
 	public void testGetNextClass() {
