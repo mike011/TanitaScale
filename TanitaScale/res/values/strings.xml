@@ -9,6 +9,7 @@
     <string name="viewTitle">Pick a new person</string>
     <string name="name">Name</string>
     <string name="next">Next</string>
+    <string name="enterYour">Enter your %1$s</string>
     <string name="weight">Enter your Weight</string>
     <string name="visceral_fat">Enter your Visceral Fat</string>
     <string name="dci">Enter your Daily Caloric Intake</string>
@@ -22,7 +23,7 @@
     <string name="muscle_mass_trunk">Enter your Muscle for your Trunk</string>    
     <string name="bone_mass">Enter your Bone Mass</string>
     <string name="body_water_percentage">Enter your Body Water Percentage</string>
-    <string name="body_fat_arm_left">Enter your Body Fat for your Left Arm</string>
+    <string name="body_fat_arm_left">Left Arm</string>
     <string name="body_fat_arm_right">Enter your Body Fat for your Right Arm</string>
     <string name="body_fat_leg_left">Enter your Body Fat for your Left Leg</string>
     <string name="body_fat_leg_right">Enter your Body Fat for your Right Leg</string>

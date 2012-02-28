@@ -29,6 +29,11 @@ class NextButtonOnClickListener implements View.OnClickListener {
 	/** The activity. */
 	private final AbstractBaseActivity activity;
 
+	/**
+	 * Instantiates a new next button on click listener.
+	 *
+	 * @param activity the activity
+	 */
 	NextButtonOnClickListener(AbstractBaseActivity activity) {
 		this.activity = activity;
 		datasource = new TanitaDataSource(activity);

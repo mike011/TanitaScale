@@ -481,6 +481,7 @@ public class TanitaData extends AbstractData {
 		result.append(" Date:").append(getDate().toGMTString());
 		result.append(" Weight:").append(getWeight());
 		result.append(" DCI:").append(getDailyCaloricIntake());
+		result.append(" Metabolic Age:").append(getMetabolicAge());
 		return result.toString();
 	}
 
