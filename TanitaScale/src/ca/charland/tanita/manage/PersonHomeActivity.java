@@ -45,6 +45,11 @@ public class PersonHomeActivity extends RoboActivity {
 
 		view.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				Intent intent = new Intent(getBaseContext(), DateListActivity.class);
+				Bundle extras = getIntent().getExtras();
+				intent.putExtra(PeopleListActivity.PERSON, extras.getInt(PeopleListActivity.PERSON));
+				startActivity(intent);
+
 				TanitaDataSource tds = new TanitaDataSource(getBaseContext());
 				tds.open();
 

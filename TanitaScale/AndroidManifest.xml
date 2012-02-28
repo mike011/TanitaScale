@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".manage.AddActivity" />
+        <activity android:name=".manage.DateListActivity" />
         <activity android:name=".manage.PeopleListActivity" />
         <activity android:name=".manage.PersonHomeActivity" />
         <activity android:name="BodyFatLeftArmActivity" />
