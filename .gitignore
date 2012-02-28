@@ -4,3 +4,4 @@ bin/
 proguard.cfg
 tmp/
 hs_err*
+TanitaScale/local.properties
