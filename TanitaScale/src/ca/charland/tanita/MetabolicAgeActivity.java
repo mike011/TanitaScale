@@ -8,13 +8,13 @@ import ca.charland.tanita.db.TanitaDataTable;
  * @author mcharland
  */
 public class MetabolicAgeActivity extends AbstractTextViewActivity {
-	
+
 	/** {@inheritDoc} */
 	@Override
 	int getLayoutResID() {
 		return R.layout.metabolic_age;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
@@ -25,5 +25,11 @@ public class MetabolicAgeActivity extends AbstractTextViewActivity {
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.METABOLIC_AGE;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.metabolic_age;
 	}
 }

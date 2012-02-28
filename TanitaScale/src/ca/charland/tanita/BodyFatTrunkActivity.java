@@ -14,7 +14,7 @@ public class BodyFatTrunkActivity extends AbstractTextViewActivity {
 	int getLayoutResID() {
 		return R.layout.body_fat_trunk;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
@@ -25,5 +25,11 @@ public class BodyFatTrunkActivity extends AbstractTextViewActivity {
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.BODY_FAT_TRUNK;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.body_fat_trunk;
 	}
 }

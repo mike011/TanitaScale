@@ -26,4 +26,10 @@ public class MuscleMassLeftLegActivity extends AbstractTextViewActivity {
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.MUSCLE_MASS_LEFT_LEG;
 	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.muscle_mass_leg_left;
+	}
 }

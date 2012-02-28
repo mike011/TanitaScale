@@ -14,7 +14,7 @@ public class MuscleMassTotalActivity extends AbstractTextViewActivity {
 	int getLayoutResID() {
 		return R.layout.muscle_mass_total;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
@@ -25,5 +25,11 @@ public class MuscleMassTotalActivity extends AbstractTextViewActivity {
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.MUSCLE_MASS_TOTAL;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.muscle_mass_total;
 	}
 }

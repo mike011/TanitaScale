@@ -27,4 +27,10 @@ public class PhysicRatingActivity extends AbstractTextViewActivity {
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.PHYSIC_RATING;
 	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.physic_rating;
+	}
 }

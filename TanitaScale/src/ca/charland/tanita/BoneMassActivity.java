@@ -14,7 +14,7 @@ public class BoneMassActivity extends AbstractTextViewActivity {
 	int getLayoutResID() {
 		return R.layout.bone_mass;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
@@ -25,5 +25,11 @@ public class BoneMassActivity extends AbstractTextViewActivity {
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.BONE_MASS;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.bone_mass;
 	}
 }

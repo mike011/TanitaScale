@@ -26,4 +26,10 @@ public class MuscleMassTrunkActivity extends AbstractTextViewActivity {
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.MUSCLE_MASS_TRUNK;
 	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.muscle_mass_trunk;
+	}
 }

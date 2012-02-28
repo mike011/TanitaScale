@@ -8,13 +8,13 @@ import ca.charland.tanita.db.TanitaDataTable;
  * @author mcharland
  */
 public class DCIActivity extends AbstractTextViewActivity {
-	
+
 	/** {@inheritDoc} */
 	@Override
 	int getLayoutResID() {
 		return R.layout.dci;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
@@ -25,5 +25,11 @@ public class DCIActivity extends AbstractTextViewActivity {
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.DAILY_CALORIC_INTAKE;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.dci;
 	}
 }

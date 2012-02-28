@@ -26,4 +26,10 @@ public class BodyFatTotalActivity extends AbstractTextViewActivity {
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.BODY_FAT_TOTAL;
 	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.body_fat_total;
+	}
 }

@@ -14,7 +14,7 @@ public class VisceralFatActivity extends AbstractTextViewActivity {
 	int getLayoutResID() {
 		return R.layout.visceral_fat;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
@@ -25,5 +25,11 @@ public class VisceralFatActivity extends AbstractTextViewActivity {
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.VISCERAL_FAT;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.visceral_fat;
 	}
 }

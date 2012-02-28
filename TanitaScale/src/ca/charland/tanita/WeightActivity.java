@@ -1,8 +1,5 @@
 package ca.charland.tanita;
 
-import roboguice.inject.InjectView;
-import android.os.Bundle;
-import android.widget.TextView;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
@@ -12,22 +9,10 @@ import ca.charland.tanita.db.TanitaDataTable;
  */
 public class WeightActivity extends AbstractTextViewActivity {
 
-	/** The next button. */
-	@InjectView(R.id.enter_your)
-	private TextView enter;
-	
 	/** {@inheritDoc} */
 	@Override
 	int getLayoutResID() {
 		return R.layout.weight;
-	}
-
-	/** {@inheritDoc} */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		String raw = getResources().getString(R.string.enterYour);
-		enter.setText(String.format(raw, getResources().getString(R.string.weight)));
 	}
 
 	/** {@inheritDoc} */
@@ -40,5 +25,11 @@ public class WeightActivity extends AbstractTextViewActivity {
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.WEIGHT;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.weight;
 	}
 }

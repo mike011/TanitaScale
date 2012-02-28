@@ -26,4 +26,10 @@ public class BodyFatLeftLegActivity extends AbstractTextViewActivity {
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.BODY_FAT_LEFT_LEG;
 	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.body_fat_leg_left;
+	}
 }

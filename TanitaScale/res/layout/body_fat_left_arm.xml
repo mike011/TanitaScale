@@ -3,15 +3,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <TableRow>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/body_fat_arm_left" />
-    </TableRow>
-
     <include layout="@layout/base" />
 
 </TableLayout>

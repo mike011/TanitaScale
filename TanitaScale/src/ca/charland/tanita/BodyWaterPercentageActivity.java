@@ -14,7 +14,7 @@ public class BodyWaterPercentageActivity extends AbstractTextViewActivity {
 	int getLayoutResID() {
 		return R.layout.body_water_percentage;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
@@ -25,5 +25,11 @@ public class BodyWaterPercentageActivity extends AbstractTextViewActivity {
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.BODY_WATER_PERCENTAGE;
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	protected int getStringID() {
+		return R.string.body_water_percentage;
 	}
 }
