@@ -10,13 +10,12 @@ import android.widget.Button;
 import ca.charland.tanita.R;
 
 /**
- * The Class TanitaScaleActivity this is the first screen you will see and will
- * allow you basic account maintenance.
+ * The Class TanitaScaleActivity this is the first screen you will see and will allow you basic account maintenance.
  * 
  * @author mcharland
  */
 public class TanitaScaleActivity extends RoboActivity {
-	
+
 	/** The add button. */
 	@InjectView(R.id.add)
 	private Button add;
@@ -32,7 +31,7 @@ public class TanitaScaleActivity extends RoboActivity {
 		setContentView(R.layout.main);
 
 		add.setOnClickListener(new OnClickListener() {
-			
+
 			/** {@inheritDoc} */
 			public void onClick(View view) {
 				startActivity(new Intent(getBaseContext(), AddActivity.class));
@@ -40,7 +39,7 @@ public class TanitaScaleActivity extends RoboActivity {
 		});
 
 		view.setOnClickListener(new OnClickListener() {
-			
+
 			/** {@inheritDoc} */
 			public void onClick(View view) {
 				startActivity(new Intent(getBaseContext(), PeopleListActivity.class));

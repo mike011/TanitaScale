@@ -37,7 +37,7 @@ public class MetabolicAgeActivityTest {
 	public void testGetLayoutResID() {
 		assertEquals(R.layout.metabolic_age, activity.getLayoutResID());
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.MetabolicAgeActivity#getColumnName()}.
 	 */

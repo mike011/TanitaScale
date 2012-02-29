@@ -19,12 +19,12 @@ public class DateListActivity extends RoboListActivity {
 
 	/** The database source. */
 	private TanitaDataSource datasource;
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		datasource = new TanitaDataSource(this);
 		datasource.open();
 
@@ -33,7 +33,6 @@ public class DateListActivity extends RoboListActivity {
 
 		setListAdapter(adapter);
 	}
-	
 
 	/** {@inheritDoc} */
 	@Override

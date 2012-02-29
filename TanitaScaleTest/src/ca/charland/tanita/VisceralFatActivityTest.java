@@ -45,6 +45,7 @@ public class VisceralFatActivityTest {
 	public void testGetColumnName() {
 		assertEquals(TanitaDataTable.Column.VISCERAL_FAT, activity.getColumnName());
 	}
+
 	/**
 	 * Test method for {@link ca.charland.tanita.VisceralFatActivity#getNextClass()}.
 	 */

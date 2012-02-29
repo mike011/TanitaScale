@@ -25,8 +25,7 @@ public class PeopleTable {
 	private static String getPeopleTable() {
 		StringBuilder sql = new StringBuilder();
 		sql.append("create table ").append(TABLE);
-		sql.append("( ").append(COLUMN_ID)
-				.append(" integer primary key autoincrement, ");
+		sql.append("( ").append(COLUMN_ID).append(" integer primary key autoincrement, ");
 		sql.append(COLUMN_NAME).append(" text not null);");
 		String string = sql.toString();
 		return string;

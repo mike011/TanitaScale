@@ -14,7 +14,7 @@ public class BodyFatRightLegActivity extends AbstractTextViewActivity {
 	int getLayoutResID() {
 		return R.layout.body_fat_right_leg;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {

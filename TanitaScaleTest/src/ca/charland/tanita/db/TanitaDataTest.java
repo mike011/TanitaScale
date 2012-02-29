@@ -8,8 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The Class TanitaDataTest which holds the Tanita specific information for the
- * database.
+ * The Class TanitaDataTest which holds the Tanita specific information for the database.
  * 
  * @author mcharland
  */
@@ -145,7 +144,7 @@ public class TanitaDataTest {
 		data.setMuscleMassRightArm(muscle);
 		assertEquals(muscle, data.getMuscleMassRightArm());
 	}
-	
+
 	/**
 	 * Test get and set muscle mass right leg.
 	 */
@@ -155,7 +154,7 @@ public class TanitaDataTest {
 		data.setMuscleMassRightLeg(muscle);
 		assertEquals(muscle, data.getMuscleMassRightLeg());
 	}
-	
+
 	/**
 	 * Test get and set muscle mass right leg.
 	 */
@@ -165,7 +164,7 @@ public class TanitaDataTest {
 		data.setMuscleMassLeftLeg(muscle);
 		assertEquals(muscle, data.getMuscleMassLeftLeg());
 	}
-	
+
 	/**
 	 * Test get and set muscle mass trunk.
 	 */
@@ -175,7 +174,7 @@ public class TanitaDataTest {
 		data.setMuscleMassTrunk(muscle);
 		assertEquals(muscle, data.getMuscleMassTrunk());
 	}
-	
+
 	/**
 	 * Test get and set physic rating.
 	 */
@@ -185,7 +184,7 @@ public class TanitaDataTest {
 		data.setPhysicRating(muscle);
 		assertEquals(muscle, data.getPhysicRating());
 	}
-	
+
 	/**
 	 * Test get and set weight.
 	 */
@@ -195,7 +194,7 @@ public class TanitaDataTest {
 		data.setWeight(weight);
 		assertEquals(weight, data.getWeight(), 5L);
 	}
-	
+
 	/**
 	 * Test get and set Daily Caloric Intake.
 	 */
@@ -205,7 +204,7 @@ public class TanitaDataTest {
 		data.setDailyCaloricIntake(muscle);
 		assertEquals(muscle, data.getDailyCaloricIntake());
 	}
-	
+
 	/**
 	 * Test get and set Metabolic Age.
 	 */
@@ -215,7 +214,7 @@ public class TanitaDataTest {
 		data.setMetabolicAge(muscle);
 		assertEquals(muscle, data.getMetabolicAge());
 	}
-	
+
 	/**
 	 * Test get and set body water percentage.
 	 */
@@ -225,7 +224,7 @@ public class TanitaDataTest {
 		data.setBodyWaterPercentage(muscle);
 		assertEquals(muscle, data.getBodyWaterPercentage());
 	}
-	
+
 	/**
 	 * Test get and set Visceral Fat.
 	 */
@@ -235,7 +234,7 @@ public class TanitaDataTest {
 		data.setVisceralFat(muscle);
 		assertEquals(muscle, data.getVisceralFat());
 	}
-	
+
 	/**
 	 * Test get and set bone mass.
 	 */

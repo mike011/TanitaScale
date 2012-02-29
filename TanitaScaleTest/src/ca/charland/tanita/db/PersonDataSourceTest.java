@@ -82,17 +82,17 @@ public class PersonDataSourceTest {
 	public void testCursorConverter() {
 		int id = 5;
 		String name = "bob";
-		
+
 		MyCursor cursor = new MyCursor();
 		cursor.setInt(id);
 		cursor.setString(name);
-		
+
 		Person person = pds.cursorConverter(cursor);
-		
+
 		assertEquals(id, person.getId());
 		assertEquals(name, person.getName());
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#getAllColumns()} .
 	 */

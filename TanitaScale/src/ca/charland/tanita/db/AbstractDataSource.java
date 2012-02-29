@@ -67,8 +67,7 @@ public abstract class AbstractDataSource {
 	 * @return The number or rows effected.
 	 */
 	public long update(String id, Object idValue, ContentValues values) {
-		long effected = database
-				.update(table, values, id + '=' + idValue, null);
+		long effected = database.update(table, values, id + '=' + idValue, null);
 		return effected;
 	}
 
@@ -90,8 +89,7 @@ public abstract class AbstractDataSource {
 	 */
 	private List<AbstractData> query(List<String> columns, String selection, String[] args) {
 		List<AbstractData> all = new ArrayList<AbstractData>();
-		Cursor cursor = database.query(table, columns.toArray(new String[0]),
-				selection, args, null, null, null);
+		Cursor cursor = database.query(table, columns.toArray(new String[0]), selection, args, null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			AbstractData comment = cursorConverter(cursor);

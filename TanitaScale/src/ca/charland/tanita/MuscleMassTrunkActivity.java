@@ -14,7 +14,7 @@ public class MuscleMassTrunkActivity extends AbstractTextViewActivity {
 	int getLayoutResID() {
 		return R.layout.muscle_mass_trunk;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {

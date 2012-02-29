@@ -45,7 +45,7 @@ public class TanitaDataSourceTest {
 	 */
 	@Test
 	public void testCursorConverter() {
-		
+
 		// Setup
 		int id = 5;
 		int person = 3;
@@ -81,7 +81,7 @@ public class TanitaDataSourceTest {
 		assertNotNull(allColumns);
 		assertEquals(5, allColumns.size());
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
 	 */
@@ -90,7 +90,7 @@ public class TanitaDataSourceTest {
 		List<String> allColumns = tds.getAllColumns();
 		assertEquals("_id", allColumns.get(0));
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
 	 */
@@ -99,7 +99,7 @@ public class TanitaDataSourceTest {
 		List<String> allColumns = tds.getAllColumns();
 		assertEquals("person", allColumns.get(1));
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
 	 */
@@ -108,7 +108,7 @@ public class TanitaDataSourceTest {
 		List<String> allColumns = tds.getAllColumns();
 		assertEquals("date", allColumns.get(2));
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
 	 */
@@ -117,7 +117,7 @@ public class TanitaDataSourceTest {
 		List<String> allColumns = tds.getAllColumns();
 		assertEquals("weight", allColumns.get(3));
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
 	 */

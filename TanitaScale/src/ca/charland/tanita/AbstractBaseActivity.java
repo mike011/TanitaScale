@@ -24,7 +24,6 @@ public abstract class AbstractBaseActivity extends RoboActivity {
 	 */
 	abstract int getLayoutResID();
 
-
 	/**
 	 * Gets the values to insert into the database.
 	 * 

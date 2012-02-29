@@ -45,7 +45,7 @@ public class MuscleMassRightLegActivityTest {
 	public void testGetColumnName() {
 		assertEquals(TanitaDataTable.Column.MUSCLE_MASS_RIGHT_LEG, activity.getColumnName());
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.MuscleMassRightLegActivity#getNextClass()}.
 	 */

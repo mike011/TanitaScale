@@ -11,7 +11,6 @@ import com.google.inject.Injector;
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 
-
 /**
  * Custom runner to redirect to the development folder. Specifically so the res and manifest can be found.
  * 

@@ -15,7 +15,7 @@ public class PhysicRatingActivity extends AbstractTextViewActivity {
 	int getLayoutResID() {
 		return R.layout.physic_rating;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {

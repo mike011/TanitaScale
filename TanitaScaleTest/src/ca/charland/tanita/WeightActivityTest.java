@@ -31,8 +31,7 @@ public class WeightActivityTest {
 	}
 
 	/**
-	 * Test method for
-	 * {@link ca.charland.tanita.WeightActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.WeightActivity#getLayoutResID()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {

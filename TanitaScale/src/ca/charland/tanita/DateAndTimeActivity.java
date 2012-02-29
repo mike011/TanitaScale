@@ -42,17 +42,17 @@ public class DateAndTimeActivity extends AbstractBaseActivity {
 	protected ContentValues getValues() {
 
 		ContentValues values = new ContentValues();
-		
+
 		// This is the first item and needs to add the person.
 		long person = -1;
 		Intent intent = getIntent();
-		if(intent != null) {
+		if (intent != null) {
 			// Don't know how inject extras in testing.
 			Bundle extras = intent.getExtras();
 			person = extras.getInt(TanitaDataTable.Column.PERSON.toString());
 		}
 		values.put(TanitaDataTable.Column.PERSON.toString(), person);
-		
+
 		// Now add the date and time.
 		int year = datePicker.getYear();
 		int month = datePicker.getMonth();

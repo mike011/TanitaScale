@@ -62,7 +62,7 @@ public class PersonDataSource extends AbstractDataSource {
 	/** {@inheritDoc} */
 	@Override
 	protected List<String> getAllColumns() {
-		List<String>  allColumns = new ArrayList<String>();
+		List<String> allColumns = new ArrayList<String>();
 		allColumns.add(PeopleTable.COLUMN_ID);
 		allColumns.add(PeopleTable.COLUMN_NAME);
 		return allColumns;

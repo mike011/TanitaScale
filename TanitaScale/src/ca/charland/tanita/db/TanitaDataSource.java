@@ -35,7 +35,7 @@ public class TanitaDataSource extends AbstractDataSource {
 		td.setDate(new Date(rawDate));
 
 		td.setWeight(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.WEIGHT.ordinal())));
-		
+
 		td.setDailyCaloricIntake(cursor.getInt(TanitaDataTable.Column.DAILY_CALORIC_INTAKE.ordinal()));
 
 		return td;

@@ -37,7 +37,7 @@ public class DCIActivityTest {
 	public void testGetLayoutResID() {
 		assertEquals(R.layout.dci, activity.getLayoutResID());
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.DCIActivity#getColumnName()}.
 	 */

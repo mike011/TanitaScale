@@ -14,7 +14,7 @@ public class BodyFatTotalActivity extends AbstractTextViewActivity {
 	int getLayoutResID() {
 		return R.layout.body_fat_total;
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {

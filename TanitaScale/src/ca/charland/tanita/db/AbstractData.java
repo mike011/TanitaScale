@@ -10,7 +10,7 @@ public class AbstractData {
 
 	/** The id. */
 	private int id;
-	
+
 	/**
 	 * Gets the id.
 	 * 

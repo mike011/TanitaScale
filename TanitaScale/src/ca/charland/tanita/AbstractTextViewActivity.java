@@ -7,8 +7,7 @@ import android.widget.TextView;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
- * Since most of the classes have a text view when entering data a specific
- * class was created.
+ * Since most of the classes have a text view when entering data a specific class was created.
  * 
  * @author mcharland
  * 
@@ -16,8 +15,7 @@ import ca.charland.tanita.db.TanitaDataTable;
 public abstract class AbstractTextViewActivity extends AbstractBaseActivity {
 
 	/**
-	 * The text. This cannot be injected because of a limitation in robo guice
-	 * not allowing injection from an abstract base class.
+	 * The text. This cannot be injected because of a limitation in robo guice not allowing injection from an abstract base class.
 	 */
 	private TextView text;
 
@@ -32,8 +30,7 @@ public abstract class AbstractTextViewActivity extends AbstractBaseActivity {
 		text = (TextView) findViewById(R.id.editTextEntry);
 
 		String raw = getResources().getString(R.string.enterYour);
-		enter.setText(String.format(raw,
-				getResources().getString(getStringID())));
+		enter.setText(String.format(raw, getResources().getString(getStringID())));
 	}
 
 	/**

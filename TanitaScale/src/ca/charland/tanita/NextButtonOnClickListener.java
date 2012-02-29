@@ -31,8 +31,9 @@ class NextButtonOnClickListener implements View.OnClickListener {
 
 	/**
 	 * Instantiates a new next button on click listener.
-	 *
-	 * @param activity the activity
+	 * 
+	 * @param activity
+	 *            the activity
 	 */
 	NextButtonOnClickListener(AbstractBaseActivity activity) {
 		this.activity = activity;
@@ -54,7 +55,7 @@ class NextButtonOnClickListener implements View.OnClickListener {
 				id = extras.getLong(ID);
 			}
 		}
-		
+
 		// Check to see if you've already inserted the row.
 		if (id == -1) {
 			id = datasource.insert(values);

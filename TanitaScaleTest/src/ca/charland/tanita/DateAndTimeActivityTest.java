@@ -25,7 +25,7 @@ public class DateAndTimeActivityTest {
 	/** The class under test. */
 	@Inject
 	private DateAndTimeActivity activity;
-	
+
 	/** {@inheritDoc} */
 	@Before
 	public void setup() {
@@ -37,10 +37,10 @@ public class DateAndTimeActivityTest {
 	 */
 	@Test
 	public final void testGetValues() {
-		
+
 		ContentValues values = activity.getValues();
 		assertTrue(values.containsKey(TanitaDataTable.Column.DATE.toString()));
-		Long object = (Long)values.get(TanitaDataTable.Column.DATE.toString());
+		Long object = (Long) values.get(TanitaDataTable.Column.DATE.toString());
 		assertTrue(object.intValue() < 0);
 	}
 
