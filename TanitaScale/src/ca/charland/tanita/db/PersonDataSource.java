@@ -52,7 +52,7 @@ public class PersonDataSource extends AbstractDataSource {
 	}
 
 	/** {@inheritDoc} */
-	protected Person cursorConverter(Cursor cursor) {
+	protected Person convertToAbstractData(Cursor cursor) {
 		Person person = new Person();
 		person.setId(cursor.getInt(0));
 		person.setName(cursor.getString(1));

@@ -26,7 +26,7 @@ public class TanitaDataSource extends AbstractDataSource {
 
 	/** {@inheritDoc} */
 	@Override
-	protected TanitaData cursorConverter(Cursor cursor) {
+	protected TanitaData convertToAbstractData(Cursor cursor) {
 		TanitaData td = new TanitaData();
 		td.setId(cursor.getInt(TanitaDataTable.Column.ID.ordinal()));
 		td.setPerson(cursor.getInt(TanitaDataTable.Column.PERSON.ordinal()));

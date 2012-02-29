@@ -41,7 +41,7 @@ public class TanitaDataSourceTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#cursorConverter(android.database.Cursor)}.
+	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#convertToAbstractData(android.database.Cursor)}.
 	 */
 	@Test
 	public void testCursorConverter() {
@@ -61,7 +61,7 @@ public class TanitaDataSourceTest {
 		cursor.setInt(dci);
 
 		// Exercise
-		TanitaData td = tds.cursorConverter(cursor);
+		TanitaData td = tds.convertToAbstractData(cursor);
 
 		// Verify
 		assertNotNull(td);

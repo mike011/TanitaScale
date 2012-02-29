@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import ca.charland.tanita.R;
 import ca.charland.tanita.db.AbstractData;
-import ca.charland.tanita.db.TanitaDataSource;
+import ca.charland.tanita.db.DateListDataSource;
+import ca.charland.tanita.db.TanitaDataTable;
 
 /**
  * This activity allows you to chose a previously entered entry by date!
@@ -18,17 +19,20 @@ import ca.charland.tanita.db.TanitaDataSource;
 public class DateListActivity extends RoboListActivity {
 
 	/** The database source. */
-	private TanitaDataSource datasource;
+	private DateListDataSource datasource;
 
 	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		datasource = new TanitaDataSource(this);
+		datasource = new DateListDataSource(this);
 		datasource.open();
 
-		final List<AbstractData> data = datasource.getAll();
+		Bundle extras = getIntent().getExtras();
+		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + extras.getInt(PeopleListActivity.PERSON);
+
+		final List<AbstractData> data = datasource.query(selection);
 		ArrayAdapter<AbstractData> adapter = new ArrayAdapter<AbstractData>(this, R.layout.date_list, data);
 
 		setListAdapter(adapter);

@@ -50,6 +50,10 @@ public class PersonHomeActivity extends RoboActivity {
 				intent.putExtra(PeopleListActivity.PERSON, extras.getInt(PeopleListActivity.PERSON));
 				startActivity(intent);
 
+				//print();
+			}
+
+			private void print() {
 				TanitaDataSource tds = new TanitaDataSource(getBaseContext());
 				tds.open();
 

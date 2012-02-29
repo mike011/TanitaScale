@@ -474,15 +474,7 @@ public class TanitaData extends AbstractData {
 	/** {@inheritDoc} */
 	@Override
 	public String toString() {
-		// Only used for debugging.
-		StringBuilder result = new StringBuilder();
-		result.append("ID:").append(getId());
-		result.append(" Person:").append(getPerson());
-		result.append(" Date:").append(getDate().toGMTString());
-		result.append(" Weight:").append(getWeight());
-		result.append(" DCI:").append(getDailyCaloricIntake());
-		result.append(" Metabolic Age:").append(getMetabolicAge());
-		return result.toString();
+		return getDate().toGMTString();
 	}
 
 }

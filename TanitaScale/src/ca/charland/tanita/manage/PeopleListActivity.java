@@ -36,7 +36,7 @@ public class PeopleListActivity extends RoboListActivity {
 		datasource.open();
 
 		final List<AbstractData> data = datasource.getAll();
-		ArrayAdapter<AbstractData> adapter = new ArrayAdapter<AbstractData>(this, R.layout.people_list, data);
+		ArrayAdapter<AbstractData> adapter = new ArrayAdapter<AbstractData>(this, R.layout.people_list, datasource.getAll());
 
 		setListAdapter(adapter);
 

@@ -76,7 +76,7 @@ public class PersonDataSourceTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#cursorConverter(android.database.Cursor)} .
+	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#convertToAbstractData(android.database.Cursor)} .
 	 */
 	@Test
 	public void testCursorConverter() {
@@ -87,7 +87,7 @@ public class PersonDataSourceTest {
 		cursor.setInt(id);
 		cursor.setString(name);
 
-		Person person = pds.cursorConverter(cursor);
+		Person person = pds.convertToAbstractData(cursor);
 
 		assertEquals(id, person.getId());
 		assertEquals(name, person.getName());

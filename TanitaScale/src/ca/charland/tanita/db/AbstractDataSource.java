@@ -77,22 +77,23 @@ public abstract class AbstractDataSource {
 	 * @return the all values
 	 */
 	public List<AbstractData> getAll() {
-		return query(getAllColumns(), null, null);
+		return query(null);
 	}
 
 	/**
 	 * Query.
 	 * 
-	 * @param columns
-	 *            the columns
+	 * @param selection
+	 *            the selection to pair down the results.
+	 * 
 	 * @return the list
 	 */
-	private List<AbstractData> query(List<String> columns, String selection, String[] args) {
+	public List<AbstractData> query(String selection) {
 		List<AbstractData> all = new ArrayList<AbstractData>();
-		Cursor cursor = database.query(table, columns.toArray(new String[0]), selection, args, null, null, null);
+		Cursor cursor = database.query(table, getAllColumns().toArray(new String[0]), selection, null, null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			AbstractData comment = cursorConverter(cursor);
+			AbstractData comment = convertToAbstractData(cursor);
 			all.add(comment);
 			cursor.moveToNext();
 		}
@@ -108,7 +109,7 @@ public abstract class AbstractDataSource {
 	 *            the cursor
 	 * @return The converted value.
 	 */
-	protected abstract AbstractData cursorConverter(Cursor cursor);
+	protected abstract AbstractData convertToAbstractData(Cursor cursor);
 
 	/**
 	 * Gets all columns.
