@@ -3,8 +3,13 @@ package ca.charland.tanita.manage;
 import java.util.List;
 
 import roboguice.activity.RoboListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 import ca.charland.tanita.R;
 import ca.charland.tanita.db.AbstractData;
 import ca.charland.tanita.db.DateListDataSource;
@@ -36,6 +41,18 @@ public class DateListActivity extends RoboListActivity {
 		ArrayAdapter<AbstractData> adapter = new ArrayAdapter<AbstractData>(this, R.layout.date_list, data);
 
 		setListAdapter(adapter);
+		
+		ListView lv = getListView();
+		lv.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> par, View view, int pos, long id) {
+				Intent intent = new Intent(getBaseContext(), PersonDateActivity.class);
+
+				AbstractData selectedItem = data.get(pos);
+				intent.putExtra(PeopleListActivity.PERSON, selectedItem.getId());
+
+				startActivity(intent);
+			}
+		});
 	}
 
 	/** {@inheritDoc} */
