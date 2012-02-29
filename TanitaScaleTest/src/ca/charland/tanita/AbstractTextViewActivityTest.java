@@ -7,7 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import roboguice.inject.InjectView;
 import android.content.ContentValues;
+import android.widget.TextView;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaDataTable;
 
@@ -26,22 +28,37 @@ public class AbstractTextViewActivityTest {
 	@Inject
 	private BodyFatLeftArmActivity activity;
 
+	/** The enter text. */
+	@InjectView(R.id.enter_your)
+	private TextView enter;
+
 	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
-	
+
 	/**
-	 * Test method for {@link ca.charland.tanita.AbstractTextViewActivity#getValues()}.
+	 * Test method to make sure the text is set correctly.
+	 */
+	@Test
+	public void testText() {
+		assertEquals("Enter your Left Arm", enter.getText().toString());
+	}
+
+	/**
+	 * Test method for
+	 * {@link ca.charland.tanita.AbstractTextViewActivity#getValues()}.
 	 */
 	@Test
 	public void testGetValues() {
 		ContentValues values = activity.getValues();
 		assertEquals(1, values.size());
-		
-		assertTrue(values.containsKey(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()));
-		assertEquals("", values.get(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()));
+
+		assertTrue(values.containsKey(TanitaDataTable.Column.BODY_FAT_LEFT_ARM
+				.toString()));
+		assertEquals("",
+				values.get(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()));
 	}
 
 }

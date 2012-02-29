@@ -19,11 +19,11 @@ import com.google.inject.Inject;
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class WeightActivityTest {
-	
+
 	/** The class under test. */
 	@Inject
 	private WeightActivity activity;
-	
+
 	/** Ran before each test. */
 	@Before
 	public void setup() {
@@ -31,7 +31,8 @@ public class WeightActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.WeightActivity#getLayoutResID()}.
+	 * Test method for
+	 * {@link ca.charland.tanita.WeightActivity#getLayoutResID()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
@@ -45,7 +46,7 @@ public class WeightActivityTest {
 	public void testGetColumnName() {
 		assertEquals(TanitaDataTable.Column.WEIGHT, activity.getColumnName());
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.WeightActivity#getNextClass()}.
 	 */
