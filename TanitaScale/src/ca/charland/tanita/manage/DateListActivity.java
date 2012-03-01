@@ -13,6 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import ca.charland.tanita.R;
 import ca.charland.tanita.db.AbstractData;
 import ca.charland.tanita.db.DateListDataSource;
+import ca.charland.tanita.db.TanitaData;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
@@ -22,6 +23,9 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  */
 public class DateListActivity extends RoboListActivity {
+	
+	/** The Constant ID. */
+	static final String ID = "DATE"; 
 
 	/** The database source. */
 	private DateListDataSource datasource;
@@ -48,11 +52,12 @@ public class DateListActivity extends RoboListActivity {
 				Intent intent = new Intent(getBaseContext(), PersonDateActivity.class);
 
 				AbstractData selectedItem = data.get(pos);
-				intent.putExtra(PeopleListActivity.PERSON, selectedItem.getId());
+				intent.putExtra(ID, selectedItem.getId());
 
 				startActivity(intent);
 			}
 		});
+		datasource.close();
 	}
 
 	/** {@inheritDoc} */

@@ -90,7 +90,8 @@ public abstract class AbstractDataSource {
 	 */
 	public List<AbstractData> query(String selection) {
 		List<AbstractData> all = new ArrayList<AbstractData>();
-		Cursor cursor = database.query(table, getAllColumns().toArray(new String[0]), selection, null, null, null, null);
+		String[] columns = getAllColumns().toArray(new String[0]);
+		Cursor cursor = database.query(table, columns, selection, null, null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			AbstractData comment = convertToAbstractData(cursor);

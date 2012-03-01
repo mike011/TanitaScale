@@ -51,6 +51,7 @@ public class PeopleListActivity extends RoboListActivity {
 				startActivity(intent);
 			}
 		});
+		datasource.close();
 	}
 
 	/** {@inheritDoc} */

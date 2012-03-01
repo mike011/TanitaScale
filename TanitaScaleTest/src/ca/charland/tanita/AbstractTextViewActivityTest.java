@@ -43,7 +43,7 @@ public class AbstractTextViewActivityTest {
 	 */
 	@Test
 	public void testText() {
-		assertEquals("Enter your Left Arm", enter.getText().toString());
+		assertEquals("Enter your Body Fat for your Left Arm", enter.getText().toString());
 	}
 
 	/**
