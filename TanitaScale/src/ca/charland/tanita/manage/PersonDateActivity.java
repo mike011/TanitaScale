@@ -21,6 +21,54 @@ public class PersonDateActivity extends RoboActivity {
 
 	@InjectView(R.id.weight)
 	private TextView weight;
+	
+	@InjectView(R.id.metabolic_age)
+	private TextView metabolicAge;
+	
+	@InjectView(R.id.body_water_percentage)
+	private TextView bodyWaterPercentage;
+	
+	@InjectView(R.id.visceral_fat)
+	private TextView visceralFat;
+	
+	@InjectView(R.id.bone_mass)
+	private TextView boneMass;
+	
+	@InjectView(R.id.body_fat_total)
+	private TextView bodyFatTotal;
+	
+	@InjectView(R.id.body_fat_arm_left)
+	private TextView bodyfatArmLeft;
+	
+	@InjectView(R.id.body_fat_arm_right)
+	private TextView bodyFatArmRight;
+	
+	@InjectView(R.id.body_fat_leg_right)
+	private TextView bodyFatLegRight;
+	
+	@InjectView(R.id.body_fat_trunk)
+	private TextView bodyFatTrunk;
+	
+	@InjectView(R.id.muscle_mass_total)
+	private TextView muscleMassTotal;
+	
+	@InjectView(R.id.muscle_mass_arm_left)
+	private TextView muscleMassArmLeft;
+	
+	@InjectView(R.id.muscle_mass_arm_right)
+	private TextView muscleMassArmRight;
+	
+	@InjectView(R.id.muscle_mass_leg_right)
+	private TextView muscleMassLegRight;
+	
+	@InjectView(R.id.muscle_mass_leg_left)
+	private TextView muscleMassLegLeft;
+	
+	@InjectView(R.id.muscle_mass_trunk)
+	private TextView muscleMassTrunk;
+	
+	@InjectView(R.id.physic_rating)
+	private TextView physicRating;
 
 	/** {@inheritDoc} */
 	@Override

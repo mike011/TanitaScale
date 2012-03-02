@@ -7,13 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
 import ca.charland.tanita.R;
 import ca.charland.tanita.db.AbstractData;
 import ca.charland.tanita.db.DateListDataSource;
-import ca.charland.tanita.db.TanitaData;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
