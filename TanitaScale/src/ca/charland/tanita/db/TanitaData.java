@@ -10,49 +10,49 @@ import java.util.Date;
 public class TanitaData extends AbstractData {
 
 	/** The person. */
-	private long person;
+	private double person;
 
 	/** The date. */
 	private Date date;
 
 	/** The body fat total. */
-	private long bodyFatTotal;
+	private double bodyFatTotal;
 
 	/** The body fat left arm. */
-	private long bodyFatLeftArm;
+	private double bodyFatLeftArm;
 
 	/** The body fat right arm. */
-	private long bodyFatRightArm;
+	private double bodyFatRightArm;
 
 	/** The body fat right leg. */
-	private long bodyFatRightLeg;
+	private double bodyFatRightLeg;
 
 	/** The body fat left leg. */
-	private long bodyFatLeftLeg;
+	private double bodyFatLeftLeg;
 
 	/** The body fat trunk. */
-	private long bodyFatTrunk;
+	private double bodyFatTrunk;
 
 	/** The muscle mass total. */
-	private long muscleMassTotal;
+	private double muscleMassTotal;
 
 	/** The muscle mass left arm. */
-	private long muscleMassLeftArm;
+	private double muscleMassLeftArm;
 
 	/** The muscle mass right arm. */
-	private long muscleMassRightArm;
+	private double muscleMassRightArm;
 
 	/** The muscle mass right leg. */
-	private long muscleMassRightLeg;
+	private double muscleMassRightLeg;
 
 	/** The muscle mass left leg. */
-	private long muscleMassLeftLeg;
+	private double muscleMassLeftLeg;
 
 	/** The muscle mass trunk. */
-	private long muscleMassTrunk;
+	private double muscleMassTrunk;
 
 	/** The physic rating. */
-	private long physicRating;
+	private double physicRating;
 
 	/** The weight. */
 	private double weight;
@@ -64,20 +64,20 @@ public class TanitaData extends AbstractData {
 	private int metabolicAge;
 
 	/** The body water percentage. */
-	private long bodyWaterPercentage;
+	private double bodyWaterPercentage;
 
 	/** The visceral fat. */
 	private int visceralFat;
 
 	/** The Bone mass. */
-	private long boneMass;
+	private double boneMass;
 
 	/**
 	 * Gets the person.
 	 * 
 	 * @return the person
 	 */
-	public long getPerson() {
+	public double getPerson() {
 		return person;
 	}
 
@@ -87,7 +87,7 @@ public class TanitaData extends AbstractData {
 	 * @param person
 	 *            the new person
 	 */
-	public void setPerson(long person) {
+	public void setPerson(double person) {
 		this.person = person;
 	}
 
@@ -115,7 +115,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the body fat total
 	 */
-	public long getBodyFatTotal() {
+	public double getBodyFatTotal() {
 		return bodyFatTotal;
 	}
 
@@ -125,7 +125,7 @@ public class TanitaData extends AbstractData {
 	 * @param bodyFatTotal
 	 *            the new body fat total
 	 */
-	public void setBodyFatTotal(long bodyFatTotal) {
+	public void setBodyFatTotal(double bodyFatTotal) {
 		this.bodyFatTotal = bodyFatTotal;
 	}
 
@@ -134,7 +134,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the body fat left arm
 	 */
-	public long getBodyFatLeftArm() {
+	public double getBodyFatLeftArm() {
 		return bodyFatLeftArm;
 	}
 
@@ -144,7 +144,7 @@ public class TanitaData extends AbstractData {
 	 * @param bodyFatLeftArm
 	 *            the new body fat left arm
 	 */
-	public void setBodyFatLeftArm(long bodyFatLeftArm) {
+	public void setBodyFatLeftArm(double bodyFatLeftArm) {
 		this.bodyFatLeftArm = bodyFatLeftArm;
 	}
 
@@ -153,7 +153,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the body fat right arm
 	 */
-	public long getBodyFatRightArm() {
+	public double getBodyFatRightArm() {
 		return bodyFatRightArm;
 	}
 
@@ -163,7 +163,7 @@ public class TanitaData extends AbstractData {
 	 * @param bodyFatRightArm
 	 *            the new body fat right arm
 	 */
-	public void setBodyFatRightArm(long bodyFatRightArm) {
+	public void setBodyFatRightArm(double bodyFatRightArm) {
 		this.bodyFatRightArm = bodyFatRightArm;
 	}
 
@@ -172,7 +172,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the body fat right leg
 	 */
-	public long getBodyFatRightLeg() {
+	public double getBodyFatRightLeg() {
 		return bodyFatRightLeg;
 	}
 
@@ -182,7 +182,7 @@ public class TanitaData extends AbstractData {
 	 * @param bodyFatRightLeg
 	 *            the new body fat right leg
 	 */
-	public void setBodyFatRightLeg(long bodyFatRightLeg) {
+	public void setBodyFatRightLeg(double bodyFatRightLeg) {
 		this.bodyFatRightLeg = bodyFatRightLeg;
 	}
 
@@ -191,7 +191,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the body fat left leg
 	 */
-	public long getBodyFatLeftLeg() {
+	public double getBodyFatLeftLeg() {
 		return bodyFatLeftLeg;
 	}
 
@@ -201,7 +201,7 @@ public class TanitaData extends AbstractData {
 	 * @param bodyFatLeftLeg
 	 *            the new body fat left leg
 	 */
-	public void setBodyFatLeftLeg(long bodyFatLeftLeg) {
+	public void setBodyFatLeftLeg(double bodyFatLeftLeg) {
 		this.bodyFatLeftLeg = bodyFatLeftLeg;
 	}
 
@@ -210,7 +210,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the body fat trunk
 	 */
-	public long getBodyFatTrunk() {
+	public double getBodyFatTrunk() {
 		return bodyFatTrunk;
 	}
 
@@ -220,7 +220,7 @@ public class TanitaData extends AbstractData {
 	 * @param bodyFatTrunk
 	 *            the new body fat trunk
 	 */
-	public void setBodyFatTrunk(long bodyFatTrunk) {
+	public void setBodyFatTrunk(double bodyFatTrunk) {
 		this.bodyFatTrunk = bodyFatTrunk;
 	}
 
@@ -229,7 +229,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the muscle mass total
 	 */
-	public long getMuscleMassTotal() {
+	public double getMuscleMassTotal() {
 		return muscleMassTotal;
 	}
 
@@ -239,7 +239,7 @@ public class TanitaData extends AbstractData {
 	 * @param muscleMassTotal
 	 *            the new muscle mass total
 	 */
-	public void setMuscleMassTotal(long muscleMassTotal) {
+	public void setMuscleMassTotal(double muscleMassTotal) {
 		this.muscleMassTotal = muscleMassTotal;
 	}
 
@@ -248,7 +248,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the muscle mass left arm
 	 */
-	public long getMuscleMassLeftArm() {
+	public double getMuscleMassLeftArm() {
 		return muscleMassLeftArm;
 	}
 
@@ -258,7 +258,7 @@ public class TanitaData extends AbstractData {
 	 * @param muscleMassLeftArm
 	 *            the new muscle mass left arm
 	 */
-	public void setMuscleMassLeftArm(long muscleMassLeftArm) {
+	public void setMuscleMassLeftArm(double muscleMassLeftArm) {
 		this.muscleMassLeftArm = muscleMassLeftArm;
 	}
 
@@ -267,7 +267,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the muscle mass right arm
 	 */
-	public long getMuscleMassRightArm() {
+	public double getMuscleMassRightArm() {
 		return muscleMassRightArm;
 	}
 
@@ -277,7 +277,7 @@ public class TanitaData extends AbstractData {
 	 * @param muscleMassRightArm
 	 *            the new muscle mass right arm
 	 */
-	public void setMuscleMassRightArm(long muscleMassRightArm) {
+	public void setMuscleMassRightArm(double muscleMassRightArm) {
 		this.muscleMassRightArm = muscleMassRightArm;
 	}
 
@@ -286,7 +286,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the muscle mass right leg
 	 */
-	public long getMuscleMassRightLeg() {
+	public double getMuscleMassRightLeg() {
 		return muscleMassRightLeg;
 	}
 
@@ -296,7 +296,7 @@ public class TanitaData extends AbstractData {
 	 * @param muscleMassRightLeg
 	 *            the new muscle mass right leg
 	 */
-	public void setMuscleMassRightLeg(long muscleMassRightLeg) {
+	public void setMuscleMassRightLeg(double muscleMassRightLeg) {
 		this.muscleMassRightLeg = muscleMassRightLeg;
 	}
 
@@ -305,7 +305,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the muscle mass left leg
 	 */
-	public long getMuscleMassLeftLeg() {
+	public double getMuscleMassLeftLeg() {
 		return muscleMassLeftLeg;
 	}
 
@@ -315,7 +315,7 @@ public class TanitaData extends AbstractData {
 	 * @param muscleMassLeftLeg
 	 *            the new muscle mass left leg
 	 */
-	public void setMuscleMassLeftLeg(long muscleMassLeftLeg) {
+	public void setMuscleMassLeftLeg(double muscleMassLeftLeg) {
 		this.muscleMassLeftLeg = muscleMassLeftLeg;
 	}
 
@@ -324,7 +324,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the muscle mass trunk
 	 */
-	public long getMuscleMassTrunk() {
+	public double getMuscleMassTrunk() {
 		return muscleMassTrunk;
 	}
 
@@ -334,7 +334,7 @@ public class TanitaData extends AbstractData {
 	 * @param muscleMassTrunk
 	 *            the new muscle mass trunk
 	 */
-	public void setMuscleMassTrunk(long muscleMassTrunk) {
+	public void setMuscleMassTrunk(double muscleMassTrunk) {
 		this.muscleMassTrunk = muscleMassTrunk;
 	}
 
@@ -343,7 +343,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the physic rating
 	 */
-	public long getPhysicRating() {
+	public double getPhysicRating() {
 		return physicRating;
 	}
 
@@ -353,7 +353,7 @@ public class TanitaData extends AbstractData {
 	 * @param physicRating
 	 *            the new physic rating
 	 */
-	public void setPhysicRating(long physicRating) {
+	public void setPhysicRating(double physicRating) {
 		this.physicRating = physicRating;
 	}
 
@@ -419,7 +419,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the body water percentage
 	 */
-	public long getBodyWaterPercentage() {
+	public double getBodyWaterPercentage() {
 		return bodyWaterPercentage;
 	}
 
@@ -429,7 +429,7 @@ public class TanitaData extends AbstractData {
 	 * @param bodyWaterPercentage
 	 *            the new body water percentage
 	 */
-	public void setBodyWaterPercentage(long bodyWaterPercentage) {
+	public void setBodyWaterPercentage(double bodyWaterPercentage) {
 		this.bodyWaterPercentage = bodyWaterPercentage;
 	}
 
@@ -457,7 +457,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the bone mass
 	 */
-	public long getBoneMass() {
+	public double getBoneMass() {
 		return boneMass;
 	}
 
@@ -467,7 +467,7 @@ public class TanitaData extends AbstractData {
 	 * @param boneMass
 	 *            the new bone mass
 	 */
-	public void setBoneMass(long boneMass) {
+	public void setBoneMass(double boneMass) {
 		this.boneMass = boneMass;
 	}
 

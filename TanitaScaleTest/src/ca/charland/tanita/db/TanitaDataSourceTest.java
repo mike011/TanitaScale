@@ -79,7 +79,7 @@ public class TanitaDataSourceTest {
 	public void testGetAllColumnsLength() {
 		List<String> allColumns = tds.getAllColumns();
 		assertNotNull(allColumns);
-		assertEquals(5, allColumns.size());
+		assertEquals(22, allColumns.size());
 	}
 
 	/**
