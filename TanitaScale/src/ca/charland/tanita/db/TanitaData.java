@@ -10,7 +10,7 @@ import java.util.Date;
 public class TanitaData extends AbstractData {
 
 	/** The person. */
-	private double person;
+	private long person;
 
 	/** The date. */
 	private Date date;
@@ -77,7 +77,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the person
 	 */
-	public double getPerson() {
+	public long getPerson() {
 		return person;
 	}
 
@@ -87,7 +87,7 @@ public class TanitaData extends AbstractData {
 	 * @param person
 	 *            the new person
 	 */
-	public void setPerson(double person) {
+	public void setPerson(long person) {
 		this.person = person;
 	}
 

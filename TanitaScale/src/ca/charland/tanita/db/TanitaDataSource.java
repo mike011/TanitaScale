@@ -29,7 +29,7 @@ public class TanitaDataSource extends AbstractDataSource {
 	protected TanitaData convertToAbstractData(Cursor cursor) {
 		TanitaData td = new TanitaData();
 		td.setId(cursor.getInt(TanitaDataTable.Column.ID.ordinal()));
-		td.setPerson(cursor.getInt(TanitaDataTable.Column.PERSON.ordinal()));
+		td.setPerson(cursor.getLong(TanitaDataTable.Column.PERSON.ordinal()));
 
 		long rawDate = cursor.getLong(TanitaDataTable.Column.DATE.ordinal());
 		td.setDate(new Date(rawDate));
@@ -51,7 +51,7 @@ public class TanitaDataSource extends AbstractDataSource {
 		td.setMuscleMassRightLeg(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.MUSCLE_MASS_RIGHT_LEG.ordinal())));
 		td.setMuscleMassLeftLeg(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.MUSCLE_MASS_LEFT_LEG.ordinal())));
 		td.setMuscleMassTrunk(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.MUSCLE_MASS_TRUNK.ordinal())));
-		td.setPhysicRating(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.PHYSIC_RATING.ordinal())));
+		td.setPhysicRating(cursor.getInt(TanitaDataTable.Column.PHYSIC_RATING.ordinal()));
 		td.setBodyWaterPercentage(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.BODY_WATER_PERCENTAGE.ordinal())));
 		td.setBoneMass(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.BONE_MASS.ordinal())));
 	

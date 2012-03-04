@@ -1,7 +1,7 @@
 package ca.charland.tanita.db;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import android.content.ContentResolver;
 import android.database.CharArrayBuffer;
@@ -20,7 +20,7 @@ import android.os.Bundle;
 class MyCursor implements Cursor {
 
 	/** The values. */
-	private List<Object> values = new ArrayList<Object>();
+	private Map<Integer, Object> values = new TreeMap<Integer, Object>();
 
 	/** {@inheritDoc} */
 	@Override
@@ -139,11 +139,13 @@ class MyCursor implements Cursor {
 	/**
 	 * Sets the string.
 	 * 
+	 * @param key
+	 *            The key value.
 	 * @param newStringValue
 	 *            the new string
 	 */
-	void setString(String newStringValue) {
-		values.add(newStringValue);
+	void setString(Integer key, String newStringValue) {
+		values.put(key, newStringValue);
 	}
 
 	/** {@inheritDoc} */
@@ -166,11 +168,13 @@ class MyCursor implements Cursor {
 	/**
 	 * Sets the int.
 	 * 
+	 * @param key
+	 *            The kay value.
 	 * @param amount
 	 *            the new int
 	 */
-	public void setInt(int amount) {
-		values.add(amount);
+	public void setInt(Integer key, int amount) {
+		values.put(key, amount);
 
 	}
 
@@ -183,11 +187,13 @@ class MyCursor implements Cursor {
 	/**
 	 * Sets the long.
 	 * 
+	 * @param key
+	 *            The key value.
 	 * @param newLongValue
 	 *            the new long
 	 */
-	void setLong(long newLongValue) {
-		values.add(newLongValue);
+	void setLong(Integer key, long newLongValue) {
+		values.put(key, newLongValue);
 	}
 
 	/** {@inheritDoc} */
@@ -205,12 +211,15 @@ class MyCursor implements Cursor {
 	/**
 	 * Sets the double.
 	 * 
+	 * @param key
+	 *            The key value.
 	 * @param d
 	 *            the double to set.
+	 * 
 	 * @return the double
 	 */
-	public void setDouble(double d) {
-		values.add(d);
+	public void setDouble(Integer key, double d) {
+		values.put(key, d);
 	}
 
 	/** {@inheritDoc} */

@@ -84,8 +84,8 @@ public class PersonDataSourceTest {
 		String name = "bob";
 
 		MyCursor cursor = new MyCursor();
-		cursor.setInt(id);
-		cursor.setString(name);
+		cursor.setInt(0, id);
+		cursor.setString(1, name);
 
 		Person person = pds.convertToAbstractData(cursor);
 

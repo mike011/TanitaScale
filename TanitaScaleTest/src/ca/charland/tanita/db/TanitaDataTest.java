@@ -42,7 +42,7 @@ public class TanitaDataTest {
 	public void testPerson() {
 		long id = 12345L;
 		data.setPerson(id);
-		assertEquals(id, data.getPerson());
+		assertEquals(id, data.getPerson(), 100L);
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class TanitaDataTest {
 	public void testBodyFatTotal() {
 		long bodyFat = 12345L;
 		data.setBodyFatTotal(bodyFat);
-		assertEquals(bodyFat, data.getBodyFatTotal());
+		assertEquals(bodyFat, data.getBodyFatTotal(), 100L);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class TanitaDataTest {
 	public void testBodyFatLeftArm() {
 		long bodyFat = 12345L;
 		data.setBodyFatLeftArm(bodyFat);
-		assertEquals(bodyFat, data.getBodyFatLeftArm());
+		assertEquals(bodyFat, data.getBodyFatLeftArm(), 100L);
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class TanitaDataTest {
 	public void testBodyFatRightArm() {
 		long bodyFat = 12345L;
 		data.setBodyFatRightArm(bodyFat);
-		assertEquals(bodyFat, data.getBodyFatRightArm());
+		assertEquals(bodyFat, data.getBodyFatRightArm(), 100L);
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class TanitaDataTest {
 	public void testBodyFatRightLeg() {
 		long bodyFat = 12345L;
 		data.setBodyFatRightArm(bodyFat);
-		assertEquals(bodyFat, data.getBodyFatRightArm());
+		assertEquals(bodyFat, data.getBodyFatRightArm(), 100L);
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class TanitaDataTest {
 	public void testBodyFatLeftLeg() {
 		long bodyFat = 12345L;
 		data.setBodyFatLeftLeg(bodyFat);
-		assertEquals(bodyFat, data.getBodyFatLeftLeg());
+		assertEquals(bodyFat, data.getBodyFatLeftLeg(), 100L);
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class TanitaDataTest {
 	public void testBodyFatTrunk() {
 		long bodyFat = 12345L;
 		data.setBodyFatTrunk(bodyFat);
-		assertEquals(bodyFat, data.getBodyFatTrunk());
+		assertEquals(bodyFat, data.getBodyFatTrunk(), 100L);
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class TanitaDataTest {
 	public void testMuscleMassTotal() {
 		long muscle = 12345L;
 		data.setMuscleMassTotal(muscle);
-		assertEquals(muscle, data.getMuscleMassTotal());
+		assertEquals(muscle, data.getMuscleMassTotal(), 100L);
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class TanitaDataTest {
 	public void testMuscleMassLeftArm() {
 		long muscle = 12345L;
 		data.setMuscleMassLeftArm(muscle);
-		assertEquals(muscle, data.getMuscleMassLeftArm());
+		assertEquals(muscle, data.getMuscleMassLeftArm(), 100L);
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class TanitaDataTest {
 	public void testMuscleMassRightArm() {
 		long muscle = 12345L;
 		data.setMuscleMassRightArm(muscle);
-		assertEquals(muscle, data.getMuscleMassRightArm());
+		assertEquals(muscle, data.getMuscleMassRightArm(), 100L);
 	}
 
 	/**
@@ -152,7 +152,7 @@ public class TanitaDataTest {
 	public void testMuscleMassRightLeg() {
 		long muscle = 12345L;
 		data.setMuscleMassRightLeg(muscle);
-		assertEquals(muscle, data.getMuscleMassRightLeg());
+		assertEquals(muscle, data.getMuscleMassRightLeg(), 100L);
 	}
 
 	/**
@@ -162,7 +162,7 @@ public class TanitaDataTest {
 	public void testMuscleMassLeftLeg() {
 		long muscle = 12345L;
 		data.setMuscleMassLeftLeg(muscle);
-		assertEquals(muscle, data.getMuscleMassLeftLeg());
+		assertEquals(muscle, data.getMuscleMassLeftLeg(), 100L);
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class TanitaDataTest {
 	public void testMuscleMassTrunk() {
 		long muscle = 12345L;
 		data.setMuscleMassTrunk(muscle);
-		assertEquals(muscle, data.getMuscleMassTrunk());
+		assertEquals(muscle, data.getMuscleMassTrunk(), 100L);
 	}
 
 	/**
@@ -182,7 +182,7 @@ public class TanitaDataTest {
 	public void testPhysicRating() {
 		long muscle = 12345L;
 		data.setPhysicRating(muscle);
-		assertEquals(muscle, data.getPhysicRating());
+		assertEquals(muscle, data.getPhysicRating(), 100L);
 	}
 
 	/**
@@ -222,7 +222,7 @@ public class TanitaDataTest {
 	public void testBodyWaterPercentage() {
 		long muscle = 12345L;
 		data.setBodyWaterPercentage(muscle);
-		assertEquals(muscle, data.getBodyWaterPercentage());
+		assertEquals(muscle, data.getBodyWaterPercentage(), 100L);
 	}
 
 	/**
@@ -242,6 +242,6 @@ public class TanitaDataTest {
 	public void testBoneMass() {
 		long muscle = 12345L;
 		data.setBoneMass(muscle);
-		assertEquals(muscle, data.getBoneMass());
+		assertEquals(muscle, data.getBoneMass(), 100L);
 	}
 }
