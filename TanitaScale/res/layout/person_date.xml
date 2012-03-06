@@ -22,7 +22,8 @@
             android:id="@+id/weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -44,7 +45,8 @@
             android:id="@+id/dci"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -66,7 +68,8 @@
             android:id="@+id/metabolic_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -88,7 +91,8 @@
             android:id="@+id/body_water_percentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -110,7 +114,8 @@
             android:id="@+id/visceral_fat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -132,7 +137,8 @@
             android:id="@+id/bone_mass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -154,7 +160,8 @@
             android:id="@+id/body_fat_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -176,7 +183,8 @@
             android:id="@+id/body_fat_arm_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -198,7 +206,8 @@
             android:id="@+id/body_fat_arm_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -220,7 +229,8 @@
             android:id="@+id/body_fat_leg_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -242,7 +252,8 @@
             android:id="@+id/body_fat_leg_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -264,7 +275,8 @@
             android:id="@+id/body_fat_trunk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -286,7 +298,8 @@
             android:id="@+id/muscle_mass_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -308,7 +321,8 @@
             android:id="@+id/muscle_mass_arm_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -330,7 +344,8 @@
             android:id="@+id/muscle_mass_arm_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -352,7 +367,8 @@
             android:id="@+id/muscle_mass_leg_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -374,7 +390,8 @@
             android:id="@+id/muscle_mass_leg_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -396,7 +413,8 @@
             android:id="@+id/muscle_mass_trunk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -418,7 +436,8 @@
             android:id="@+id/physic_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:textStyle="bold" />
     </TableRow>
 
 </TableLayout>

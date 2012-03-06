@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.tanita.manage.PeopleListActivity;
 
 /**
  * The Class DataAndTimeActivity.
@@ -49,7 +50,7 @@ public class DateAndTimeActivity extends AbstractBaseActivity {
 		if (intent != null) {
 			// Don't know how inject extras in testing.
 			Bundle extras = intent.getExtras();
-			person = extras.getInt(TanitaDataTable.Column.PERSON.toString());
+			person = extras.getInt(PeopleListActivity.PERSON_ID.toString());
 		}
 		values.put(TanitaDataTable.Column.PERSON.toString(), person);
 

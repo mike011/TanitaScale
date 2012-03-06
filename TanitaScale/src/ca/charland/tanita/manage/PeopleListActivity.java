@@ -15,14 +15,14 @@ import ca.charland.tanita.db.AbstractData;
 import ca.charland.tanita.db.PersonDataSource;
 
 /**
- * The Class PeopleListActivity which views currently added people.
+ * The Class PeopleListActivity which views currently added people and allows you to choose a person to view.
  * 
  * @author mcharland
  */
 public class PeopleListActivity extends RoboListActivity {
 
-	/** The Constant PERSON. */
-	public static final String PERSON = "ROW_PERSON_ID";
+	/** The Constant PERSON ID. */
+	public static final String PERSON_ID = "ROW_PERSON_ID";
 
 	/** The database source. */
 	private PersonDataSource datasource;
@@ -46,7 +46,7 @@ public class PeopleListActivity extends RoboListActivity {
 				Intent intent = new Intent(getBaseContext(), PersonHomeActivity.class);
 
 				AbstractData selectedItem = data.get(pos);
-				intent.putExtra(PeopleListActivity.PERSON, selectedItem.getId());
+				intent.putExtra(PeopleListActivity.PERSON_ID, selectedItem.getId());
 
 				startActivity(intent);
 			}

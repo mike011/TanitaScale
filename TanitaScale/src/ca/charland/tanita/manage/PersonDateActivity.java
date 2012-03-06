@@ -59,7 +59,6 @@ public class PersonDateActivity extends RoboActivity {
 	@InjectView(R.id.body_fat_leg_left)
 	private TextView bodyFatLegLeft;
 
-
 	/** The body fat leg right. */
 	@InjectView(R.id.body_fat_leg_right)
 	private TextView bodyFatLegRight;

@@ -16,15 +16,15 @@ import ca.charland.tanita.db.DateListDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
- * This activity allows you to chose a previously entered entry by date!
+ * For a specific person this activity show a list of previous entries by date and allows you to choose one to view.
  * 
  * @author mcharland
  * 
  */
 public class DateListActivity extends RoboListActivity {
-	
+
 	/** The Constant ID. */
-	static final String ID = "DATE"; 
+	static final String ID = "DATE";
 
 	/** The database source. */
 	private DateListDataSource datasource;
@@ -38,13 +38,13 @@ public class DateListActivity extends RoboListActivity {
 		datasource.open();
 
 		Bundle extras = getIntent().getExtras();
-		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + extras.getInt(PeopleListActivity.PERSON);
+		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + extras.getInt(PeopleListActivity.PERSON_ID);
 
 		final List<AbstractData> data = datasource.query(selection);
 		ArrayAdapter<AbstractData> adapter = new ArrayAdapter<AbstractData>(this, R.layout.date_list, data);
 
 		setListAdapter(adapter);
-		
+
 		ListView lv = getListView();
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> par, View view, int pos, long id) {
