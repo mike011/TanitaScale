@@ -6,6 +6,7 @@ import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import ca.charland.tanita.DateAndTimeActivity;
@@ -69,5 +70,15 @@ public class PersonHomeActivity extends RoboActivity {
 				tds.close();
 			}
 		});
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// replaces the default 'Back' button action
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			this.startActivity(new Intent(this, PeopleListActivity.class));
+		}
+		return true;
 	}
 }
