@@ -21,7 +21,7 @@ import ca.charland.tanita.manage.PeopleListActivity;
  */
 class NextButtonOnClickListener implements View.OnClickListener {
 
-	/** The Constant ID which is the unique identifier of a row in the table.. */
+	/** The Constant ID which is the unique identifier of a row in the table. */
 	static final String ID = "ROW_ID";
 
 	/** The data source. */

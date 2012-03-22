@@ -116,18 +116,21 @@ public class PersonDateActivity extends RoboActivity {
 		bodyWaterPercentage.setText(String.valueOf(td.getBodyWaterPercentage()));
 		visceralFat.setText(String.valueOf(td.getVisceralFat()));
 		boneMass.setText(String.valueOf(td.getBoneMass()));
+		
 		bodyFatTotal.setText(String.valueOf(td.getBodyFatTotal()));
 		bodyfatArmLeft.setText(String.valueOf(td.getBodyFatLeftArm()));
 		bodyFatArmRight.setText(String.valueOf(td.getBodyFatRightArm()));
 		bodyFatLegLeft.setText(String.valueOf(td.getBodyFatLeftLeg()));
 		bodyFatLegRight.setText(String.valueOf(td.getBodyFatLeftLeg()));
 		bodyFatTrunk.setText(String.valueOf(td.getBodyFatTrunk()));
+		
 		muscleMassTotal.setText(String.valueOf(td.getMuscleMassTotal()));
 		muscleMassArmLeft.setText(String.valueOf(td.getMuscleMassLeftArm()));
-		muscleMassArmRight.setText(String.valueOf(td.getBodyFatRightArm()));
-		muscleMassLegRight.setText(String.valueOf(td.getBodyFatRightLeg()));
-		muscleMassLegLeft.setText(String.valueOf(td.getBodyFatLeftLeg()));
+		muscleMassArmRight.setText(String.valueOf(td.getMuscleMassRightArm()));
+		muscleMassLegRight.setText(String.valueOf(td.getMuscleMassRightLeg()));
+		muscleMassLegLeft.setText(String.valueOf(td.getMuscleMassLeftLeg()));
 		muscleMassTrunk.setText(String.valueOf(td.getMuscleMassTrunk()));
+		
 		physicRating.setText(String.valueOf(td.getPhysicRating()));
 
 		datasource.close();

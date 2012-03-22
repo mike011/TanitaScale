@@ -51,22 +51,22 @@ public class TanitaDataTable {
 		BODY_FAT_TRUNK("body_fat_trunk"),
 
 		/** The Constant MUSCLE_MASS_TOTAL. */
-		MUSCLE_MASS_TOTAL("body_muscle_mass_total"),
+		MUSCLE_MASS_TOTAL("muscle_mass_total"),
 
 		/** The Constant MUSCLE_MASS_LEFT_ARM. */
-		MUSCLE_MASS_LEFT_ARM("body_muscle_mass_left_arm"),
+		MUSCLE_MASS_LEFT_ARM("muscle_mass_left_arm"),
 
 		/** The Constant MUSCLE_MASS_RIGHT_ARM. */
-		MUSCLE_MASS_RIGHT_ARM("body_muscle_mass_right_arm"),
+		MUSCLE_MASS_RIGHT_ARM("muscle_mass_right_arm"),
 
 		/** The Constant MUSCLE_MASS_RIGHT_LEG. */
-		MUSCLE_MASS_RIGHT_LEG("body_muscle_mass_right_leg"),
+		MUSCLE_MASS_RIGHT_LEG("muscle_mass_right_leg"),
 
 		/** The Constant MUSCLE_MASS_LEFT_LEG. */
-		MUSCLE_MASS_LEFT_LEG("body_muscle_mass_left_leg"),
+		MUSCLE_MASS_LEFT_LEG("muscle_mass_left_leg"),
 
 		/** The Constant MUSCLE_MASS_TRUNK. */
-		MUSCLE_MASS_TRUNK("body_muscle_trunk"),
+		MUSCLE_MASS_TRUNK("muscle_trunk"),
 
 		/** The Constant PHYSIC_RATING. */
 		PHYSIC_RATING("physic_rating"),
