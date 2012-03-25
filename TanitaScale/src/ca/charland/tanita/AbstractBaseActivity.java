@@ -45,4 +45,5 @@ public abstract class AbstractBaseActivity extends RoboActivity {
 	 * @return the next class
 	 */
 	protected abstract Class<?> getNextClass();
+	
 }

@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.manage.PeopleListActivity;
@@ -44,6 +46,16 @@ class NextButtonOnClickListener implements View.OnClickListener {
 	/** {@inheritDoc} */
 	@Override
 	public void onClick(View v) {
+
+		TextView findViewById = (TextView) activity.findViewById(R.id.editTextEntry);
+		if (findViewById != null) {
+			CharSequence string = findViewById.getText();
+			if(string.length() == 0) {
+			 	Toast.makeText(activity.getBaseContext(), activity.getResources().getString(R.string.generic_error_message), Toast.LENGTH_SHORT).show();
+				return;
+			}
+		}
+		
 		datasource.open();
 		ContentValues values = activity.getValues();
 

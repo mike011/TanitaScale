@@ -33,4 +33,5 @@
     <string name="view">View</string>
     <string name="save">Save</string>
     <string name="colon"> : </string>
+    <string name="generic_error_message">Please enter a valid value</string>
 </resources>
