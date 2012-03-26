@@ -1,0 +1,25 @@
+Current Version 1.0
+
+Version 2.0
+-Be able to save to a csv style file on the android.
+-When entering a data be able to see previous entries
+-Better error handling, only allow valid values for each type.
+-Only show buttons when applicable
+-Add toast when adding a new person.
+
+Version 3.0
+-Be able to back up database
+-Make prettier results, graphs, trending.
+
+Version 4.0
+-Send files over wifi to computer.
+-Be able to view graphs on computer.
+
+--------------------------------------------------------------------------------------------------------------------------
+OLDER VERSIONS
+--------------------------------------------------------------------------------------------------------------------------
+
+Version 1.0
+-Can enter values
+-Can view entered values
+-Pictures where appropriate
