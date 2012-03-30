@@ -244,4 +244,14 @@ public class TanitaDataTest {
 		data.setBoneMass(muscle);
 		assertEquals(muscle, data.getBoneMass(), 100L);
 	}
+	
+	/**
+	 * Make sure the string is pretty.
+	 */
+	@Test
+	public void testToString() {
+		Date d = new Date(0);
+		data.setDate(d);
+		assertEquals("Dec 31, 1969 7:00PM", data.toString());
+	}
 }

@@ -1,5 +1,7 @@
 package ca.charland.tanita.db;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -474,7 +476,8 @@ public class TanitaData extends AbstractData {
 	/** {@inheritDoc} */
 	@Override
 	public String toString() {
-		return getDate().toGMTString();
+		DateFormat df = new SimpleDateFormat("MMM dd, yyyy h:mmaa");
+		return df.format(getDate());
 	}
 
 }
