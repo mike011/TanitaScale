@@ -4,7 +4,6 @@ import java.util.Date;
 
 import roboguice.inject.InjectView;
 import android.content.ContentValues;
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.TimePicker;

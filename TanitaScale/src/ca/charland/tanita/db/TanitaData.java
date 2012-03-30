@@ -52,7 +52,7 @@ public class TanitaData extends AbstractData {
 	private double muscleMassTrunk;
 
 	/** The physic rating. */
-	private double physicRating;
+	private int physicRating;
 
 	/** The weight. */
 	private double weight;
@@ -343,7 +343,7 @@ public class TanitaData extends AbstractData {
 	 * 
 	 * @return the physic rating
 	 */
-	public double getPhysicRating() {
+	public int getPhysicRating() {
 		return physicRating;
 	}
 
@@ -353,7 +353,7 @@ public class TanitaData extends AbstractData {
 	 * @param physicRating
 	 *            the new physic rating
 	 */
-	public void setPhysicRating(double physicRating) {
+	public void setPhysicRating(int physicRating) {
 		this.physicRating = physicRating;
 	}
 

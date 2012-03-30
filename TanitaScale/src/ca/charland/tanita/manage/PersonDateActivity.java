@@ -26,7 +26,7 @@ public class PersonDateActivity extends RoboActivity {
 	/** The dci. */
 	@InjectView(R.id.dci)
 	private TextView dci;
-	
+
 	/** The metabolic age. */
 	@InjectView(R.id.metabolic_age)
 	private TextView metabolicAge;
@@ -54,7 +54,7 @@ public class PersonDateActivity extends RoboActivity {
 	/** The body fat arm right. */
 	@InjectView(R.id.body_fat_arm_right)
 	private TextView bodyFatArmRight;
-	
+
 	/** The body fat leg left. */
 	@InjectView(R.id.body_fat_leg_left)
 	private TextView bodyFatLegLeft;
@@ -102,37 +102,63 @@ public class PersonDateActivity extends RoboActivity {
 
 		setContentView(R.layout.person_date);
 
+		TanitaData td = getTanitaData();
+
+		populateData(td);
+
+	}
+
+	/**
+	 * Gets the Tanita data.
+	 * 
+	 * @param datasource
+	 *            the data source
+	 * @return the Tanita data
+	 */
+	protected TanitaData getTanitaData() {
+
 		TanitaDataSource datasource = new TanitaDataSource(this);
 		datasource.open();
+
 		Bundle extras = getIntent().getExtras();
 		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(DateListActivity.ID);
 
 		List<AbstractData> data = datasource.query(selection);
 		TanitaData td = (TanitaData) data.get(0);
 
+		datasource.close();
+
+		return td;
+	}
+
+	/**
+	 * Populate data.
+	 * 
+	 * @param td
+	 *            the td
+	 */
+	private void populateData(TanitaData td) {
 		weight.setText(String.valueOf(td.getWeight()));
 		dci.setText(String.valueOf(td.getDailyCaloricIntake()));
 		metabolicAge.setText(String.valueOf(td.getMetabolicAge()));
 		bodyWaterPercentage.setText(String.valueOf(td.getBodyWaterPercentage()));
 		visceralFat.setText(String.valueOf(td.getVisceralFat()));
 		boneMass.setText(String.valueOf(td.getBoneMass()));
-		
+
 		bodyFatTotal.setText(String.valueOf(td.getBodyFatTotal()));
 		bodyfatArmLeft.setText(String.valueOf(td.getBodyFatLeftArm()));
 		bodyFatArmRight.setText(String.valueOf(td.getBodyFatRightArm()));
 		bodyFatLegLeft.setText(String.valueOf(td.getBodyFatLeftLeg()));
-		bodyFatLegRight.setText(String.valueOf(td.getBodyFatLeftLeg()));
+		bodyFatLegRight.setText(String.valueOf(td.getBodyFatRightLeg()));
 		bodyFatTrunk.setText(String.valueOf(td.getBodyFatTrunk()));
-		
+
 		muscleMassTotal.setText(String.valueOf(td.getMuscleMassTotal()));
 		muscleMassArmLeft.setText(String.valueOf(td.getMuscleMassLeftArm()));
 		muscleMassArmRight.setText(String.valueOf(td.getMuscleMassRightArm()));
 		muscleMassLegRight.setText(String.valueOf(td.getMuscleMassRightLeg()));
 		muscleMassLegLeft.setText(String.valueOf(td.getMuscleMassLeftLeg()));
 		muscleMassTrunk.setText(String.valueOf(td.getMuscleMassTrunk()));
-		
-		physicRating.setText(String.valueOf(td.getPhysicRating()));
 
-		datasource.close();
+		physicRating.setText(String.valueOf(td.getPhysicRating()));
 	}
 }

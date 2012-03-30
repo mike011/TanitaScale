@@ -180,7 +180,7 @@ public class TanitaDataTest {
 	 */
 	@Test
 	public void testPhysicRating() {
-		long muscle = 12345L;
+		int muscle = 12345;
 		data.setPhysicRating(muscle);
 		assertEquals(muscle, data.getPhysicRating(), 100L);
 	}
