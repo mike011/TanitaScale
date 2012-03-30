@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaDataTable;
 
@@ -29,6 +30,7 @@ public class DateAndTimeActivityTest {
 	/** {@inheritDoc} */
 	@Before
 	public void setup() {
+		activity.setIntent(new Intent());
 		activity.onCreate(null);
 	}
 
@@ -37,7 +39,7 @@ public class DateAndTimeActivityTest {
 	 */
 	@Test
 	public final void testGetValues() {
-
+		
 		ContentValues values = activity.getValues();
 		assertTrue(values.containsKey(TanitaDataTable.Column.DATE.toString()));
 		Long object = (Long) values.get(TanitaDataTable.Column.DATE.toString());

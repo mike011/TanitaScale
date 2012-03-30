@@ -45,13 +45,8 @@ public class DateAndTimeActivity extends AbstractBaseActivity {
 		ContentValues values = new ContentValues();
 
 		// This is the first item and needs to add the person.
-		long person = -1;
-		Intent intent = getIntent();
-		if (intent != null) {
-			// Don't know how inject extras in testing.
-			Bundle extras = intent.getExtras();
-			person = extras.getInt(PeopleListActivity.PERSON_ID.toString());
-		}
+		Bundle extras = getIntent().getExtras();
+		long person = extras.getInt(PeopleListActivity.PERSON_ID.toString());
 		values.put(TanitaDataTable.Column.PERSON.toString(), person);
 
 		// Now add the date and time.
