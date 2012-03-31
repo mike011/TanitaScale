@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import ca.charland.tanita.R;
 import ca.charland.tanita.db.PersonDataSource;
 
@@ -38,8 +39,16 @@ public class AddActivity extends RoboActivity {
 
 		save.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				datasource.create(name.getText().toString());
-				name.setText("");
+
+				String nameString = name.getText().toString();
+				int message = R.string.valid_name;
+				if (nameString.length() == 0) {
+					message = R.string.generic_error_message;
+				} else {
+					datasource.create(nameString);
+					name.setText("");
+				}
+				Toast.makeText(getBaseContext(), getResources().getString(message), Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
