@@ -5,6 +5,7 @@ import java.util.List;
 import roboguice.activity.RoboListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -66,5 +67,15 @@ public class PeopleListActivity extends RoboListActivity {
 	protected void onPause() {
 		datasource.close();
 		super.onPause();
+	}
+	
+	/** {@inheritDoc} */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// replaces the default 'Back' button action
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			this.startActivity(new Intent(this, TanitaScaleActivity.class));
+		}
+		return true;
 	}
 }
