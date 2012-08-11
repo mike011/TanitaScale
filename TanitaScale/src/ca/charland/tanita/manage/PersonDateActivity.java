@@ -5,6 +5,7 @@ import java.util.List;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import ca.charland.tanita.R;
 import ca.charland.tanita.db.AbstractData;
@@ -94,6 +95,10 @@ public class PersonDateActivity extends RoboActivity {
 	/** The physic rating. */
 	@InjectView(R.id.physic_rating)
 	private TextView physicRating;
+	
+	/** The send email button. */
+	@InjectView(R.id.email)
+	private Button email;
 
 	/** {@inheritDoc} */
 	@Override
@@ -105,6 +110,8 @@ public class PersonDateActivity extends RoboActivity {
 		TanitaData td = getTanitaData();
 
 		populateData(td);
+		
+		email.setOnClickListener(new EmailButtonOnClickListener(this, td));
 
 	}
 
