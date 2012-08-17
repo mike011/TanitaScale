@@ -46,22 +46,22 @@ public class PersonDataSourceTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#create(java.lang.String)} .
+	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#create(java.lang.String, String)} .
 	 */
 	@Test
 	public void testCreatePerson() {
 		pds.open();
-		long create = pds.create("bob");
+		long create = pds.create("bob", "a@b.ca");
 		assertTrue(create != 0);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#delete(ca.charland.tanita.db.Person)} .
+	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#delete(ca.charland.tanita.db.PersonData)} .
 	 */
 	@Test
 	public void testDeletePerson() {
 		pds.open();
-		int delete = pds.delete(new Person());
+		int delete = pds.delete(new PersonData());
 		assertEquals(0, delete);
 	}
 
@@ -82,15 +82,18 @@ public class PersonDataSourceTest {
 	public void testCursorConverter() {
 		int id = 5;
 		String name = "bob";
+		String email = "q@r.co.uk";
 
 		MyCursor cursor = new MyCursor();
 		cursor.setInt(0, id);
 		cursor.setString(1, name);
+		cursor.setString(2, email);
 
-		Person person = pds.convertToAbstractData(cursor);
-
+		PersonData person = pds.convertToAbstractData(cursor);
+		
 		assertEquals(id, person.getId());
 		assertEquals(name, person.getName());
+		assertEquals(email, person.getEmail());
 	}
 
 	/**
@@ -99,9 +102,9 @@ public class PersonDataSourceTest {
 	@Test
 	public void testGetAllColumns() {
 		List<String> allColumns = pds.getAllColumns();
-		assertEquals(2, allColumns.size());
+		assertEquals(3, allColumns.size());
 		assertEquals("_id", allColumns.get(0));
 		assertEquals("name", allColumns.get(1));
+		assertEquals("email", allColumns.get(2));
 	}
-
 }

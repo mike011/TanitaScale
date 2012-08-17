@@ -1,11 +1,18 @@
 package ca.charland.tanita.manage;
 
+import java.util.List;
+
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 import ca.charland.tanita.R;
+import ca.charland.tanita.db.AbstractData;
+import ca.charland.tanita.db.PersonData;
+import ca.charland.tanita.db.PersonDataSource;
+import ca.charland.tanita.db.PersonDataTable;
 import ca.charland.tanita.db.TanitaData;
 
 /**
@@ -23,6 +30,8 @@ public class EmailButtonOnClickListener implements OnClickListener {
 
 	/** The activity. */
 	private Activity activity;
+
+	/** The Tanita data to input into the email. */
 	private final TanitaData td;
 
 	/**
@@ -41,16 +50,63 @@ public class EmailButtonOnClickListener implements OnClickListener {
 	/** {@inheritDoc} */
 	@Override
 	public void onClick(View v) {
+		Intent intent = createEmail();
+		sendEmail(intent);
+	}
+
+	/**
+	 * Creates the email.
+	 *
+	 * @return the intent
+	 */
+	private Intent createEmail() {
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("message/rfc822");
-		intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "michael.charland@gmail.com" });
+		intent.putExtra(Intent.EXTRA_EMAIL, new String[] { getEmail() });
 		intent.putExtra(Intent.EXTRA_SUBJECT, getSubject());
 		intent.putExtra(Intent.EXTRA_TEXT, getBody());
+		return intent;
+	}
+
+	/**
+	 * Send email.
+	 *
+	 * @param intent the intent
+	 */
+	private void sendEmail(Intent intent) {
 		try {
 			activity.startActivity(Intent.createChooser(intent, "Send mail..."));
-		} catch (android.content.ActivityNotFoundException ex) {
+		} catch (ActivityNotFoundException ex) {
 			Toast.makeText(activity, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	/**
+	 * Gets the email.
+	 *
+	 * @return the email
+	 */
+	private String getEmail() {
+		/** The database source. */
+		PersonDataSource datasource = new PersonDataSource(activity);
+		datasource.open();
+		final List<AbstractData> data = datasource.query(getSelection());
+		PersonData pd = (PersonData) data.get(0);
+		String email = pd.getEmail();
+		
+		datasource.close();
+		
+		return email;
+	}
+
+	/**
+	 * Gets the selection.
+	 *
+	 * @return the selection
+	 */
+	private String getSelection() {
+		long person = td.getPerson();
+		return PersonDataTable.Column.ID.toString() + " = " + person;
 	}
 
 	/**
@@ -107,9 +163,11 @@ public class EmailButtonOnClickListener implements OnClickListener {
 
 	/**
 	 * A quick format to make the lines outputted to the email body consistent.
-	 *
-	 * @param id the id
-	 * @param value the value
+	 * 
+	 * @param id
+	 *            the id
+	 * @param extracted
+	 *            (value) the value
 	 * @return the line
 	 */
 	private String getLine(int id, String value) {

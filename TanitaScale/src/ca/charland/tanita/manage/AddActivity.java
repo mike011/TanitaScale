@@ -11,7 +11,7 @@ import ca.charland.tanita.R;
 import ca.charland.tanita.db.PersonDataSource;
 
 /**
- * The Class AddActivity which allows you to add a new person.
+ * The Class AddActivity which allows you to add a new person with an email.
  * 
  * @author mcharland
  */
@@ -20,9 +20,13 @@ public class AddActivity extends RoboActivity {
 	/** The database source. */
 	private PersonDataSource datasource;
 
-	/** The text field. */
+	/** The name text field. */
 	@InjectView(R.id.name)
 	private EditText name;
+	
+	/** The email text field. */
+	@InjectView(R.id.email)
+	private EditText email;
 
 	/** The save button. */
 	@InjectView(R.id.save)
@@ -38,6 +42,9 @@ public class AddActivity extends RoboActivity {
 		datasource.open();
 
 		save.setOnClickListener(new View.OnClickListener() {
+			
+			/** {@inheritDoc} */
+			@Override
 			public void onClick(View v) {
 
 				String nameString = name.getText().toString();
@@ -45,8 +52,9 @@ public class AddActivity extends RoboActivity {
 				if (nameString.length() == 0) {
 					message = R.string.generic_error_message;
 				} else {
-					datasource.create(nameString);
+					datasource.create(nameString, email.getText().toString());
 					name.setText("");
+					email.setText("");
 				}
 				Toast.makeText(getBaseContext(), getResources().getString(message), Toast.LENGTH_SHORT).show();
 			}

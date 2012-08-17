@@ -1,14 +1,17 @@
 package ca.charland.tanita.db;
 
 /**
- * The Class Names which is the table name.
+ * The Class Person which is the table name for an individual person.
  * 
  * @author mcharland
  */
-public class Person extends AbstractData {
+public class PersonData extends AbstractData {
 
 	/** The name. */
 	private String name;
+
+	/** This needs to be set somewhere!!!! in the GUI that is. */
+	private String email;
 
 	/**
 	 * Gets the name.
@@ -29,10 +32,31 @@ public class Person extends AbstractData {
 		this.name = name;
 	}
 
+	/**
+	 * Gets the email.
+	 * 
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * Sets the email.
+	 * 
+	 * @param email
+	 *            the new email
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+
+	}
+
 	// Will be used by the ArrayAdapter in the ListView
 	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return name;
 	}
+
 }

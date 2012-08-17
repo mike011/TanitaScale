@@ -35,5 +35,6 @@
     <string name="colon"> : </string>
     <string name="generic_error_message">Please enter a valid value</string>
     <string name="valid_name">Name added</string>
-    <string name="email">Send e-mail</string>
+    <string name="send_email">Send E-mail</string>
+    <string name="email">E-mail</string>
 </resources>

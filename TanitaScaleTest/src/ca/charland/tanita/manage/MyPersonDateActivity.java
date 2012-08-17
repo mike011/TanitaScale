@@ -10,7 +10,7 @@ import ca.charland.tanita.db.TanitaData;
  */
 public class MyPersonDateActivity extends PersonDateActivity {
 
-	/** The tanita data. */
+	/** The Tanita data. */
 	private final TanitaData tanitaData;
 
 	/**

@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	/** {@inheritDoc} */
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		database.execSQL(PeopleTable.CREATE);
+		database.execSQL(PersonDataTable.CREATE);
 		database.execSQL(TanitaDataTable.CREATE);
 	}
 
@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		msg.append(newVersion);
 		msg.append(", which will destroy all old data");
 		Log.w(DatabaseHelper.class.getName(), msg.toString());
-		db.execSQL("DROP TABLE IF EXISTS" + PeopleTable.TABLE);
+		db.execSQL("DROP TABLE IF EXISTS" + PersonDataTable.TABLE);
 		db.execSQL("DROP TABLE IF EXISTS" + TanitaDataTable.NAME);
 		onCreate(db);
 	}

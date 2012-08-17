@@ -3,6 +3,8 @@ package ca.charland.tanita.db;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.charland.tanita.db.PersonDataTable.Column;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -21,7 +23,7 @@ public class PersonDataSource extends AbstractDataSource {
 	 *            the context
 	 */
 	public PersonDataSource(Context context) {
-		super(context, PeopleTable.TABLE);
+		super(context, PersonDataTable.TABLE);
 	}
 
 	/**
@@ -29,11 +31,14 @@ public class PersonDataSource extends AbstractDataSource {
 	 * 
 	 * @param name
 	 *            The name of the person.
+	 * @param email
+	 *            Your email.
 	 * @return the long value
 	 */
-	public long create(String name) {
+	public long create(String name, String email) {
 		ContentValues values = new ContentValues();
-		values.put(PeopleTable.COLUMN_NAME, name);
+		values.put(PersonDataTable.Column.NAME.toString(), name);
+		values.put(PersonDataTable.Column.EMAIL.toString(), email);
 		return insert(values);
 	}
 
@@ -44,18 +49,19 @@ public class PersonDataSource extends AbstractDataSource {
 	 *            the name
 	 * @return the return value
 	 */
-	public int delete(Person name) {
+	public int delete(PersonData name) {
 		long id = name.getId();
 		System.out.println("Person deleted with id: " + id);
-		int delete = database.delete(PeopleTable.TABLE, PeopleTable.COLUMN_ID + " = " + id, null);
+		int delete = database.delete(PersonDataTable.TABLE, PersonDataTable.Column.ID + " = " + id, null);
 		return delete;
 	}
 
 	/** {@inheritDoc} */
-	protected Person convertToAbstractData(Cursor cursor) {
-		Person person = new Person();
+	protected PersonData convertToAbstractData(Cursor cursor) {
+		PersonData person = new PersonData();
 		person.setId(cursor.getInt(0));
 		person.setName(cursor.getString(1));
+		person.setEmail(cursor.getString(2));
 		return person;
 	}
 
@@ -63,8 +69,9 @@ public class PersonDataSource extends AbstractDataSource {
 	@Override
 	protected List<String> getAllColumns() {
 		List<String> allColumns = new ArrayList<String>();
-		allColumns.add(PeopleTable.COLUMN_ID);
-		allColumns.add(PeopleTable.COLUMN_NAME);
+		allColumns.add(PersonDataTable.Column.ID.toString());
+		allColumns.add(PersonDataTable.Column.NAME.toString());
+		allColumns.add(PersonDataTable.Column.EMAIL.toString());
 		return allColumns;
 	}
 }

@@ -14,7 +14,7 @@ import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
  * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
-public class PeopleDatabaseHelperTest {
+public class PersonDatabaseHelperTest {
 
 	/**
 	 * Test method for {@link ca.charland.tanita.db.DatabaseHelper#PeopleDatabaseHelper(android.content.Context)}.
