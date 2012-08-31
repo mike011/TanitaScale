@@ -5,6 +5,7 @@ import java.util.List;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ public class EmailButtonOnClickListener implements OnClickListener {
 	private Activity activity;
 
 	/** The Tanita data to input into the email. */
-	private final TanitaData td;
+	private final TanitaData tanitadata;
 
 	/**
 	 * Instantiates a new email button on click listener.
@@ -44,34 +45,34 @@ public class EmailButtonOnClickListener implements OnClickListener {
 	 */
 	EmailButtonOnClickListener(Activity activity, TanitaData td) {
 		this.activity = activity;
-		this.td = td;
+		this.tanitadata = td;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public void onClick(View v) {
-		Intent intent = createEmail();
+		Intent intent = getEmail();
 		sendEmail(intent);
 	}
 
 	/**
 	 * Creates the email.
-	 *
+	 * 
 	 * @return the intent
 	 */
-	private Intent createEmail() {
-		Intent intent = new Intent(Intent.ACTION_SEND);
-		intent.setType("message/rfc822");
-		intent.putExtra(Intent.EXTRA_EMAIL, new String[] { getEmail() });
-		intent.putExtra(Intent.EXTRA_SUBJECT, getSubject());
-		intent.putExtra(Intent.EXTRA_TEXT, getBody());
-		return intent;
+	private Intent getEmail() {
+		Email email = new Email();
+		email.setToAdress(getEmailToAddress());
+		email.setSubject(getSubject());
+		setEmailBody(email);
+		return email.getIntent();
 	}
 
 	/**
 	 * Send email.
-	 *
-	 * @param intent the intent
+	 * 
+	 * @param intent
+	 *            the intent
 	 */
 	private void sendEmail(Intent intent) {
 		try {
@@ -83,100 +84,73 @@ public class EmailButtonOnClickListener implements OnClickListener {
 
 	/**
 	 * Gets the email.
-	 *
+	 * 
 	 * @return the email
 	 */
-	private String getEmail() {
-		/** The database source. */
+	private String getEmailToAddress() {
 		PersonDataSource datasource = new PersonDataSource(activity);
 		datasource.open();
 		final List<AbstractData> data = datasource.query(getSelection());
 		PersonData pd = (PersonData) data.get(0);
 		String email = pd.getEmail();
-		
+
 		datasource.close();
-		
+
 		return email;
 	}
 
 	/**
 	 * Gets the selection.
-	 *
+	 * 
 	 * @return the selection
 	 */
 	private String getSelection() {
-		long person = td.getPerson();
+		long person = tanitadata.getPerson();
 		return PersonDataTable.Column.ID.toString() + " = " + person;
 	}
 
 	/**
 	 * Gets the body.
 	 * 
-	 * @return the body
+	 * @param email
+	 *            THe email to use.
 	 */
-	private String getBody() {
-		String weight = String.valueOf(td.getWeight());
-		String dci = String.valueOf(td.getDailyCaloricIntake());
-		String metabolicAge = String.valueOf(td.getMetabolicAge());
-		String bodyWaterPercentage = String.valueOf(td.getBodyWaterPercentage());
-		String visceralFat = String.valueOf(td.getVisceralFat());
-		String boneMass = String.valueOf(td.getBoneMass());
+	private void setEmailBody(Email email) {
 
-		String bodyFatTotal = String.valueOf(td.getBodyFatTotal());
-		String bodyfatArmLeft = String.valueOf(td.getBodyFatLeftArm());
-		String bodyFatArmRight = String.valueOf(td.getBodyFatRightArm());
-		String bodyFatLegLeft = String.valueOf(td.getBodyFatLeftLeg());
-		String bodyFatLegRight = String.valueOf(td.getBodyFatRightLeg());
-		String bodyFatTrunk = String.valueOf(td.getBodyFatTrunk());
-
-		String muscleMassTotal = String.valueOf(td.getMuscleMassTotal());
-		String muscleMassArmLeft = String.valueOf(td.getMuscleMassLeftArm());
-		String muscleMassArmRight = String.valueOf(td.getMuscleMassRightArm());
-		String muscleMassLegRight = String.valueOf(td.getMuscleMassRightLeg());
-		String muscleMassLegLeft = String.valueOf(td.getMuscleMassLeftLeg());
-		String muscleMassTrunk = String.valueOf(td.getMuscleMassTrunk());
-
-		String physicRating = String.valueOf(td.getPhysicRating());
-
-		StringBuffer email = new StringBuffer();
-		email.append(getLine(R.string.weight, weight));
-		email.append(getLine(R.string.dci, dci));
-		email.append(getLine(R.string.metabolic_age, metabolicAge));
-		email.append(getLine(R.string.body_water_percentage, bodyWaterPercentage));
-		email.append(getLine(R.string.visceral_fat, visceralFat));
-		email.append(getLine(R.string.bone_mass, boneMass));
-		email.append(getLine(R.string.body_fat_total, bodyFatTotal));
-		email.append(getLine(R.string.body_fat_arm_left, bodyfatArmLeft));
-		email.append(getLine(R.string.body_fat_arm_right, bodyFatArmRight));
-		email.append(getLine(R.string.body_fat_leg_left, bodyFatLegLeft));
-		email.append(getLine(R.string.body_fat_leg_right, bodyFatLegRight));
-		email.append(getLine(R.string.body_fat_trunk, bodyFatTrunk));
-		email.append(getLine(R.string.muscle_mass_total, muscleMassTotal));
-		email.append(getLine(R.string.muscle_mass_arm_left, muscleMassArmLeft));
-		email.append(getLine(R.string.muscle_mass_arm_right, muscleMassArmRight));
-		email.append(getLine(R.string.muscle_mass_leg_right, muscleMassLegRight));
-		email.append(getLine(R.string.muscle_mass_leg_left, muscleMassLegLeft));
-		email.append(getLine(R.string.muscle_mass_trunk, muscleMassTrunk));
-		email.append(getLine(R.string.physic_rating, physicRating));
-		return email.toString();
+		email.addToBodyDouble(getTextFromResource(R.string.weight), tanitadata.getWeight());
+		email.addToBodyInteger(getTextFromResource(R.string.dci), tanitadata.getDailyCaloricIntake());
+		email.addToBodyInteger(getTextFromResource(R.string.metabolic_age), tanitadata.getMetabolicAge());
+		email.addToBodyPercent(getTextFromResource(R.string.body_water_percentage), tanitadata.getBodyWaterPercentage());
+		email.addToBodyInteger(getTextFromResource(R.string.visceral_fat), tanitadata.getVisceralFat());
+		email.addToBodyDouble(getTextFromResource(R.string.bone_mass), tanitadata.getBoneMass());
+		
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_total), tanitadata.getBodyFatTotal());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_arm_left), tanitadata.getBodyFatLeftArm());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_arm_right), tanitadata.getBodyFatRightArm());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_leg_left), tanitadata.getBodyFatLeftLeg());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_leg_right), tanitadata.getBodyFatRightLeg());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_trunk), tanitadata.getBodyFatTrunk());
+		
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_total), tanitadata.getMuscleMassTotal());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_arm_left), tanitadata.getMuscleMassLeftArm());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_arm_right), tanitadata.getMuscleMassRightArm());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_leg_right), tanitadata.getMuscleMassRightLeg());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_leg_left), tanitadata.getMuscleMassLeftLeg());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_trunk), tanitadata.getMuscleMassTrunk());
+		
+		email.addToBodyInteger(getTextFromResource(R.string.physic_rating), tanitadata.getPhysicRating());
 	}
 
 	/**
-	 * A quick format to make the lines outputted to the email body consistent.
-	 * 
-	 * @param id
-	 *            the id
-	 * @param extracted
-	 *            (value) the value
-	 * @return the line
+	 * Gets the text from resource.
+	 *
+	 * @param id the id
+	 * @return the text from resource
 	 */
-	private String getLine(int id, String value) {
-		StringBuffer line = new StringBuffer();
-		line.append(activity.getResources().getText(id).toString());
-		line.append(" = ");
-		line.append(value);
-		line.append('\n');
-		return line.toString();
+	private String getTextFromResource(int id) {
+		Resources resources = activity.getResources();
+		CharSequence text = resources.getString(id);
+		return text.toString();
 	}
 
 	/**
@@ -185,7 +159,7 @@ public class EmailButtonOnClickListener implements OnClickListener {
 	 * @return the subject
 	 */
 	private String getSubject() {
-		return td.toString();
+		return tanitadata.toString();
 	}
 
 }

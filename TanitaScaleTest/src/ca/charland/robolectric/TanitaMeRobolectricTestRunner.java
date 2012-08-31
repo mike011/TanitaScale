@@ -10,6 +10,7 @@ import roboguice.inject.ContextScope;
 import com.google.inject.Injector;
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
+import com.xtremelabs.robolectric.shadows.ShadowResources;
 
 /**
  * Custom runner to redirect to the development folder. Specifically so the res and manifest can be found.
@@ -42,5 +43,9 @@ public class TanitaMeRobolectricTestRunner extends RobolectricTestRunner {
 		scope.enter(application);
 
 		injector.injectMembers(test);
+	}
+	
+	@Override protected void bindShadowClasses() {
+	    Robolectric.bindShadowClass(ShadowResources.class);
 	}
 }
