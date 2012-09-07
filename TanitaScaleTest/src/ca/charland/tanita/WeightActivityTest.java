@@ -51,7 +51,7 @@ public class WeightActivityTest {
 	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(DCIActivity.class, activity.getNextClass());
+		assertEquals(DailyCaloricIntakeActivity.class, activity.getNextClass());
 	}
 
 }
