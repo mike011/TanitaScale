@@ -12,17 +12,17 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Testing DCI Activity.
+ * Testing DailyCaloricIntake Activity Class.
  * 
  * @author mcharland
  * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
-public class DCIActivityTest {
+public class DailyCaloricIntakeActivityTest {
 
 	/** The class under test. */
 	@Inject
-	private DCIActivity activity;
+	private DailyCaloricIntakeActivity activity;
 
 	/** Ran before each test. */
 	@Before
@@ -31,7 +31,7 @@ public class DCIActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.DailyCaloricIntakeActivity#getLayoutResID()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
@@ -39,7 +39,7 @@ public class DCIActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getColumnName()}.
+	 * Test method for {@link ca.charland.tanita.DailyCaloricIntakeActivity#getColumnName()}.
 	 */
 	@Test
 	public void testGetColumnName() {
@@ -47,7 +47,7 @@ public class DCIActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DCIActivity#getNextClass()}.
+	 * Test method for {@link ca.charland.tanita.DailyCaloricIntakeActivity#getNextClass()}.
 	 */
 	@Test
 	public void testGetNextClass() {

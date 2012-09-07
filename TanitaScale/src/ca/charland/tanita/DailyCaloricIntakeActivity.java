@@ -3,11 +3,11 @@ package ca.charland.tanita;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
- * The Class DCIActivity.
+ * The Class DailyCaloricIntakeActivity.
  * 
  * @author mcharland
  */
-public class DCIActivity extends AbstractTextViewActivity {
+public class DailyCaloricIntakeActivity extends AbstractTextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override
