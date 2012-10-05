@@ -2,7 +2,9 @@ package ca.charland.tanita;
 
 import roboguice.inject.InjectView;
 import android.content.ContentValues;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import ca.charland.tanita.db.TanitaDataTable;
 
@@ -33,6 +35,18 @@ public abstract class AbstractTextViewActivity extends AbstractBaseActivity {
 		enter.setText(String.format(raw, getResources().getString(getStringID())));
 	}
 
+	/** {@inheritDoc} */
+	@Override
+	public void onStart() {
+		super.onStart();
+		showKeyboard();
+	}
+	
+	private void showKeyboard() {
+		InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_NOT_ALWAYS);
+	}
+	
 	/**
 	 * Gets the string id.
 	 * 

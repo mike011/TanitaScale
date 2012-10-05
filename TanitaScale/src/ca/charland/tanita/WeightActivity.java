@@ -1,8 +1,6 @@
 package ca.charland.tanita;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.inputmethod.InputMethodManager;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
@@ -16,9 +14,8 @@ public class WeightActivity extends AbstractTextViewActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-		imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
 	}
+	
 	/** {@inheritDoc} */
 	@Override
 	int getLayoutResID() {
