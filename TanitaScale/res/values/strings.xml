@@ -37,4 +37,6 @@
     <string name="valid_name">Name added</string>
     <string name="send_email">Send E-mail</string>
     <string name="email">E-mail</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 </resources>

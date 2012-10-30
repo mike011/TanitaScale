@@ -1,5 +1,6 @@
 package ca.charland.tanita;
 
+import android.os.Bundle;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
@@ -9,6 +10,12 @@ import ca.charland.tanita.db.TanitaDataTable;
  */
 public class BoneMassActivity extends AbstractTextViewActivity {
 
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setSex(R.id.bone_mass_image, R.drawable.bone_mass_female);
+	}
+	
 	/** {@inheritDoc} */
 	@Override
 	int getLayoutResID() {

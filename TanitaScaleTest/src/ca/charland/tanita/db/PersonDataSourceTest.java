@@ -51,7 +51,7 @@ public class PersonDataSourceTest {
 	@Test
 	public void testCreatePerson() {
 		pds.open();
-		long create = pds.create("bob", "a@b.ca");
+		long create = pds.create("bob", "a@b.ca", "boy");
 		assertTrue(create != 0);
 	}
 
@@ -102,9 +102,10 @@ public class PersonDataSourceTest {
 	@Test
 	public void testGetAllColumns() {
 		List<String> allColumns = pds.getAllColumns();
-		assertEquals(3, allColumns.size());
+		assertEquals(4, allColumns.size());
 		assertEquals("_id", allColumns.get(0));
 		assertEquals("name", allColumns.get(1));
 		assertEquals("email", allColumns.get(2));
+		assertEquals("sex", allColumns.get(3));
 	}
 }

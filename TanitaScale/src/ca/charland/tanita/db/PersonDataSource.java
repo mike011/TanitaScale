@@ -33,10 +33,11 @@ public class PersonDataSource extends AbstractDataSource {
 	 *            Your email.
 	 * @return the long value
 	 */
-	public long create(String name, String email) {
+	public long create(String name, String email, String sex) {
 		ContentValues values = new ContentValues();
 		values.put(PersonDataTable.Column.NAME.toString(), name);
 		values.put(PersonDataTable.Column.EMAIL.toString(), email);
+		values.put(PersonDataTable.Column.SEX.toString(), sex);
 		return insert(values);
 	}
 
@@ -55,11 +56,13 @@ public class PersonDataSource extends AbstractDataSource {
 	}
 
 	/** {@inheritDoc} */
+	@Override
 	protected PersonData convertToAbstractData(Cursor cursor) {
 		PersonData person = new PersonData();
 		person.setId(cursor.getInt(0));
 		person.setName(cursor.getString(1));
 		person.setEmail(cursor.getString(2));
+		person.setSex(cursor.getString(3));
 		return person;
 	}
 
@@ -70,6 +73,7 @@ public class PersonDataSource extends AbstractDataSource {
 		allColumns.add(PersonDataTable.Column.ID.toString());
 		allColumns.add(PersonDataTable.Column.NAME.toString());
 		allColumns.add(PersonDataTable.Column.EMAIL.toString());
+		allColumns.add(PersonDataTable.Column.SEX.toString());
 		return allColumns;
 	}
 }

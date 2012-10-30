@@ -1,6 +1,8 @@
 Current Version 2.0
 
 Version 2.0
+-Enter sex so the bone mass, body water, and body fat analysis can be split
+-Colour in body parts you are being asked for.
 -Be able to save to a csv style file on the android.
 -When entering a data be able to see previous entries
 -Better error handling, only allow valid values for each type.

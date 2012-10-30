@@ -10,14 +10,14 @@ import org.junit.Test;
  * @author mcharland
  *
  */
-public class PersonDataTableTest extends PersonDataTable {
+public class PersonDataTableTest {
 
 	/**
 	 * Test that the CREATE method has been generated correctly.
 	 */
 	@Test
 	public void testCreate() {
-		assertEquals("create table person( _id integer primary key autoincrement, name text not null, email text not null);", PersonDataTable.CREATE);
+		assertEquals("create table person( _id integer primary key autoincrement, name text not null, email text not null, sex text not null);", PersonDataTable.CREATE);
 	}
 
 }

@@ -13,6 +13,8 @@ public class PersonData extends AbstractData {
 	/** This needs to be set somewhere!!!! in the GUI that is. */
 	private String email;
 
+	private String sex;
+
 	/**
 	 * Gets the name.
 	 * 
@@ -49,7 +51,12 @@ public class PersonData extends AbstractData {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
 
+	public void setSex(String sex) {
+		this.sex = sex;
+		
 	}
 
 	// Will be used by the ArrayAdapter in the ListView
@@ -57,6 +64,10 @@ public class PersonData extends AbstractData {
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public String getSex() {
+		return sex;
 	}
 
 }

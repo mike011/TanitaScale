@@ -24,7 +24,7 @@ public abstract class AbstractDataSource {
 	private DatabaseHelper databaseHelper;
 
 	/** The table. */
-	final private String table;
+	private final String table;
 
 	/**
 	 * Instantiates a new person data source.

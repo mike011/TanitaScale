@@ -7,7 +7,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-public class BodyFatRightArmActivity extends AbstractTextViewActivity {
+public class BodyFatRightArmActivity extends BodyFatBaseActivity {
 
 	/** {@inheritDoc} */
 	@Override

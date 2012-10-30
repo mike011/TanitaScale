@@ -7,8 +7,8 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-public class BodyFatTotalActivity extends AbstractTextViewActivity {
-
+public class BodyFatTotalActivity extends BodyFatBaseActivity {
+	
 	/** {@inheritDoc} */
 	@Override
 	int getLayoutResID() {

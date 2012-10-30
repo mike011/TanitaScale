@@ -1,5 +1,6 @@
 package ca.charland.tanita;
 
+import android.os.Bundle;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
@@ -9,6 +10,12 @@ import ca.charland.tanita.db.TanitaDataTable;
  */
 public class BodyWaterPercentageActivity extends AbstractTextViewActivity {
 
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setSex(R.id.bodywater_image, R.drawable.body_water_female);
+	}
+	
 	/** {@inheritDoc} */
 	@Override
 	int getLayoutResID() {

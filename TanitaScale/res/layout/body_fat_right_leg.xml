@@ -5,10 +5,10 @@
     android:orientation="vertical" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/body_fat_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/bodyfat" />
+        android:src="@drawable/body_fat_male" />
 
     <include layout="@layout/base" />
 

@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 import ca.charland.tanita.R;
 import ca.charland.tanita.db.PersonDataSource;
 
 /**
- * The Class AddActivity which allows you to add a new person with an email.
+ * The Class AddActivity which allows you to add a new person with an email and there sex.
  * 
  * @author mcharland
  */
@@ -27,6 +29,9 @@ public class AddActivity extends RoboActivity {
 	/** The email text field. */
 	@InjectView(R.id.email)
 	private EditText email;
+	
+	@InjectView(R.id.sex)
+	private RadioGroup sex;
 
 	/** The save button. */
 	@InjectView(R.id.save)
@@ -49,14 +54,26 @@ public class AddActivity extends RoboActivity {
 
 				String nameString = name.getText().toString();
 				int message = R.string.valid_name;
-				if (nameString.length() == 0) {
+				if (nameString.length() == 0 || sex.getCheckedRadioButtonId() == -1) {
 					message = R.string.generic_error_message;
 				} else {
-					datasource.create(nameString, email.getText().toString());
+					datasource.create(nameString, email.getText().toString(), getSex());
 					name.setText("");
 					email.setText("");
+					sex.clearCheck();
 				}
 				Toast.makeText(getBaseContext(), getResources().getString(message), Toast.LENGTH_SHORT).show();
+			}
+
+			private String getSex() {
+				// Returns an integer which represents the selected radio button's ID
+				int selected = sex.getCheckedRadioButtonId();
+				 
+				// Gets a reference to our "selected" radio button
+				RadioButton b = (RadioButton) findViewById(selected);
+				 
+				// Now you can get the text or whatever you want from the "selected" radio button
+				return b.getText().toString();
 			}
 		});
 	}

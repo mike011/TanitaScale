@@ -26,7 +26,9 @@ public class PersonDataTable {
 		NAME("name"),
 		
 		/** The Constant EMAIL. */
-		EMAIL("email");
+		EMAIL("email"), 
+		
+		SEX("sex");
 		
 		/** The name. */
 		private final String name;
@@ -63,7 +65,8 @@ public class PersonDataTable {
 		sql.append("create table ").append(TABLE);
 		sql.append("( ").append(Column.ID).append(" integer primary key autoincrement, ");
 		sql.append(Column.NAME).append(" text not null, ");
-		sql.append(Column.EMAIL).append(" text not null);");
+		sql.append(Column.EMAIL).append(" text not null, ");
+		sql.append(Column.SEX).append(" text not null);");
 		String string = sql.toString();
 		return string;
 	}
