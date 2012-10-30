@@ -20,9 +20,16 @@ import com.google.inject.Inject;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class BoneMassActivityTest {
 
+	private static class BoneMassActivityUnderTest extends BoneMassActivity {
+
+		@Override
+		protected void setSex(int id, int female) {
+		}
+	}
+
 	/** The class under test. */
 	@Inject
-	private BoneMassActivity activity;
+	private BoneMassActivityUnderTest activity;
 
 	/** Ran before each test. */
 	@Before

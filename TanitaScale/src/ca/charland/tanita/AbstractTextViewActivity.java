@@ -93,7 +93,7 @@ public abstract class AbstractTextViewActivity extends AbstractBaseActivity {
 	private String getSex() {
 		PersonDataSource datasource = new PersonDataSource(this);
 		datasource.open();
-		final List<AbstractData> data = datasource.query(getSelection());
+		List<AbstractData> data = datasource.query(getSelection());
 		PersonData pd = (PersonData) data.get(0);
 		String sex = pd.getSex();
 		datasource.close();
