@@ -34,7 +34,18 @@ public class PersonDataTest {
 		p.setName(name);
 		assertEquals(name, p.getName());
 	}
-	
+
+	/**
+	 * Test method for get and set name.
+	 */
+	@Test
+	public void testSex() {
+		PersonData p = new PersonData();
+		String sex = "boy";
+		p.setSex(sex);
+		assertEquals(sex, p.getSex());
+	}
+
 	/**
 	 * Test method for get and set for email.
 	 */
