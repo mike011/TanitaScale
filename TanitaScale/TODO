@@ -1,7 +1,8 @@
 Current Version 2.0
 
 Version 2.0
--Enter sex so the bone mass, body water, and body fat analysis can be split
+-Update based on chapter 2 of clean coders
+-Update based on chapter 3 of clean coders
 -Colour in body parts you are being asked for.
 -Be able to save to a csv style file on the android.
 -When entering a data be able to see previous entries
@@ -16,7 +17,7 @@ Version 3.0
 -Make prettier results, graphs, trending.
 
 Version 4.0
--Send files over wifi to computer.
+-Send files over WIFI to computer.
 -Be able to view graphs on computer.
 
 --------------------------------------------------------------------------------------------------------------------------
@@ -24,6 +25,7 @@ IMPLEMENTED VERSIONS
 --------------------------------------------------------------------------------------------------------------------------
 Version 2.0
 -Add toast when adding a new person.
+-Enter sex so the bone mass, body water, and body fat analysis can be split
 
 Version 1.0
 -Can enter values
