@@ -8,6 +8,7 @@
         android:id="@+id/bone_mass_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/contentDescription"
         android:src="@drawable/bone_mass_male" />
 
     <include layout="@layout/base" />
