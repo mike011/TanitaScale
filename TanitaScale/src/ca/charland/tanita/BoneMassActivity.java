@@ -8,7 +8,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-public class BoneMassActivity extends AbstractTextViewActivity {
+public class BoneMassActivity extends TextViewActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

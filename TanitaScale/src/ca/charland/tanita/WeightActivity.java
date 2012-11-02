@@ -8,7 +8,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-public class WeightActivity extends AbstractTextViewActivity {
+public class WeightActivity extends TextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override

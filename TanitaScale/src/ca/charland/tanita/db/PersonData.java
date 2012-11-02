@@ -5,7 +5,7 @@ package ca.charland.tanita.db;
  * 
  * @author mcharland
  */
-public class PersonData extends AbstractData {
+public class PersonData extends Data {
 
 	/** The name. */
 	private String name;

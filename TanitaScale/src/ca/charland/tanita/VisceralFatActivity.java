@@ -7,7 +7,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-public class VisceralFatActivity extends AbstractTextViewActivity {
+public class VisceralFatActivity extends TextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override

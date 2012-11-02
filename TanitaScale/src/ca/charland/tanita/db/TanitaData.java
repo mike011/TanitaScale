@@ -9,7 +9,7 @@ import java.util.Date;
  * 
  * @author mcharland
  */
-public class TanitaData extends AbstractData {
+public class TanitaData extends Data {
 
 	/** The person. */
 	private long person;

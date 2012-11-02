@@ -70,7 +70,7 @@ public class TanitaDataSourceTest {
 		double bone_mass = 21;
 		int visceral_fat = 22;
 
-		MyCursor cursor = new MyCursor();
+		CustomCursor cursor = new CustomCursor();
 		cursor.setInt(TanitaDataTable.Column.ID.ordinal(), id);
 		cursor.setLong(TanitaDataTable.Column.PERSON.ordinal(), person);
 		cursor.setLong(TanitaDataTable.Column.DATE.ordinal(), date.getTime());

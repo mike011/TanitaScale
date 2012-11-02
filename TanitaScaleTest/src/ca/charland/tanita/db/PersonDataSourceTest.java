@@ -71,7 +71,7 @@ public class PersonDataSourceTest {
 	@Test
 	public void testGetAllPeople() {
 		pds.open();
-		List<AbstractData> allPeople = pds.getAll();
+		List<Data> allPeople = pds.getAll();
 		assertNotNull(allPeople);
 	}
 
@@ -84,7 +84,7 @@ public class PersonDataSourceTest {
 		String name = "bob";
 		String email = "q@r.co.uk";
 
-		MyCursor cursor = new MyCursor();
+		CustomCursor cursor = new CustomCursor();
 		cursor.setInt(0, id);
 		cursor.setString(1, name);
 		cursor.setString(2, email);

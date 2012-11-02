@@ -12,7 +12,7 @@ import android.database.Cursor;
  * 
  * @author mcharland
  */
-public class PersonDataSource extends AbstractDataSource {
+public class PersonDataSource extends DataSource {
 
 	/**
 	 * Instantiates a new person data source.

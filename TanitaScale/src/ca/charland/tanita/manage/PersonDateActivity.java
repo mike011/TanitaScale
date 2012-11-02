@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import ca.charland.tanita.R;
-import ca.charland.tanita.db.AbstractData;
+import ca.charland.tanita.db.Data;
 import ca.charland.tanita.db.TanitaData;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
@@ -130,7 +130,7 @@ public class PersonDateActivity extends RoboActivity {
 		Bundle extras = getIntent().getExtras();
 		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(DateListActivity.ID);
 
-		List<AbstractData> data = datasource.query(selection);
+		List<Data> data = datasource.query(selection);
 		TanitaData td = (TanitaData) data.get(0);
 
 		datasource.close();

@@ -6,7 +6,7 @@ package ca.charland.tanita.db;
  * @author mcharland
  * 
  */
-public class AbstractData {
+public class Data {
 
 	/** The id. */
 	private int id;

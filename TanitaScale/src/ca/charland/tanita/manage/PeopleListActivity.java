@@ -12,7 +12,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import ca.charland.tanita.R;
-import ca.charland.tanita.db.AbstractData;
+import ca.charland.tanita.db.Data;
 import ca.charland.tanita.db.PersonDataSource;
 
 /**
@@ -36,8 +36,8 @@ public class PeopleListActivity extends RoboListActivity {
 		datasource = new PersonDataSource(this);
 		datasource.open();
 
-		final List<AbstractData> data = datasource.getAll();
-		ArrayAdapter<AbstractData> adapter = new ArrayAdapter<AbstractData>(this, R.layout.people_list, datasource.getAll());
+		final List<Data> data = datasource.getAll();
+		ArrayAdapter<Data> adapter = new ArrayAdapter<Data>(this, R.layout.people_list, datasource.getAll());
 
 		setListAdapter(adapter);
 
@@ -46,7 +46,7 @@ public class PeopleListActivity extends RoboListActivity {
 			public void onItemClick(AdapterView<?> par, View view, int pos, long id) {
 				Intent intent = new Intent(getBaseContext(), PersonHomeActivity.class);
 
-				AbstractData selectedItem = data.get(pos);
+				Data selectedItem = data.get(pos);
 				intent.putExtra(PeopleListActivity.PERSON_ID, selectedItem.getId());
 
 				startActivity(intent);

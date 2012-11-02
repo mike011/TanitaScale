@@ -100,7 +100,7 @@ public class PersonDateActivityTest {
 
 	/** The class under test. */
 	@Inject
-	private MyPersonDateActivity activity;
+	private PersonDateActivityNoDatabase activity;
 
 	/**
 	 * Test method for {@link ca.charland.tanita.manage.PersonDateActivity#onCreate(android.os.Bundle)}.

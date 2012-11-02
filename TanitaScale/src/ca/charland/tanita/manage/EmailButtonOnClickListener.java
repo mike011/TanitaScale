@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 import ca.charland.tanita.R;
-import ca.charland.tanita.db.AbstractData;
+import ca.charland.tanita.db.Data;
 import ca.charland.tanita.db.PersonData;
 import ca.charland.tanita.db.PersonDataSource;
 import ca.charland.tanita.db.PersonDataTable;
@@ -90,7 +90,7 @@ public class EmailButtonOnClickListener implements OnClickListener {
 	private String getEmailToAddress() {
 		PersonDataSource datasource = new PersonDataSource(activity);
 		datasource.open();
-		final List<AbstractData> data = datasource.query(getSelection());
+		final List<Data> data = datasource.query(getSelection());
 		PersonData pd = (PersonData) data.get(0);
 		String email = pd.getEmail();
 

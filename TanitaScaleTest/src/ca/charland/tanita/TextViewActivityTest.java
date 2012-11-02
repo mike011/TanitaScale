@@ -22,7 +22,7 @@ import com.google.inject.Inject;
  * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
-public class AbstractTextViewActivityTest {
+public class TextViewActivityTest {
 
 	private static class BodyFatLeftArmActivityUnderTest extends BodyFatLeftArmActivity {
 		
@@ -54,7 +54,7 @@ public class AbstractTextViewActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.AbstractTextViewActivity#getValues()}.
+	 * Test method for {@link ca.charland.tanita.TextViewActivity#getValues()}.
 	 */
 	@Test
 	public void testGetValues() {

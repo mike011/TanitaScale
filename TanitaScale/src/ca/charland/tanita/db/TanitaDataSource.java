@@ -12,7 +12,7 @@ import android.database.Cursor;
  * 
  * @author mcharland
  */
-public class TanitaDataSource extends AbstractDataSource {
+public class TanitaDataSource extends DataSource {
 
 	/**
 	 * Instantiates a new Tanita data source.

@@ -15,7 +15,7 @@ import android.database.sqlite.SQLiteDatabase;
  * @author mcharland
  * 
  */
-public abstract class AbstractDataSource {
+public abstract class DataSource {
 
 	/** The database. */
 	protected SQLiteDatabase database;
@@ -32,7 +32,7 @@ public abstract class AbstractDataSource {
 	 * @param context
 	 *            the context
 	 */
-	public AbstractDataSource(Context context, String table) {
+	public DataSource(Context context, String table) {
 		this.databaseHelper = new DatabaseHelper(context);
 		this.table = table;
 	}
@@ -76,7 +76,7 @@ public abstract class AbstractDataSource {
 	 * 
 	 * @return the all values
 	 */
-	public List<AbstractData> getAll() {
+	public List<Data> getAll() {
 		return query(null);
 	}
 
@@ -88,13 +88,13 @@ public abstract class AbstractDataSource {
 	 * 
 	 * @return the list
 	 */
-	public List<AbstractData> query(String selection) {
-		List<AbstractData> all = new ArrayList<AbstractData>();
+	public List<Data> query(String selection) {
+		List<Data> all = new ArrayList<Data>();
 		String[] columns = getAllColumns().toArray(new String[0]);
 		Cursor cursor = database.query(table, columns, selection, null, null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			AbstractData comment = convertToAbstractData(cursor);
+			Data comment = convertToAbstractData(cursor);
 			all.add(comment);
 			cursor.moveToNext();
 		}
@@ -110,7 +110,7 @@ public abstract class AbstractDataSource {
 	 *            the cursor
 	 * @return The converted value.
 	 */
-	protected abstract AbstractData convertToAbstractData(Cursor cursor);
+	protected abstract Data convertToAbstractData(Cursor cursor);
 
 	/**
 	 * Gets all columns.

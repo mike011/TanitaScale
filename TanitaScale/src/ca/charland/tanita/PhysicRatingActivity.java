@@ -8,7 +8,7 @@ import ca.charland.tanita.manage.PersonHomeActivity;
  * 
  * @author mcharland
  */
-public class PhysicRatingActivity extends AbstractTextViewActivity {
+public class PhysicRatingActivity extends TextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override

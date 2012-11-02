@@ -8,7 +8,7 @@ import ca.charland.tanita.db.TanitaData;
  * @author mcharland
  * 
  */
-public class MyPersonDateActivity extends PersonDateActivity {
+public class PersonDateActivityNoDatabase extends PersonDateActivity {
 
 	/** The Tanita data. */
 	private final TanitaData tanitaData;
@@ -16,7 +16,7 @@ public class MyPersonDateActivity extends PersonDateActivity {
 	/**
 	 * Instantiates a new my person date activity.
 	 */
-	public MyPersonDateActivity() {
+	public PersonDateActivityNoDatabase() {
 		tanitaData = new TanitaData();
 	}
 

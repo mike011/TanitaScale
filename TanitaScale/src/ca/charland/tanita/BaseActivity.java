@@ -11,7 +11,7 @@ import android.widget.Button;
  * 
  * @author mcharland
  */
-public abstract class AbstractBaseActivity extends RoboActivity {
+public abstract class BaseActivity extends RoboActivity {
 
 	/** The next button. */
 	@InjectView(R.id.next)

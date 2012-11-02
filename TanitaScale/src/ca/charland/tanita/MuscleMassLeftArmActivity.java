@@ -7,7 +7,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-public class MuscleMassLeftArmActivity extends AbstractTextViewActivity {
+public class MuscleMassLeftArmActivity extends TextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override

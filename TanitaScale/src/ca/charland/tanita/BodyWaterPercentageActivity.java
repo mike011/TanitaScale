@@ -8,7 +8,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-public class BodyWaterPercentageActivity extends AbstractTextViewActivity {
+public class BodyWaterPercentageActivity extends TextViewActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

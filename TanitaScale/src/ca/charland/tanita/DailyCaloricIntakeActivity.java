@@ -7,7 +7,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-public class DailyCaloricIntakeActivity extends AbstractTextViewActivity {
+public class DailyCaloricIntakeActivity extends TextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override

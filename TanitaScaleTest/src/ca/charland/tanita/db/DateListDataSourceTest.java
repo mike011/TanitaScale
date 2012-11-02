@@ -53,12 +53,12 @@ public class DateListDataSourceTest {
 		int person = 53;
 		long date = 112341234L;
 
-		MyCursor cursor = new MyCursor();
+		CustomCursor cursor = new CustomCursor();
 		cursor.setInt(0, id);
 		cursor.setInt(1, person);
 		cursor.setLong(2, date);
 
-		AbstractData data = dateList.convertToAbstractData(cursor);
+		Data data = dateList.convertToAbstractData(cursor);
 		
 		assertEquals(id, data.getId());
 	}

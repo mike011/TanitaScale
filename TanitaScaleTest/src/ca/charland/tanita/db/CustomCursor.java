@@ -17,7 +17,7 @@ import android.os.Bundle;
  * @author mcharland
  * 
  */
-class MyCursor implements Cursor {
+class CustomCursor implements Cursor {
 
 	/** The values. */
 	private Map<Integer, Object> values = new TreeMap<Integer, Object>();

@@ -7,7 +7,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-public class MetabolicAgeActivity extends AbstractTextViewActivity {
+public class MetabolicAgeActivity extends TextViewActivity {
 
 	/** {@inheritDoc} */
 	@Override

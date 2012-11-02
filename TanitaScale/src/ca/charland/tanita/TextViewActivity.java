@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import ca.charland.tanita.db.AbstractData;
+import ca.charland.tanita.db.Data;
 import ca.charland.tanita.db.PersonData;
 import ca.charland.tanita.db.PersonDataSource;
 import ca.charland.tanita.db.PersonDataTable;
@@ -25,7 +25,7 @@ import ca.charland.tanita.manage.PeopleListActivity;
  * @author mcharland
  * 
  */
-public abstract class AbstractTextViewActivity extends AbstractBaseActivity {
+public abstract class TextViewActivity extends BaseActivity {
 
 	/**
 	 * The text. This cannot be injected because of a limitation in robo guice not allowing injection from an abstract base class.
@@ -93,7 +93,7 @@ public abstract class AbstractTextViewActivity extends AbstractBaseActivity {
 	private String getSex() {
 		PersonDataSource datasource = new PersonDataSource(this);
 		datasource.open();
-		List<AbstractData> data = datasource.query(getSelection());
+		List<Data> data = datasource.query(getSelection());
 		PersonData pd = (PersonData) data.get(0);
 		String sex = pd.getSex();
 		datasource.close();

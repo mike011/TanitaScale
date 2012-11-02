@@ -2,7 +2,10 @@ package ca.charland.tanita;
 
 import android.os.Bundle;
 
-public abstract class BodyFatBaseActivity extends AbstractTextViewActivity {
+/**
+ * @author mcharland
+ */
+public abstract class BodyFatBaseActivity extends TextViewActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

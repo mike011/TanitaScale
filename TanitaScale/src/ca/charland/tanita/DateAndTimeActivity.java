@@ -15,7 +15,7 @@ import ca.charland.tanita.manage.PeopleListActivity;
  * 
  * @author mcharland
  */
-public class DateAndTimeActivity extends AbstractBaseActivity {
+public class DateAndTimeActivity extends BaseActivity {
 
 	/** The date. */
 	@InjectView(R.id.entry_date)
