@@ -16,31 +16,37 @@ import ca.charland.tanita.db.Data;
 import ca.charland.tanita.db.PersonDataSource;
 
 /**
- * The Class PeopleListActivity which views currently added people and allows you to choose a person to view.
+ * Views currently added people and allows you to choose a person to view.
  * 
  * @author mcharland
  */
 public class PeopleListActivity extends RoboListActivity {
 
-	/** The Constant PERSON ID. */
 	public static final String PERSON_ID = "ROW_PERSON_ID";
 
-	/** The database source. */
 	private PersonDataSource datasource;
 
-	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		datasource = new PersonDataSource(this);
-		datasource.open();
+		datasource.openDatabaseConnection();
 
-		final List<Data> data = datasource.getAll();
-		ArrayAdapter<Data> adapter = new ArrayAdapter<Data>(this, R.layout.people_list, datasource.getAll());
+		final List<Data> data = datasource.getAllValues();
 
+		setListAdapter();
+		setupListView(data);
+
+		datasource.closeDatabaseConnection();
+	}
+
+	private void setListAdapter() {
+		ArrayAdapter<Data> adapter = new ArrayAdapter<Data>(this, R.layout.people_list, datasource.getAllValues());
 		setListAdapter(adapter);
+	}
 
+	private void setupListView(final List<Data> data) {
 		ListView lv = getListView();
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> par, View view, int pos, long id) {
@@ -52,24 +58,20 @@ public class PeopleListActivity extends RoboListActivity {
 				startActivity(intent);
 			}
 		});
-		datasource.close();
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected void onResume() {
-		datasource.open();
+		datasource.openDatabaseConnection();
 		super.onResume();
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected void onPause() {
-		datasource.close();
+		datasource.closeDatabaseConnection();
 		super.onPause();
 	}
-	
-	/** {@inheritDoc} */
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// replaces the default 'Back' button action

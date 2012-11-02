@@ -13,20 +13,13 @@ import org.junit.runner.RunWith;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 /**
- * Tests for Tanita Data Source.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class TanitaDataSourceTest {
 
-	/**
-	 * Class under test.
-	 */
 	private TanitaDataSource tds;
 
-	/** Sets things up. */
 	@Before
 	public void setup() {
 		tds = new TanitaDataSource(null);

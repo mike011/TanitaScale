@@ -8,23 +8,16 @@ import android.content.Context;
 import android.database.Cursor;
 
 /**
- * The Class DateListDataSource which gets all the entries for a person.
+ * Gets all the entries for a person.
  * 
  * @author mcharland
  */
 public class DateListDataSource extends DataSource {
 
-	/**
-	 * Instantiates a new people list data source.
-	 * 
-	 * @param context
-	 *            the context
-	 */
 	public DateListDataSource(Context context) {
-		super(context, TanitaDataTable.NAME);
+		super(context, TanitaDataTable.TABLE_NAME);
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected Data convertToAbstractData(Cursor cursor) {
 		TanitaData td = new TanitaData();
@@ -36,7 +29,6 @@ public class DateListDataSource extends DataSource {
 		return td;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected List<String> getAllColumns() {
 		List<String> columns = new ArrayList<String>();

@@ -8,10 +8,7 @@ import org.junit.runner.RunWith;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 /**
- * Testing Person Data Source.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class PersonDatabaseHelperTest {

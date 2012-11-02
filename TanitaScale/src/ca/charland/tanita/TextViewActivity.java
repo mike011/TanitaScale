@@ -27,26 +27,23 @@ import ca.charland.tanita.manage.PeopleListActivity;
  */
 public abstract class TextViewActivity extends BaseActivity {
 
-	/**
-	 * The text. This cannot be injected because of a limitation in robo guice not allowing injection from an abstract base class.
+	/*
+	 * This cannot be injected because of a limitation in robo guice not allowing injection from an abstract base class.
 	 */
 	private TextView text;
 
-	/** The enter your text. */
 	@InjectView(R.id.enter_your)
 	private TextView enter;
 
-	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		text = (TextView) findViewById(R.id.editTextEntry);
 
 		String raw = getResources().getString(R.string.enterYour);
-		enter.setText(String.format(raw, getResources().getString(getStringID())));
+		enter.setText(String.format(raw, getResources().getString(getIDForString())));
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public void onStart() {
 		super.onStart();
@@ -58,21 +55,10 @@ public abstract class TextViewActivity extends BaseActivity {
 		imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_NOT_ALWAYS);
 	}
 	
-	/**
-	 * Gets the string id.
-	 * 
-	 * @return the string id
-	 */
-	protected abstract int getStringID();
+	protected abstract int getIDForString();
 
-	/**
-	 * Gets the column name for the table used by the class.
-	 * 
-	 * @return The column name for the table used by the class.
-	 */
 	protected abstract TanitaDataTable.Column getColumnName();
 
-	/** {@inheritDoc} */
 	@Override
 	protected final ContentValues getValues() {
 		ContentValues values = new ContentValues();
@@ -92,11 +78,11 @@ public abstract class TextViewActivity extends BaseActivity {
 	
 	private String getSex() {
 		PersonDataSource datasource = new PersonDataSource(this);
-		datasource.open();
+		datasource.openDatabaseConnection();
 		List<Data> data = datasource.query(getSelection());
 		PersonData pd = (PersonData) data.get(0);
 		String sex = pd.getSex();
-		datasource.close();
+		datasource.closeDatabaseConnection();
 		return sex;
 	}
 

@@ -14,27 +14,21 @@ import org.junit.runner.RunWith;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 /**
- * Testing Person Data Source.
- * 
  * @author mcharland.
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class PersonDataSourceTest {
 
-	/** The class under test. */
 	private PersonDataSource pds;
 
-	/** Sets things up. */
 	@Before
 	public void setup() {
 		pds = new PersonDataSource(null);
 	}
 
-	/** Tears things down. */
 	@After
 	public void tearDown() {
-		pds.close();
+		pds.closeDatabaseConnection();
 	}
 
 	/**
@@ -50,7 +44,7 @@ public class PersonDataSourceTest {
 	 */
 	@Test
 	public void testCreatePerson() {
-		pds.open();
+		pds.openDatabaseConnection();
 		long create = pds.create("bob", "a@b.ca", "boy");
 		assertTrue(create != 0);
 	}
@@ -60,18 +54,18 @@ public class PersonDataSourceTest {
 	 */
 	@Test
 	public void testDeletePerson() {
-		pds.open();
+		pds.openDatabaseConnection();
 		int delete = pds.delete(new PersonData());
 		assertEquals(0, delete);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#getAll()}.
+	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#getAllValues()}.
 	 */
 	@Test
 	public void testGetAllPeople() {
-		pds.open();
-		List<Data> allPeople = pds.getAll();
+		pds.openDatabaseConnection();
+		List<Data> allPeople = pds.getAllValues();
 		assertNotNull(allPeople);
 	}
 

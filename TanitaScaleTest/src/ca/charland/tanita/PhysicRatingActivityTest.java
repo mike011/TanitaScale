@@ -13,30 +13,25 @@ import ca.charland.tanita.manage.PersonHomeActivity;
 import com.google.inject.Inject;
 
 /**
- * Testing Physic Rating Activity.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class PhysicRatingActivityTest {
 
-	/** The class under test. */
 	@Inject
 	private PhysicRatingActivity activity;
 
-	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.PhysicRatingActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.PhysicRatingActivity#getResourceIDForLayout()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.physic_rating, activity.getLayoutResID());
+		assertEquals(R.layout.physic_rating, activity.getResourceIDForLayout());
 	}
 
 	/**

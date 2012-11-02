@@ -3,33 +3,27 @@ package ca.charland.tanita;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
- * The Class MuscleMassRightArmActivity.
- * 
  * @author mcharland
  */
 public class MuscleMassRightArmActivity extends TextViewActivity {
 
-	/** {@inheritDoc} */
 	@Override
-	int getLayoutResID() {
+	protected int getResourceIDForLayout() {
 		return R.layout.muscle_mass_right_arm;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
 		return MuscleMassRightLegActivity.class;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.MUSCLE_MASS_RIGHT_ARM;
 	}
 
-	/** {@inheritDoc} */
 	@Override
-	protected int getStringID() {
+	protected int getIDForString() {
 		return R.string.muscle_mass_arm_right;
 	}
 }

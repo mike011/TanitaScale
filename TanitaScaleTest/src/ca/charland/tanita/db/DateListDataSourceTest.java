@@ -2,7 +2,6 @@ package ca.charland.tanita.db;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import java.util.List;
 
@@ -14,27 +13,21 @@ import org.junit.runner.RunWith;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 /**
- * Testing DateListDataSource.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DateListDataSourceTest {
 
-	/** The class under test. */
 	private DateListDataSource dateList;
 
-	/** Sets things up. */
 	@Before
 	public void setup() {
 		dateList = new DateListDataSource(null);
 	}
 
-	/** Tears things down. */
 	@After
 	public void tearDown() {
-		dateList.close();
+		dateList.closeDatabaseConnection();
 	}
 
 	/**

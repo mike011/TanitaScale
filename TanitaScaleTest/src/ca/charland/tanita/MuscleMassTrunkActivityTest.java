@@ -12,30 +12,25 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Testing Muscle Mass Trunk Activity.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class MuscleMassTrunkActivityTest {
 
-	/** The class under test. */
 	@Inject
 	private MuscleMassTrunkActivity activity;
 
-	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassTrunkActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.MuscleMassTrunkActivity#getResourceIDForLayout()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.muscle_mass_trunk, activity.getLayoutResID());
+		assertEquals(R.layout.muscle_mass_trunk, activity.getResourceIDForLayout());
 	}
 
 	/**

@@ -12,30 +12,26 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Testing Metabolic Age Activity.
- * 
  * @author mcharland
  * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class MetabolicAgeActivityTest {
 
-	/** The class under test. */
 	@Inject
 	private MetabolicAgeActivity activity;
 
-	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.MetabolicAgeActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.MetabolicAgeActivity#getResourceIDForLayout()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.metabolic_age, activity.getLayoutResID());
+		assertEquals(R.layout.metabolic_age, activity.getResourceIDForLayout());
 	}
 
 	/**

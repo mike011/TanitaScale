@@ -8,46 +8,24 @@ import android.content.Context;
 import android.database.Cursor;
 
 /**
- * The Class PersonDataSource which holds the database information related to a person.
+ * Holds the database information related to a person.
  * 
  * @author mcharland
  */
 public class PersonDataSource extends DataSource {
 
-	/**
-	 * Instantiates a new person data source.
-	 * 
-	 * @param context
-	 *            the context
-	 */
 	public PersonDataSource(Context context) {
 		super(context, PersonDataTable.TABLE);
 	}
 
-	/**
-	 * Creates the person.
-	 * 
-	 * @param name
-	 *            The name of the person.
-	 * @param email
-	 *            Your email.
-	 * @return the long value
-	 */
 	public long create(String name, String email, String sex) {
 		ContentValues values = new ContentValues();
 		values.put(PersonDataTable.Column.NAME.toString(), name);
 		values.put(PersonDataTable.Column.EMAIL.toString(), email);
 		values.put(PersonDataTable.Column.SEX.toString(), sex);
-		return insert(values);
+		return insertTableRow(values);
 	}
 
-	/**
-	 * Delete a person.
-	 * 
-	 * @param name
-	 *            the name
-	 * @return the return value
-	 */
 	public int delete(PersonData name) {
 		long id = name.getId();
 		System.out.println("Person deleted with id: " + id);
@@ -55,7 +33,6 @@ public class PersonDataSource extends DataSource {
 		return delete;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected PersonData convertToAbstractData(Cursor cursor) {
 		PersonData person = new PersonData();
@@ -66,7 +43,6 @@ public class PersonDataSource extends DataSource {
 		return person;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected List<String> getAllColumns() {
 		List<String> allColumns = new ArrayList<String>();

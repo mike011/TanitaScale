@@ -20,19 +20,12 @@ import com.xtremelabs.robolectric.shadows.ShadowResources;
  */
 public class TanitaMeRobolectricTestRunner extends RobolectricTestRunner {
 
-	/**
-	 * Creates a new runner.
-	 * 
-	 * @param testClass
-	 *            The class to test.
-	 * @throws InitializationError
-	 *             Represents one or more problems encountered while initialising a Runner.
-	 */
+	private static final String APPLICATION_LOCATION = "../TanitaScale";
+
 	public TanitaMeRobolectricTestRunner(Class<?> testClass) throws InitializationError {
-		super(testClass, new File("../TanitaScale"));
+		super(testClass, new File(APPLICATION_LOCATION));
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public void prepareTest(Object test) {
 		RoboApplication application = (RoboApplication) Robolectric.application;
@@ -44,8 +37,9 @@ public class TanitaMeRobolectricTestRunner extends RobolectricTestRunner {
 
 		injector.injectMembers(test);
 	}
-	
-	@Override protected void bindShadowClasses() {
-	    Robolectric.bindShadowClass(ShadowResources.class);
+
+	@Override
+	protected void bindShadowClasses() {
+		Robolectric.bindShadowClass(ShadowResources.class);
 	}
 }

@@ -16,10 +16,7 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Testing of Abstract Text View Activity.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class TextViewActivityTest {
@@ -31,23 +28,17 @@ public class TextViewActivityTest {
 		}
 	}
 	
-	/** The class under test. */
 	@Inject
 	private BodyFatLeftArmActivityUnderTest activity;
 
-	/** The enter text. */
 	@InjectView(R.id.enter_your)
 	private TextView enter;
 
-	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
 
-	/**
-	 * Test method to make sure the text is set correctly.
-	 */
 	@Test
 	public void testText() {
 		assertEquals("Enter your Body Fat for your Left Arm", enter.getText().toString());

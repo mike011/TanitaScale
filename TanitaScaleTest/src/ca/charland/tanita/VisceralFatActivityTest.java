@@ -12,30 +12,25 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Testing Visceral Fat Activity.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class VisceralFatActivityTest {
 
-	/** The class under test. */
 	@Inject
 	private VisceralFatActivity activity;
 
-	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.VisceralFatActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.VisceralFatActivity#getResourceIDForLayout()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.visceral_fat, activity.getLayoutResID());
+		assertEquals(R.layout.visceral_fat, activity.getResourceIDForLayout());
 	}
 
 	/**

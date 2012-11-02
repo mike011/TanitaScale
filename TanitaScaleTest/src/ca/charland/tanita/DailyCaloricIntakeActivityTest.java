@@ -12,30 +12,25 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Testing DailyCaloricIntake Activity Class.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DailyCaloricIntakeActivityTest {
 
-	/** The class under test. */
 	@Inject
 	private DailyCaloricIntakeActivity activity;
 
-	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DailyCaloricIntakeActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.DailyCaloricIntakeActivity#getResourceIDForLayout()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.dci, activity.getLayoutResID());
+		assertEquals(R.layout.dci, activity.getResourceIDForLayout());
 	}
 
 	/**

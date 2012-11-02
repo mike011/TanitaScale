@@ -12,30 +12,25 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Testing Body Fat Trunk Activity.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class BodyFatTrunkActivityTest {
 
-	/** The class under test. */
 	@Inject
 	private BodyFatTrunkActivity activity;
 
-	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.BodyFatTrunkActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.BodyFatTrunkActivity#getResourceIDForLayout()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.body_fat_trunk, activity.getLayoutResID());
+		assertEquals(R.layout.body_fat_trunk, activity.getResourceIDForLayout());
 	}
 
 	/**

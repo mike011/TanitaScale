@@ -5,10 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Testing TanitaDataTableTest.
- * 
  * @author mcharland
- * 
  */
 public class TanitaDataTableTest {
 
@@ -41,6 +38,6 @@ public class TanitaDataTableTest {
 		expected.append("body_water_percentage integer, ");
 		expected.append("visceral_fat integer, ");
 		expected.append("bone_mass integer);");
-		assertEquals(expected.toString(), TanitaDataTable.CREATE);
+		assertEquals(expected.toString(), TanitaDataTable.CREATE_DATABASE_TABLE);
 	}
 }

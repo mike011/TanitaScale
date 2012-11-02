@@ -23,43 +23,25 @@ import ca.charland.tanita.db.TanitaData;
  * the emailButtonOnClick event occurs, that object's appropriate
  * method is invoked.
  * 
- * @see EmailButtonOnClickEvent
- * 
  * @author mcharland
  */
 public class EmailButtonOnClickListener implements OnClickListener {
 
-	/** The activity. */
 	private Activity activity;
 
-	/** The Tanita data to input into the email. */
 	private final TanitaData tanitadata;
 
-	/**
-	 * Instantiates a new email button on click listener.
-	 * 
-	 * @param activity
-	 *            the activity
-	 * @param td
-	 *            The tanita data.
-	 */
 	EmailButtonOnClickListener(Activity activity, TanitaData td) {
 		this.activity = activity;
 		this.tanitadata = td;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public void onClick(View v) {
 		Intent intent = getEmail();
 		sendEmail(intent);
 	}
 
-	/**
-	 * Creates the email.
-	 * 
-	 * @return the intent
-	 */
 	private Intent getEmail() {
 		Email email = new Email();
 		email.setToAdress(getEmailToAddress());
@@ -68,12 +50,6 @@ public class EmailButtonOnClickListener implements OnClickListener {
 		return email.getIntent();
 	}
 
-	/**
-	 * Send email.
-	 * 
-	 * @param intent
-	 *            the intent
-	 */
 	private void sendEmail(Intent intent) {
 		try {
 			activity.startActivity(Intent.createChooser(intent, "Send mail..."));
@@ -82,39 +58,23 @@ public class EmailButtonOnClickListener implements OnClickListener {
 		}
 	}
 
-	/**
-	 * Gets the email.
-	 * 
-	 * @return the email
-	 */
 	private String getEmailToAddress() {
 		PersonDataSource datasource = new PersonDataSource(activity);
-		datasource.open();
+		datasource.openDatabaseConnection();
 		final List<Data> data = datasource.query(getSelection());
 		PersonData pd = (PersonData) data.get(0);
 		String email = pd.getEmail();
 
-		datasource.close();
+		datasource.closeDatabaseConnection();
 
 		return email;
 	}
 
-	/**
-	 * Gets the selection.
-	 * 
-	 * @return the selection
-	 */
 	private String getSelection() {
 		long person = tanitadata.getPerson();
 		return PersonDataTable.Column.ID.toString() + " = " + person;
 	}
 
-	/**
-	 * Gets the body.
-	 * 
-	 * @param email
-	 *            THe email to use.
-	 */
 	private void setEmailBody(Email email) {
 
 		email.addToBodyDouble(getTextFromResource(R.string.weight), tanitadata.getWeight());
@@ -141,23 +101,12 @@ public class EmailButtonOnClickListener implements OnClickListener {
 		email.addToBodyInteger(getTextFromResource(R.string.physic_rating), tanitadata.getPhysicRating());
 	}
 
-	/**
-	 * Gets the text from resource.
-	 *
-	 * @param id the id
-	 * @return the text from resource
-	 */
 	private String getTextFromResource(int id) {
 		Resources resources = activity.getResources();
 		CharSequence text = resources.getString(id);
 		return text.toString();
 	}
 
-	/**
-	 * Gets the subject.
-	 * 
-	 * @return the subject
-	 */
 	private String getSubject() {
 		return tanitadata.toString();
 	}

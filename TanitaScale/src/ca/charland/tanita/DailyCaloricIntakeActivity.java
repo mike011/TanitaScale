@@ -3,33 +3,27 @@ package ca.charland.tanita;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
- * The Class DailyCaloricIntakeActivity.
- * 
  * @author mcharland
  */
 public class DailyCaloricIntakeActivity extends TextViewActivity {
 
-	/** {@inheritDoc} */
 	@Override
-	int getLayoutResID() {
+	protected int getResourceIDForLayout() {
 		return R.layout.dci;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
 		return MetabolicAgeActivity.class;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.DAILY_CALORIC_INTAKE;
 	}
 
-	/** {@inheritDoc} */
 	@Override
-	protected int getStringID() {
+	protected int getIDForString() {
 		return R.string.dci;
 	}
 }

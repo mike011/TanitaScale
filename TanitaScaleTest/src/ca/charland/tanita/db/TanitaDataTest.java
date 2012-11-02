@@ -8,18 +8,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * The Class TanitaDataTest which holds the Tanita specific information for the database.
- * 
  * @author mcharland
  */
 public class TanitaDataTest {
 
-	/** The data. */
 	private TanitaData data;
 
-	/**
-	 * Setup.
-	 */
 	@Before
 	public void setup() {
 		data = new TanitaData();

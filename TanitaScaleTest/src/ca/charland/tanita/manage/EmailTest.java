@@ -10,10 +10,7 @@ import org.junit.runner.RunWith;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 /**
- * Testing of email.
- * 
  * @author mcharland
- *
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class EmailTest {

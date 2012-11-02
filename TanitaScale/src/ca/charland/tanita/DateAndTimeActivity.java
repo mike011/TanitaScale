@@ -11,63 +11,82 @@ import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.manage.PeopleListActivity;
 
 /**
- * The Class DataAndTimeActivity.
- * 
  * @author mcharland
  */
 public class DateAndTimeActivity extends BaseActivity {
 
-	/** The date. */
+	private static final int SECONDS = 0;
+
 	@InjectView(R.id.entry_date)
 	private DatePicker datePicker;
 
-	/** The time. */
 	@InjectView(R.id.entry_time)
 	private TimePicker timePicker;
 
-	/** {@inheritDoc} */
 	@Override
-	int getLayoutResID() {
+	protected int getResourceIDForLayout() {
 		return R.layout.date_view;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
 		return WeightActivity.class;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected ContentValues getValues() {
 
-		ContentValues values = new ContentValues();
+		ContentValues content = new ContentValues();
 
 		// This is the first item and needs to add the person.
+		addPerson(content);
+
+		Date date = getDate();
+		content.put(TanitaDataTable.Column.DATE.toString(), date.getTime());
+
+		return content;
+	}
+
+	private Date getDate() {
+		return new Date(getYear(), getMonth(), getDay(), getHours(), getMinutes(), SECONDS);
+	}
+
+	private int getYear() {
+		int year = datePicker.getYear();
+		return year - 1900;
+	}
+	
+	private int getMonth() {
+		int month = datePicker.getMonth();
+		return month;
+	}
+	
+	private int getDay() {
+		int day = datePicker.getDayOfMonth();
+		return day;
+	}
+
+	private void addPerson(ContentValues values) {
 		Bundle extras = getIntent().getExtras();
 		long person = extras.getInt(PeopleListActivity.PERSON_ID.toString());
 		values.put(TanitaDataTable.Column.PERSON.toString(), person);
+	}
 
-		// Now add the date and time.
-		int year = datePicker.getYear();
-		int month = datePicker.getMonth();
-		int day = datePicker.getDayOfMonth();
-
-		Integer hourObject = timePicker.getCurrentHour();
-		int hour = 0;
-		if (hourObject != null) {
-			hour = hourObject;
-		}
-
+	private int getMinutes() {
 		Integer minuteObject = timePicker.getCurrentMinute();
-		int minute = 0;
-		if (minuteObject != null) {
-			minute = minuteObject;
+		return updateBasedOnNull(minuteObject);
+	}
+
+	private int getHours() {
+		Integer hourObject = timePicker.getCurrentHour();
+		return updateBasedOnNull(hourObject);
+	}
+	
+	private int updateBasedOnNull(Integer timeObject) {
+		int time = 0;
+		if (timeObject != null) {
+			time = timeObject;
 		}
-
-		Date date = new Date(year - 1900, month, day, hour, minute, 0);
-		values.put(TanitaDataTable.Column.DATE.toString(), date.getTime());
-
-		return values;
+		return time;
 	}
 }

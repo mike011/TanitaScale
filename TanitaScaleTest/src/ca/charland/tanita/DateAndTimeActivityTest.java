@@ -15,19 +15,15 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Tests for Date and Time Activity.
- * 
  * @author mcharland
  * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DateAndTimeActivityTest {
 
-	/** The class under test. */
 	@Inject
 	private DateAndTimeActivity activity;
 
-	/** {@inheritDoc} */
 	@Before
 	public void setup() {
 		activity.setIntent(new Intent());

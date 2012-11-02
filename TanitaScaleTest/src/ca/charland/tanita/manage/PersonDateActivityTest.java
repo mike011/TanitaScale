@@ -14,91 +14,69 @@ import ca.charland.tanita.db.TanitaData;
 import com.google.inject.Inject;
 
 /**
- * Testing PersonDateActivity.
- * 
  * @author mcharland
  * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class PersonDateActivityTest {
 
-	/** The weight. */
 	@InjectView(R.id.weight)
 	private TextView weight;
 
-	/** The dci. */
 	@InjectView(R.id.dci)
 	private TextView dci;
 
-	/** The metabolic age. */
 	@InjectView(R.id.metabolic_age)
 	private TextView metabolicAge;
 
-	/** The body water percentage. */
 	@InjectView(R.id.body_water_percentage)
 	private TextView bodyWaterPercentage;
 
-	/** The visceral fat. */
 	@InjectView(R.id.visceral_fat)
 	private TextView visceralFat;
 
-	/** The bone mass. */
 	@InjectView(R.id.bone_mass)
 	private TextView boneMass;
 
-	/** The body fat total. */
 	@InjectView(R.id.body_fat_total)
 	private TextView bodyFatTotal;
 
-	/** The body fat arm left. */
 	@InjectView(R.id.body_fat_arm_left)
 	private TextView bodyfatArmLeft;
 
-	/** The body fat arm right. */
 	@InjectView(R.id.body_fat_arm_right)
 	private TextView bodyFatArmRight;
 
-	/** The body fat leg left. */
 	@InjectView(R.id.body_fat_leg_left)
 	private TextView bodyFatLegLeft;
 
-	/** The body fat leg right. */
 	@InjectView(R.id.body_fat_leg_right)
 	private TextView bodyFatLegRight;
 
-	/** The body fat trunk. */
 	@InjectView(R.id.body_fat_trunk)
 	private TextView bodyFatTrunk;
 
-	/** The muscle mass total. */
 	@InjectView(R.id.muscle_mass_total)
 	private TextView muscleMassTotal;
 
-	/** The muscle mass arm left. */
 	@InjectView(R.id.muscle_mass_arm_left)
 	private TextView muscleMassArmLeft;
 
-	/** The muscle mass arm right. */
 	@InjectView(R.id.muscle_mass_arm_right)
 	private TextView muscleMassArmRight;
 
-	/** The muscle mass leg right. */
 	@InjectView(R.id.muscle_mass_leg_right)
 	private TextView muscleMassLegRight;
 
-	/** The muscle mass leg left. */
 	@InjectView(R.id.muscle_mass_leg_left)
 	private TextView muscleMassLegLeft;
 
-	/** The muscle mass trunk. */
 	@InjectView(R.id.muscle_mass_trunk)
 	private TextView muscleMassTrunk;
 
-	/** The physic rating. */
 	@InjectView(R.id.physic_rating)
 	private TextView physicRating;
 
-	/** The class under test. */
 	@Inject
 	private PersonDateActivityNoDatabase activity;
 

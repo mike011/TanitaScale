@@ -23,28 +23,38 @@ import ca.charland.tanita.db.TanitaDataTable;
  */
 public class DateListActivity extends RoboListActivity {
 
-	/** The Constant ID. */
 	static final String ID = "DATE";
 
-	/** The database source. */
 	private DateListDataSource datasource;
 
-	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		datasource = new DateListDataSource(this);
-		datasource.open();
+		datasource.openDatabaseConnection();
 
-		Bundle extras = getIntent().getExtras();
-		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + extras.getInt(PeopleListActivity.PERSON_ID);
+		final List<Data> data = datasource.query(getSelection());
+		
+		setListAdapter(data);
+		setupListView(data);
+		
+		datasource.closeDatabaseConnection();
+	}
 
-		final List<Data> data = datasource.query(selection);
+	private void setListAdapter(final List<Data> data) {
 		ArrayAdapter<Data> adapter = new ArrayAdapter<Data>(this, R.layout.date_list, data);
 
 		setListAdapter(adapter);
+	}
 
+	private String getSelection() {
+		Bundle extras = getIntent().getExtras();
+		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + extras.getInt(PeopleListActivity.PERSON_ID);
+		return selection;
+	}
+
+	private void setupListView(final List<Data> data) {
 		ListView lv = getListView();
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> par, View view, int pos, long id) {
@@ -56,20 +66,17 @@ public class DateListActivity extends RoboListActivity {
 				startActivity(intent);
 			}
 		});
-		datasource.close();
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected void onResume() {
-		datasource.open();
+		datasource.openDatabaseConnection();
 		super.onResume();
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected void onPause() {
-		datasource.close();
+		datasource.closeDatabaseConnection();
 		super.onPause();
 	}
 }

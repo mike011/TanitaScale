@@ -13,82 +13,91 @@ import ca.charland.tanita.R;
 import ca.charland.tanita.db.PersonDataSource;
 
 /**
- * The Class AddActivity which allows you to add a new person with an email and there sex.
+ * Allows you to add a new person with an email and there sex.
  * 
  * @author mcharland
  */
 public class AddActivity extends RoboActivity {
 
-	/** The database source. */
+	private final class SaveOnClickListener implements View.OnClickListener {
+
+		@Override
+		public void onClick(View v) {
+			handleOnClick();
+		}
+	}
+
 	private PersonDataSource datasource;
 
-	/** The name text field. */
 	@InjectView(R.id.name)
 	private EditText name;
 	
-	/** The email text field. */
 	@InjectView(R.id.email)
 	private EditText email;
 	
 	@InjectView(R.id.sex)
 	private RadioGroup sex;
 
-	/** The save button. */
 	@InjectView(R.id.save)
 	private Button save;
 
-	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.add);
 		datasource = new PersonDataSource(this);
-		datasource.open();
+		datasource.openDatabaseConnection();
 
-		save.setOnClickListener(new View.OnClickListener() {
-			
-			/** {@inheritDoc} */
-			@Override
-			public void onClick(View v) {
-
-				String nameString = name.getText().toString();
-				int message = R.string.valid_name;
-				if (nameString.length() == 0 || sex.getCheckedRadioButtonId() == -1) {
-					message = R.string.generic_error_message;
-				} else {
-					datasource.create(nameString, email.getText().toString(), getSex());
-					name.setText("");
-					email.setText("");
-					sex.clearCheck();
-				}
-				Toast.makeText(getBaseContext(), getResources().getString(message), Toast.LENGTH_SHORT).show();
-			}
-
-			private String getSex() {
-				// Returns an integer which represents the selected radio button's ID
-				int selected = sex.getCheckedRadioButtonId();
-				 
-				// Gets a reference to our "selected" radio button
-				RadioButton b = (RadioButton) findViewById(selected);
-				 
-				// Now you can get the text or whatever you want from the "selected" radio button
-				return b.getText().toString();
-			}
-		});
+		save.setOnClickListener(new SaveOnClickListener());
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected void onResume() {
-		datasource.open();
+		datasource.openDatabaseConnection();
 		super.onResume();
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected void onPause() {
-		datasource.close();
+		datasource.closeDatabaseConnection();
 		super.onPause();
+	}
+	
+	private void handleOnClick() {
+		String nameString = name.getText().toString();
+		int messageResourceID = R.string.valid_name;
+		if (nameString.length() == 0 || sex.getCheckedRadioButtonId() == -1) {
+			messageResourceID = R.string.generic_error_message;
+		} else {
+			datasource.create(nameString, getEmail(), getSex());
+			clearFields();
+		}
+		Toast.makeText(getBaseContext(), getMessageString(messageResourceID), Toast.LENGTH_SHORT).show();
+	}
+
+	private String getMessageString(int message) {
+		return getResources().getString(message);
+	}
+
+	private String getEmail() {
+		return email.getText().toString();
+	}
+
+	private String getSex() {
+		// Returns an integer which represents the selected radio button's ID
+		int selected = sex.getCheckedRadioButtonId();
+		 
+		// Gets a reference to our "selected" radio button
+		RadioButton b = (RadioButton) findViewById(selected);
+		 
+		// Now you can get the text or whatever you want from the "selected" radio button
+		return b.getText().toString();
+	}
+	
+	private void clearFields() {
+		name.setText("");
+		email.setText("");
+		sex.clearCheck();
 	}
 }

@@ -3,33 +3,27 @@ package ca.charland.tanita;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
- * The Class MetabolicAgeActivity.
- * 
  * @author mcharland
  */
 public class MetabolicAgeActivity extends TextViewActivity {
 
-	/** {@inheritDoc} */
 	@Override
-	int getLayoutResID() {
+	protected int getResourceIDForLayout() {
 		return R.layout.metabolic_age;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
 		return BodyWaterPercentageActivity.class;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.METABOLIC_AGE;
 	}
 
-	/** {@inheritDoc} */
 	@Override
-	protected int getStringID() {
+	protected int getIDForString() {
 		return R.string.metabolic_age;
 	}
 }

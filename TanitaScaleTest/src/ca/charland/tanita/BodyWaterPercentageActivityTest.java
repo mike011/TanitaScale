@@ -12,10 +12,7 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Testing Body Water Percentage Activity.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class BodyWaterPercentageActivityTest {
@@ -27,22 +24,20 @@ public class BodyWaterPercentageActivityTest {
 		}
 	}
 	
-	/** The class under test. */
 	@Inject
 	private BodyWaterPercentageActivityUnderTest activity;
 
-	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.BodyWaterPercentageActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.BodyWaterPercentageActivity#getResourceIDForLayout()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.body_water_percentage, activity.getLayoutResID());
+		assertEquals(R.layout.body_water_percentage, activity.getResourceIDForLayout());
 	}
 
 	/**

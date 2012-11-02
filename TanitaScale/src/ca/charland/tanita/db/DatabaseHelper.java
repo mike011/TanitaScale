@@ -31,23 +31,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	/** {@inheritDoc} */
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		database.execSQL(PersonDataTable.CREATE);
-		database.execSQL(TanitaDataTable.CREATE);
+		createTables(database);
+	}
+
+	private void createTables(SQLiteDatabase database) {
+		database.execSQL(PersonDataTable.CREATE_PEOPLE_TABLE);
+		database.execSQL(TanitaDataTable.CREATE_DATABASE_TABLE);
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		
+		Log.w(DatabaseHelper.class.getName(), getMessage(oldVersion, newVersion));
+		dropTables(db);
+		onCreate(db);
+	}
+
+	private void dropTables(SQLiteDatabase db) {
+		db.execSQL("DROP TABLE IF EXISTS" + PersonDataTable.TABLE);
+		db.execSQL("DROP TABLE IF EXISTS" + TanitaDataTable.TABLE_NAME);
+	}
+
+	private String getMessage(int oldVersion, int newVersion) {
 		StringBuilder msg = new StringBuilder();
 		msg.append("Upgrading database from version ");
 		msg.append(oldVersion);
 		msg.append(" to ");
 		msg.append(newVersion);
 		msg.append(", which will destroy all old data");
-		Log.w(DatabaseHelper.class.getName(), msg.toString());
-		db.execSQL("DROP TABLE IF EXISTS" + PersonDataTable.TABLE);
-		db.execSQL("DROP TABLE IF EXISTS" + TanitaDataTable.NAME);
-		onCreate(db);
+		return msg.toString();
 	}
 
 }

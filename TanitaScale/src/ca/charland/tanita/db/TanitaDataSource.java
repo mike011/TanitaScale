@@ -8,23 +8,14 @@ import android.content.Context;
 import android.database.Cursor;
 
 /**
- * The Class Tanita Data Source.
- * 
  * @author mcharland
  */
 public class TanitaDataSource extends DataSource {
 
-	/**
-	 * Instantiates a new Tanita data source.
-	 * 
-	 * @param context
-	 *            the context
-	 */
 	public TanitaDataSource(Context context) {
-		super(context, TanitaDataTable.NAME);
+		super(context, TanitaDataTable.TABLE_NAME);
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected TanitaData convertToAbstractData(Cursor cursor) {
 		TanitaData td = new TanitaData();
@@ -37,7 +28,7 @@ public class TanitaDataSource extends DataSource {
 		td.setVisceralFat(cursor.getInt(TanitaDataTable.Column.VISCERAL_FAT.ordinal()));
 		td.setDailyCaloricIntake(cursor.getInt(TanitaDataTable.Column.DAILY_CALORIC_INTAKE.ordinal()));
 		td.setMetabolicAge(cursor.getInt(TanitaDataTable.Column.METABOLIC_AGE.ordinal()));
-		
+
 		td.setWeight(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.WEIGHT.ordinal())));
 		td.setBodyFatTotal(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.BODY_FAT_TOTAL.ordinal())));
 		td.setBodyFatLeftArm(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.ordinal())));
@@ -54,11 +45,10 @@ public class TanitaDataSource extends DataSource {
 		td.setPhysicRating(cursor.getInt(TanitaDataTable.Column.PHYSIC_RATING.ordinal()));
 		td.setBodyWaterPercentage(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.BODY_WATER_PERCENTAGE.ordinal())));
 		td.setBoneMass(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.BONE_MASS.ordinal())));
-	
+
 		return td;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected List<String> getAllColumns() {
 		List<String> allColumns = new ArrayList<String>();
@@ -86,5 +76,4 @@ public class TanitaDataSource extends DataSource {
 		allColumns.add(TanitaDataTable.Column.BONE_MASS.toString());
 		return allColumns;
 	}
-
 }

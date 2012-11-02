@@ -17,15 +17,12 @@ import ca.charland.tanita.R;
  */
 public class PersonHomeActivity extends RoboActivity {
 
-	/** The next button. */
 	@InjectView(R.id.add)
 	private Button add;
 
-	/** The view button. */
 	@InjectView(R.id.view)
 	private Button view;
 
-	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,11 +42,10 @@ public class PersonHomeActivity extends RoboActivity {
 				Bundle extras = getIntent().getExtras();
 				intent.putExtra(PeopleListActivity.PERSON_ID, extras.getInt(PeopleListActivity.PERSON_ID));
 				startActivity(intent);
-			}			
+			}
 		});
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// replaces the default 'Back' button action

@@ -4,39 +4,32 @@ import android.os.Bundle;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
- * The Class WeightActivity.
- * 
  * @author mcharland
  */
 public class WeightActivity extends TextViewActivity {
 
-	/** {@inheritDoc} */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
 	
-	/** {@inheritDoc} */
 	@Override
-	int getLayoutResID() {
+	protected int getResourceIDForLayout() {
 		return R.layout.weight;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public Class<?> getNextClass() {
 		return DailyCaloricIntakeActivity.class;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	protected TanitaDataTable.Column getColumnName() {
 		return TanitaDataTable.Column.WEIGHT;
 	}
 
-	/** {@inheritDoc} */
 	@Override
-	protected int getStringID() {
+	protected int getIDForString() {
 		return R.string.weight;
 	}
 }

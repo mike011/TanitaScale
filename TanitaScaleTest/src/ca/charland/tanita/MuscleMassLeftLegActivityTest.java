@@ -12,30 +12,25 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Testing Muscle Mass Left Leg Activity.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class MuscleMassLeftLegActivityTest {
 
-	/** The class under test. */
 	@Inject
 	private MuscleMassLeftLegActivity activity;
 
-	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassLeftLegActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.MuscleMassLeftLegActivity#getResourceIDForLayout()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.muscle_mass_left_leg, activity.getLayoutResID());
+		assertEquals(R.layout.muscle_mass_left_leg, activity.getResourceIDForLayout());
 	}
 
 	/**

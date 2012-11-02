@@ -12,10 +12,7 @@ import ca.charland.tanita.db.TanitaDataTable;
 import com.google.inject.Inject;
 
 /**
- * Testing Body Fat Right Leg Activity.
- * 
  * @author mcharland
- * 
  */
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class BodyFatRightLegActivityTest {
@@ -27,22 +24,20 @@ public class BodyFatRightLegActivityTest {
 		}
 	}
 
-	/** The class under test. */
 	@Inject
 	private BodyFatRightLegActivityUnderTest activity;
 
-	/** Ran before each test. */
 	@Before
 	public void setup() {
 		activity.onCreate(null);
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.BodyFatRightLegActivity#getLayoutResID()}.
+	 * Test method for {@link ca.charland.tanita.BodyFatRightLegActivity#getResourceIDForLayout()}.
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.body_fat_right_leg, activity.getLayoutResID());
+		assertEquals(R.layout.body_fat_right_leg, activity.getResourceIDForLayout());
 	}
 
 	/**

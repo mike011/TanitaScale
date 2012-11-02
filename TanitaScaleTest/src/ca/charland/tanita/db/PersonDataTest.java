@@ -5,10 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Tests for Person Data
- * 
- * @author defected
- * 
+ * @author mcharland
  */
 public class PersonDataTest {
 
