@@ -1,8 +1,6 @@
 Current Version 2.0
 
 Version 2.0
--Update based on chapter 2 of clean coders
--Update based on chapter 3 of clean coders
 -Colour in body parts you are being asked for.
 -Be able to save to a csv style file on the android.
 -When entering a data be able to see previous entries
@@ -31,3 +29,5 @@ Version 1.0
 -Can enter values
 -Can view entered values
 -Pictures where appropriate
+-Update based on chapter 2 of clean coders
+-Update based on chapter 3 of clean coders

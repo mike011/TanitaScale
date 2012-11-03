@@ -38,17 +38,16 @@ public class DateAndTimeActivity extends BaseActivity {
 
 		ContentValues content = new ContentValues();
 
-		// This is the first item and needs to add the person.
 		addPerson(content);
 
-		Date date = getDate();
-		content.put(TanitaDataTable.Column.DATE.toString(), date.getTime());
+		content.put(TanitaDataTable.Column.DATE.toString(), getTime());
 
 		return content;
 	}
 
-	private Date getDate() {
-		return new Date(getYear(), getMonth(), getDay(), getHours(), getMinutes(), SECONDS);
+	private long getTime() {
+		Date date = new Date(getYear(), getMonth(), getDay(), getHours(), getMinutes(), SECONDS);
+		return date.getTime();
 	}
 
 	private int getYear() {

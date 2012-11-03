@@ -47,16 +47,21 @@ public abstract class DataSource {
 	}
 
 	public List<Data> query(String selection) {
-		List<Data> all = new ArrayList<Data>();
 		String[] columns = getAllColumns().toArray(new String[0]);
 		Cursor cursor = database.query(table, columns, selection, null, null, null, null);
+		List<Data> populateAll = populateAll(cursor);
+		cursor.close();
+		return populateAll;
+	}
+
+	private List<Data> populateAll(Cursor cursor) {
+		List<Data> all = new ArrayList<Data>();
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			Data comment = convertToAbstractData(cursor);
 			all.add(comment);
 			cursor.moveToNext();
 		}
-		cursor.close();
 		return all;
 	}
 

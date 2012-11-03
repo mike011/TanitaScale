@@ -19,7 +19,7 @@ import ca.charland.tanita.manage.PeopleListActivity;
  */
 class NextButtonOnClickListener implements View.OnClickListener {
 
-	/**A unique identifier of a row in the table. */
+	/** A unique identifier of a row in the table. */
 	static final String ID = "ROW_ID";
 
 	private final TanitaDataSource datasource;
@@ -39,16 +39,15 @@ class NextButtonOnClickListener implements View.OnClickListener {
 		}
 
 		datasource.openDatabaseConnection();
-		ContentValues values = activity.getValues();
 
-		updateIDIfInserted(values);
+		updateIDIfInserted();
 
-		Intent newIntent = createNewIntent();
-		activity.startActivity(newIntent);
+		activity.startActivity(getNextIntent());
 		datasource.closeDatabaseConnection();
 	}
 
-	private void updateIDIfInserted(ContentValues values) {
+	private void updateIDIfInserted() {
+		ContentValues values = activity.getValues();
 		long id = getID();
 		if (id == -1) {
 			long newId = datasource.insertTableRow(values);
@@ -58,7 +57,7 @@ class NextButtonOnClickListener implements View.OnClickListener {
 		}
 	}
 
-	private Intent createNewIntent() {
+	private Intent getNextIntent() {
 		Intent newIntent = new Intent(activity.getBaseContext(), activity.getNextClass());
 		newIntent.putExtra(ID, getID());
 		newIntent.putExtra(PeopleListActivity.PERSON_ID.toString(), getPerson());
@@ -100,11 +99,18 @@ class NextButtonOnClickListener implements View.OnClickListener {
 		if (findViewById != null) {
 			CharSequence string = findViewById.getText();
 			if (string.length() == 0) {
-				Toast.makeText(activity.getBaseContext(), activity.getResources().getString(R.string.generic_error_message), Toast.LENGTH_SHORT)
-						.show();
+				getToast().show();
 				return false;
 			}
 		}
 		return true;
+	}
+
+	private Toast getToast() {
+		return Toast.makeText(activity.getBaseContext(), getGenericErrorMessage(), Toast.LENGTH_SHORT);
+	}
+
+	private String getGenericErrorMessage() {
+		return activity.getResources().getString(R.string.generic_error_message);
 	}
 }

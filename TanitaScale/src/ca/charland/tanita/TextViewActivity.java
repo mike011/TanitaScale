@@ -6,6 +6,7 @@ import roboguice.inject.InjectView;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -40,8 +41,13 @@ public abstract class TextViewActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		text = (TextView) findViewById(R.id.editTextEntry);
 
-		String raw = getResources().getString(R.string.enterYour);
-		enter.setText(String.format(raw, getResources().getString(getIDForString())));
+		setEnterText();
+	}
+
+	private void setEnterText() {
+		Resources resources = getResources();
+		String raw = resources.getString(R.string.enterYour);
+		enter.setText(String.format(raw, resources.getString(getIDForString())));
 	}
 
 	@Override
@@ -79,10 +85,15 @@ public abstract class TextViewActivity extends BaseActivity {
 	private String getSex() {
 		PersonDataSource datasource = new PersonDataSource(this);
 		datasource.openDatabaseConnection();
+		String sex = getSex(datasource);
+		datasource.closeDatabaseConnection();
+		return sex;
+	}
+
+	private String getSex(PersonDataSource datasource) {
 		List<Data> data = datasource.query(getSelection());
 		PersonData pd = (PersonData) data.get(0);
 		String sex = pd.getSex();
-		datasource.closeDatabaseConnection();
 		return sex;
 	}
 
