@@ -34,8 +34,8 @@ public class DateListActivity extends RoboListActivity {
 		datasource = new DateListDataSource(this);
 		datasource.openDatabaseConnection();
 
-		//final List<Data> data = datasource.queryWithOrdering(getSelection(), getOrderBy());
-		final List<Data> data = datasource.query(getSelection());
+		final List<Data> data = datasource.queryWithOrdering(getSelection(), getOrderBy());
+		//final List<Data> data = datasource.query(getSelection());
 		
 		setListAdapter(data);
 		setupListView(data);

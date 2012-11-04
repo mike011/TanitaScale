@@ -75,7 +75,7 @@ class NextButtonOnClickListener implements View.OnClickListener {
 	}
 
 	private long getIDFromExtras(Intent intent) {
-		long id = -2;
+		long id = -1;
 		Bundle extras = intent.getExtras();
 		if (extras.containsKey(ID)) {
 			return extras.getLong(ID);
