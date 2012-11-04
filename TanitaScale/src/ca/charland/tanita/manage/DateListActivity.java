@@ -16,7 +16,7 @@ import ca.charland.tanita.db.DateListDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
- * For a specific person this activity show a list of previous entries by date and allows you to choose one to view.
+ * For a specific person shows a list of previous entries sorted by date and allows you to choose one to view.
  * 
  * @author mcharland
  * 
@@ -34,12 +34,17 @@ public class DateListActivity extends RoboListActivity {
 		datasource = new DateListDataSource(this);
 		datasource.openDatabaseConnection();
 
+		//final List<Data> data = datasource.queryWithOrdering(getSelection(), getOrderBy());
 		final List<Data> data = datasource.query(getSelection());
 		
 		setListAdapter(data);
 		setupListView(data);
 		
 		datasource.closeDatabaseConnection();
+	}
+
+	private String getOrderBy() {
+		return  TanitaDataTable.Column.DATE.toString();
 	}
 
 	private void setListAdapter(final List<Data> data) {
@@ -50,7 +55,8 @@ public class DateListActivity extends RoboListActivity {
 
 	private String getSelection() {
 		Bundle extras = getIntent().getExtras();
-		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + extras.getInt(PeopleListActivity.PERSON_ID);
+		int id = extras.getInt(PeopleListActivity.PERSON_ID);
+		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + id;
 		return selection;
 	}
 

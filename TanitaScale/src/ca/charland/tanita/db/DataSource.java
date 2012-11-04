@@ -47,8 +47,12 @@ public abstract class DataSource {
 	}
 
 	public List<Data> query(String selection) {
+		return queryWithOrdering(selection, null);
+	}
+	
+	public List<Data> queryWithOrdering(String selection, String orderBy) {
 		String[] columns = getAllColumns().toArray(new String[0]);
-		Cursor cursor = database.query(table, columns, selection, null, null, null, null);
+		Cursor cursor = database.query(table, columns, selection, null, null, null, orderBy);
 		List<Data> populateAll = populateAll(cursor);
 		cursor.close();
 		return populateAll;
