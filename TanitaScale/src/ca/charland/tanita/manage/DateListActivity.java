@@ -35,21 +35,19 @@ public class DateListActivity extends RoboListActivity {
 		datasource.openDatabaseConnection();
 
 		final List<Data> data = datasource.queryWithOrdering(getSelection(), getOrderBy());
-		//final List<Data> data = datasource.query(getSelection());
-		
+
 		setListAdapter(data);
 		setupListView(data);
-		
+
 		datasource.closeDatabaseConnection();
 	}
 
 	private String getOrderBy() {
-		return  TanitaDataTable.Column.DATE.toString();
+		return TanitaDataTable.Column.DATE.toString();
 	}
 
 	private void setListAdapter(final List<Data> data) {
 		ArrayAdapter<Data> adapter = new ArrayAdapter<Data>(this, R.layout.date_list, data);
-
 		setListAdapter(adapter);
 	}
 
@@ -60,9 +58,15 @@ public class DateListActivity extends RoboListActivity {
 		return selection;
 	}
 
-	private void setupListView(final List<Data> data) {
+	private void setupListView(List<Data> data) {
 		ListView lv = getListView();
-		lv.setOnItemClickListener(new OnItemClickListener() {
+		lv.setOnItemClickListener(getOnItemClickListener(data));
+	}
+
+	private OnItemClickListener getOnItemClickListener(final List<Data> data) {
+		OnItemClickListener onItemClickListener = new OnItemClickListener() {
+
+			@Override
 			public void onItemClick(AdapterView<?> par, View view, int pos, long id) {
 				Intent intent = new Intent(getBaseContext(), PersonDateActivity.class);
 
@@ -71,7 +75,8 @@ public class DateListActivity extends RoboListActivity {
 
 				startActivity(intent);
 			}
-		});
+		};
+		return onItemClickListener;
 	}
 
 	@Override

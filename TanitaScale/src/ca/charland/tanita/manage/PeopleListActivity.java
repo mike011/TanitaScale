@@ -77,6 +77,7 @@ public class PeopleListActivity extends RoboListActivity {
 		// replaces the default 'Back' button action
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			this.startActivity(new Intent(this, TanitaScaleActivity.class));
+			this.finish();
 		}
 		return true;
 	}

@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".manage.AddActivity" />
+        <activity android:name=".manage.AddPersonActivity" />
         <activity android:name=".manage.DateListActivity" />
         <activity android:name=".manage.PersonDateActivity" />
         <activity android:name=".manage.PeopleListActivity" />

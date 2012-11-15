@@ -1,10 +1,12 @@
 Current Version 2.0
 
 Version 2.0
+-Be able to load data from computer into database
 -When entering a data be able to see previous entries
 -Better error handling, only allow valid values for each type.
 -Only show buttons when applicable
-githugit
+-Delete an entry.
+
 Version 3.0
 -Be able to back up database
 -Make prettier results, graphs, trending.
@@ -26,6 +28,7 @@ FLUFF
 IMPLEMENTED VERSIONS
 --------------------------------------------------------------------------------------------------------------------------
 Version 2.0
+-Exiting from app is in a much better state now.
 -Add toast when adding a new person.
 -Enter sex so the bone mass, body water, and body fat analysis can be split
 -Sort dates

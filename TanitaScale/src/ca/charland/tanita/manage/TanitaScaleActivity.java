@@ -28,27 +28,27 @@ public class TanitaScaleActivity extends RoboActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		forAddSetOnClickListener();
+		setOnClickListenerForAdd();
 
-		forViewSetOnClickListener();
+		setOnClickListenerForView();
 	}
 
-	private void forViewSetOnClickListener() {
+	private void setOnClickListenerForAdd() {
+		add.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(getBaseContext(), AddPersonActivity.class));
+			}
+		});
+	}
+	
+	private void setOnClickListenerForView() {
 		view.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View view) {
 				startActivity(new Intent(getBaseContext(), PeopleListActivity.class));
-			}
-		});
-	}
-
-	private void forAddSetOnClickListener() {
-		add.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				startActivity(new Intent(getBaseContext(), AddActivity.class));
 			}
 		});
 	}

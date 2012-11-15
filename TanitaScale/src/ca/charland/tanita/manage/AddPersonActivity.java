@@ -17,7 +17,7 @@ import ca.charland.tanita.db.PersonDataSource;
  * 
  * @author mcharland
  */
-public class AddActivity extends RoboActivity {
+public class AddPersonActivity extends RoboActivity {
 
 	private final class SaveOnClickListener implements View.OnClickListener {
 

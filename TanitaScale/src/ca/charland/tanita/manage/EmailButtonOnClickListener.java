@@ -53,6 +53,7 @@ public class EmailButtonOnClickListener implements OnClickListener {
 	private void sendEmail(Intent intent) {
 		try {
 			activity.startActivity(Intent.createChooser(intent, "Send mail..."));
+			activity.finish();
 		} catch (ActivityNotFoundException ex) {
 			Toast.makeText(activity, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
 		}
