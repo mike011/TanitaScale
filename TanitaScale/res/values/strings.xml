@@ -40,4 +40,8 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="contentDescription">Image to put meaning to the numbers.</string>
+    <string name="averageText">Average</string>
+    <string name="averageValue"></string>
+    <string name="previousText">Previous</string>
+    <string name="previousValue"></string>
 </resources>
