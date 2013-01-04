@@ -16,7 +16,7 @@ import ca.charland.tanita.db.DateListDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
- * For a specific person shows a list of previous entries sorted by date and allows you to choose one to view.
+ * For a specific person shows a list of previous entries reverse sorted by date and allows you to choose one to view.
  * 
  * @author mcharland
  * 
@@ -43,7 +43,7 @@ public class DateListActivity extends RoboListActivity {
 	}
 
 	private String getOrderBy() {
-		return TanitaDataTable.Column.DATE.toString();
+		return TanitaDataTable.Column.DATE.toString() + " DESC";
 	}
 
 	private void setListAdapter(final List<Data> data) {
