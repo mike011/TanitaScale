@@ -23,7 +23,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  */
 public class DateListActivity extends RoboListActivity {
 
-	static final String ID = "DATE";
+	public static final String ID = "DATE";
 
 	private DateListDataSource datasource;
 
