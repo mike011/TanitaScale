@@ -17,7 +17,10 @@ import ca.charland.tanita.db.Data;
 import ca.charland.tanita.db.PersonData;
 import ca.charland.tanita.db.PersonDataSource;
 import ca.charland.tanita.db.PersonDataTable;
+import ca.charland.tanita.db.TanitaData;
+import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.tanita.manage.DateListActivity;
 import ca.charland.tanita.manage.PeopleListActivity;
 
 /**
@@ -29,18 +32,23 @@ import ca.charland.tanita.manage.PeopleListActivity;
 public abstract class TextViewActivity extends BaseActivity {
 
 	/*
-	 * This cannot be injected because of a limitation in robo guice not allowing injection from an abstract base class.
+	 * This cannot be injected because of a limitation in robo guice not allowing injection from an abstract class.
 	 */
 	private TextView text;
 
 	@InjectView(R.id.enter_your)
 	private TextView enter;
+	
+	@InjectView(R.id.PreviousText)
+	private TextView previous;
+	
+	@InjectView(R.id.AverageText)
+	private TextView average;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		text = (TextView) findViewById(R.id.editTextEntry);
-
 		setEnterText();
 	}
 
@@ -85,12 +93,12 @@ public abstract class TextViewActivity extends BaseActivity {
 	private String getSex() {
 		PersonDataSource datasource = new PersonDataSource(this);
 		datasource.openDatabaseConnection();
-		String sex = getSex(datasource);
+		String sex = getSexFromDataSource(datasource);
 		datasource.closeDatabaseConnection();
 		return sex;
 	}
 
-	private String getSex(PersonDataSource datasource) {
+	private String getSexFromDataSource(PersonDataSource datasource) {
 		List<Data> data = datasource.query(getSelection());
 		PersonData pd = (PersonData) data.get(0);
 		String sex = pd.getSex();
@@ -110,5 +118,29 @@ public abstract class TextViewActivity extends BaseActivity {
 			person = extras.getInt(PeopleListActivity.PERSON_ID.toString());
 		}
 		return person;
+	}
+	
+	protected TanitaData getTanitaData() {
+
+		TanitaDataSource datasource = new TanitaDataSource(this);
+		datasource.openDatabaseConnection();
+
+		TanitaData td = getTanitaData(datasource);
+
+		datasource.closeDatabaseConnection();
+
+		return td;
+	}
+
+	private TanitaData getTanitaData(TanitaDataSource datasource) {
+		List<Data> data = datasource.query(getTDSelection());
+		TanitaData td = (TanitaData) data.get(0);
+		return td;
+	}
+
+	private String getTDSelection() {
+		Bundle extras = getIntent().getExtras();
+		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(DateListActivity.ID);
+		return selection;
 	}
 }
