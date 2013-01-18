@@ -1,3 +1,4 @@
+proguard-project.txt
 gen/
 bin/
 *~
@@ -5,3 +6,4 @@ proguard.cfg
 tmp/
 hs_err*
 TanitaScale/local.properties
+target
