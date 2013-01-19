@@ -45,7 +45,7 @@
         <activity android:name="PhysicRatingActivity" />
         <activity android:name="TanitaScaleActivity" />
         <activity android:name="VisceralFatActivity" />
-        <activity android:name="WeightActivity" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:name="ca.charland.tanita.WeightActivity" android:windowSoftInputMode="stateAlwaysVisible"/>
     </application>
 
 </manifest>

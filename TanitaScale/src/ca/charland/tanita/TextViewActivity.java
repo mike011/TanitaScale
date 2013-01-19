@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import ca.charland.tanita.db.Data;
+import ca.charland.db.Data;
 import ca.charland.tanita.db.PersonData;
 import ca.charland.tanita.db.PersonDataSource;
 import ca.charland.tanita.db.PersonDataTable;

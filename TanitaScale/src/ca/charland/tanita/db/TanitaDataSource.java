@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.charland.db.DataSource;
+
 import android.content.Context;
 import android.database.Cursor;
 
@@ -13,7 +15,7 @@ import android.database.Cursor;
 public class TanitaDataSource extends DataSource {
 
 	public TanitaDataSource(Context context) {
-		super(context, TanitaDataTable.TABLE_NAME);
+		super(context, TanitaDataTable.CREATE_DATABASE_TABLE, TanitaDataTable.TABLE_NAME);
 	}
 
 	@Override

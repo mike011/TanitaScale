@@ -6,16 +6,17 @@ import java.util.List;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import ca.charland.db.BasicPersonDataSource;
 
 /**
  * Holds the database information related to a person.
  * 
  * @author mcharland
  */
-public class PersonDataSource extends DataSource {
+public class PersonDataSource extends BasicPersonDataSource {
 
 	public PersonDataSource(Context context) {
-		super(context, PersonDataTable.TABLE);
+		super(context, PersonDataTable.CREATE_PEOPLE_TABLE, PersonDataTable.TABLE);
 	}
 
 	public long create(String name, String email, String sex) {

@@ -1,4 +1,4 @@
-package ca.charland.tanita.db;
+package ca.charland.db;
 
 /**
  * Base class for table data representations.

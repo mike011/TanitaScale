@@ -1,25 +1,17 @@
 package ca.charland.tanita.db;
 
+import ca.charland.db.BasicPersonData;
+
 /**
  * Table name for an individual person.
  * 
  * @author mcharland
  */
-public class PersonData extends Data {
-
-	private String name;
+public class PersonData extends BasicPersonData {
 
 	private String email;
 
 	private String sex;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getEmail() {
 		return email;
@@ -31,13 +23,6 @@ public class PersonData extends Data {
 	
 	public void setSex(String sex) {
 		this.sex = sex;
-		
-	}
-
-	// Will be used by the ArrayAdapter in the ListView
-	@Override
-	public String toString() {
-		return name;
 	}
 
 	public String getSex() {

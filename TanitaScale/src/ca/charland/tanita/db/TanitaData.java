@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import ca.charland.db.Data;
+
 /**
  * Holds the row info of data.
  * 

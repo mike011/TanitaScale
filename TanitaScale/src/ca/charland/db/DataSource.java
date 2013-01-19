@@ -1,4 +1,4 @@
-package ca.charland.tanita.db;
+package ca.charland.db;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +23,8 @@ public abstract class DataSource {
 
 	private final String table;
 
-	public DataSource(Context context, String table) {
-		this.databaseHelper = new DatabaseHelper(context);
+	public DataSource(Context context, String createTable, String table) {
+		this.databaseHelper = new DatabaseHelper(context, createTable, table);
 		this.table = table;
 	}
 
@@ -49,7 +49,7 @@ public abstract class DataSource {
 	public List<Data> query(String selection) {
 		return queryWithOrdering(selection, null);
 	}
-	
+
 	public List<Data> queryWithOrdering(String selection, String orderBy) {
 		String[] columns = getAllColumns().toArray(new String[0]);
 		Cursor cursor = database.query(table, columns, selection, null, null, null, orderBy);
