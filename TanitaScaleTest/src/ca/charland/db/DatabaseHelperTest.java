@@ -1,42 +1,50 @@
 package ca.charland.db;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
-
-import android.database.Cursor;
-import android.database.sqlite.SQLiteCursorDriver;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
-import android.database.sqlite.SQLiteQuery;
+
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.shadows.ShadowSQLiteDatabase;
+
+import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DatabaseHelperTest {
 
 	private DatabaseHelper helper;
 
-	@Before
-	public void setup() {
-		helper = new DatabaseHelper(null, null, null, null);
+	@BeforeClass 
+	public static void beforeClass() {
+		Robolectric.bindShadowClass(ShadowSQLiteDatabase.class);
 	}
 	
+	@Before
+	public void setup() {
+		helper = new DatabaseHelper(null, null, null, "");
+	}
+
 	@Test
 	public void testDatabaseHelper() {
 		assertNotNull(helper);
 	}
-	
+
 	@Test
 	public void testOnCreateSQLiteDatabase() {
-//		helper.onCreate(create);
+		SQLiteDatabase db = SQLiteDatabase.openDatabase("path", null, 0); 
+		helper.onCreate(db);
 	}
 
 	@Test
 	public void testOnUpgradeSQLiteDatabaseIntInt() {
-		helper.onUpgrade(null, 1, 2);
+		SQLiteDatabase db = SQLiteDatabase.openDatabase("path", null, 0);
+		helper.onUpgrade(db, 1, 2);
 	}
 
 	@Test

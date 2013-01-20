@@ -18,10 +18,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	private final String createTableSQL;
 
-	public DatabaseHelper(Context context, String database, String table, String createTable) {
+	public DatabaseHelper(Context context, String database, String table, String createTableSQL) {
 		super(context, database, null, DATABASE_VERSION);
 		this.tableName = table;
-		this.createTableSQL = createTable;
+		this.createTableSQL = createTableSQL;
 	}
 
 	@Override
