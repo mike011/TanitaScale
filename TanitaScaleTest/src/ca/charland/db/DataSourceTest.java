@@ -1,7 +1,13 @@
 package ca.charland.db;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.After;
@@ -9,17 +15,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
-import ca.charland.tanita.db.PersonDataSource;
 
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DataSourceTest {
 
 	private DataSource pds;
-	
+
 	private static class MyDataSource extends DataSource {
 
 		public MyDataSource(Context context, String database, String table, String createTableSQL) {
@@ -33,13 +38,14 @@ public class DataSourceTest {
 
 		@Override
 		protected List<String> getAllColumns() {
-			return null;
+			return new ArrayList<String>();
 		}
 	}
 
 	@Before
 	public void setup() {
-		pds = new MyDataSource(null, null, null, null);
+		pds = new MyDataSource(null, "db", "table", "");
+		pds.openDatabaseConnection();
 	}
 
 	@After
@@ -47,7 +53,6 @@ public class DataSourceTest {
 		pds.closeDatabaseConnection();
 	}
 
-	
 	@Test
 	public void testDataSource() {
 		assertNotNull(pds);
@@ -55,43 +60,43 @@ public class DataSourceTest {
 
 	@Test
 	public void testOpenDatabaseConnection() {
-		pds.openDatabaseConnection();
 		assertTrue(pds.isDatabaseConnectionOpen());
 	}
 
 	@Test
 	public void testInsertTableRow() {
-		fail("Not yet implemented");
+		long id = pds.insertTableRow(new ContentValues());
+		assertEquals(-1, id);
 	}
 
-	@Test
+	@Test(expected = java.lang.RuntimeException.class)
 	public void testUpdateTableRow() {
-		fail("Not yet implemented");
+		pds.updateTableRow("id", 0, new ContentValues());
 	}
 
-	@Test
+	@Test(expected = java.lang.RuntimeException.class)
 	public void testGetAllValues() {
-		fail("Not yet implemented");
+		pds.getAllValues();
 	}
 
-	@Test
+	@Test(expected = java.lang.RuntimeException.class)
 	public void testQuery() {
-		fail("Not yet implemented");
+		pds.query("");
 	}
 
-	@Test
+	@Test(expected = java.lang.RuntimeException.class)
 	public void testQueryWithOrdering() {
-		fail("Not yet implemented");
+		pds.queryWithOrdering("", "");
 	}
 
 	@Test
 	public void testConvertToAbstractData() {
-		fail("Not yet implemented");
+		assertNull(pds.convertToAbstractData(null));
 	}
 
 	@Test
 	public void testGetAllColumns() {
-		fail("Not yet implemented");
+		assertNotNull(pds.getAllColumns());
 	}
 
 	@Test

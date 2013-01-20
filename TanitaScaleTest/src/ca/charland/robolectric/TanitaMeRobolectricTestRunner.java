@@ -11,7 +11,6 @@ import com.google.inject.Injector;
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import com.xtremelabs.robolectric.shadows.ShadowResources;
-import com.xtremelabs.robolectric.shadows.ShadowSQLiteDatabase;
 
 /**
  * Custom runner to redirect to the development folder. Specifically so the res and manifest can be found.

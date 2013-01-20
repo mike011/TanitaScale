@@ -1,24 +1,25 @@
 package ca.charland.db;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.shadows.ShadowSQLiteDatabase;
-
-import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DatabaseHelperTest {
 
 	private DatabaseHelper helper;
+	private final String table = "bob";
 
 	@BeforeClass 
 	public static void beforeClass() {
@@ -27,7 +28,7 @@ public class DatabaseHelperTest {
 	
 	@Before
 	public void setup() {
-		helper = new DatabaseHelper(null, null, null, "");
+		helper = new DatabaseHelper(null, null, table, "");
 	}
 
 	@Test
@@ -41,7 +42,7 @@ public class DatabaseHelperTest {
 		helper.onCreate(db);
 	}
 
-	@Test
+	@Test(expected = SQLException.class)
 	public void testOnUpgradeSQLiteDatabaseIntInt() {
 		SQLiteDatabase db = SQLiteDatabase.openDatabase("path", null, 0);
 		helper.onUpgrade(db, 1, 2);
@@ -49,7 +50,6 @@ public class DatabaseHelperTest {
 
 	@Test
 	public void testGetTableName() {
-		fail("Not yet implemented");
+		assertEquals(table, helper.getTableName());
 	}
-
 }
