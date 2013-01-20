@@ -12,10 +12,8 @@ import android.util.Log;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-	/** The Constant DATABASE_NAME. */
 	private static final String DATABASE_NAME = "tanita.db";
 
-	/** The Constant DATABASE_VERSION. */
 	private static final int DATABASE_VERSION = 1;
 
 	private final String tableName;
@@ -47,7 +45,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	/** {@inheritDoc} */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
 		Log.w(DatabaseHelper.class.getName(), getMessage(oldVersion, newVersion));
 		dropTables(db);
 		onCreate(db);

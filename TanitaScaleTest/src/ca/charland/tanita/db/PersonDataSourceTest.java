@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ca.charland.db.Data;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 /**
@@ -47,16 +48,6 @@ public class PersonDataSourceTest {
 		pds.openDatabaseConnection();
 		long create = pds.create("bob", "a@b.ca", "boy");
 		assertTrue(create != 0);
-	}
-
-	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#delete(ca.charland.tanita.db.PersonData)} .
-	 */
-	@Test
-	public void testDeletePerson() {
-		pds.openDatabaseConnection();
-		int delete = pds.delete(new PersonData());
-		assertEquals(0, delete);
 	}
 
 	/**

@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ca.charland.db.DatabaseHelper;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 /**
@@ -18,7 +19,7 @@ public class PersonDatabaseHelperTest {
 	 */
 	@Test
 	public void testPeopleDatabaseHelper() {
-		assertNotNull(new DatabaseHelper(null));
+		assertNotNull(new DatabaseHelper(null, null, null));
 	}
 
 }

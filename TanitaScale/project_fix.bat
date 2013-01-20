@@ -1,0 +1,1 @@
+E:\Android\sdk\tools\android.bat update project -p .
