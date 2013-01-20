@@ -6,6 +6,7 @@ import java.util.List;
 
 import ca.charland.db.Data;
 import ca.charland.db.DataSource;
+import ca.charland.db.DatabaseHelper;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -18,7 +19,7 @@ import android.database.Cursor;
 public class DateListDataSource extends DataSource {
 
 	public DateListDataSource(Context context) {
-		super(context, TanitaDataTable.CREATE_DATABASE_TABLE, TanitaDataTable.TABLE_NAME);
+		super(new DatabaseHelper(context, TanitaDataSource.DATABASE_NAME, TanitaDataTable.TABLE_NAME, TanitaDataTable.CREATE_DATABASE_TABLE));
 	}
 
 	@Override

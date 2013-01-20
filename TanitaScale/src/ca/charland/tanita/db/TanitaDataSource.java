@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.charland.db.DataSource;
+import ca.charland.db.DatabaseHelper;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -14,8 +15,10 @@ import android.database.Cursor;
  */
 public class TanitaDataSource extends DataSource {
 
+	public static final String DATABASE_NAME = "tanita.db";
+
 	public TanitaDataSource(Context context) {
-		super(context, TanitaDataTable.CREATE_DATABASE_TABLE, TanitaDataTable.TABLE_NAME);
+		super(new DatabaseHelper(context, DATABASE_NAME, TanitaDataTable.TABLE_NAME, TanitaDataTable.CREATE_DATABASE_TABLE));
 	}
 
 	@Override

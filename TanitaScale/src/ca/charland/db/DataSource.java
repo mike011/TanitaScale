@@ -21,24 +21,24 @@ public abstract class DataSource {
 
 	private DatabaseHelper databaseHelper;
 
-	private final String table;
+	private boolean open;
 
-	public DataSource(Context context, String createTable, String table) {
-		this.databaseHelper = new DatabaseHelper(context, createTable, table);
-		this.table = table;
+	public DataSource(DatabaseHelper helper) {
+		this.databaseHelper = helper;
 	}
-
+	
 	public void openDatabaseConnection() throws SQLException {
 		database = databaseHelper.getWritableDatabase();
+		open = true;
 	}
 
 	public long insertTableRow(ContentValues values) {
-		long insert = database.insert(table, null, values);
+		long insert = database.insert(databaseHelper.getTableName(), null, values);
 		return insert;
 	}
 
 	public long updateTableRow(String id, Object idValue, ContentValues values) {
-		long effected = database.update(table, values, id + '=' + idValue, null);
+		long effected = database.update(databaseHelper.getTableName(), values, id + '=' + idValue, null);
 		return effected;
 	}
 
@@ -52,7 +52,7 @@ public abstract class DataSource {
 
 	public List<Data> queryWithOrdering(String selection, String orderBy) {
 		String[] columns = getAllColumns().toArray(new String[0]);
-		Cursor cursor = database.query(table, columns, selection, null, null, null, orderBy);
+		Cursor cursor = database.query(databaseHelper.getTableName(), columns, selection, null, null, null, orderBy);
 		List<Data> populateAll = populateAll(cursor);
 		cursor.close();
 		return populateAll;
@@ -75,5 +75,10 @@ public abstract class DataSource {
 
 	public void closeDatabaseConnection() {
 		databaseHelper.close();
+		open = false;
+	}
+	
+	public boolean isDatabaseConnectionOpen() {
+		return open;
 	}
 }

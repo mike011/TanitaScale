@@ -19,7 +19,7 @@ public class PersonDatabaseHelperTest {
 	 */
 	@Test
 	public void testPeopleDatabaseHelper() {
-		assertNotNull(new DatabaseHelper(null, null, null));
+		assertNotNull(new DatabaseHelper(null, null, null, null));
 	}
 
 }

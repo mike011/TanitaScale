@@ -9,8 +9,8 @@ import ca.charland.tanita.db.PersonDataTable;
 
 public class BasicPersonDataSource extends AbstractPersonDataSource {
 
-	public BasicPersonDataSource(Context context, String createPeopleTable, String table) {
-		super(context, createPeopleTable, table);
+	public BasicPersonDataSource(Context context, String database, String table, String createPeopleTableSQL) {
+		super(context, database, table, createPeopleTableSQL);
 	}
 	
 	@Override

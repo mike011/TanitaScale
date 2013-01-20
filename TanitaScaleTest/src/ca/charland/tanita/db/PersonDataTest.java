@@ -25,17 +25,6 @@ public class PersonDataTest {
 	 * Test method for get and set name.
 	 */
 	@Test
-	public void testName() {
-		PersonData p = new PersonData();
-		String name = "Bob";
-		p.setName(name);
-		assertEquals(name, p.getName());
-	}
-
-	/**
-	 * Test method for get and set name.
-	 */
-	@Test
 	public void testSex() {
 		PersonData p = new PersonData();
 		String sex = "boy";
@@ -53,16 +42,4 @@ public class PersonDataTest {
 		p.setEmail(email);
 		assertEquals(email, p.getEmail());
 	}
-
-	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonData#toString()}.
-	 */
-	@Test
-	public void testToString() {
-		PersonData p = new PersonData();
-		String name = "Frank";
-		p.setName(name);
-		assertEquals(name, p.toString());
-	}
-
 }

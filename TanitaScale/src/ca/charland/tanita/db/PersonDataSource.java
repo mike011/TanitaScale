@@ -16,7 +16,7 @@ import ca.charland.db.ContentValuesKeyValuePair;
 public class PersonDataSource extends BasicPersonDataSource {
 
 	public PersonDataSource(Context context) {
-		super(context, PersonDataTable.CREATE_PEOPLE_TABLE, PersonDataTable.TABLE);
+		super(context, TanitaDataSource.DATABASE_NAME, PersonDataTable.TABLE, PersonDataTable.CREATE_PEOPLE_TABLE);
 	}
 
 	public long create(String name, String email, String sex) {

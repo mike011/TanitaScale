@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ca.charland.db.CustomCursor;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 /**

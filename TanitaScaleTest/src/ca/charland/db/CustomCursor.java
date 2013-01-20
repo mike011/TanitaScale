@@ -1,4 +1,4 @@
-package ca.charland.tanita.db;
+package ca.charland.db;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -11,11 +11,7 @@ import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
 
-/**
- * @author mcharland
- * 
- */
-class CustomCursor implements Cursor {
+public class CustomCursor implements Cursor {
 
 	private Map<Integer, Object> values = new TreeMap<Integer, Object>();
 
@@ -114,15 +110,7 @@ class CustomCursor implements Cursor {
 		return (String) values.get(columnIndex);
 	}
 
-	/**
-	 * Sets the string.
-	 * 
-	 * @param key
-	 *            The key value.
-	 * @param newStringValue
-	 *            the new string
-	 */
-	void setString(Integer key, String newStringValue) {
+	public void setString(Integer key, String newStringValue) {
 		values.put(key, newStringValue);
 	}
 
@@ -140,14 +128,6 @@ class CustomCursor implements Cursor {
 		return (Integer) values.get(columnIndex);
 	}
 
-	/**
-	 * Sets the int.
-	 * 
-	 * @param key
-	 *            The kay value.
-	 * @param amount
-	 *            the new int
-	 */
 	public void setInt(Integer key, int amount) {
 		values.put(key, amount);
 
@@ -158,15 +138,7 @@ class CustomCursor implements Cursor {
 		return (Long) values.get(columnIndex);
 	}
 
-	/**
-	 * Sets the long.
-	 * 
-	 * @param key
-	 *            The key value.
-	 * @param newLongValue
-	 *            the new long
-	 */
-	void setLong(Integer key, long newLongValue) {
+	public void setLong(Integer key, long newLongValue) {
 		values.put(key, newLongValue);
 	}
 
@@ -180,16 +152,6 @@ class CustomCursor implements Cursor {
 		return (Double) values.get(columnIndex);
 	}
 
-	/**
-	 * Sets the double.
-	 * 
-	 * @param key
-	 *            The key value.
-	 * @param d
-	 *            the double to set.
-	 * 
-	 * @return the double
-	 */
 	public void setDouble(Integer key, double d) {
 		values.put(key, d);
 	}

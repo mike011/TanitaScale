@@ -6,40 +6,31 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * The Class DatabaseHelper, the base class that puts all the database stuff together.
+ * This class is the lowest level class containing specific SQL queries and connections.
  * 
  * @author mcharland
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-	private static final String DATABASE_NAME = "tanita.db";
-
 	private static final int DATABASE_VERSION = 1;
 
 	private final String tableName;
 
-	private final String createTable;
+	private final String createTableSQL;
 
-	/**
-	 * Instantiates a new names database.
-	 * 
-	 * @param context
-	 *            the context
-	 */
-	public DatabaseHelper(Context context, String createTable, String table) {
-		super(context, DATABASE_NAME, null, DATABASE_VERSION);
-		this.createTable = createTable;
+	public DatabaseHelper(Context context, String database, String table, String createTable) {
+		super(context, database, null, DATABASE_VERSION);
 		this.tableName = table;
+		this.createTableSQL = createTable;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 		createTables(database);
 	}
 
 	private void createTables(SQLiteDatabase database) {
-		database.execSQL(createTable);
+		database.execSQL(createTableSQL);
 	}
 
 	/** {@inheritDoc} */
@@ -51,7 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 
 	private void dropTables(SQLiteDatabase db) {
-		db.execSQL("DROP TABLE IF EXISTS" + tableName);
+		db.execSQL("DROP TABLE IF EXISTS" + getTableName());
 	}
 
 	private String getMessage(int oldVersion, int newVersion) {
@@ -62,6 +53,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		msg.append(newVersion);
 		msg.append(", which will destroy all old data");
 		return msg.toString();
+	}
+
+	public String getTableName() {
+		return tableName;
 	}
 
 }
