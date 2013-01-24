@@ -23,42 +23,39 @@ public class TanitaScaleActivity extends RoboActivity {
 	@InjectView(R.id.view)
 	private Button view;
 
+	@InjectView(R.id.settings)
+	private Button settings;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
-		setOnClickListenerForAdd();
-
-		setOnClickListenerForView();
+		setOnClickListeners();
 	}
 
-	private void setOnClickListenerForAdd() {
-		add.setOnClickListener(new OnClickListener() {
+	private void setOnClickListeners() {
+		setOnClickListenerForButton(add, AddPersonActivity.class);
+		setOnClickListenerForButton(view, PeopleListActivity.class);
+		setOnClickListenerForButton(settings, SettingsActivity.class);
+	}
+
+	private void setOnClickListenerForButton(Button button, final Class<?> next) {
+		button.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View view) {
-				startActivity(new Intent(getBaseContext(), AddPersonActivity.class));
+				startActivity(new Intent(getBaseContext(), next));
 			}
 		});
-	}
-	
-	private void setOnClickListenerForView() {
-		view.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View view) {
-				startActivity(new Intent(getBaseContext(), PeopleListActivity.class));
-			}
-		});
 	}
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// replaces the default 'Back' button action
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			finish();
-            System.exit(0);
+			System.exit(0);
 		}
 		return true;
 	}

@@ -44,4 +44,6 @@
     <string name="averageValue"></string>
     <string name="previousText">Previous</string>
     <string name="previousValue"></string>
+    <string name="settingsButton">Settings</string>
+    <string name="singleUser">Enable Single User Mode?</string>
 </resources>
