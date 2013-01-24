@@ -4,8 +4,9 @@ import java.io.File;
 
 import org.junit.runners.model.InitializationError;
 
-import roboguice.application.RoboApplication;
-import roboguice.inject.ContextScope;
+import roboguice.RoboGuice;
+import roboguice.activity.RoboActivity;
+import android.content.Context;
 
 import com.google.inject.Injector;
 import com.xtremelabs.robolectric.Robolectric;
@@ -22,20 +23,17 @@ public class TanitaMeRobolectricTestRunner extends RobolectricTestRunner {
 
 	private static final String APPLICATION_LOCATION = "../TanitaScale";
 
+	private Injector injector;
+
 	public TanitaMeRobolectricTestRunner(Class<?> testClass) throws InitializationError {
 		super(testClass, new File(APPLICATION_LOCATION));
 	}
 
 	@Override
 	public void prepareTest(Object test) {
-		RoboApplication application = (RoboApplication) Robolectric.application;
-
-		// This project's application does not extend GuiceInjectableApplication therefore we need to enter the ContextScope manually.
-		Injector injector = application.getInjector();
-		ContextScope scope = injector.getInstance(ContextScope.class);
-		scope.enter(application);
-
-		injector.injectMembers(test);
+		Context context = new RoboActivity();
+		this.injector = RoboGuice.getInjector(context);
+		this.injector.injectMembers(test);
 	}
 
 	@Override
