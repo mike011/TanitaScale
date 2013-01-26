@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import roboguice.inject.InjectView;
 import android.widget.TextView;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 import ca.charland.tanita.R;
@@ -20,66 +19,9 @@ import com.google.inject.Inject;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class PersonDateActivityTest {
 
-	@InjectView(R.id.weight)
-	private TextView weight;
-
-	@InjectView(R.id.dci)
-	private TextView dci;
-
-	@InjectView(R.id.metabolic_age)
-	private TextView metabolicAge;
-
-	@InjectView(R.id.body_water_percentage)
-	private TextView bodyWaterPercentage;
-
-	@InjectView(R.id.visceral_fat)
-	private TextView visceralFat;
-
-	@InjectView(R.id.bone_mass)
-	private TextView boneMass;
-
-	@InjectView(R.id.body_fat_total)
-	private TextView bodyFatTotal;
-
-	@InjectView(R.id.body_fat_arm_left)
-	private TextView bodyfatArmLeft;
-
-	@InjectView(R.id.body_fat_arm_right)
-	private TextView bodyFatArmRight;
-
-	@InjectView(R.id.body_fat_leg_left)
-	private TextView bodyFatLegLeft;
-
-	@InjectView(R.id.body_fat_leg_right)
-	private TextView bodyFatLegRight;
-
-	@InjectView(R.id.body_fat_trunk)
-	private TextView bodyFatTrunk;
-
-	@InjectView(R.id.muscle_mass_total)
-	private TextView muscleMassTotal;
-
-	@InjectView(R.id.muscle_mass_arm_left)
-	private TextView muscleMassArmLeft;
-
-	@InjectView(R.id.muscle_mass_arm_right)
-	private TextView muscleMassArmRight;
-
-	@InjectView(R.id.muscle_mass_leg_right)
-	private TextView muscleMassLegRight;
-
-	@InjectView(R.id.muscle_mass_leg_left)
-	private TextView muscleMassLegLeft;
-
-	@InjectView(R.id.muscle_mass_trunk)
-	private TextView muscleMassTrunk;
-
-	@InjectView(R.id.physic_rating)
-	private TextView physicRating;
-
 	@Inject
 	private PersonDateActivityNoDatabase activity;
-
+	
 	/**
 	 * Test method for {@link ca.charland.tanita.manage.PersonDateActivity#onCreate(android.os.Bundle)}.
 	 */
@@ -90,7 +32,8 @@ public class PersonDateActivityTest {
 		td.setWeight(1234);
 
 		activity.onCreate(null);
-
+		
+		TextView weight = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.weight);
 		assertEquals("1234.0", weight.getText().toString());
 	}
 
@@ -105,9 +48,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView dci = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.dci);
 		assertEquals("4019", dci.getText().toString());
 	}
-	
+
 	/**
 	 * Test method for {@link ca.charland.tanita.manage.PersonDateActivity#onCreate(android.os.Bundle)}.
 	 */
@@ -119,6 +63,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView metabolicAge = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.metabolic_age);
 		assertEquals("18", metabolicAge.getText().toString());
 	}
 
@@ -127,12 +72,13 @@ public class PersonDateActivityTest {
 	 */
 	@Test
 	public void testOnCreateBodyWaterPercentage() {
-
+		
 		TanitaData td = activity.getTanitaData();
 		td.setBodyWaterPercentage(54);
 
 		activity.onCreate(null);
-
+		
+		TextView bodyWaterPercentage = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_water_percentage);
 		assertEquals("54.0", bodyWaterPercentage.getText().toString());
 	}
 
@@ -147,6 +93,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView visceralFat = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.visceral_fat);
 		assertEquals("5", visceralFat.getText().toString());
 	}
 
@@ -161,6 +108,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView boneMass = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.bone_mass);
 		assertEquals("8.3", boneMass.getText().toString());
 	}
 
@@ -175,6 +123,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView bodyFatTotal = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_total);
 		assertEquals("16.3", bodyFatTotal.getText().toString());
 	}
 
@@ -189,6 +138,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView bodyfatArmLeft = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_arm_left);
 		assertEquals("16.1", bodyfatArmLeft.getText().toString());
 	}
 
@@ -203,6 +153,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView bodyFatArmRight = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_arm_right);
 		assertEquals("4.3", bodyFatArmRight.getText().toString());
 	}
 
@@ -217,6 +168,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView bodyFatLegLeft = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_leg_left);
 		assertEquals("3.9", bodyFatLegLeft.getText().toString());
 	}
 
@@ -231,6 +183,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView bodyFatLegRight = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_leg_right);
 		assertEquals("9.2", bodyFatLegRight.getText().toString());
 	}
 
@@ -245,6 +198,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView bodyFatTrunk = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_trunk);
 		assertEquals("19.2", bodyFatTrunk.getText().toString());
 	}
 
@@ -259,6 +213,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView muscleMassTotal = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_total);
 		assertEquals("123.3", muscleMassTotal.getText().toString());
 	}
 
@@ -273,6 +228,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView muscleMassArmLeft = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_arm_left);
 		assertEquals("8.2", muscleMassArmLeft.getText().toString());
 	}
 
@@ -287,6 +243,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView muscleMassArmRight = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_arm_right);
 		assertEquals("8.1", muscleMassArmRight.getText().toString());
 	}
 
@@ -301,6 +258,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView muscleMassLegLeft = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_leg_left);
 		assertEquals("15.3", muscleMassLegLeft.getText().toString());
 	}
 
@@ -315,6 +273,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView muscleMassLegRight = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_leg_right);
 		assertEquals("26.7", muscleMassLegRight.getText().toString());
 	}
 
@@ -329,6 +288,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView muscleMassTrunk = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_trunk);
 		assertEquals("89.9", muscleMassTrunk.getText().toString());
 	}
 
@@ -343,6 +303,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
+		TextView physicRating = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.physic_rating);
 		assertEquals("3", physicRating.getText().toString());
 	}
 }

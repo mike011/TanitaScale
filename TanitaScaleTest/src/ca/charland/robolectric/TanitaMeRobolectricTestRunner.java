@@ -6,11 +6,14 @@ import org.junit.runners.model.InitializationError;
 
 import roboguice.RoboGuice;
 import roboguice.activity.RoboActivity;
+import android.app.Activity;
 import android.content.Context;
+import android.view.View;
 
 import com.google.inject.Injector;
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
+import com.xtremelabs.robolectric.shadows.ShadowActivity;
 import com.xtremelabs.robolectric.shadows.ShadowResources;
 
 /**
@@ -39,5 +42,11 @@ public class TanitaMeRobolectricTestRunner extends RobolectricTestRunner {
 	@Override
 	protected void bindShadowClasses() {
 		Robolectric.bindShadowClass(ShadowResources.class);
+	}
+
+	public static View getViewFromShadowActivity(Activity activity, int id) {
+		ShadowActivity shadowA = Robolectric.shadowOf(activity);
+		View next = (View) shadowA.findViewById(id);
+		return next;
 	}
 }
