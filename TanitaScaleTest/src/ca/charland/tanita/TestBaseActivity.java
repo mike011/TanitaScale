@@ -15,6 +15,10 @@ class TestBaseActivity extends BodyFatLeftArmActivity {
 		return tanitaData;
 	}
 
+	@Override 
+	protected void createDataSource() {
+	}
+	
 	@Override
 	protected void setSex(int id, int female) {
 	}

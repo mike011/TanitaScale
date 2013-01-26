@@ -17,8 +17,19 @@ import com.google.inject.Inject;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class BodyFatTrunkActivityTest {
 
+	private static class ActivityUnderTest extends BodyFatTrunkActivity {
+
+		@Override
+		protected void setSex(int id, int female) {
+		}
+		
+		@Override 
+		protected void createDataSource() {
+		}
+	}
+
 	@Inject
-	private BodyFatTrunkActivity activity;
+	private ActivityUnderTest activity;
 
 	@Before
 	public void setup() {

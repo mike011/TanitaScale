@@ -63,6 +63,10 @@ public class TextViewActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
+		
+		@Override 
+		protected void createDataSource() {
+		}
 	}
 
 	@Test

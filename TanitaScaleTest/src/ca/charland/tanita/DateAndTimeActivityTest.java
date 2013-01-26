@@ -21,8 +21,15 @@ import com.google.inject.Inject;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DateAndTimeActivityTest {
 
+	private static class ActivityUnderTest extends DateAndTimeActivity {
+
+		@Override 
+		protected void createDataSource() {
+		}
+	}
+	
 	@Inject
-	private DateAndTimeActivity activity;
+	private ActivityUnderTest activity;
 
 	@Before
 	public void setup() {

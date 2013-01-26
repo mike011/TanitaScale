@@ -18,8 +18,19 @@ import com.google.inject.Inject;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class MetabolicAgeActivityTest {
 
+	private static class ActivityUnderTest extends MetabolicAgeActivity {
+
+		@Override
+		protected void setSex(int id, int female) {
+		}
+		
+		@Override 
+		protected void createDataSource() {
+		}
+	}
+	
 	@Inject
-	private MetabolicAgeActivity activity;
+	private ActivityUnderTest activity;
 
 	@Before
 	public void setup() {

@@ -17,15 +17,19 @@ import com.google.inject.Inject;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class BodyFatTotalActivityTest {
 
-	private static class BodyFatTotalActivityUnderTest extends BodyFatTotalActivity {
-		
+	private static class ActivityUnderTest extends BodyFatTotalActivity {
+
 		@Override
 		protected void setSex(int id, int female) {
+		}
+		
+		@Override 
+		protected void createDataSource() {
 		}
 	}
 	
 	@Inject
-	private BodyFatTotalActivityUnderTest activity;
+	private ActivityUnderTest activity;
 
 	@Before
 	public void setup() {

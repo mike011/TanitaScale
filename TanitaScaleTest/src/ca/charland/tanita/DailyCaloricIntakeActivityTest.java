@@ -17,8 +17,20 @@ import com.google.inject.Inject;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DailyCaloricIntakeActivityTest {
 
+	private static class ActivityUnderTest extends DailyCaloricIntakeActivity {
+
+		@Override
+		protected void setSex(int id, int female) {
+		}
+		
+		@Override 
+		protected void createDataSource() {
+			
+		}
+	}
+	
 	@Inject
-	private DailyCaloricIntakeActivity activity;
+	private ActivityUnderTest activity;
 
 	@Before
 	public void setup() {
