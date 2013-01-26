@@ -138,7 +138,7 @@ public class TanitaData extends Data {
 	public double getMuscleMassRightArm() {
 		return muscleMassRightArm;
 	}
-	
+
 	public void setMuscleMassRightArm(double muscleMassRightArm) {
 		this.muscleMassRightArm = muscleMassRightArm;
 	}
@@ -221,6 +221,70 @@ public class TanitaData extends Data {
 
 	public void setBoneMass(double boneMass) {
 		this.boneMass = boneMass;
+	}
+
+	public double get(TanitaDataTable.Column column) {
+		switch (column) {
+		case DAILY_CALORIC_INTAKE:
+			return getDailyCaloricIntake();
+		case BODY_FAT_TOTAL:
+			return getBodyFatTotal();
+
+		case BODY_FAT_LEFT_ARM:
+			return getBodyFatLeftArm();
+
+		case BODY_FAT_RIGHT_ARM:
+			return getBodyFatRightArm();
+
+		case BODY_FAT_RIGHT_LEG:
+			return getBodyFatRightLeg();
+
+		case BODY_FAT_LEFT_LEG:
+			return getBodyFatLeftLeg();
+
+		case BODY_FAT_TRUNK:
+			return getBodyFatTrunk();
+
+		case MUSCLE_MASS_TOTAL:
+			return getMuscleMassTotal();
+
+		case MUSCLE_MASS_LEFT_ARM:
+			return getMuscleMassLeftArm();
+
+		case MUSCLE_MASS_RIGHT_ARM:
+			return getMuscleMassRightArm();
+
+		case MUSCLE_MASS_RIGHT_LEG:
+			return getMuscleMassRightLeg();
+
+		case MUSCLE_MASS_LEFT_LEG:
+			return getMuscleMassLeftLeg();
+
+		case MUSCLE_MASS_TRUNK:
+			return getMuscleMassTrunk();
+
+		case PHYSIC_RATING:
+			return getPhysicRating();
+
+		case METABOLIC_AGE:
+			return getMetabolicAge();
+
+		case BODY_WATER_PERCENTAGE:
+			return getBodyWaterPercentage();
+
+		case VISCERAL_FAT:
+			return getVisceralFat();
+
+		case BONE_MASS:
+			return getBoneMass();
+
+		case WEIGHT:
+			return getWeight();
+		default:
+			break;
+		}
+
+		return -1;
 	}
 
 	@Override

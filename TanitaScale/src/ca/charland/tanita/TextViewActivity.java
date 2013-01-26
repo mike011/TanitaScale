@@ -74,7 +74,7 @@ public abstract class TextViewActivity extends BaseActivity {
 		double prev = 0;
 		if (data.size() > 0) {
 			TanitaData td = (TanitaData) data.get(data.size() - 1);
-			prev = td.getWeight();
+			prev = td.get(getColumnName());
 		}
 		previous.setText(String.valueOf(prev));
 	}
@@ -83,7 +83,7 @@ public abstract class TextViewActivity extends BaseActivity {
 		double all = 0;
 		for (Data d : data) {
 			TanitaData td = (TanitaData) d;
-			all += td.getWeight();
+			all += td.get(getColumnName());
 		}
 		double avg = 0;
 		if (all != 0) {
@@ -177,12 +177,12 @@ public abstract class TextViewActivity extends BaseActivity {
 	}
 
 	private TanitaData getTanitaData(TanitaDataSource datasource) {
-		List<Data> data = datasource.query(getTDSelection());
+		List<Data> data = datasource.query(getTanitaDataSelection());
 		TanitaData td = (TanitaData) data.get(0);
 		return td;
 	}
 
-	private String getTDSelection() {
+	private String getTanitaDataSelection() {
 		Bundle extras = getIntent().getExtras();
 		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(DateListActivity.ID);
 		return selection;
