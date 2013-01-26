@@ -22,6 +22,7 @@ public abstract class BaseActivity extends RoboActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(getResourceIDForLayout());
+
 		next.setOnClickListener(new NextButtonOnClickListener(this));
 	}
 

@@ -21,24 +21,23 @@ class NextButtonOnClickListener implements View.OnClickListener {
 
 	/** A unique identifier of a row in the table. */
 	static final String ID = "ROW_ID";
-
-	private final TanitaDataSource datasource;
-
 	private final BaseActivity activity;
+	private TanitaDataSource datasource;
 
 	NextButtonOnClickListener(BaseActivity activity) {
 		this.activity = activity;
-		datasource = new TanitaDataSource(activity);
 	}
 
 	@Override
 	public void onClick(View v) {
-
+		
 		if (!isTextValid()) {
 			return;
 		}
-
+		
+		datasource = new TanitaDataSource(activity);
 		datasource.openDatabaseConnection();
+		datasource.checkForTable();
 
 		updateIDIfInserted();
 

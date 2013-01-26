@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.charland.db.CustomCursor;
+import ca.charland.db.DatabaseHelper;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 /**
@@ -26,17 +27,12 @@ public class TanitaDataSourceTest {
 		tds = new TanitaDataSource(null);
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#TanitaDataSource(android.content.Context)}.
-	 */
 	@Test
 	public void testTanitaDataSource() {
 		assertNotNull(tds);
+		assertNotNull(tds.getDatabaseHelper());
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#convertToAbstractData(android.database.Cursor)}.
-	 */
 	@Test
 	public void testCursorConverter() {
 
@@ -101,9 +97,6 @@ public class TanitaDataSourceTest {
 		assertEquals(dci, td.getDailyCaloricIntake());
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
-	 */
 	@Test
 	public void testGetAllColumnsLength() {
 		List<String> allColumns = tds.getAllColumns();
@@ -111,48 +104,52 @@ public class TanitaDataSourceTest {
 		assertEquals(22, allColumns.size());
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
-	 */
 	@Test
 	public void testGetAllColumnsID() {
 		List<String> allColumns = tds.getAllColumns();
 		assertEquals("_id", allColumns.get(0));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
-	 */
 	@Test
 	public void testGetAllColumnsPerson() {
 		List<String> allColumns = tds.getAllColumns();
 		assertEquals("person", allColumns.get(1));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
-	 */
 	@Test
 	public void testGetAllColumnsDate() {
 		List<String> allColumns = tds.getAllColumns();
 		assertEquals("date", allColumns.get(2));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
-	 */
 	@Test
 	public void testGetAllColumnsWeight() {
 		List<String> allColumns = tds.getAllColumns();
 		assertEquals("weight", allColumns.get(3));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDataSource#getAllColumns()}.
-	 */
 	@Test
 	public void testGetAllColumnsDCI() {
 		List<String> allColumns = tds.getAllColumns();
 		assertEquals("daily_caloric_intake", allColumns.get(4));
+	}
+
+	@Test
+	public void testGetDatabase() {
+		DatabaseHelper databaseHelper = tds.getDatabaseHelper();
+		assertEquals("tanita.db", databaseHelper.getDatabaseName());
+	}
+
+	@Test
+	public void testGetTableNames() {
+		DatabaseHelper databaseHelper = tds.getDatabaseHelper();
+		assertEquals("tanita_data", databaseHelper.getTableName());
+	}
+
+	@Test
+	public void testGetCreateTableSQL() {
+		DatabaseHelper databaseHelper = tds.getDatabaseHelper();
+		String create = "create table tanita_data( _id integer primary key autoincrement, person integer not null, date integer, body_fat_total integer, body_fat_left_arm integer, body_fat_right_arm integer, body_fat_right_leg integer, body_fat_left_leg integer, body_fat_trunk integer, muscle_mass_total integer, muscle_mass_left_arm integer, muscle_mass_right_arm integer, muscle_mass_right_leg integer, muscle_mass_left_leg integer, muscle_trunk integer, physic_rating integer, weight integer, daily_caloric_intake integer, metabolic_age integer, body_water_percentage integer, visceral_fat integer, bone_mass integer);";
+		assertEquals(create, databaseHelper.getCreateTableSQL());
 	}
 }

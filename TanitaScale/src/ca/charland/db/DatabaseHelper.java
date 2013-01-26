@@ -14,12 +14,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	private static final int DATABASE_VERSION = 1;
 
+	private final String databaseName;
+	
 	private final String tableName;
 
 	private final String createTableSQL;
 
 	public DatabaseHelper(Context context, String database, String table, String createTableSQL) {
 		super(context, database, null, DATABASE_VERSION);
+		this.databaseName = database;
 		this.tableName = table;
 		this.createTableSQL = createTableSQL;
 	}
@@ -54,9 +57,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		msg.append(", which will destroy all old data");
 		return msg.toString();
 	}
+	
+	public String getDatabaseName() {
+		return databaseName;
+	}
 
 	public String getTableName() {
 		return tableName;
+	}
+	
+	public String getCreateTableSQL() {
+		return createTableSQL;
 	}
 
 }

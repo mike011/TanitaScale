@@ -18,17 +18,35 @@ public abstract class DataSource {
 
 	protected SQLiteDatabase database;
 
-	private DatabaseHelper databaseHelper;
+	private final DatabaseHelper databaseHelper;
 
 	private boolean open;
 
 	public DataSource(DatabaseHelper helper) {
 		this.databaseHelper = helper;
 	}
-	
+
 	public void openDatabaseConnection() throws SQLException {
 		database = databaseHelper.getWritableDatabase();
 		open = true;
+	}
+
+	public void checkForTable() {
+		if(!tableExists(databaseHelper.getTableName())) {
+			databaseHelper.onCreate(database);
+		}
+	}
+
+	private boolean tableExists(String tableName) {
+		Cursor cursor = database.rawQuery("select DISTINCT tbl_name from sqlite_master where tbl_name = '" + tableName + "'", null);
+		if (cursor != null) {
+			if (cursor.getCount() > 0) {
+				cursor.close();
+				return true;
+			}
+			cursor.close();
+		}
+		return false;
 	}
 
 	public long insertTableRow(ContentValues values) {
@@ -74,10 +92,17 @@ public abstract class DataSource {
 
 	public void closeDatabaseConnection() {
 		databaseHelper.close();
+		if(database != null) {
+			database.close();	
+		}
 		open = false;
 	}
-	
+
 	public boolean isDatabaseConnectionOpen() {
 		return open;
+	}
+
+	public DatabaseHelper getDatabaseHelper() {
+		return databaseHelper;
 	}
 }

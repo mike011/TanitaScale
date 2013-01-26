@@ -8,7 +8,7 @@ package ca.charland.tanita.db;
  */
 public class PersonDataTable {
 
-	static final String TABLE = "person";
+	static final String TABLE_NAME = "person";
 	
 	public static enum Column {
 		
@@ -36,11 +36,12 @@ public class PersonDataTable {
 
 	private static String getPeopleTable() {
 		StringBuilder sql = new StringBuilder();
-		sql.append("create table ").append(TABLE);
-		sql.append("( ").append(Column.ID).append(" integer primary key autoincrement, ");
+		sql.append("create table ").append(TABLE_NAME).append("( ");
+		sql.append(Column.ID).append(" integer primary key autoincrement, ");
 		sql.append(Column.NAME).append(" text not null, ");
 		sql.append(Column.EMAIL).append(" text not null, ");
-		sql.append(Column.SEX).append(" text not null);");
+		sql.append(Column.SEX).append(" text not null");
+		sql.append(");");
 		String string = sql.toString();
 		return string;
 	}
