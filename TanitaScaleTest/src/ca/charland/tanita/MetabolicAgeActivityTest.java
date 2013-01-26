@@ -27,6 +27,10 @@ public class MetabolicAgeActivityTest {
 		@Override 
 		protected void createDataSource() {
 		}
+		
+		@Override
+		protected void setData() {
+		}
 	}
 	
 	@Inject

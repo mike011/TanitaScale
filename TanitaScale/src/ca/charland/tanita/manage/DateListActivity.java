@@ -52,10 +52,14 @@ public class DateListActivity extends RoboListActivity {
 	}
 
 	private String getSelection() {
+		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + getID();
+		return selection;
+	}
+
+	private int getID() {
 		Bundle extras = getIntent().getExtras();
 		int id = extras.getInt(PeopleListActivity.PERSON_ID);
-		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + id;
-		return selection;
+		return id;
 	}
 
 	private void setupListView(List<Data> data) {

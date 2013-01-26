@@ -9,22 +9,20 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/PreviousText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/previousText" />
 
         <TextView
-            android:id="@+id/colon1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/colon" />
 
         <TextView
-            android:id="@+id/AverageValue"
+            android:id="@+id/previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/previousValue" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -32,22 +30,20 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/AverageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/averageText" />
 
         <TextView
-            android:id="@+id/colon2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/colon" />
 
         <TextView
-            android:id="@+id/averageValue"
+            android:id="@+id/average"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/averageValue" />
+            android:text="" />
     </LinearLayout>
 
     <TextView

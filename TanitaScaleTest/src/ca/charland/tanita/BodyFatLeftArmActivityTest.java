@@ -26,6 +26,10 @@ public class BodyFatLeftArmActivityTest {
 		@Override 
 		protected void createDataSource() {
 		}
+
+		@Override
+		protected void setData() {
+		}
 	}
 	
 	@Inject

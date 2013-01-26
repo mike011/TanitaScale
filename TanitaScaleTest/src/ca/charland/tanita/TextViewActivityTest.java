@@ -40,22 +40,22 @@ public class TextViewActivityTest {
 
 	@Test
 	public void testPreviousText() {
-		TextView previous = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.PreviousText);
+		TextView previous = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.previous);
 
 		assertNotNull("Previous not set", previous);
 		CharSequence text = previous.getText();
 		assertNotNull("Previous text not set", text);
-		assertEquals("Previous", text.toString());
+		assertEquals("0.0", text.toString());
 	}
 
 	@Test
 	public void testAverageText() {
-		TextView average = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.AverageText);
+		TextView average = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.average);
 		
 		assertNotNull("Average not set", average);
 		CharSequence text = average.getText();
 		assertNotNull("Average text not set", text);
-		assertEquals("Average", text.toString());
+		assertEquals("0.0",text.toString());
 	}
 
 	private static class BodyFatLeftArmActivityUnderTest extends BodyFatLeftArmActivity {
@@ -66,6 +66,10 @@ public class TextViewActivityTest {
 		
 		@Override 
 		protected void createDataSource() {
+		}
+		
+		@Override
+		protected void setData() {
 		}
 	}
 

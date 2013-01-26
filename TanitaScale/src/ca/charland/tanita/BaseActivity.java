@@ -15,7 +15,7 @@ public abstract class BaseActivity extends RoboActivity {
 	@InjectView(R.id.next)
 	private Button next;
 	
-	private TanitaDataSource datasource;
+	protected TanitaDataSource datasource;
 	
 	protected abstract int getResourceIDForLayout();
 	protected abstract ContentValues getValues();

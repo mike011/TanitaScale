@@ -26,6 +26,10 @@ public class BodyWaterPercentageActivityTest {
 		@Override 
 		protected void createDataSource() {
 		}
+
+		@Override
+		protected void setData() {
+		}
 	}
 	
 	@Inject

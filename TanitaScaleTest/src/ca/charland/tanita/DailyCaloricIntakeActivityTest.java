@@ -25,7 +25,10 @@ public class DailyCaloricIntakeActivityTest {
 		
 		@Override 
 		protected void createDataSource() {
-			
+		}
+
+		@Override
+		protected void setData() {
 		}
 	}
 	

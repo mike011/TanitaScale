@@ -1,5 +1,6 @@
 package ca.charland.tanita;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import roboguice.inject.InjectView;
@@ -38,18 +39,29 @@ public abstract class TextViewActivity extends BaseActivity {
 
 	@InjectView(R.id.enter_your)
 	private TextView enter;
-	
-	@InjectView(R.id.PreviousText)
+
+	@InjectView(R.id.previous)
 	private TextView previous;
-	
-	@InjectView(R.id.AverageText)
+
+	@InjectView(R.id.average)
 	private TextView average;
+
+	private List<Data> data = new ArrayList<Data>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		text = (TextView) findViewById(R.id.editTextEntry);
 		setEnterText();
+
+		setData();
+		setPrevious();
+		setAverage();
+	}
+
+	protected void setData() {
+		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + getID();
+		data = datasource.query(selection);
 	}
 
 	private void setEnterText() {
@@ -58,17 +70,49 @@ public abstract class TextViewActivity extends BaseActivity {
 		enter.setText(String.format(raw, resources.getString(getIDForString())));
 	}
 
+	private void setPrevious() {
+		double prev = 0;
+		if (data.size() > 0) {
+			TanitaData td = (TanitaData) data.get(data.size() - 1);
+			prev = td.getWeight();
+		}
+		previous.setText(String.valueOf(prev));
+	}
+
+	private void setAverage() {
+		double all = 0;
+		for (Data d : data) {
+			TanitaData td = (TanitaData) d;
+			all += td.getWeight();
+		}
+		double avg = 0;
+		if (all != 0) {
+			avg = all / data.size();
+		}
+		average.setText(String.valueOf(avg));
+	}
+
+	private int getID() {
+		int id = -1;
+		Intent intent = getIntent();
+		if (intent != null) {
+			Bundle extras = intent.getExtras();
+			id = extras.getInt(PeopleListActivity.PERSON_ID);
+		}
+		return id;
+	}
+
 	@Override
 	public void onStart() {
 		super.onStart();
 		showKeyboard();
 	}
-	
+
 	private void showKeyboard() {
-		InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-		imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_NOT_ALWAYS);
+		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_NOT_ALWAYS);
 	}
-	
+
 	protected abstract int getIDForString();
 
 	protected abstract TanitaDataTable.Column getColumnName();
@@ -79,17 +123,17 @@ public abstract class TextViewActivity extends BaseActivity {
 		values.put(getColumnName().toString(), text.getText().toString());
 		return values;
 	}
-	
+
 	protected void setSex(int id, int female) {
 		ImageView image = (ImageView) findViewById(id);
-		
+
 		String sex = getSex();
-		if(sex.equalsIgnoreCase("female")) {
+		if (sex.equalsIgnoreCase("female")) {
 			Bitmap newImage = BitmapFactory.decodeResource(getResources(), female);
 			image.setImageBitmap(newImage);
 		}
 	}
-	
+
 	private String getSex() {
 		PersonDataSource datasource = new PersonDataSource(this);
 		datasource.openDatabaseConnection();
@@ -119,7 +163,7 @@ public abstract class TextViewActivity extends BaseActivity {
 		}
 		return person;
 	}
-	
+
 	protected TanitaData getTanitaData() {
 
 		TanitaDataSource datasource = new TanitaDataSource(this);

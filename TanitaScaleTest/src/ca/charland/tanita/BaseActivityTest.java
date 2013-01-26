@@ -22,7 +22,6 @@ public class BaseActivityTest {
 	public void setUp() throws Exception {
 		activity = new TestBaseActivity();
 		activity.onCreate(null);
-
 	}
 
 	@Test

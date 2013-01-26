@@ -18,6 +18,10 @@ class TestBaseActivity extends BodyFatLeftArmActivity {
 	@Override 
 	protected void createDataSource() {
 	}
+
+	@Override
+	protected void setData() {
+	}
 	
 	@Override
 	protected void setSex(int id, int female) {

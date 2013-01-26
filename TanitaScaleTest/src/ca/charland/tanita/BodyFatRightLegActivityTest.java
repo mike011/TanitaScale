@@ -25,7 +25,10 @@ public class BodyFatRightLegActivityTest {
 		
 		@Override 
 		protected void createDataSource() {
-			
+		}
+
+		@Override
+		protected void setData() {
 		}
 	}
 
