@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="PeopleNames">
+        <item>By Car</item>
+        <item>By transit</item>
+        <item>Bicycling</item>
+        <item>Walking</item>
+    </string-array>
+</resources>
