@@ -21,8 +21,8 @@ import ca.charland.tanita.db.PersonDataTable;
 import ca.charland.tanita.db.TanitaData;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
-import ca.charland.tanita.manage.DateListActivity;
-import ca.charland.tanita.manage.PeopleListActivity;
+import ca.charland.tanita.manage.DateListOfPreviousEntriesActivity;
+import ca.charland.tanita.manage.AllPeopleListActivity;
 
 /**
  * Since most of the classes have a text view when entering data a specific class was created.
@@ -97,7 +97,7 @@ public abstract class TextViewActivity extends BaseActivity {
 		Intent intent = getIntent();
 		if (intent != null) {
 			Bundle extras = intent.getExtras();
-			id = extras.getInt(PeopleListActivity.PERSON_ID);
+			id = extras.getInt(AllPeopleListActivity.PERSON_ID);
 		}
 		return id;
 	}
@@ -159,7 +159,7 @@ public abstract class TextViewActivity extends BaseActivity {
 		if (intent != null) {
 			// Don't know how inject extras in testing.
 			Bundle extras = intent.getExtras();
-			person = extras.getInt(PeopleListActivity.PERSON_ID.toString());
+			person = extras.getInt(AllPeopleListActivity.PERSON_ID.toString());
 		}
 		return person;
 	}
@@ -184,7 +184,7 @@ public abstract class TextViewActivity extends BaseActivity {
 
 	private String getTanitaDataSelection() {
 		Bundle extras = getIntent().getExtras();
-		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(DateListActivity.ID);
+		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(DateListOfPreviousEntriesActivity.ID);
 		return selection;
 	}
 }

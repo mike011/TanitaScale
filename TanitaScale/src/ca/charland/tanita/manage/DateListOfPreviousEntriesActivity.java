@@ -21,7 +21,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * @author mcharland
  * 
  */
-public class DateListActivity extends RoboListActivity {
+public class DateListOfPreviousEntriesActivity extends RoboListActivity {
 
 	public static final String ID = "DATE";
 
@@ -58,7 +58,7 @@ public class DateListActivity extends RoboListActivity {
 
 	private int getID() {
 		Bundle extras = getIntent().getExtras();
-		int id = extras.getInt(PeopleListActivity.PERSON_ID);
+		int id = extras.getInt(AllPeopleListActivity.PERSON_ID);
 		return id;
 	}
 
@@ -72,7 +72,7 @@ public class DateListActivity extends RoboListActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> par, View view, int pos, long id) {
-				Intent intent = new Intent(getBaseContext(), PersonDateActivity.class);
+				Intent intent = new Intent(getBaseContext(), SingleDateValuesEnteredActivity.class);
 
 				Data selectedItem = data.get(pos);
 				intent.putExtra(ID, selectedItem.getId());

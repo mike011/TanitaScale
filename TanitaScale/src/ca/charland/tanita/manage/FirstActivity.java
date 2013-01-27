@@ -17,7 +17,7 @@ import ca.charland.tanita.R;
  * 
  * @author mcharland
  */
-public class TanitaScaleActivity extends RoboActivity {
+public class FirstActivity extends RoboActivity {
 
 	@InjectView(R.id.add)
 	private Button add;
@@ -51,14 +51,14 @@ public class TanitaScaleActivity extends RoboActivity {
 		if (PreferencesActivity.isSingleUserModeSet(this)) {
 			return DateAndTimeActivity.class;
 		}
-		return AddPersonActivity.class;
+		return AddANewPersonActivity.class;
 	}
 
 	private Class<?> getNextViewClass() {
 		if (PreferencesActivity.isSingleUserModeSet(this)) {
-			return DateListActivity.class;
+			return DateListOfPreviousEntriesActivity.class;
 		}
-		return PeopleListActivity.class;
+		return AllPeopleListActivity.class;
 	}
 
 	private OnClickListener getOnClickListener(final Class<?> nextClass) {
@@ -75,7 +75,7 @@ public class TanitaScaleActivity extends RoboActivity {
 				Intent intent = new Intent(getBaseContext(), nextClass);
 				if (PreferencesActivity.isSingleUserModeSet(activity) && nextClass != PreferencesActivity.class) {
 					int id = PreferencesActivity.getPersonID(activity);
-					intent.putExtra(PeopleListActivity.PERSON_ID, id);
+					intent.putExtra(AllPeopleListActivity.PERSON_ID, id);
 				}
 				return intent;
 			}

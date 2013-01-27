@@ -42,7 +42,7 @@ public class PersonHomeActivity extends RoboActivity {
 			
 			@Override
 			public void onClick(View v) {
-				Class<?> nextClass = DateListActivity.class;
+				Class<?> nextClass = DateListOfPreviousEntriesActivity.class;
 				if (add) {
 					nextClass = DateAndTimeActivity.class;
 				}
@@ -54,7 +54,7 @@ public class PersonHomeActivity extends RoboActivity {
 	private static Intent getActivity(Context context, Intent oldIntent, Class<?> nextClass) {
 		Intent intent = new Intent(context, nextClass);
 		Bundle extras = oldIntent.getExtras();
-		intent.putExtra(PeopleListActivity.PERSON_ID, extras.getInt(PeopleListActivity.PERSON_ID));
+		intent.putExtra(AllPeopleListActivity.PERSON_ID, extras.getInt(AllPeopleListActivity.PERSON_ID));
 		return intent;
 	}
 
@@ -62,7 +62,7 @@ public class PersonHomeActivity extends RoboActivity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// replaces the default 'Back' button action
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			Intent intent = new Intent(this, PeopleListActivity.class);
+			Intent intent = new Intent(this, AllPeopleListActivity.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 			startActivity(intent);

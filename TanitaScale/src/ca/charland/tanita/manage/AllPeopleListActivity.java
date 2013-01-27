@@ -20,7 +20,7 @@ import ca.charland.tanita.db.PersonDataSource;
  * 
  * @author mcharland
  */
-public class PeopleListActivity extends RoboListActivity {
+public class AllPeopleListActivity extends RoboListActivity {
 
 	public static final String PERSON_ID = "ROW_PERSON_ID";
 
@@ -53,7 +53,7 @@ public class PeopleListActivity extends RoboListActivity {
 				Intent intent = new Intent(getBaseContext(), PersonHomeActivity.class);
 
 				Data selectedItem = data.get(pos);
-				intent.putExtra(PeopleListActivity.PERSON_ID, selectedItem.getId());
+				intent.putExtra(AllPeopleListActivity.PERSON_ID, selectedItem.getId());
 
 				startActivity(intent);
 			}
@@ -76,7 +76,7 @@ public class PeopleListActivity extends RoboListActivity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// replaces the default 'Back' button action
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			this.startActivity(new Intent(this, TanitaScaleActivity.class));
+			this.startActivity(new Intent(this, FirstActivity.class));
 			this.finish();
 		}
 		return true;

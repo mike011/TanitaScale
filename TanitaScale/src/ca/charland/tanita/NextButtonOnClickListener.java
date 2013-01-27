@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
-import ca.charland.tanita.manage.PeopleListActivity;
+import ca.charland.tanita.manage.AllPeopleListActivity;
 
 /**
  * The listener interface for receiving nextButtonOnClick events. The class that is interested in processing a nextButtonOnClick event implements this
@@ -55,7 +55,7 @@ class NextButtonOnClickListener implements View.OnClickListener {
 	private Intent getNextIntent() {
 		Intent newIntent = new Intent(activity.getBaseContext(), activity.getNextClass());
 		newIntent.putExtra(ID, getID());
-		newIntent.putExtra(PeopleListActivity.PERSON_ID.toString(), getPerson());
+		newIntent.putExtra(AllPeopleListActivity.PERSON_ID.toString(), getPerson());
 		return newIntent;
 	}
 
@@ -84,7 +84,7 @@ class NextButtonOnClickListener implements View.OnClickListener {
 		if (intent != null) {
 			// Don't know how inject extras in testing.
 			Bundle extras = intent.getExtras();
-			person = extras.getInt(PeopleListActivity.PERSON_ID.toString());
+			person = extras.getInt(AllPeopleListActivity.PERSON_ID.toString());
 		}
 		return person;
 	}

@@ -14,11 +14,11 @@ import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
- * The Class PersonDateActivity which shows the data entered for a specific date.
+ * Shows the data entered for a specific date.
  * 
  * @author mcharland.
  */
-public class PersonDateActivity extends RoboActivity {
+public class SingleDateValuesEnteredActivity extends RoboActivity {
 
 	@InjectView(R.id.weight)
 	private TextView weight;
@@ -114,7 +114,7 @@ public class PersonDateActivity extends RoboActivity {
 
 	private String getSelection() {
 		Bundle extras = getIntent().getExtras();
-		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(DateListActivity.ID);
+		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(DateListOfPreviousEntriesActivity.ID);
 		return selection;
 	}
 

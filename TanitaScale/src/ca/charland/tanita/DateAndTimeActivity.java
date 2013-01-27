@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import ca.charland.tanita.db.TanitaDataTable;
-import ca.charland.tanita.manage.PeopleListActivity;
+import ca.charland.tanita.manage.AllPeopleListActivity;
 
 /**
  * @author mcharland
@@ -67,7 +67,7 @@ public class DateAndTimeActivity extends BaseActivity {
 
 	private void addPerson(ContentValues values) {
 		Bundle extras = getIntent().getExtras();
-		long person = extras.getInt(PeopleListActivity.PERSON_ID.toString());
+		long person = extras.getInt(AllPeopleListActivity.PERSON_ID.toString());
 		values.put(TanitaDataTable.Column.PERSON.toString(), person);
 	}
 
