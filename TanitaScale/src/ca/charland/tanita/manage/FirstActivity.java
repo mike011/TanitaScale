@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import ca.charland.tanita.DateAndTimeActivity;
 import ca.charland.tanita.R;
 
 /**
@@ -28,37 +27,39 @@ public class FirstActivity extends RoboActivity {
 	@InjectView(R.id.settings)
 	private Button settings;
 
+	private MultipleActivityData activityData;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		int mode = R.layout.main;
 		setContentView(mode);
-		
+		setActivitySpecificValues();
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		setActivitySpecificValues();
+	}
+
+	private void setActivitySpecificValues() {
 		if (PreferencesActivity.isSingleUserModeSet(this)) {
-			add.setText(R.string.add);
-			view.setText(R.string.view);
+			activityData = new PersonHomeActivityDataHolder();
+		} else {
+			activityData = new FirstActivityDataHolder();
 		}
+
+		add.setText(activityData.getAdd());
+		view.setText(activityData.getView());
+
 		setOnClickListeners();
 	}
 
 	private void setOnClickListeners() {
-		add.setOnClickListener(getOnClickListener(getNextAddClass()));
-		view.setOnClickListener(getOnClickListener(getNextViewClass()));
+		add.setOnClickListener(getOnClickListener(activityData.getNextAddClass()));
+		view.setOnClickListener(getOnClickListener(activityData.getNextViewClass()));
 		settings.setOnClickListener(getOnClickListener(PreferencesActivity.class));
-	}
-
-	private Class<?> getNextAddClass() {
-		if (PreferencesActivity.isSingleUserModeSet(this)) {
-			return DateAndTimeActivity.class;
-		}
-		return AddANewPersonActivity.class;
-	}
-
-	private Class<?> getNextViewClass() {
-		if (PreferencesActivity.isSingleUserModeSet(this)) {
-			return DateListOfPreviousEntriesActivity.class;
-		}
-		return AllPeopleListActivity.class;
 	}
 
 	private OnClickListener getOnClickListener(final Class<?> nextClass) {
