@@ -3,7 +3,6 @@
     android:title="Settings" >
 
     <CheckBoxPreference
-        android:id="@+id/singleUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:key="singleUser"
@@ -13,7 +12,7 @@
         android:defaultValue="not set"
         android:dialogTitle=""
         android:entries="@array/PeopleNames"
-        android:entryValues="@array/PeopleNames"
+        android:entryValues="@array/PeopleValues"
         android:key="people"
         android:title="Please choose a person" />
 

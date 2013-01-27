@@ -2,12 +2,14 @@ package ca.charland.tanita.manage;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import ca.charland.tanita.DateAndTimeActivity;
 import ca.charland.tanita.R;
 
 /**
@@ -29,25 +31,55 @@ public class TanitaScaleActivity extends RoboActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		int mode = R.layout.main;
+		setContentView(mode);
+		
+		if (PreferencesActivity.isSingleUserModeSet(this)) {
+			add.setText(R.string.add);
+			view.setText(R.string.view);
+		}
 		setOnClickListeners();
 	}
 
 	private void setOnClickListeners() {
-		setOnClickListenerForButton(add, AddPersonActivity.class);
-		setOnClickListenerForButton(view, PeopleListActivity.class);
-		setOnClickListenerForButton(settings, SettingsActivity.class);
+		add.setOnClickListener(getOnClickListener(getNextAddClass()));
+		view.setOnClickListener(getOnClickListener(getNextViewClass()));
+		settings.setOnClickListener(getOnClickListener(PreferencesActivity.class));
 	}
 
-	private void setOnClickListenerForButton(Button button, final Class<?> next) {
-		button.setOnClickListener(new OnClickListener() {
+	private Class<?> getNextAddClass() {
+		if (PreferencesActivity.isSingleUserModeSet(this)) {
+			return DateAndTimeActivity.class;
+		}
+		return AddPersonActivity.class;
+	}
+
+	private Class<?> getNextViewClass() {
+		if (PreferencesActivity.isSingleUserModeSet(this)) {
+			return DateListActivity.class;
+		}
+		return PeopleListActivity.class;
+	}
+
+	private OnClickListener getOnClickListener(final Class<?> nextClass) {
+		final Activity activity = this;
+		final Intent oldIntent = getIntent();
+		return new View.OnClickListener() {
 
 			@Override
 			public void onClick(View view) {
-				startActivity(new Intent(getBaseContext(), next));
+				startActivity(getActivity(nextClass, activity, oldIntent));
 			}
-		});
 
+			private Intent getActivity(final Class<?> nextClass, final Activity activity, final Intent oldIntent) {
+				Intent intent = new Intent(getBaseContext(), nextClass);
+				if (PreferencesActivity.isSingleUserModeSet(activity) && nextClass != PreferencesActivity.class) {
+					int id = PreferencesActivity.getPersonID(activity);
+					intent.putExtra(PeopleListActivity.PERSON_ID, id);
+				}
+				return intent;
+			}
+		};
 	}
 
 	@Override

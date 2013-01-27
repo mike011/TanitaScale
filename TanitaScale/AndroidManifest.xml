@@ -25,7 +25,7 @@
         <activity android:name=".manage.PeopleListActivity" />
         <activity android:name=".manage.PersonDateActivity" />
         <activity android:name=".manage.PersonHomeActivity" />
-        <activity android:name=".manage.SettingsActivity" />
+        <activity android:name="ca.charland.tanita.manage.PreferencesActivity" />
         <activity android:name=".BodyFatLeftArmActivity" />
         <activity android:name=".BodyFatLeftLegActivity" />
         <activity android:name=".BodyFatRightArmActivity" />

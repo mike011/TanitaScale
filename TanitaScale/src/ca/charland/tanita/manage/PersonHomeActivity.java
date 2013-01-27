@@ -2,6 +2,7 @@ package ca.charland.tanita.manage;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -28,30 +29,33 @@ public class PersonHomeActivity extends RoboActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.person_home);
-		add.setOnClickListener(getViewOnClickListenerForAdd());
-		view.setOnClickListener(getViewOnCickListenerForView());
+		setOnClickListeners();
 	}
 
-	private OnClickListener getViewOnCickListenerForView() {
+	private void setOnClickListeners() {
+		add.setOnClickListener(getOnClickListener(true));
+		view.setOnClickListener(getOnClickListener(false));
+	}
+
+	private OnClickListener getOnClickListener(final boolean add) {
 		return new View.OnClickListener() {
+			
+			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getBaseContext(), DateListActivity.class);
-				Bundle extras = getIntent().getExtras();
-				intent.putExtra(PeopleListActivity.PERSON_ID, extras.getInt(PeopleListActivity.PERSON_ID));
-				startActivity(intent);
+				Class<?> nextClass = DateListActivity.class;
+				if (add) {
+					nextClass = DateAndTimeActivity.class;
+				}
+				startActivity(getActivity(getBaseContext(), getIntent(), nextClass));
 			}
 		};
 	}
 
-	private OnClickListener getViewOnClickListenerForAdd() {
-		return new View.OnClickListener() {
-			public void onClick(View v) {
-				Intent intent = new Intent(getBaseContext(), DateAndTimeActivity.class);
-				Bundle extras = getIntent().getExtras();
-				intent.putExtra(PeopleListActivity.PERSON_ID, extras.getInt(PeopleListActivity.PERSON_ID));
-				startActivity(intent);
-			}
-		};
+	private static Intent getActivity(Context context, Intent oldIntent, Class<?> nextClass) {
+		Intent intent = new Intent(context, nextClass);
+		Bundle extras = oldIntent.getExtras();
+		intent.putExtra(PeopleListActivity.PERSON_ID, extras.getInt(PeopleListActivity.PERSON_ID));
+		return intent;
 	}
 
 	@Override
@@ -59,9 +63,9 @@ public class PersonHomeActivity extends RoboActivity {
 		// replaces the default 'Back' button action
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			Intent intent = new Intent(this, PeopleListActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
-			
-            startActivity(intent);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+			startActivity(intent);
 			finish();
 		}
 		return true;
