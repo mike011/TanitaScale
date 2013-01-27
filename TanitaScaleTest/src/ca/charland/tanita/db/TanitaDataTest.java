@@ -1,7 +1,6 @@
 package ca.charland.tanita.db;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 import java.sql.Date;
 
