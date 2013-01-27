@@ -10,10 +10,10 @@ class TestBaseActivity extends BodyFatLeftArmActivity {
 		tanitaData = new TanitaData();
 	}
 
-	@Override
-	protected TanitaData getTanitaData() {
-		return tanitaData;
-	}
+//	@Override
+//	protected TanitaData getTanitaData() {
+//		return tanitaData;
+//	}
 
 	@Override 
 	protected void createDataSource() {

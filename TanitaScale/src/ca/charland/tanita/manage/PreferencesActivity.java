@@ -102,6 +102,7 @@ public class PreferencesActivity extends PreferenceActivity {
 	public static int getPersonID(Context context) {
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 		char c = preferences.getString(PEOPLE_KEY, "").toCharArray()[0];
-		return (int)c;
+		int result = Character.getNumericValue(c);
+		return result;
 	}
 }

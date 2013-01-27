@@ -15,13 +15,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import ca.charland.db.Data;
-import ca.charland.tanita.db.PersonData;
+import ca.charland.tanita.db.PersonDataHelper;
 import ca.charland.tanita.db.PersonDataSource;
-import ca.charland.tanita.db.PersonDataTable;
-import ca.charland.tanita.db.TanitaData;
-import ca.charland.tanita.db.TanitaDataSource;
+import ca.charland.tanita.db.TanitaDataHelper;
 import ca.charland.tanita.db.TanitaDataTable;
-import ca.charland.tanita.manage.DateListOfPreviousEntriesActivity;
 import ca.charland.tanita.manage.AllPeopleListActivity;
 
 /**
@@ -46,7 +43,7 @@ public abstract class TextViewActivity extends BaseActivity {
 	@InjectView(R.id.average)
 	private TextView average;
 
-	private List<Data> data = new ArrayList<Data>();
+	private List<Data> tanitaData = new ArrayList<Data>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -57,11 +54,13 @@ public abstract class TextViewActivity extends BaseActivity {
 		setData();
 		setPrevious();
 		setAverage();
+		
+		datasource.closeDatabaseConnection();
 	}
 
 	protected void setData() {
 		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + getID();
-		data = datasource.query(selection);
+		tanitaData = datasource.query(selection);
 	}
 
 	private void setEnterText() {
@@ -71,24 +70,12 @@ public abstract class TextViewActivity extends BaseActivity {
 	}
 
 	private void setPrevious() {
-		double prev = 0;
-		if (data.size() > 0) {
-			TanitaData td = (TanitaData) data.get(data.size() - 1);
-			prev = td.get(getColumnName());
-		}
+		double prev = TanitaDataHelper.getPrevious(tanitaData, getColumnName());
 		previous.setText(String.valueOf(prev));
 	}
 
 	private void setAverage() {
-		double all = 0;
-		for (Data d : data) {
-			TanitaData td = (TanitaData) d;
-			all += td.get(getColumnName());
-		}
-		double avg = 0;
-		if (all != 0) {
-			avg = all / data.size();
-		}
+		double avg = TanitaDataHelper.getAverage(tanitaData, getColumnName());
 		average.setText(String.valueOf(avg));
 	}
 
@@ -127,34 +114,16 @@ public abstract class TextViewActivity extends BaseActivity {
 	protected void setSex(int id, int female) {
 		ImageView image = (ImageView) findViewById(id);
 
-		String sex = getSex();
+		PersonDataSource datasource = new PersonDataSource(this);
+		String sex = PersonDataHelper.getSex(datasource, getPersonID());
 		if (sex.equalsIgnoreCase("female")) {
 			Bitmap newImage = BitmapFactory.decodeResource(getResources(), female);
 			image.setImageBitmap(newImage);
 		}
 	}
-
-	private String getSex() {
-		PersonDataSource datasource = new PersonDataSource(this);
-		datasource.openDatabaseConnection();
-		String sex = getSexFromDataSource(datasource);
-		datasource.closeDatabaseConnection();
-		return sex;
-	}
-
-	private String getSexFromDataSource(PersonDataSource datasource) {
-		List<Data> data = datasource.query(getSelection());
-		PersonData pd = (PersonData) data.get(0);
-		String sex = pd.getSex();
-		return sex;
-	}
-
-	private String getSelection() {
-		return PersonDataTable.Column.ID.toString() + " = " + getPersonID();
-	}
-
+	
 	private int getPersonID() {
-		int person = 0;
+		int person = -1;
 		Intent intent = getIntent();
 		if (intent != null) {
 			// Don't know how inject extras in testing.
@@ -162,29 +131,5 @@ public abstract class TextViewActivity extends BaseActivity {
 			person = extras.getInt(AllPeopleListActivity.PERSON_ID.toString());
 		}
 		return person;
-	}
-
-	protected TanitaData getTanitaData() {
-
-		TanitaDataSource datasource = new TanitaDataSource(this);
-		datasource.openDatabaseConnection();
-
-		TanitaData td = getTanitaData(datasource);
-
-		datasource.closeDatabaseConnection();
-
-		return td;
-	}
-
-	private TanitaData getTanitaData(TanitaDataSource datasource) {
-		List<Data> data = datasource.query(getTanitaDataSelection());
-		TanitaData td = (TanitaData) data.get(0);
-		return td;
-	}
-
-	private String getTanitaDataSelection() {
-		Bundle extras = getIntent().getExtras();
-		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(DateListOfPreviousEntriesActivity.ID);
-		return selection;
 	}
 }
