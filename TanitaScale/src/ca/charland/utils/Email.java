@@ -1,4 +1,4 @@
-package ca.charland.tanita.manage;
+package ca.charland.utils;
 
 import java.util.ArrayList;
 import java.util.Formatter;

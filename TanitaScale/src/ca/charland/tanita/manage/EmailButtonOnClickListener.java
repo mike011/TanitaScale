@@ -15,6 +15,7 @@ import ca.charland.tanita.db.PersonData;
 import ca.charland.tanita.db.PersonDataSource;
 import ca.charland.tanita.db.PersonDataTable;
 import ca.charland.tanita.db.TanitaData;
+import ca.charland.utils.Email;
 
 /**
  * The listener interface for receiving emailButtonOnClick events. The class that is interested in processing a emailButtonOnClick event implements

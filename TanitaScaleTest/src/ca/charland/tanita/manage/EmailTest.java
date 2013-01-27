@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.utils.Email;
 
 /**
  * @author mcharland
@@ -16,7 +17,7 @@ import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 public class EmailTest {
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.Email#getToAddress()}.
+	 * Test method for {@link ca.charland.utils.Email#getToAddress()}.
 	 */
 	@Test
 	public void testGetTo() {
@@ -27,7 +28,7 @@ public class EmailTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.Email#getSubject()}.
+	 * Test method for {@link ca.charland.utils.Email#getSubject()}.
 	 */
 	@Test
 	public void testGetSubject() {
@@ -38,7 +39,7 @@ public class EmailTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.Email#addToBodyDouble(String, double)}.
+	 * Test method for {@link ca.charland.utils.Email#addToBodyDouble(String, double)}.
 	 */
 	@Test
 	public void testAddToBodyDoubleExtraDigit() {
@@ -52,7 +53,7 @@ public class EmailTest {
 	}
 	
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.Email#addToBodyDouble(String, double)}.
+	 * Test method for {@link ca.charland.utils.Email#addToBodyDouble(String, double)}.
 	 */
 	@Test
 	public void testAddToBodyDoubleNoDigit() {
@@ -66,7 +67,7 @@ public class EmailTest {
 	}
 	
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.Email#addToBodyDouble(String, double)}.
+	 * Test method for {@link ca.charland.utils.Email#addToBodyDouble(String, double)}.
 	 */
 	@Test
 	public void testAddToBodyDoubleZero() {
@@ -80,7 +81,7 @@ public class EmailTest {
 	}
 	
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.Email#addToBodyPercent(String, double)}.
+	 * Test method for {@link ca.charland.utils.Email#addToBodyPercent(String, double)}.
 	 */
 	@Test
 	public void testAddToBodyPercentExtraDigits() {
@@ -94,7 +95,7 @@ public class EmailTest {
 	}
 	
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.Email#addToBodyPercent(String, double)}.
+	 * Test method for {@link ca.charland.utils.Email#addToBodyPercent(String, double)}.
 	 */
 	@Test
 	public void testAddToBodyPercentNoDigits() {
@@ -108,7 +109,7 @@ public class EmailTest {
 	}
 	
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.Email#addToBodyPercent(String, double)}.
+	 * Test method for {@link ca.charland.utils.Email#addToBodyPercent(String, double)}.
 	 */
 	@Test
 	public void testAddToBodyPercentZero() {
@@ -123,7 +124,7 @@ public class EmailTest {
 
 	
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.Email#addToBodyPercent(String, double)}.
+	 * Test method for {@link ca.charland.utils.Email#addToBodyPercent(String, double)}.
 	 */
 	@Test
 	public void testAddToBodyInteger() {
