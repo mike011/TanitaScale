@@ -44,16 +44,20 @@ public class FirstActivity extends RoboActivity {
 	}
 
 	private void setActivitySpecificValues() {
-		if (PreferencesActivity.isSingleUserModeSet(this)) {
-			activityData = new PersonHomeActivityDataHolder();
-		} else {
-			activityData = new FirstActivityDataHolder();
-		}
+		createActivityData();
 
 		add.setText(activityData.getAdd());
 		view.setText(activityData.getView());
 
 		setOnClickListeners();
+	}
+
+	private void createActivityData() {
+		if (PreferencesActivity.isSingleUserModeSet(this)) {
+			activityData = new PersonHomeActivityDataHolder();
+		} else {
+			activityData = new FirstActivityDataHolder();
+		}
 	}
 
 	private void setOnClickListeners() {

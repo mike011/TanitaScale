@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import android.database.SQLException;
-import ca.charland.db.BasicPersonData;
 import ca.charland.db.Data;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
@@ -19,6 +18,8 @@ import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class PersonDataHelperTest {
 
+	private static final String MALE = "Male";
+	private static final String FEMALE = "Female";
 	private static final int DONT_CARE_ABOUT = 3;
 
 	private static class NoDbPersonDataSource extends PersonDataSource {
@@ -49,7 +50,7 @@ public class PersonDataHelperTest {
 	public void testGetSexNull() {
 		NoDbPersonDataSource pds = new NoDbPersonDataSource();
 		String result = PersonDataHelper.getSex(pds, DONT_CARE_ABOUT);
-		assertEquals("male", result);
+		assertEquals(MALE, result);
 	}
 
 	@Test
@@ -57,7 +58,7 @@ public class PersonDataHelperTest {
 		NoDbPersonDataSource pds = new NoDbPersonDataSource();
 		pds.setQueryResult(new ArrayList<Data>());
 		String result = PersonDataHelper.getSex(pds, DONT_CARE_ABOUT);
-		assertEquals("male", result);
+		assertEquals(MALE, result);
 	}
 
 	@Test
@@ -65,11 +66,11 @@ public class PersonDataHelperTest {
 		NoDbPersonDataSource pds = new NoDbPersonDataSource();
 		ArrayList<Data> data = new ArrayList<Data>();
 		PersonData pd = new PersonData();
-		pd.setSex("female");
+		pd.setSex(FEMALE);
 		data.add(pd);
 		pds.setQueryResult(data);
 		String result = PersonDataHelper.getSex(pds, DONT_CARE_ABOUT);
-		assertEquals("female", result);
+		assertEquals(FEMALE, result);
 	}
 	
 	@Test
@@ -77,11 +78,11 @@ public class PersonDataHelperTest {
 		NoDbPersonDataSource pds = new NoDbPersonDataSource();
 		ArrayList<Data> data = new ArrayList<Data>();
 		PersonData pd = new PersonData();
-		pd.setSex("male");
+		pd.setSex(MALE);
 		data.add(pd);
 		pds.setQueryResult(data);
 		String result = PersonDataHelper.getSex(pds, DONT_CARE_ABOUT);
-		assertEquals("male", result);
+		assertEquals(MALE, result);
 	}
 
 }

@@ -8,7 +8,7 @@ public class TanitaDataHelper {
 
 	public static double getPrevious(List<Data> tanitaData, TanitaDataTable.Column column) {
 		double prev = 0;
-		if (tanitaData.size() > 0) {
+		if (!tanitaData.isEmpty()) {
 			TanitaData td = (TanitaData) tanitaData.get(tanitaData.size() - 2);
 			prev = td.get(column);
 		}

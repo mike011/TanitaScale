@@ -71,7 +71,7 @@ public class PreferencesActivity extends PreferenceActivity {
 		List<Data> allValues = datasource.getAllValues();
 		CharSequence[] values = new CharSequence[allValues.size()];
 		for (int x = 0; x < allValues.size(); x++) {
-			values[x] = String.valueOf(x);
+			values[x] = String.valueOf(x + 1);
 		}
 		return values;
 	}
@@ -101,7 +101,7 @@ public class PreferencesActivity extends PreferenceActivity {
 
 	public static int getPersonID(Context context) {
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-		char c = preferences.getString(PEOPLE_KEY, "").toCharArray()[0];
+		char c = preferences.getString(PEOPLE_KEY, "-1").toCharArray()[0];
 		int result = Character.getNumericValue(c);
 		return result;
 	}

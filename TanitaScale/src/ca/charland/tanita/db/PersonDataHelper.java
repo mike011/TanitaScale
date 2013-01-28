@@ -15,7 +15,7 @@ public class PersonDataHelper {
 
 	private static String getSexFromDataSource(PersonDataSource datasource, int id) {
 		List<Data> data = datasource.query(PersonDataHelper.getSelection(id));
-		String sex = "male";
+		String sex = "Male";
 		if (data != null && !data.isEmpty()) {
 			PersonData pd = (PersonData) data.get(0);
 			sex = pd.getSex();
