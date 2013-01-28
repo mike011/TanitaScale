@@ -89,11 +89,12 @@ public class FirstActivity extends RoboActivity {
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		
 		// replaces the default 'Back' button action
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			finish();
-			System.exit(0);
+			activityData.onKeyBackDown(this);
 		}
 		return true;
 	}
+	
 }

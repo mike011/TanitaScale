@@ -1,8 +1,15 @@
 package ca.charland.tanita.manage;
 
-public abstract class MultipleActivityData {
-	public abstract int getAdd();
-	public abstract int getView();
-	public abstract Class<?> getNextAddClass();
-	public abstract Class<?> getNextViewClass();
+import android.app.Activity;
+
+public interface MultipleActivityData {
+	int getAdd();
+
+	int getView();
+
+	Class<?> getNextAddClass();
+
+	Class<?> getNextViewClass();
+
+	void onKeyBackDown(Activity activity);
 }

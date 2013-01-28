@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import ca.charland.tanita.DateAndTimeActivity;
 import ca.charland.tanita.R;
 
 /**
@@ -24,30 +23,30 @@ public class PersonHomeActivity extends RoboActivity {
 
 	@InjectView(R.id.view)
 	private Button view;
+	
+	private PersonHomeActivityDataHolder activityData;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.person_home);
+		activityData = new PersonHomeActivityDataHolder();
 		setOnClickListeners();
 	}
 
 	private void setOnClickListeners() {
-		add.setOnClickListener(getOnClickListener(true));
-		view.setOnClickListener(getOnClickListener(false));
+		add.setOnClickListener(getOnClickListener(activityData.getNextAddClass()));
+		view.setOnClickListener(getOnClickListener(activityData.getNextViewClass()));
 	}
 
-	private OnClickListener getOnClickListener(final boolean add) {
+	private OnClickListener getOnClickListener(final Class<?> nextClass) {
 		return new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Class<?> nextClass = DateListOfPreviousEntriesActivity.class;
-				if (add) {
-					nextClass = DateAndTimeActivity.class;
-				}
 				startActivity(getActivity(getBaseContext(), getIntent(), nextClass));
 			}
+
 		};
 	}
 
@@ -62,11 +61,7 @@ public class PersonHomeActivity extends RoboActivity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// replaces the default 'Back' button action
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			Intent intent = new Intent(this, AllPeopleListActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-			startActivity(intent);
-			finish();
+			activityData.onKeyBackDown(this);
 		}
 		return true;
 	}

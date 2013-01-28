@@ -1,8 +1,9 @@
 package ca.charland.tanita.manage;
 
+import android.app.Activity;
 import ca.charland.tanita.R;
 
-public class FirstActivityDataHolder extends MultipleActivityData {
+public class FirstActivityDataHolder implements MultipleActivityData {
 
 	@Override
 	public int getAdd() {
@@ -22,5 +23,11 @@ public class FirstActivityDataHolder extends MultipleActivityData {
 	@Override
 	public Class<?> getNextViewClass() {
 		return AllPeopleListActivity.class;
+	}
+
+	@Override
+	public void onKeyBackDown(Activity activity) {
+		activity.finish();
+		System.exit(0);		
 	}
 }
