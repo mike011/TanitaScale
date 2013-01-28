@@ -23,7 +23,7 @@ public class TanitaDataHelper {
 		}
 		double avg = 0;
 		if (all != 0) {
-			avg = all / tanitaData.size() - 1;
+			avg = all / tanitaData.size() ;
 		}
 		return avg;
 	}

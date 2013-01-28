@@ -12,14 +12,17 @@ public class PersonDataHelper {
 		datasource.closeDatabaseConnection();
 		return sex;
 	}
-	
+
 	private static String getSexFromDataSource(PersonDataSource datasource, int id) {
 		List<Data> data = datasource.query(PersonDataHelper.getSelection(id));
-		PersonData pd = (PersonData) data.get(0);
-		String sex = pd.getSex();
+		String sex = "male";
+		if (data != null && !data.isEmpty()) {
+			PersonData pd = (PersonData) data.get(0);
+			sex = pd.getSex();
+		}
 		return sex;
 	}
-	
+
 	private static String getSelection(int id) {
 		return PersonDataTable.Column.ID.toString() + " = " + id;
 	}
