@@ -92,7 +92,7 @@ public class FirstActivity extends RoboActivity {
 		
 		// replaces the default 'Back' button action
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			activityData.onKeyBackDown(this);
+			FirstActivityDataHolder.exit(this);
 		}
 		return true;
 	}

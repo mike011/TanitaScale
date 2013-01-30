@@ -27,7 +27,11 @@ public class FirstActivityDataHolder implements MultipleActivityData {
 
 	@Override
 	public void onKeyBackDown(Activity activity) {
+		exit(activity);		
+	}
+
+	public static void exit(Activity activity) {
 		activity.finish();
-		System.exit(0);		
+		System.exit(0);
 	}
 }
