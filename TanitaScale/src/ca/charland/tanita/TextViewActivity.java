@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.List;
 
 import roboguice.inject.InjectView;
@@ -71,12 +72,18 @@ public abstract class TextViewActivity extends BaseActivity {
 
 	private void setPrevious() {
 		double prev = TanitaDataHelper.getPrevious(tanitaData, getColumnName());
-		previous.setText(String.valueOf(prev));
+		previous.setText(format(prev));
 	}
 
 	private void setAverage() {
 		double avg = TanitaDataHelper.getAverage(tanitaData, getColumnName());
-		average.setText(String.valueOf(avg));
+		average.setText(format(avg));
+	}
+	
+	private String format(double prev) {
+		Formatter formatter = new Formatter();
+		Formatter format = formatter.format("%1.2f", prev);
+		return format.toString();
 	}
 
 	private int getID() {
