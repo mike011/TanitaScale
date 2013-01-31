@@ -23,6 +23,7 @@ package ca.charland.tanitascale.TanitaScaleReporter;
 
 // __________ Imports __________
 
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -48,25 +49,51 @@ import com.sun.star.util.XNumberFormatTypes;
 import com.sun.star.util.XNumberFormats;
 import com.sun.star.util.XNumberFormatsSupplier;
 
-public class NumberFormats {
+public class Exporter {
 
 	private XComponentContext officeContext;
 	private XMultiComponentFactory maServiceManager;
 	private XSpreadsheetDocument document;
-	private XSpreadsheet sheet; // the first sheet
+	private XSpreadsheet sheet;
 
 	public static void main(String args[]) {
+		parseFiles(args);
+	}
+
+	private static void parseFiles(String[] args) {
+		for (String arg : args) {
+			Map<Column, String> values = parseFile(LoadFile.load(arg));
+			Exporter aSample = new Exporter();
+			aSample.printValues(values);
+		}
+	}
+
+	private static Map<Column, String> parseFile(List<String> contents) {
 		Map<Column, String> values = new TreeMap<Column, String>();
-		values.put(Column.DATE, "2013/12/12");
-		values.put(Column.WEIGHT, "156");
-		values.put(Column.DAILY_CALORIC_INTAKE, "3925");
-		values.put(Column.METABOLIC_AGE, "15");
-		values.put(Column.BODY_WATER_PERCENTAGE, ".656");
-		values.put(Column.VISCERAL_FAT, "1");
-		values.put(Column.BONE_MASS, "6.8");
-	
-		NumberFormats aSample = new NumberFormats(args);
-		aSample.printValues(values);
+		for (String line : contents) {
+			String[] vals = line.split(" = ");
+
+			Column keyColumn = null;
+			String keyString = vals[0].trim();
+			for (Column c : Column.values()) {
+				if (keyString.equals(c.toString())) {
+					keyColumn = c;
+					break;
+				}
+			}
+			values.put(keyColumn, getString(vals));
+		}
+		return values;
+	}
+
+	private static String getString(String[] vals) {
+		String trim = vals[1].trim();
+		if (trim.endsWith("%")) {
+			String percentageString = trim.substring(0, trim.length() - 1);
+			double percentage = Double.parseDouble(percentageString) / 100;
+			trim = String.valueOf(percentage);
+		}
+		return trim;
 	}
 
 	// ____________________
@@ -84,7 +111,7 @@ public class NumberFormats {
 				break;
 			case WEIGHT:
 			case DAILY_CALORIC_INTAKE:
-			case METABOLIC_AGE:				
+			case METABOLIC_AGE:
 				setDouble(value, x++);
 				break;
 			case BODY_WATER_PERCENTAGE:
@@ -122,7 +149,7 @@ public class NumberFormats {
 	}
 
 	private void setDate(String date, int x) {
-		setFormula("01/28/2013", x++, 0, NumberFormat.DATE);
+		setFormula(date, x++, 0, NumberFormat.DATE);
 	}
 
 	private void setDouble(String value, int x) {
@@ -187,7 +214,7 @@ public class NumberFormats {
 
 	// ____________________
 
-	public NumberFormats(String[] args) {
+	public Exporter() {
 		// get the remote office context. If necessary a new office
 		// process is started
 		try {

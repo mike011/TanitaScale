@@ -110,7 +110,7 @@ public class EmailButtonOnClickListener implements OnClickListener {
 		int year = date.getYear();
 		int month = date.getMonth();
 		int day = date.getDay();
-		return year + "-" + month + "-" + day;
+		return year + "/" + month + "/" + day;
 	}
 
 	private String getTextFromResource(int id) {

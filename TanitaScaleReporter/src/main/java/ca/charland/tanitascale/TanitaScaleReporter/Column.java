@@ -2,45 +2,45 @@ package ca.charland.tanitascale.TanitaScaleReporter;
 
 public enum Column {
 
-	DATE("date"),
+	DATE("Date"),
 
-	WEIGHT("weight"),
+	WEIGHT("Weight"),
 
-	DAILY_CALORIC_INTAKE("daily_caloric_intake"),
+	DAILY_CALORIC_INTAKE("Daily Caloric Intake"),
+	
+	METABOLIC_AGE("Metabolic Age"),
+	
+	BODY_WATER_PERCENTAGE("Body Water Percentage"),
 
-	BODY_FAT_TOTAL("body_fat_total"),
+	VISCERAL_FAT("Visceral Fat"),
 
-	BODY_FAT_LEFT_ARM("body_fat_left_arm"),
+	BONE_MASS("Bone Mass"),
 
-	BODY_FAT_RIGHT_ARM("body_fat_right_arm"),
+	BODY_FAT_TOTAL("Total Body Fat"),
 
-	BODY_FAT_RIGHT_LEG("body_fat_right_leg"),
+	BODY_FAT_LEFT_ARM("Body Fat for your Left Arm"),
 
-	BODY_FAT_LEFT_LEG("body_fat_left_leg"),
+	BODY_FAT_RIGHT_ARM("Body Fat for your Right Arm"),
 
-	BODY_FAT_TRUNK("body_fat_trunk"),
+	BODY_FAT_LEFT_LEG("Body Fat for your Left Leg"),
 
-	MUSCLE_MASS_TOTAL("muscle_mass_total"),
+	BODY_FAT_RIGHT_LEG("Body Fat for your Right Leg"),
 
-	MUSCLE_MASS_LEFT_ARM("muscle_mass_left_arm"),
+	BODY_FAT_TRUNK("Body Fat for your Trunk"),
 
-	MUSCLE_MASS_RIGHT_ARM("muscle_mass_right_arm"),
+	MUSCLE_MASS_TOTAL("Total Muscle Mass"),
 
-	MUSCLE_MASS_RIGHT_LEG("muscle_mass_right_leg"),
+	MUSCLE_MASS_LEFT_ARM("Muscle for your Left Arm"),
 
-	MUSCLE_MASS_LEFT_LEG("muscle_mass_left_leg"),
+	MUSCLE_MASS_RIGHT_ARM("Muscle for your Right Arm"),
 
-	MUSCLE_MASS_TRUNK("muscle_trunk"),
+	MUSCLE_MASS_RIGHT_LEG("Muscle for your Right Leg"),
 
-	PHYSIC_RATING("physic_rating"),
+	MUSCLE_MASS_LEFT_LEG("Muscle for your Left Leg"),
 
-	METABOLIC_AGE("metabolic_age"),
+	MUSCLE_MASS_TRUNK("Muscle for your Trunk"),
 
-	BODY_WATER_PERCENTAGE("body_water_percentage"),
-
-	VISCERAL_FAT("visceral_fat"),
-
-	BONE_MASS("bone_mass");
+	PHYSIC_RATING("Physic Rating");
 
 	private final String name;
 
