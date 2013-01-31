@@ -1,5 +1,6 @@
 package ca.charland.tanita.manage;
 
+import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
@@ -79,28 +80,37 @@ public class EmailButtonOnClickListener implements OnClickListener {
 
 	private void setEmailBody(Email email) {
 
+		email.addToBody(getTextFromResource(R.string.date), getDate());
 		email.addToBodyDouble(getTextFromResource(R.string.weight), tanitadata.getWeight());
 		email.addToBodyInteger(getTextFromResource(R.string.dci), tanitadata.getDailyCaloricIntake());
 		email.addToBodyInteger(getTextFromResource(R.string.metabolic_age), tanitadata.getMetabolicAge());
 		email.addToBodyPercent(getTextFromResource(R.string.body_water_percentage), tanitadata.getBodyWaterPercentage());
 		email.addToBodyInteger(getTextFromResource(R.string.visceral_fat), tanitadata.getVisceralFat());
 		email.addToBodyDouble(getTextFromResource(R.string.bone_mass), tanitadata.getBoneMass());
-		
+
 		email.addToBodyPercent(getTextFromResource(R.string.body_fat_total), tanitadata.getBodyFatTotal());
 		email.addToBodyPercent(getTextFromResource(R.string.body_fat_arm_left), tanitadata.getBodyFatLeftArm());
 		email.addToBodyPercent(getTextFromResource(R.string.body_fat_arm_right), tanitadata.getBodyFatRightArm());
 		email.addToBodyPercent(getTextFromResource(R.string.body_fat_leg_left), tanitadata.getBodyFatLeftLeg());
 		email.addToBodyPercent(getTextFromResource(R.string.body_fat_leg_right), tanitadata.getBodyFatRightLeg());
 		email.addToBodyPercent(getTextFromResource(R.string.body_fat_trunk), tanitadata.getBodyFatTrunk());
-		
+
 		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_total), tanitadata.getMuscleMassTotal());
 		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_arm_left), tanitadata.getMuscleMassLeftArm());
 		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_arm_right), tanitadata.getMuscleMassRightArm());
 		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_leg_right), tanitadata.getMuscleMassRightLeg());
 		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_leg_left), tanitadata.getMuscleMassLeftLeg());
 		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_trunk), tanitadata.getMuscleMassTrunk());
-		
+
 		email.addToBodyInteger(getTextFromResource(R.string.physic_rating), tanitadata.getPhysicRating());
+	}
+
+	private String getDate() {
+		Date date = tanitadata.getDate();
+		int year = date.getYear();
+		int month = date.getMonth();
+		int day = date.getDay();
+		return year + "-" + month + "-" + day;
 	}
 
 	private String getTextFromResource(int id) {

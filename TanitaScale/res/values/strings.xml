@@ -9,6 +9,7 @@
     <string name="name">Name</string>
     <string name="next">Next</string>
     <string name="enterYour">Enter your %1$s</string>
+    <string name="date">Date</string>
     <string name="weight">Weight</string>
     <string name="visceral_fat">Visceral Fat</string>
     <string name="dci">Daily Caloric Intake</string>

@@ -83,7 +83,9 @@ public abstract class TextViewActivity extends BaseActivity {
 	private String format(double prev) {
 		Formatter formatter = new Formatter();
 		Formatter format = formatter.format("%1.2f", prev);
-		return format.toString();
+		String string = format.toString();
+		formatter.close();
+		return string;
 	}
 
 	private int getID() {

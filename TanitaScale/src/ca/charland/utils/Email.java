@@ -84,6 +84,7 @@ public class Email {
 		Formatter formatter = new Formatter(sb, Locale.US);
 		formatter.format("%.1f", value);
 		addToBody(key, sb.toString());
+		formatter.close();
 	}
 
 	public void addToBodyPercent(String key, double value) {
@@ -92,14 +93,14 @@ public class Email {
 		formatter.format("%.1f", value);
 		sb.append('%');
 		addToBody(key, sb.toString());
+		formatter.close();
 	}
 
 	public void addToBodyInteger(String key, int value) {
 		addToBody(key, String.valueOf(value));
-
 	}
 
-	private void addToBody(String key, String value) {
+	public void addToBody(String key, String value) {
 		this.pairs.add(new Pair(key, value));
 	}
 
