@@ -50,30 +50,30 @@ import com.sun.star.util.XNumberFormatsSupplier;
 
 public class Exporter {
 
+	private static final String oooExeFolder = "C:/Program Files (x86)/LibreOffice 3.6/program";
+
 	private XComponentContext context;
 	private XMultiComponentFactory serviceManager;
 	private XSpreadsheetDocument document;
 	private XSpreadsheet sheet;
+	private int percentageFormat;
+	private int doubleFormat;
+	private int dateFormat;
+	private int intFormat;
 
 	public static void main(String args[]) {
 		parseFiles(args);
 	}
 
 	private static void parseFiles(String[] args) {
+		Parser parser = new Parser();
+		Exporter content = new Exporter();
+		int y = 0;
 		for (String arg : args) {
-			Parser parser = new Parser();
 			Map<Column, String> values = parser.parseFile(LoadFile.load(arg));
-			Exporter content = new Exporter();
-			content.printValues(values);
+			content.printValues(values, y++);
 		}
 	}
-
-	private static final String oooExeFolder = "C:/Program Files (x86)/LibreOffice 3.6/program";
-	private XNumberFormatTypes numberFormatTypes;
-	private int percentageKey;
-	private int doubleKey;
-	private int dateKey;
-	private int intKey;
 
 	public Exporter() {
 		// get the remote office context. If necessary a new office
@@ -113,19 +113,19 @@ public class Exporter {
 		// Get the number formats from the supplier
 		XNumberFormats numberFormats = numberFormatsSupplier.getNumberFormats();
 
-		numberFormatTypes = (XNumberFormatTypes) UnoRuntime.queryInterface(XNumberFormatTypes.class, numberFormats);
+		XNumberFormatTypes numberFormatTypes = (XNumberFormatTypes) UnoRuntime.queryInterface(XNumberFormatTypes.class, numberFormats);
 
 		// Get the number format index key of the default currency format,
 		// note the empty locale for default locale
 		Locale aLocale = new Locale();
 		try {
-			percentageKey = numberFormats.addNew("##.0%", aLocale);
-			doubleKey = numberFormats.addNew("##.0", aLocale);
-			intKey =numberFormats.addNew("##.#", aLocale);
+			percentageFormat = numberFormats.addNew("##.0%", aLocale);
+			doubleFormat = numberFormats.addNew("##.0", aLocale);
+			intFormat = numberFormats.addNew("##.#", aLocale);
 		} catch (MalformedNumberFormatException e) {
 			e.printStackTrace();
 		}
-		dateKey = numberFormatTypes.getStandardFormat(NumberFormat.DATE, new Locale());
+		dateFormat = numberFormatTypes.getStandardFormat(NumberFormat.DATE, aLocale);
 	}
 
 	private void initSpreadsheet() {
@@ -140,7 +140,7 @@ public class Exporter {
 		}
 	}
 
-	public void printValues(Map<Column, String> values) {
+	public void printValues(Map<Column, String> values, int y) {
 
 		int x = 0;
 		for (Column col : values.keySet()) {
@@ -148,24 +148,24 @@ public class Exporter {
 
 			switch (col) {
 			case DATE:
-				setDate((String) value, x++);
-				setFormula("=MONTH(A1)", x++, 0, NumberFormat.NUMBER);
+				setDate((String) value, x++, y);
+				setFormula("=MONTH(A1)", x++, y, NumberFormat.NUMBER);
 				break;
 			case WEIGHT:
-				setDouble(value, x++);
+				setDouble(value, x++, y);
 				break;
 			case DAILY_CALORIC_INTAKE:
 			case METABOLIC_AGE:
-				setInt(value, x++);
+				setInt(value, x++, y);
 				break;
 			case BODY_WATER_PERCENTAGE:
-				setPercentage(value, x++);
+				setPercentage(value, x++, y);
 				break;
 			case VISCERAL_FAT:
-				setInt(value, x++);
+				setInt(value, x++, y);
 				break;
 			case BONE_MASS:
-				setDouble(value, x++);
+				setDouble(value, x++, y);
 				break;
 			case BODY_FAT_TOTAL:
 			case BODY_FAT_LEFT_ARM:
@@ -173,7 +173,7 @@ public class Exporter {
 			case BODY_FAT_RIGHT_LEG:
 			case BODY_FAT_LEFT_LEG:
 			case BODY_FAT_TRUNK:
-				setPercentage(value, x++);
+				setPercentage(value, x++, y);
 				break;
 			case MUSCLE_MASS_TOTAL:
 			case MUSCLE_MASS_LEFT_ARM:
@@ -181,10 +181,10 @@ public class Exporter {
 			case MUSCLE_MASS_RIGHT_LEG:
 			case MUSCLE_MASS_LEFT_LEG:
 			case MUSCLE_MASS_TRUNK:
-				setDouble(value, x++);
+				setDouble(value, x++, y);
 				break;
 			case PHYSIC_RATING:
-				setInt(value, x++);
+				setInt(value, x++, y);
 				break;
 			default:
 				throw new ColumnNotFoundException(col.toString());
@@ -192,8 +192,8 @@ public class Exporter {
 		}
 	}
 
-	private void setDate(String date, int x) {
-		setFormula(date, x, 0, dateKey);
+	private void setDate(String date, int x, int y) {
+		setFormula(date, x, y, dateFormat);
 	}
 
 	private void setFormula(String formula, int x, int y, int format) {
@@ -202,16 +202,16 @@ public class Exporter {
 		setFormat(x, y, format);
 	}
 
-	private void setDouble(String value, int x) {
-		setValue(Double.parseDouble(value), x, 0, doubleKey);
+	private void setDouble(String value, int x, int y) {
+		setValue(Double.parseDouble(value), x, y, doubleFormat);
 	}
 
-	private void setPercentage(String value, int x) {
-		setValue(Double.parseDouble(value), x, 0, percentageKey);
+	private void setPercentage(String value, int x, int y) {
+		setValue(Double.parseDouble(value), x, y, percentageFormat);
 	}
 
-	private void setInt(String value, int x) {
-		setValue(Integer.parseInt(value), x, 0, intKey);
+	private void setInt(String value, int x, int y) {
+		setValue(Integer.parseInt(value), x, y, intFormat);
 
 	}
 
