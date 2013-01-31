@@ -23,9 +23,7 @@ package ca.charland.tanitascale.TanitaScaleReporter;
 
 // __________ Imports __________
 
-import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 import ooo.connector.BootstrapSocketConnector;
 
@@ -44,6 +42,7 @@ import com.sun.star.sheet.XSpreadsheets;
 import com.sun.star.table.XCell;
 import com.sun.star.uno.UnoRuntime;
 import com.sun.star.uno.XComponentContext;
+import com.sun.star.util.MalformedNumberFormatException;
 import com.sun.star.util.NumberFormat;
 import com.sun.star.util.XNumberFormatTypes;
 import com.sun.star.util.XNumberFormats;
@@ -51,8 +50,8 @@ import com.sun.star.util.XNumberFormatsSupplier;
 
 public class Exporter {
 
-	private XComponentContext officeContext;
-	private XMultiComponentFactory maServiceManager;
+	private XComponentContext context;
+	private XMultiComponentFactory serviceManager;
 	private XSpreadsheetDocument document;
 	private XSpreadsheet sheet;
 
@@ -62,41 +61,84 @@ public class Exporter {
 
 	private static void parseFiles(String[] args) {
 		for (String arg : args) {
-			Map<Column, String> values = parseFile(LoadFile.load(arg));
-			Exporter aSample = new Exporter();
-			aSample.printValues(values);
+			Parser parser = new Parser();
+			Map<Column, String> values = parser.parseFile(LoadFile.load(arg));
+			Exporter content = new Exporter();
+			content.printValues(values);
 		}
 	}
 
-	private static Map<Column, String> parseFile(List<String> contents) {
-		Map<Column, String> values = new TreeMap<Column, String>();
-		for (String line : contents) {
-			String[] vals = line.split(" = ");
+	private static final String oooExeFolder = "C:/Program Files (x86)/LibreOffice 3.6/program";
+	private XNumberFormatTypes numberFormatTypes;
+	private int percentageKey;
+	private int doubleKey;
+	private int dateKey;
+	private int intKey;
 
-			Column keyColumn = null;
-			String keyString = vals[0].trim();
-			for (Column c : Column.values()) {
-				if (keyString.equals(c.toString())) {
-					keyColumn = c;
-					break;
-				}
-			}
-			values.put(keyColumn, getString(vals));
+	public Exporter() {
+		// get the remote office context. If necessary a new office
+		// process is started
+		try {
+			context = BootstrapSocketConnector.bootstrap(oooExeFolder);
+		} catch (BootstrapException e) {
+			throw new SpreadSheetException();
 		}
-		return values;
+
+		System.out.println("Connected to a running office ...");
+		serviceManager = context.getServiceManager();
+
+		// create a new spreadsheet document
+		XComponentLoader aLoader = null;
+		try {
+			aLoader = (XComponentLoader) UnoRuntime.queryInterface(XComponentLoader.class,
+					serviceManager.createInstanceWithContext("com.sun.star.frame.Desktop", context));
+		} catch (com.sun.star.uno.Exception e) {
+			throw new SpreadSheetException();
+		}
+
+		try {
+			document = (XSpreadsheetDocument) UnoRuntime.queryInterface(XSpreadsheetDocument.class,
+					aLoader.loadComponentFromURL("private:factory/scalc", "_blank", 0, new PropertyValue[0]));
+		} catch (Exception e) {
+			throw new SpreadSheetException();
+		}
+		initSpreadsheet();
+		setKeyFormats();
 	}
 
-	private static String getString(String[] vals) {
-		String trim = vals[1].trim();
-		if (trim.endsWith("%")) {
-			String percentageString = trim.substring(0, trim.length() - 1);
-			double percentage = Double.parseDouble(percentageString) / 100;
-			trim = String.valueOf(percentage);
+	private void setKeyFormats() {
+		// Query the number formats supplier of the spreadsheet document
+		XNumberFormatsSupplier numberFormatsSupplier = (XNumberFormatsSupplier) UnoRuntime.queryInterface(XNumberFormatsSupplier.class, document);
+
+		// Get the number formats from the supplier
+		XNumberFormats numberFormats = numberFormatsSupplier.getNumberFormats();
+
+		numberFormatTypes = (XNumberFormatTypes) UnoRuntime.queryInterface(XNumberFormatTypes.class, numberFormats);
+
+		// Get the number format index key of the default currency format,
+		// note the empty locale for default locale
+		Locale aLocale = new Locale();
+		try {
+			percentageKey = numberFormats.addNew("##.0%", aLocale);
+			doubleKey = numberFormats.addNew("##.0", aLocale);
+			intKey =numberFormats.addNew("##.#", aLocale);
+		} catch (MalformedNumberFormatException e) {
+			e.printStackTrace();
 		}
-		return trim;
+		dateKey = numberFormatTypes.getStandardFormat(NumberFormat.DATE, new Locale());
 	}
 
-	// ____________________
+	private void initSpreadsheet() {
+		XSpreadsheets aSheets = document.getSheets();
+		XIndexAccess aSheetsIA = (XIndexAccess) UnoRuntime.queryInterface(XIndexAccess.class, aSheets);
+		try {
+			sheet = (XSpreadsheet) UnoRuntime.queryInterface(XSpreadsheet.class, aSheetsIA.getByIndex(0));
+		} catch (IndexOutOfBoundsException e) {
+			e.printStackTrace();
+		} catch (WrappedTargetException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void printValues(Map<Column, String> values) {
 
@@ -110,14 +152,18 @@ public class Exporter {
 				setFormula("=MONTH(A1)", x++, 0, NumberFormat.NUMBER);
 				break;
 			case WEIGHT:
+				setDouble(value, x++);
+				break;
 			case DAILY_CALORIC_INTAKE:
 			case METABOLIC_AGE:
-				setDouble(value, x++);
+				setInt(value, x++);
 				break;
 			case BODY_WATER_PERCENTAGE:
 				setPercentage(value, x++);
 				break;
 			case VISCERAL_FAT:
+				setInt(value, x++);
+				break;
 			case BONE_MASS:
 				setDouble(value, x++);
 				break;
@@ -135,129 +181,70 @@ public class Exporter {
 			case MUSCLE_MASS_RIGHT_LEG:
 			case MUSCLE_MASS_LEFT_LEG:
 			case MUSCLE_MASS_TRUNK:
-			case PHYSIC_RATING:
 				setDouble(value, x++);
 				break;
-			default:
+			case PHYSIC_RATING:
+				setInt(value, x++);
 				break;
+			default:
+				throw new ColumnNotFoundException(col.toString());
 			}
 		}
 	}
 
-	private void setPercentage(String value, int x) {
-		setValue(Double.parseDouble(value), x++, 0, NumberFormat.PERCENT);
-	}
-
 	private void setDate(String date, int x) {
-		setFormula(date, x++, 0, NumberFormat.DATE);
+		setFormula(date, x, 0, dateKey);
 	}
 
-	private void setDouble(String value, int x) {
-		setValue(Double.parseDouble(value), x++, 0, NumberFormat.NUMBER);
-	}
-
-	private void setValue(double value, int x, int y, short format) {
-		XCell xCell = getCell(x, y);
-		xCell.setValue(value);
-		setFormat(x, y, format);
-	}
-
-	private void setFormula(String formula, int x, int y, short format) {
+	private void setFormula(String formula, int x, int y, int format) {
 		XCell xCell = getCell(x, y);
 		xCell.setFormula(formula);
 		setFormat(x, y, format);
 	}
 
-	private XCell getCell(int x, int y) {
-		try {
-			return sheet.getCellByPosition(x, y);
-		} catch (IndexOutOfBoundsException e) {
-			throw new SpreadSheetException();
-		}
+	private void setDouble(String value, int x) {
+		setValue(Double.parseDouble(value), x, 0, doubleKey);
 	}
 
-	private void setFormat(int x, int y, short format) {
-		// Query the number formats supplier of the spreadsheet document
-		XNumberFormatsSupplier numberFormatsSupplier = (XNumberFormatsSupplier) UnoRuntime.queryInterface(XNumberFormatsSupplier.class, document);
+	private void setPercentage(String value, int x) {
+		setValue(Double.parseDouble(value), x, 0, percentageKey);
+	}
 
-		// Get the number formats from the supplier
-		XNumberFormats numberFormats = numberFormatsSupplier.getNumberFormats();
+	private void setInt(String value, int x) {
+		setValue(Integer.parseInt(value), x, 0, intKey);
 
-		// Query the XNumberFormatTypes interface
-		XNumberFormatTypes numberFormatTypes = (XNumberFormatTypes) UnoRuntime.queryInterface(XNumberFormatTypes.class, numberFormats);
+	}
 
-		// Get the number format index key of the default currency format,
-		// note the empty locale for default locale
-		Locale aLocale = new Locale();
-		int key = numberFormatTypes.getStandardFormat(format, aLocale);
+	private void setValue(double value, int x, int y, int format) {
+		XCell xCell = getCell(x, y);
+		xCell.setValue(value);
+		setFormat(x, y, format);
+	}
 
-		// Get cell
+	private void setFormat(int x, int y, int format) {
+		XCell cell = getCell(x, y);
+		setNumberFormat(cell, format);
+	}
+
+	private XCell getCell(int x, int y) {
 		XCell cell = null;
 		try {
 			cell = sheet.getCellByPosition(x, y);
 		} catch (IndexOutOfBoundsException e) {
 			throw new SpreadSheetException();
 		}
+		return cell;
+	}
+
+	private void setNumberFormat(XCell cell, int format) {
 
 		// Query the property set of the cell range
 		XPropertySet xCellProp = (XPropertySet) UnoRuntime.queryInterface(XPropertySet.class, cell);
 
-		// Set number format
 		try {
-			xCellProp.setPropertyValue("NumberFormat", key);
+			xCellProp.setPropertyValue("NumberFormat", format);
 		} catch (Exception e) {
 			throw new SpreadSheetException();
-		}
-	}
-
-	private static final String oooExeFolder = "C:/Program Files (x86)/LibreOffice 3.6/program";
-
-	// ____________________
-
-	public Exporter() {
-		// get the remote office context. If necessary a new office
-		// process is started
-		try {
-			officeContext = BootstrapSocketConnector.bootstrap(oooExeFolder);
-		} catch (BootstrapException e) {
-			throw new SpreadSheetException();
-		}
-
-		System.out.println("Connected to a running office ...");
-		maServiceManager = officeContext.getServiceManager();
-
-		// create a new spreadsheet document
-		XComponentLoader aLoader = null;
-		try {
-			aLoader = (XComponentLoader) UnoRuntime.queryInterface(XComponentLoader.class,
-					maServiceManager.createInstanceWithContext("com.sun.star.frame.Desktop", officeContext));
-		} catch (com.sun.star.uno.Exception e) {
-			throw new SpreadSheetException();
-		}
-
-		try {
-			document = (XSpreadsheetDocument) UnoRuntime.queryInterface(XSpreadsheetDocument.class,
-					aLoader.loadComponentFromURL("private:factory/scalc", "_blank", 0, new PropertyValue[0]));
-		} catch (Exception e) {
-			throw new SpreadSheetException();
-		}
-		initSpreadsheet();
-	}
-
-	// ____________________
-
-	/**
-	 * init the first sheet
-	 */
-	private void initSpreadsheet() {
-		XSpreadsheets aSheets = document.getSheets();
-		XIndexAccess aSheetsIA = (XIndexAccess) UnoRuntime.queryInterface(XIndexAccess.class, aSheets);
-		try {
-			sheet = (XSpreadsheet) UnoRuntime.queryInterface(XSpreadsheet.class, aSheetsIA.getByIndex(0));
-		} catch (IndexOutOfBoundsException e) {
-			e.printStackTrace();
-		} catch (WrappedTargetException e) {
-			e.printStackTrace();
 		}
 	}
 }
