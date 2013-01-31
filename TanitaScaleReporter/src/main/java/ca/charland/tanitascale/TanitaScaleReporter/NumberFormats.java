@@ -23,15 +23,16 @@ package ca.charland.tanitascale.TanitaScaleReporter;
 
 // __________ Imports __________
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import ooo.connector.BootstrapSocketConnector;
 
 import com.sun.star.beans.PropertyValue;
-import com.sun.star.beans.PropertyVetoException;
-import com.sun.star.beans.UnknownPropertyException;
 import com.sun.star.beans.XPropertySet;
+import com.sun.star.comp.helper.BootstrapException;
 import com.sun.star.container.XIndexAccess;
 import com.sun.star.frame.XComponentLoader;
-import com.sun.star.lang.IllegalArgumentException;
 import com.sun.star.lang.IndexOutOfBoundsException;
 import com.sun.star.lang.Locale;
 import com.sun.star.lang.WrappedTargetException;
@@ -55,49 +56,100 @@ public class NumberFormats {
 	private XSpreadsheet sheet; // the first sheet
 
 	public static void main(String args[]) {
-		try {
-			NumberFormats aSample = new NumberFormats(args);
-			aSample.doFunction();
-		} catch (Exception ex) {
-			System.err.println("Sample caught exception! " + ex);
-			ex.printStackTrace();
-			System.exit(1);
-		}
-
-		System.out.println("Sample done.");
-		System.exit(0);
+		Map<Column, String> values = new TreeMap<Column, String>();
+		values.put(Column.DATE, "2013/12/12");
+		values.put(Column.WEIGHT, "156");
+		values.put(Column.DAILY_CALORIC_INTAKE, "3925");
+		values.put(Column.METABOLIC_AGE, "15");
+		values.put(Column.BODY_WATER_PERCENTAGE, ".656");
+		values.put(Column.VISCERAL_FAT, "1");
+		values.put(Column.BONE_MASS, "6.8");
+	
+		NumberFormats aSample = new NumberFormats(args);
+		aSample.printValues(values);
 	}
 
 	// ____________________
 
-	public void doFunction() throws RuntimeException, Exception {
-		// Assume:
-		// com.sun.star.sheet.XSpreadsheetDocument maSpreadsheetDoc;
-		// com.sun.star.sheet.XSpreadsheet maSheet;
+	public void printValues(Map<Column, String> values) {
 
 		int x = 0;
-		setFormula("01/28/2013", x++, 0, NumberFormat.DATE);
-		setFormula("=MONTH(A1)", x++, 0, NumberFormat.NUMBER);
-		setValue(150, x++, 0, NumberFormat.NUMBER);
-		setValue(0.15, x++, 0, NumberFormat.PERCENT);
+		for (Column col : values.keySet()) {
+			String value = values.get(col);
+
+			switch (col) {
+			case DATE:
+				setDate((String) value, x++);
+				setFormula("=MONTH(A1)", x++, 0, NumberFormat.NUMBER);
+				break;
+			case WEIGHT:
+			case DAILY_CALORIC_INTAKE:
+			case METABOLIC_AGE:				
+				setDouble(value, x++);
+				break;
+			case BODY_WATER_PERCENTAGE:
+				setPercentage(value, x++);
+				break;
+			case VISCERAL_FAT:
+			case BONE_MASS:
+				setDouble(value, x++);
+				break;
+			case BODY_FAT_TOTAL:
+			case BODY_FAT_LEFT_ARM:
+			case BODY_FAT_RIGHT_ARM:
+			case BODY_FAT_RIGHT_LEG:
+			case BODY_FAT_LEFT_LEG:
+			case BODY_FAT_TRUNK:
+				setPercentage(value, x++);
+				break;
+			case MUSCLE_MASS_TOTAL:
+			case MUSCLE_MASS_LEFT_ARM:
+			case MUSCLE_MASS_RIGHT_ARM:
+			case MUSCLE_MASS_RIGHT_LEG:
+			case MUSCLE_MASS_LEFT_LEG:
+			case MUSCLE_MASS_TRUNK:
+			case PHYSIC_RATING:
+				setDouble(value, x++);
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
-	private void setValue(double value, int x, int y, short format) throws IndexOutOfBoundsException, UnknownPropertyException,
-			PropertyVetoException, IllegalArgumentException, WrappedTargetException {
-		XCell xCell = sheet.getCellByPosition(x, y);
+	private void setPercentage(String value, int x) {
+		setValue(Double.parseDouble(value), x++, 0, NumberFormat.PERCENT);
+	}
+
+	private void setDate(String date, int x) {
+		setFormula("01/28/2013", x++, 0, NumberFormat.DATE);
+	}
+
+	private void setDouble(String value, int x) {
+		setValue(Double.parseDouble(value), x++, 0, NumberFormat.NUMBER);
+	}
+
+	private void setValue(double value, int x, int y, short format) {
+		XCell xCell = getCell(x, y);
 		xCell.setValue(value);
 		setFormat(x, y, format);
 	}
 
-	private void setFormula(String formula, int x, int y, short format) throws IndexOutOfBoundsException, UnknownPropertyException,
-			PropertyVetoException, IllegalArgumentException, WrappedTargetException {
-		XCell xCell = sheet.getCellByPosition(x, y);
+	private void setFormula(String formula, int x, int y, short format) {
+		XCell xCell = getCell(x, y);
 		xCell.setFormula(formula);
 		setFormat(x, y, format);
 	}
 
-	private void setFormat(int x, int y, short format) throws IndexOutOfBoundsException, UnknownPropertyException, PropertyVetoException,
-			IllegalArgumentException, WrappedTargetException {
+	private XCell getCell(int x, int y) {
+		try {
+			return sheet.getCellByPosition(x, y);
+		} catch (IndexOutOfBoundsException e) {
+			throw new SpreadSheetException();
+		}
+	}
+
+	private void setFormat(int x, int y, short format) {
 		// Query the number formats supplier of the spreadsheet document
 		XNumberFormatsSupplier numberFormatsSupplier = (XNumberFormatsSupplier) UnoRuntime.queryInterface(XNumberFormatsSupplier.class, document);
 
@@ -113,34 +165,55 @@ public class NumberFormats {
 		int key = numberFormatTypes.getStandardFormat(format, aLocale);
 
 		// Get cell
-		XCell cell = sheet.getCellByPosition(x, y);
+		XCell cell = null;
+		try {
+			cell = sheet.getCellByPosition(x, y);
+		} catch (IndexOutOfBoundsException e) {
+			throw new SpreadSheetException();
+		}
 
 		// Query the property set of the cell range
 		XPropertySet xCellProp = (XPropertySet) UnoRuntime.queryInterface(XPropertySet.class, cell);
 
 		// Set number format
-		xCellProp.setPropertyValue("NumberFormat", key);
+		try {
+			xCellProp.setPropertyValue("NumberFormat", key);
+		} catch (Exception e) {
+			throw new SpreadSheetException();
+		}
 	}
 
 	private static final String oooExeFolder = "C:/Program Files (x86)/LibreOffice 3.6/program";
 
 	// ____________________
 
-	public NumberFormats(String[] args) throws java.lang.Exception {
+	public NumberFormats(String[] args) {
 		// get the remote office context. If necessary a new office
 		// process is started
-		officeContext = BootstrapSocketConnector.bootstrap(oooExeFolder);
+		try {
+			officeContext = BootstrapSocketConnector.bootstrap(oooExeFolder);
+		} catch (BootstrapException e) {
+			throw new SpreadSheetException();
+		}
 
 		System.out.println("Connected to a running office ...");
 		maServiceManager = officeContext.getServiceManager();
 
 		// create a new spreadsheet document
-		XComponentLoader aLoader = (XComponentLoader) UnoRuntime.queryInterface(XComponentLoader.class,
-				maServiceManager.createInstanceWithContext("com.sun.star.frame.Desktop", officeContext));
+		XComponentLoader aLoader = null;
+		try {
+			aLoader = (XComponentLoader) UnoRuntime.queryInterface(XComponentLoader.class,
+					maServiceManager.createInstanceWithContext("com.sun.star.frame.Desktop", officeContext));
+		} catch (com.sun.star.uno.Exception e) {
+			throw new SpreadSheetException();
+		}
 
-		document = (XSpreadsheetDocument) UnoRuntime.queryInterface(XSpreadsheetDocument.class,
-				aLoader.loadComponentFromURL("private:factory/scalc", "_blank", 0, new PropertyValue[0]));
-
+		try {
+			document = (XSpreadsheetDocument) UnoRuntime.queryInterface(XSpreadsheetDocument.class,
+					aLoader.loadComponentFromURL("private:factory/scalc", "_blank", 0, new PropertyValue[0]));
+		} catch (Exception e) {
+			throw new SpreadSheetException();
+		}
 		initSpreadsheet();
 	}
 
