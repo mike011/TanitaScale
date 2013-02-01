@@ -2,8 +2,6 @@ package ca.charland.activity.manage;
 
 import android.app.Activity;
 import ca.charland.R;
-import ca.charland.tanita.manage.AddANewPersonActivity;
-import ca.charland.tanita.manage.AllPeopleListActivity;
 
 public class FirstActivityDataHolder implements MultipleActivityData {
 

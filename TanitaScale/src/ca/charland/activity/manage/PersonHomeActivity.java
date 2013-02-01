@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import ca.charland.R;
-import ca.charland.tanita.manage.AllPeopleListActivity;
 
 /**
  * This is the first person specific screen which allows you to choose what you want to do.

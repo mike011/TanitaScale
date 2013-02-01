@@ -1,5 +1,6 @@
 package ca.charland.tanita.manage;
 
+import ca.charland.activity.manage.SingleDateValuesEnteredActivity;
 import ca.charland.tanita.db.TanitaData;
 
 /**

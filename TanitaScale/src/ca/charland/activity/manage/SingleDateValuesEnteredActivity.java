@@ -1,4 +1,4 @@
-package ca.charland.tanita.manage;
+package ca.charland.activity.manage;
 
 import java.util.List;
 
@@ -13,6 +13,7 @@ import ca.charland.tanita.db.TanitaData;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TanitaDatabaseConnection;
+import ca.charland.tanita.manage.EmailButtonOnClickListener;
 
 /**
  * Shows the data entered for a specific date.

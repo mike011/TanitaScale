@@ -16,12 +16,12 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import ca.charland.R;
+import ca.charland.activity.manage.AllPeopleListActivity;
 import ca.charland.db.Data;
 import ca.charland.tanita.db.PersonDataHelper;
 import ca.charland.tanita.db.PersonDataSource;
 import ca.charland.tanita.db.TanitaDataHelper;
 import ca.charland.tanita.db.TanitaDataTable;
-import ca.charland.tanita.manage.AllPeopleListActivity;
 
 /**
  * Since most of the classes have a text view when entering data a specific class was created.

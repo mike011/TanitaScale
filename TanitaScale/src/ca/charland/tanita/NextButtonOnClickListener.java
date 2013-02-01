@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.charland.R;
+import ca.charland.activity.manage.AllPeopleListActivity;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
-import ca.charland.tanita.manage.AllPeopleListActivity;
 
 /**
  * The listener interface for receiving nextButtonOnClick events. The class that is interested in processing a nextButtonOnClick event implements this

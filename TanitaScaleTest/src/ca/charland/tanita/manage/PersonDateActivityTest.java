@@ -23,7 +23,7 @@ public class PersonDateActivityTest {
 	private PersonDateActivityNoDatabase activity;
 	
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateWeight() {
@@ -38,7 +38,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateDCI() {
@@ -53,7 +53,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateMetabolicAge() {
@@ -68,7 +68,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateBodyWaterPercentage() {
@@ -83,7 +83,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateVisceralFat() {
@@ -98,7 +98,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateBoneMass() {
@@ -113,7 +113,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateBodyFatTotal() {
@@ -128,7 +128,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateBodyFatLeftArm() {
@@ -143,7 +143,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateBodyFatRightArm() {
@@ -158,7 +158,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateBodyFatLeftLeg() {
@@ -173,7 +173,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateBodyFatRightLeg() {
@@ -188,7 +188,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateBodyFatTrunk() {
@@ -203,7 +203,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateMuscleMassTotal() {
@@ -218,7 +218,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateMuscleMassLeftArm() {
@@ -233,7 +233,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateMuscleMassRightArm() {
@@ -248,7 +248,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateMuscleMassLeftLeg() {
@@ -263,7 +263,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateMuscleMassRightLeg() {
@@ -278,7 +278,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreateMuscleMassTrunk() {
@@ -293,7 +293,7 @@ public class PersonDateActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
+	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
 	 */
 	@Test
 	public void testOnCreatePhysicRating() {

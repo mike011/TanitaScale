@@ -33,7 +33,7 @@ public class EmailButtonOnClickListener implements OnClickListener {
 
 	private final TanitaData tanitadata;
 
-	EmailButtonOnClickListener(Activity activity, TanitaData td) {
+	public EmailButtonOnClickListener(Activity activity, TanitaData td) {
 		this.activity = activity;
 		this.tanitadata = td;
 	}

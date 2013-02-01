@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import ca.charland.R;
-import ca.charland.tanita.manage.AllPeopleListActivity;
 
 /**
  * The first screen you will see and will allow you basic account maintenance.
