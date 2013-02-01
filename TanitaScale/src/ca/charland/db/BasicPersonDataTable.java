@@ -8,7 +8,7 @@ package ca.charland.db;
  */
 public class BasicPersonDataTable {
 
-	static final String TABLE = "person";
+	static final String TABLE_NAME = "person";
 	
 	public static enum Column {
 		
@@ -32,7 +32,7 @@ public class BasicPersonDataTable {
 
 	private static String getPeopleTable() {
 		StringBuilder sql = new StringBuilder();
-		sql.append("create table ").append(TABLE);
+		sql.append("create table ").append(TABLE_NAME);
 		sql.append("( ").append(Column.ID).append(" integer primary key autoincrement, ");
 		sql.append(Column.NAME).append(" text not null);");
 		String string = sql.toString();

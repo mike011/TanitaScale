@@ -17,7 +17,7 @@ import ca.charland.tanita.db.PersonDataSource;
  * 
  * @author mcharland
  */
-public class AddANewPersonActivity extends RoboActivity {
+public abstract class AddANewPersonActivity extends RoboActivity {
 
 	private PersonDataSource datasource;
 
@@ -38,12 +38,13 @@ public class AddANewPersonActivity extends RoboActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.add);
-		datasource = new PersonDataSource(this);
+		datasource = getDataSource();
 		datasource.openDatabaseConnection();
 
 		save.setOnClickListener(new SaveOnClickListener());
 	}
 
+	protected abstract PersonDataSource getDataSource();
 	@Override
 	protected void onResume() {
 		datasource.openDatabaseConnection();

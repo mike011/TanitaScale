@@ -3,7 +3,7 @@ package ca.charland.activity.manage;
 import android.app.Activity;
 import ca.charland.R;
 
-public class FirstActivityDataHolder implements MultipleActivityData {
+public abstract class FirstActivityDataHolder implements MultipleActivityData {
 
 	@Override
 	public int getAdd() {
@@ -13,16 +13,6 @@ public class FirstActivityDataHolder implements MultipleActivityData {
 	@Override
 	public int getView() {
 		return R.string.view_person;
-	}
-
-	@Override
-	public Class<?> getNextAddClass() {
-		return AddANewPersonActivity.class;
-	}
-
-	@Override
-	public Class<?> getNextViewClass() {
-		return AllPeopleListActivity.class;
 	}
 
 	@Override

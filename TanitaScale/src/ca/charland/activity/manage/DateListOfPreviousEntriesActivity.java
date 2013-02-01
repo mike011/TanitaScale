@@ -21,7 +21,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * @author mcharland
  * 
  */
-public class DateListOfPreviousEntriesActivity extends RoboListActivity {
+public abstract class DateListOfPreviousEntriesActivity extends RoboListActivity {
 
 	public static final String ID = "DATE";
 
@@ -31,7 +31,7 @@ public class DateListOfPreviousEntriesActivity extends RoboListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		datasource = new DateListDataSource(this);
+		datasource = getDataListDataSource();
 		datasource.openDatabaseConnection();
 
 		final List<Data> data = datasource.queryWithOrdering(getSelection(), getOrderBy());
@@ -41,6 +41,8 @@ public class DateListOfPreviousEntriesActivity extends RoboListActivity {
 
 		datasource.closeDatabaseConnection();
 	}
+
+	protected abstract DateListDataSource getDataListDataSource();
 
 	private String getOrderBy() {
 		return TanitaDataTable.Column.DATE.toString() + " DESC";

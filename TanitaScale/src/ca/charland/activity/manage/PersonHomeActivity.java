@@ -16,7 +16,7 @@ import ca.charland.R;
  * 
  * @author mcharland
  */
-public class PersonHomeActivity extends RoboActivity {
+public abstract class PersonHomeActivity extends RoboActivity {
 
 	@InjectView(R.id.add)
 	private Button add;
@@ -30,9 +30,11 @@ public class PersonHomeActivity extends RoboActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.person_home);
-		activityData = new PersonHomeActivityDataHolder();
+		activityData = getPersonHomActivityDataHolder();
 		setOnClickListeners();
 	}
+
+	protected abstract PersonHomeActivityDataHolder getPersonHomActivityDataHolder();
 
 	private void setOnClickListeners() {
 		add.setOnClickListener(getOnClickListener(activityData.getNextAddClass()));

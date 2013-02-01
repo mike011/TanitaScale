@@ -12,25 +12,25 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import ca.charland.R;
+import ca.charland.db.AbstractPersonDataSource;
 import ca.charland.db.Data;
-import ca.charland.tanita.db.PersonDataSource;
 
 /**
  * Views currently added people and allows you to choose a person to view.
  * 
  * @author mcharland
  */
-public class AllPeopleListActivity extends RoboListActivity {
+public abstract class AllPeopleListActivity extends RoboListActivity {
 
 	public static final String PERSON_ID = "ROW_PERSON_ID";
 
-	private PersonDataSource datasource;
+	private AbstractPersonDataSource datasource;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		datasource = new PersonDataSource(this);
+		datasource = getPersonDataSource();
 		datasource.openDatabaseConnection();
 
 		final List<Data> data = datasource.getAllValues();
@@ -41,6 +41,8 @@ public class AllPeopleListActivity extends RoboListActivity {
 		datasource.closeDatabaseConnection();
 	}
 
+	protected abstract AbstractPersonDataSource getPersonDataSource();
+
 	private void setListAdapter() {
 		ArrayAdapter<Data> adapter = new ArrayAdapter<Data>(this, R.layout.people_list, datasource.getAllValues());
 		setListAdapter(adapter);
@@ -50,7 +52,7 @@ public class AllPeopleListActivity extends RoboListActivity {
 		ListView lv = getListView();
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> par, View view, int pos, long id) {
-				Intent intent = new Intent(getBaseContext(), PersonHomeActivity.class);
+				Intent intent = new Intent(getBaseContext(), getHomeActivity());
 
 				Data selectedItem = data.get(pos);
 				intent.putExtra(AllPeopleListActivity.PERSON_ID, selectedItem.getId());
@@ -60,6 +62,8 @@ public class AllPeopleListActivity extends RoboListActivity {
 		});
 	}
 
+	protected abstract Class<?> getHomeActivity();
+	
 	@Override
 	protected void onResume() {
 		datasource.openDatabaseConnection();
@@ -76,9 +80,11 @@ public class AllPeopleListActivity extends RoboListActivity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// replaces the default 'Back' button action
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			this.startActivity(new Intent(this, FirstActivity.class));
+			this.startActivity(new Intent(this, getFirstClass()));
 			this.finish();
 		}
 		return true;
 	}
+
+	protected abstract Class<?> getFirstClass();
 }

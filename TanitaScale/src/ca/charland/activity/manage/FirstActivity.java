@@ -16,7 +16,7 @@ import ca.charland.R;
  * 
  * @author mcharland
  */
-public class FirstActivity extends RoboActivity {
+public abstract class FirstActivity extends RoboActivity {
 
 	@InjectView(R.id.add)
 	private Button add;
@@ -54,12 +54,16 @@ public class FirstActivity extends RoboActivity {
 
 	private void createActivityData() {
 		if (PreferencesActivity.isSingleUserModeSet(this)) {
-			activityData = new PersonHomeActivityDataHolder();
+			activityData = getSingleUserModeDataHolder();
 		} else {
-			activityData = new FirstActivityDataHolder();
+			activityData = getMultipleUserModeDataHolder();
 		}
 	}
+	
+	protected abstract PersonHomeActivityDataHolder getSingleUserModeDataHolder();
 
+	protected abstract FirstActivityDataHolder getMultipleUserModeDataHolder();
+	
 	private void setOnClickListeners() {
 		add.setOnClickListener(getOnClickListener(activityData.getNextAddClass()));
 		view.setOnClickListener(getOnClickListener(activityData.getNextViewClass()));
