@@ -1,5 +1,6 @@
 package ca.charland.tanita;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ class NextButtonOnClickListener implements View.OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		
+
 		if (!isTextValid()) {
 			return;
 		}
@@ -55,8 +56,18 @@ class NextButtonOnClickListener implements View.OnClickListener {
 	private Intent getNextIntent() {
 		Intent newIntent = new Intent(activity.getBaseContext(), activity.getNextClass());
 		newIntent.putExtra(ID, getID());
+		
+		if (isPhysicRating(activity)) {
+			newIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		}
 		newIntent.putExtra(AllPeopleListActivity.PERSON_ID.toString(), getPerson());
 		return newIntent;
+	}
+
+	private boolean isPhysicRating(Activity activity) {
+		String name = activity.getClass().getName();
+		String physic = PhysicRatingActivity.class.toString();
+		return physic.contains(name);
 	}
 
 	private long getID() {

@@ -30,8 +30,6 @@ public class PersonHomeActivityDataHolder implements MultipleActivityData {
 	@Override
 	public void onKeyBackDown(Activity activity) {
 		Intent intent = new Intent(activity, AllPeopleListActivity.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
 		activity.startActivity(intent);
 		activity.finish();
 	}

@@ -46,7 +46,6 @@ public class PersonHomeActivity extends RoboActivity {
 			public void onClick(View v) {
 				startActivity(getActivity(getBaseContext(), getIntent(), nextClass));
 			}
-
 		};
 	}
 

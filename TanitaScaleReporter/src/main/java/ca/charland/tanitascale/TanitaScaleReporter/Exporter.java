@@ -44,13 +44,12 @@ import com.sun.star.uno.UnoRuntime;
 import com.sun.star.uno.XComponentContext;
 import com.sun.star.util.MalformedNumberFormatException;
 import com.sun.star.util.NumberFormat;
-import com.sun.star.util.XNumberFormatTypes;
 import com.sun.star.util.XNumberFormats;
 import com.sun.star.util.XNumberFormatsSupplier;
 
 public class Exporter {
 
-	private static final String oooExeFolder = "C:/Program Files (x86)/LibreOffice 3.6/program";
+	private static final String oooExeFolder = "D:/Program Files (x86)/LibreOffice 3.6/program";
 
 	private XComponentContext context;
 	private XMultiComponentFactory serviceManager;
@@ -113,19 +112,17 @@ public class Exporter {
 		// Get the number formats from the supplier
 		XNumberFormats numberFormats = numberFormatsSupplier.getNumberFormats();
 
-		XNumberFormatTypes numberFormatTypes = (XNumberFormatTypes) UnoRuntime.queryInterface(XNumberFormatTypes.class, numberFormats);
-
 		// Get the number format index key of the default currency format,
 		// note the empty locale for default locale
 		Locale aLocale = new Locale();
 		try {
+			dateFormat = numberFormats.addNew("MMM D", aLocale);
 			percentageFormat = numberFormats.addNew("##.0%", aLocale);
 			doubleFormat = numberFormats.addNew("##.0", aLocale);
 			intFormat = numberFormats.addNew("##.#", aLocale);
 		} catch (MalformedNumberFormatException e) {
 			e.printStackTrace();
 		}
-		dateFormat = numberFormatTypes.getStandardFormat(NumberFormat.DATE, aLocale);
 	}
 
 	private void initSpreadsheet() {
@@ -149,7 +146,7 @@ public class Exporter {
 			switch (col) {
 			case DATE:
 				setDate((String) value, x++, y);
-				setFormula("=MONTH(A1)", x++, y, NumberFormat.NUMBER);
+				setMonth(x++, y);
 				break;
 			case WEIGHT:
 				setDouble(value, x++, y);
@@ -185,6 +182,7 @@ public class Exporter {
 				break;
 			case PHYSIC_RATING:
 				setInt(value, x++, y);
+				setMuscleMassPercentageOfTotalWeightFormula(x++, y);
 				break;
 			default:
 				throw new ColumnNotFoundException(col.toString());
@@ -194,6 +192,14 @@ public class Exporter {
 
 	private void setDate(String date, int x, int y) {
 		setFormula(date, x, y, dateFormat);
+	}
+
+	private void setMonth(int x, int y) {
+		setFormula(getMonthFormula(y + 1), x, y, NumberFormat.NUMBER);
+	}
+
+	private String getMonthFormula(int row) {
+		return "=MONTH(A" + row + ")";
 	}
 
 	private void setFormula(String formula, int x, int y, int format) {
@@ -213,6 +219,16 @@ public class Exporter {
 	private void setInt(String value, int x, int y) {
 		setValue(Integer.parseInt(value), x, y, intFormat);
 
+	}
+
+	private void setMuscleMassPercentageOfTotalWeightFormula(int x, int y) {
+		setFormula(getMuscleMassPercentageOfTotalWeightFormula(y + 1), x, y, percentageFormat);
+	}
+
+	private String getMuscleMassPercentageOfTotalWeightFormula(int row) {
+		String muscleMass = "O" + row;
+		String weight = "C" + row;
+		return "=" + muscleMass + "/" + weight;
 	}
 
 	private void setValue(double value, int x, int y, int format) {
