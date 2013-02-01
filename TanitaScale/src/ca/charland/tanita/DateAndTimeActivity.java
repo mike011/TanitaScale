@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+import ca.charland.R;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.manage.AllPeopleListActivity;
 

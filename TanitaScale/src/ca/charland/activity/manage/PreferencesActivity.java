@@ -1,4 +1,4 @@
-package ca.charland.tanita.manage;
+package ca.charland.activity.manage;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import ca.charland.R;
 import ca.charland.db.Data;
-import ca.charland.tanita.R;
 import ca.charland.tanita.db.PersonData;
 import ca.charland.tanita.db.PersonDataSource;
 

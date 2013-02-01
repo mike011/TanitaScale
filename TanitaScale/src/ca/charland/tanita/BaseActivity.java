@@ -5,6 +5,7 @@ import roboguice.inject.InjectView;
 import android.content.ContentValues;
 import android.os.Bundle;
 import android.widget.Button;
+import ca.charland.R;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDatabaseConnection;
 

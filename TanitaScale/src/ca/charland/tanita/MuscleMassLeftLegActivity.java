@@ -1,7 +1,7 @@
 package ca.charland.tanita;
 
+import ca.charland.R;
 import ca.charland.tanita.db.TanitaDataTable;
-
 /**
  * @author mcharland
  */

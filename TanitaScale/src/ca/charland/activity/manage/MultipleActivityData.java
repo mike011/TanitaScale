@@ -1,4 +1,4 @@
-package ca.charland.tanita.manage;
+package ca.charland.activity.manage;
 
 import android.app.Activity;
 

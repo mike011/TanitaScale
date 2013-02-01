@@ -11,8 +11,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import ca.charland.R;
+import ca.charland.activity.manage.FirstActivity;
+import ca.charland.activity.manage.PersonHomeActivity;
 import ca.charland.db.Data;
-import ca.charland.tanita.R;
 import ca.charland.tanita.db.PersonDataSource;
 
 /**

@@ -6,14 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ca.charland.R;
+import ca.charland.activity.manage.PersonHomeActivity;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
-import ca.charland.tanita.manage.PersonHomeActivity;
 
 import com.google.inject.Inject;
-
 /**
  * @author mcharland
  */

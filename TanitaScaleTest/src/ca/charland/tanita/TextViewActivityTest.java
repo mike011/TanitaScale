@@ -10,11 +10,11 @@ import org.junit.runner.RunWith;
 
 import android.content.ContentValues;
 import android.widget.TextView;
+import ca.charland.R;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
-
 /**
  * @author mcharland
  */

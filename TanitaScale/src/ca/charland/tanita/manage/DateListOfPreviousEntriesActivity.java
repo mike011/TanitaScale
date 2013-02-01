@@ -10,8 +10,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import ca.charland.R;
 import ca.charland.db.Data;
-import ca.charland.tanita.R;
 import ca.charland.tanita.db.DateListDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 

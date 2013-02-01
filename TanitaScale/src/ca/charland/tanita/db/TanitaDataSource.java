@@ -4,10 +4,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.database.Cursor;
 import ca.charland.db.DataSource;
 import ca.charland.db.DatabaseConnection;
-
-import android.database.Cursor;
 
 /**
  * @author mcharland

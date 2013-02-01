@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-import ca.charland.tanita.R;
+import ca.charland.R;
 import ca.charland.tanita.db.PersonDataSource;
 
 /**

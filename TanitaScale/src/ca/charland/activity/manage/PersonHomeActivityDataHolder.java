@@ -1,9 +1,11 @@
-package ca.charland.tanita.manage;
+package ca.charland.activity.manage;
 
 import android.app.Activity;
 import android.content.Intent;
+import ca.charland.R;
 import ca.charland.tanita.DateAndTimeActivity;
-import ca.charland.tanita.R;
+import ca.charland.tanita.manage.AllPeopleListActivity;
+import ca.charland.tanita.manage.DateListOfPreviousEntriesActivity;
 
 public class PersonHomeActivityDataHolder implements MultipleActivityData {
 

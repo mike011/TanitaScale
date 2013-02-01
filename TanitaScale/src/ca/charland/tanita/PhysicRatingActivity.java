@@ -1,10 +1,10 @@
 package ca.charland.tanita;
 
+import ca.charland.R;
+import ca.charland.activity.manage.FirstActivity;
+import ca.charland.activity.manage.PersonHomeActivity;
+import ca.charland.activity.manage.PreferencesActivity;
 import ca.charland.tanita.db.TanitaDataTable;
-import ca.charland.tanita.manage.FirstActivity;
-import ca.charland.tanita.manage.PersonHomeActivity;
-import ca.charland.tanita.manage.PreferencesActivity;
-
 /**
  * @author mcharland
  */
