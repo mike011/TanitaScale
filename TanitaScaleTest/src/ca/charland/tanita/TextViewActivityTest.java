@@ -11,7 +11,9 @@ import org.junit.runner.RunWith;
 import android.content.ContentValues;
 import android.widget.TextView;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.tanita.db.TestTanitaDataSource;
 
 /**
  * @author mcharland
@@ -45,7 +47,7 @@ public class TextViewActivityTest {
 		assertNotNull("Previous not set", previous);
 		CharSequence text = previous.getText();
 		assertNotNull("Previous text not set", text);
-		assertEquals("0.0", text.toString());
+		assertEquals("0.00", text.toString());
 	}
 
 	@Test
@@ -55,7 +57,7 @@ public class TextViewActivityTest {
 		assertNotNull("Average not set", average);
 		CharSequence text = average.getText();
 		assertNotNull("Average text not set", text);
-		assertEquals("0.0",text.toString());
+		assertEquals("0.00",text.toString());
 	}
 
 	private static class BodyFatLeftArmActivityUnderTest extends BodyFatLeftArmActivity {
@@ -65,7 +67,8 @@ public class TextViewActivityTest {
 		}
 		
 		@Override 
-		protected void createDataSource() {
+		protected TanitaDataSource getDataSource() {
+			return new TestTanitaDataSource();
 		}
 		
 		@Override

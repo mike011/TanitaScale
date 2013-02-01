@@ -11,7 +11,7 @@ public abstract class AbstractPersonDataSource extends DataSource {
 	protected final List<ContentValuesKeyValuePair> pairs;
 	
 	public AbstractPersonDataSource(Context context, String database, String table, String createTableSQL) {
-		super(new DatabaseHelper(context, database, table, createTableSQL));
+		super(new DatabaseConnection(context, database, table, createTableSQL));
 		pairs = new ArrayList<ContentValuesKeyValuePair>();
 	}
 

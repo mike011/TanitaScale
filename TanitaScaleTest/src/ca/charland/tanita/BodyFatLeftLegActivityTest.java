@@ -7,7 +7,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.tanita.db.TestTanitaDataSource;
 
 import com.google.inject.Inject;
 
@@ -22,16 +24,17 @@ public class BodyFatLeftLegActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
-		
-		@Override 
-		protected void createDataSource() {
+
+		@Override
+		protected TanitaDataSource getDataSource() {
+			return new TestTanitaDataSource();
 		}
 
 		@Override
 		protected void setData() {
 		}
 	}
-	
+
 	@Inject
 	private ActivityUnderTest activity;
 

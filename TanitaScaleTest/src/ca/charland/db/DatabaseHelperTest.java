@@ -18,7 +18,7 @@ import com.xtremelabs.robolectric.shadows.ShadowSQLiteDatabase;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DatabaseHelperTest {
 
-	private DatabaseHelper helper;
+	private DatabaseConnection helper;
 	private final String table = "bob";
 
 	@BeforeClass 
@@ -28,7 +28,7 @@ public class DatabaseHelperTest {
 	
 	@Before
 	public void setup() {
-		helper = new DatabaseHelper(null, null, table, "");
+		helper = new DatabaseConnection(null, null, table, "");
 	}
 
 	@Test

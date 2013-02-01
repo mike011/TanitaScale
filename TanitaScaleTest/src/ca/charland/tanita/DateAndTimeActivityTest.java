@@ -10,7 +10,9 @@ import org.junit.runner.RunWith;
 import android.content.ContentValues;
 import android.content.Intent;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.tanita.db.TestTanitaDataSource;
 
 import com.google.inject.Inject;
 
@@ -24,7 +26,8 @@ public class DateAndTimeActivityTest {
 	private static class ActivityUnderTest extends DateAndTimeActivity {
 
 		@Override 
-		protected void createDataSource() {
+		protected TanitaDataSource getDataSource() {
+			return new TestTanitaDataSource();
 		}
 	}
 	

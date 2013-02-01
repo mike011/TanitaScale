@@ -10,7 +10,7 @@ import android.util.Log;
  * 
  * @author mcharland
  */
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseConnection extends SQLiteOpenHelper {
 
 	private static final int DATABASE_VERSION = 1;
 
@@ -20,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	private final String createTableSQL;
 
-	public DatabaseHelper(Context context, String database, String table, String createTableSQL) {
+	public DatabaseConnection(Context context, String database, String table, String createTableSQL) {
 		super(context, database, null, DATABASE_VERSION);
 		this.databaseName = database;
 		this.tableName = table;
@@ -39,7 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	/** {@inheritDoc} */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		Log.w(DatabaseHelper.class.getName(), getMessage(oldVersion, newVersion));
+		Log.w(DatabaseConnection.class.getName(), getMessage(oldVersion, newVersion));
 		dropTables(db);
 		onCreate(db);
 	}

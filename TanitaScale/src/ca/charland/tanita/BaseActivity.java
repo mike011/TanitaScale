@@ -1,6 +1,8 @@
 package ca.charland.tanita;
 
+import ca.charland.db.DatabaseConnection;
 import ca.charland.tanita.db.TanitaDataSource;
+import ca.charland.tanita.db.TanitaDatabaseConnection;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 import android.content.ContentValues;
@@ -24,14 +26,15 @@ public abstract class BaseActivity extends RoboActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(getResourceIDForLayout());
-		createDataSource();
+		datasource = getDataSource();
 		next.setOnClickListener(new NextButtonOnClickListener(this, datasource));
 	}
 
-	protected void createDataSource() {
-		datasource = new TanitaDataSource(this);
+	protected TanitaDataSource getDataSource() {
+		TanitaDataSource datasource = new TanitaDataSource(new TanitaDatabaseConnection(this));
 		datasource.openDatabaseConnection();
 		datasource.checkForTable();
+		return datasource;
 	}
 
 	protected abstract Class<?> getNextClass();

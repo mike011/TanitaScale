@@ -12,6 +12,7 @@ import ca.charland.tanita.R;
 import ca.charland.tanita.db.TanitaData;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.tanita.db.TanitaDatabaseConnection;
 
 /**
  * Shows the data entered for a specific date.
@@ -96,7 +97,7 @@ public class SingleDateValuesEnteredActivity extends RoboActivity {
 
 	protected TanitaData getTanitaData() {
 
-		TanitaDataSource datasource = new TanitaDataSource(this);
+		TanitaDataSource datasource = new TanitaDataSource(new TanitaDatabaseConnection(this));
 		datasource.openDatabaseConnection();
 
 		TanitaData td = getTanitaData(datasource);

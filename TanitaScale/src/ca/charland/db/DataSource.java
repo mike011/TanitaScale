@@ -18,11 +18,11 @@ public abstract class DataSource {
 
 	protected SQLiteDatabase database;
 
-	private final DatabaseHelper databaseHelper;
+	private final DatabaseConnection databaseHelper;
 
 	private boolean open;
 
-	public DataSource(DatabaseHelper helper) {
+	public DataSource(DatabaseConnection helper) {
 		this.databaseHelper = helper;
 	}
 
@@ -102,7 +102,7 @@ public abstract class DataSource {
 		return open;
 	}
 
-	public DatabaseHelper getDatabaseHelper() {
+	public DatabaseConnection getDatabaseHelper() {
 		return databaseHelper;
 	}
 }

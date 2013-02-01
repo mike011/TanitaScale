@@ -1,22 +1,16 @@
 package ca.charland.tanita;
 
-import ca.charland.tanita.db.TanitaData;
+import ca.charland.tanita.db.TanitaDataSource;
+import ca.charland.tanita.db.TestTanitaDataSource;
 
 class TestBaseActivity extends BodyFatLeftArmActivity {
 
-	private final TanitaData tanitaData;
-
 	public TestBaseActivity() {
-		tanitaData = new TanitaData();
 	}
 
-//	@Override
-//	protected TanitaData getTanitaData() {
-//		return tanitaData;
-//	}
-
 	@Override 
-	protected void createDataSource() {
+	protected TanitaDataSource getDataSource() {
+		return new TestTanitaDataSource();
 	}
 
 	@Override

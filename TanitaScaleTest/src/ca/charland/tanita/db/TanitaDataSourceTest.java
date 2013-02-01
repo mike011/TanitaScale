@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.charland.db.CustomCursor;
-import ca.charland.db.DatabaseHelper;
+import ca.charland.db.DatabaseConnection;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 
 /**
@@ -24,7 +24,7 @@ public class TanitaDataSourceTest {
 
 	@Before
 	public void setup() {
-		tds = new TanitaDataSource(null);
+		tds = new TanitaDataSource(new TanitaDatabaseConnection(null));
 	}
 
 	@Test
@@ -136,19 +136,19 @@ public class TanitaDataSourceTest {
 
 	@Test
 	public void testGetDatabase() {
-		DatabaseHelper databaseHelper = tds.getDatabaseHelper();
+		DatabaseConnection databaseHelper = tds.getDatabaseHelper();
 		assertEquals("tanita.db", databaseHelper.getDatabaseName());
 	}
 
 	@Test
 	public void testGetTableNames() {
-		DatabaseHelper databaseHelper = tds.getDatabaseHelper();
+		DatabaseConnection databaseHelper = tds.getDatabaseHelper();
 		assertEquals("tanita_data", databaseHelper.getTableName());
 	}
 
 	@Test
 	public void testGetCreateTableSQL() {
-		DatabaseHelper databaseHelper = tds.getDatabaseHelper();
+		DatabaseConnection databaseHelper = tds.getDatabaseHelper();
 		String create = "create table tanita_data( _id integer primary key autoincrement, person integer not null, date integer, body_fat_total integer, body_fat_left_arm integer, body_fat_right_arm integer, body_fat_right_leg integer, body_fat_left_leg integer, body_fat_trunk integer, muscle_mass_total integer, muscle_mass_left_arm integer, muscle_mass_right_arm integer, muscle_mass_right_leg integer, muscle_mass_left_leg integer, muscle_trunk integer, physic_rating integer, weight integer, daily_caloric_intake integer, metabolic_age integer, body_water_percentage integer, visceral_fat integer, bone_mass integer);";
 		assertEquals(create, databaseHelper.getCreateTableSQL());
 	}

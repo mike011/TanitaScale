@@ -7,7 +7,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.tanita.db.TestTanitaDataSource;
 
 import com.google.inject.Inject;
 
@@ -24,7 +26,8 @@ public class MuscleMassLeftArmActivityTest {
 		}
 		
 		@Override 
-		protected void createDataSource() {
+		protected TanitaDataSource getDataSource() {
+			return new TestTanitaDataSource();
 		}
 
 		@Override

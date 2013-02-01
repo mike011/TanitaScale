@@ -27,7 +27,7 @@ public class DataSourceTest {
 	private static class MyDataSource extends DataSource {
 
 		public MyDataSource(Context context, String database, String table, String createTableSQL) {
-			super(new DatabaseHelper(context, database, table, createTableSQL));
+			super(new DatabaseConnection(context, database, table, createTableSQL));
 		}
 
 		@Override

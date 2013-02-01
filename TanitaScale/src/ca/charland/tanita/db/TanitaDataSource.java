@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.charland.db.DataSource;
-import ca.charland.db.DatabaseHelper;
+import ca.charland.db.DatabaseConnection;
 
-import android.content.Context;
 import android.database.Cursor;
 
 /**
@@ -15,12 +14,10 @@ import android.database.Cursor;
  */
 public class TanitaDataSource extends DataSource {
 
-	public static final String DATABASE_NAME = "tanita.db";
-
-	public TanitaDataSource(Context context) {
-		super(new DatabaseHelper(context, DATABASE_NAME, TanitaDataTable.TABLE_NAME, TanitaDataTable.CREATE_DATABASE_TABLE));
+	public TanitaDataSource(DatabaseConnection helper) {
+		super(helper);
 	}
-
+	
 	@Override
 	protected TanitaData convertToAbstractData(Cursor cursor) {
 		TanitaData td = new TanitaData();
