@@ -1,23 +1,23 @@
 package ca.charland.tanita.db;
 
+import ca.charland.db.BasicPersonDataTable;
+
 /**
  * Holds all the table related info for the person.
  * 
  * @author mcharland
  * 
  */
-public class PersonDataTable {
+public class PersonDataTable extends BasicPersonDataTable {
 
-	static final String TABLE_NAME = "person";
-	
 	public static enum Column {
-		
-		ID("_id"),
-		
-		NAME("name"),
-		
-		EMAIL("email"), 
-		
+
+		ID(ID_COLUMN_NAME),
+
+		NAME(NAME_COLUMN_NAME),
+
+		EMAIL("email"),
+
 		SEX("sex");
 
 		private final String name;

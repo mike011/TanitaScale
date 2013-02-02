@@ -2,20 +2,15 @@ package ca.charland.tanita.db;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
-import ca.charland.db.Data;
+import ca.charland.db.BaseData;
 
 /**
  * Holds the row info of data.
  * 
  * @author mcharland
  */
-public class TanitaData extends Data {
-
-	private long person;
-
-	private Date date;
+public class TanitaData extends BaseData {
 
 	private double bodyFatTotal;
 
@@ -54,22 +49,6 @@ public class TanitaData extends Data {
 	private int visceralFat;
 
 	private double boneMass;
-
-	public long getPerson() {
-		return person;
-	}
-
-	public void setPerson(long person) {
-		this.person = person;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
 
 	public double getBodyFatTotal() {
 		return bodyFatTotal;

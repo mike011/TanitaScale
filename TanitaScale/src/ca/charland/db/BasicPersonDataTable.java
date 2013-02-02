@@ -8,13 +8,15 @@ package ca.charland.db;
  */
 public class BasicPersonDataTable {
 
-	static final String TABLE_NAME = "person";
+	public static final String TABLE_NAME = "person";
+	public static final String ID_COLUMN_NAME = DataTable.ID_COLUMN_NAME;
+	public static final String NAME_COLUMN_NAME = "name";
 	
 	public static enum Column {
 		
-		ID("_id"),
+		ID(ID_COLUMN_NAME),
 		
-		NAME("name");
+		NAME(NAME_COLUMN_NAME);
 
 		private final String name;
 

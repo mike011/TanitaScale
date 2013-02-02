@@ -7,7 +7,7 @@ import ca.charland.db.DataTable;
  * 
  * @author mcharland
  */
-public class TanitaDataTable implements DataTable {
+public class TanitaDataTable extends DataTable {
 
 	public static final String TABLE_NAME = "tanita_data";
 

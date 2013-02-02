@@ -5,13 +5,11 @@ import java.util.List;
 
 import android.content.Context;
 import android.database.Cursor;
-import ca.charland.tanita.db.PersonDataTable;
-import ca.charland.tanita.db.TanitaDatabaseConnection;
 
 public class BasicPersonDataSource extends AbstractPersonDataSource {
 
 	public BasicPersonDataSource(Context context) {
-		this(context, TanitaDatabaseConnection.DATABASE_NAME, BasicPersonDataTable.TABLE_NAME, BasicPersonDataTable.CREATE_PEOPLE_TABLE);
+		this(context, DatabaseConnection.DATABASE_NAME, BasicPersonDataTable.TABLE_NAME, BasicPersonDataTable.CREATE_PEOPLE_TABLE);
 	}
 
 	public BasicPersonDataSource(Context context, String database, String table, String createPeopleTableSQL) {
@@ -20,7 +18,7 @@ public class BasicPersonDataSource extends AbstractPersonDataSource {
 
 	@Override
 	public void populateContentValuesKeyValuePairs(String... values) {
-		pairs.add(new ContentValuesKeyValuePair(PersonDataTable.Column.NAME.toString(), values[0]));
+		pairs.add(new ContentValuesKeyValuePair(BasicPersonDataTable.NAME_COLUMN_NAME, values[0]));
 	}
 
 	@Override
@@ -34,8 +32,8 @@ public class BasicPersonDataSource extends AbstractPersonDataSource {
 	@Override
 	protected List<String> getAllColumns() {
 		List<String> allColumns = new ArrayList<String>();
-		allColumns.add(PersonDataTable.Column.ID.toString());
-		allColumns.add(PersonDataTable.Column.NAME.toString());
+		allColumns.add(BasicPersonDataTable.ID_COLUMN_NAME);
+		allColumns.add(BasicPersonDataTable.NAME_COLUMN_NAME);
 		return allColumns;
 	}
 }
