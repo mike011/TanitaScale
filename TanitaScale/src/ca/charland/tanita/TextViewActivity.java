@@ -29,7 +29,7 @@ import ca.charland.tanita.db.TanitaDataTable;
  * @author mcharland
  * 
  */
-public abstract class TextViewActivity extends BaseActivity {
+public abstract class TextViewActivity extends TanitaBaseActivity {
 
 	/*
 	 * This cannot be injected because of a limitation in robo guice not allowing injection from an abstract class.

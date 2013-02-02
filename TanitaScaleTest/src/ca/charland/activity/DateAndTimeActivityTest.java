@@ -1,4 +1,4 @@
-package ca.charland.tanita;
+package ca.charland.activity;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 import android.content.ContentValues;
 import android.content.Intent;
 import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.tanita.TanitaDateAndTimeActivity;
+import ca.charland.tanita.WeightActivity;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
@@ -23,7 +25,7 @@ import com.google.inject.Inject;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DateAndTimeActivityTest {
 
-	private static class ActivityUnderTest extends DateAndTimeActivity {
+	private static class ActivityUnderTest extends TanitaDateAndTimeActivity {
 
 		@Override 
 		protected TanitaDataSource getDataSource() {
@@ -41,7 +43,7 @@ public class DateAndTimeActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DateAndTimeActivity#getValues()}.
+	 * Test method for {@link ca.charland.activity.DateAndTimeActivity#getValues()}.
 	 */
 	@Test
 	public final void testGetValues() {
@@ -53,7 +55,7 @@ public class DateAndTimeActivityTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.DateAndTimeActivity#getNextClass()}.
+	 * Test method for {@link ca.charland.activity.DateAndTimeActivity#getNextClass()}.
 	 */
 	@Test
 	public final void testGetNextClass() {

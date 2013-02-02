@@ -1,4 +1,4 @@
-package ca.charland.tanita;
+package ca.charland.activity;
 
 import java.util.Date;
 
@@ -9,12 +9,13 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import ca.charland.R;
 import ca.charland.activity.manage.AllPeopleListActivity;
+import ca.charland.db.DataTable;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
  * @author mcharland
  */
-public class DateAndTimeActivity extends BaseActivity {
+public abstract class DateAndTimeActivity extends BaseActivity {
 
 	private static final int SECONDS = 0;
 
@@ -30,18 +31,13 @@ public class DateAndTimeActivity extends BaseActivity {
 	}
 
 	@Override
-	public Class<?> getNextClass() {
-		return WeightActivity.class;
-	}
-
-	@Override
 	protected ContentValues getValues() {
 
 		ContentValues content = new ContentValues();
 
 		addPerson(content);
 
-		content.put(TanitaDataTable.Column.DATE.toString(), getTime());
+		content.put(DataTable.DATE_COLUMN_NAME, getTime());
 
 		return content;
 	}

@@ -18,9 +18,11 @@ public abstract class PersonHomeActivityDataHolder implements MultipleActivityDa
 
 	@Override
 	public void onKeyBackDown(Activity activity) {
-		Intent intent = new Intent(activity, AllPeopleListActivity.class);
+		Intent intent = new Intent(activity, getNextClass());
 		activity.startActivity(intent);
 		activity.finish();
 	}
+
+	protected abstract Class<?> getNextClass();
 
 }

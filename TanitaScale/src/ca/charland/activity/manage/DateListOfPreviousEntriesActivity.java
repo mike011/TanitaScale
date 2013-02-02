@@ -12,8 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import ca.charland.R;
 import ca.charland.db.Data;
-import ca.charland.tanita.db.DateListDataSource;
-import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.db.DataTable;
+import ca.charland.db.DateListDataSource;
 
 /**
  * For a specific person shows a list of previous entries reverse sorted by date and allows you to choose one to view.
@@ -31,7 +31,7 @@ public abstract class DateListOfPreviousEntriesActivity extends RoboListActivity
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		datasource = getDataListDataSource();
+		datasource = getDateListDataSource();
 		datasource.openDatabaseConnection();
 
 		final List<Data> data = datasource.queryWithOrdering(getSelection(), getOrderBy());
@@ -42,10 +42,10 @@ public abstract class DateListOfPreviousEntriesActivity extends RoboListActivity
 		datasource.closeDatabaseConnection();
 	}
 
-	protected abstract DateListDataSource getDataListDataSource();
+	protected abstract DateListDataSource getDateListDataSource();
 
 	private String getOrderBy() {
-		return TanitaDataTable.Column.DATE.toString() + " DESC";
+		return DataTable.DATE_COLUMN_NAME + " DESC";
 	}
 
 	private void setListAdapter(final List<Data> data) {
@@ -54,7 +54,7 @@ public abstract class DateListOfPreviousEntriesActivity extends RoboListActivity
 	}
 
 	private String getSelection() {
-		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + getID();
+		String selection = DataTable.PERSON_COLUMN_NAME + " = " + getID();
 		return selection;
 	}
 
@@ -74,7 +74,7 @@ public abstract class DateListOfPreviousEntriesActivity extends RoboListActivity
 
 			@Override
 			public void onItemClick(AdapterView<?> par, View view, int pos, long id) {
-				Intent intent = new Intent(getBaseContext(), SingleDateValuesEnteredActivity.class);
+				Intent intent = new Intent(getBaseContext(), getPreviousEntryClass());
 
 				Data selectedItem = data.get(pos);
 				intent.putExtra(ID, selectedItem.getId());
@@ -85,6 +85,8 @@ public abstract class DateListOfPreviousEntriesActivity extends RoboListActivity
 		return onItemClickListener;
 	}
 
+	protected abstract Class<?> getPreviousEntryClass();
+	
 	@Override
 	protected void onResume() {
 		datasource.openDatabaseConnection();

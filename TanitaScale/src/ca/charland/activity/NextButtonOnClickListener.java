@@ -1,4 +1,4 @@
-package ca.charland.tanita;
+package ca.charland.activity;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -9,8 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.charland.R;
 import ca.charland.activity.manage.AllPeopleListActivity;
-import ca.charland.tanita.db.TanitaDataSource;
-import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.db.DataSource;
+import ca.charland.db.DataTable;
 
 /**
  * The listener interface for receiving nextButtonOnClick events. The class that is interested in processing a nextButtonOnClick event implements this
@@ -19,14 +19,15 @@ import ca.charland.tanita.db.TanitaDataTable;
  * 
  * @author mcharland
  */
-class NextButtonOnClickListener implements View.OnClickListener {
+public abstract class NextButtonOnClickListener implements View.OnClickListener {
 
 	/** A unique identifier of a row in the table. */
 	static final String ID = "ROW_ID";
+	
 	private final BaseActivity activity;
-	private final TanitaDataSource datasource;
+	private final DataSource datasource;
 
-	NextButtonOnClickListener(BaseActivity activity, TanitaDataSource datasource) {
+	protected NextButtonOnClickListener(BaseActivity activity, DataSource datasource) {
 		this.activity = activity;
 		this.datasource = datasource;
 	}
@@ -50,7 +51,7 @@ class NextButtonOnClickListener implements View.OnClickListener {
 			long newId = datasource.insertTableRow(values);
 			activity.getIntent().putExtra(ID, newId);
 		} else {
-			datasource.updateTableRow(TanitaDataTable.Column.ID.toString(), id, values);
+			datasource.updateTableRow(DataTable.ID_COLUMN_NAME, id, values);
 		}
 	}
 
@@ -58,18 +59,14 @@ class NextButtonOnClickListener implements View.OnClickListener {
 		Intent newIntent = new Intent(activity.getBaseContext(), activity.getNextClass());
 		newIntent.putExtra(ID, getID());
 		
-		if (isPhysicRating(activity)) {
+		if (isLastActivity(activity)) {
 			newIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		}
 		newIntent.putExtra(AllPeopleListActivity.PERSON_ID.toString(), getPerson());
 		return newIntent;
 	}
 
-	private boolean isPhysicRating(Activity activity) {
-		String name = activity.getClass().getName();
-		String physic = PhysicRatingActivity.class.toString();
-		return physic.contains(name);
-	}
+	protected abstract boolean isLastActivity(Activity activity);
 
 	private long getID() {
 		long id = -1;

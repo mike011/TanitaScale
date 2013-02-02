@@ -1,18 +1,22 @@
 package ca.charland.tanita.manage;
 
-import ca.charland.activity.manage.DateListOfPreviousEntriesActivity;
 import ca.charland.activity.manage.PersonHomeActivityDataHolder;
-import ca.charland.tanita.DateAndTimeActivity;
+import ca.charland.tanita.TanitaDateAndTimeActivity;
 
 public class TanitaPersonHomeActivityDataHolder extends PersonHomeActivityDataHolder {
 
 	@Override
 	public Class<?> getNextAddClass() {
-		return DateAndTimeActivity.class;
+		return TanitaDateAndTimeActivity.class;
 	}
 
 	@Override
 	public Class<?> getNextViewClass() {
-		return DateListOfPreviousEntriesActivity.class;
+		return TanitaDateListOfPreviousEntriesActivity.class;
+	}
+
+	@Override
+	protected Class<?> getNextClass() {
+		return TanitaAllPeopleListActivity.class;
 	}
 }

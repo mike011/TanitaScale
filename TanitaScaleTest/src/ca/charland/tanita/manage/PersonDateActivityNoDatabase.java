@@ -1,6 +1,5 @@
 package ca.charland.tanita.manage;
 
-import ca.charland.activity.manage.SingleDateValuesEnteredActivity;
 import ca.charland.tanita.db.TanitaData;
 
 /**
@@ -9,7 +8,7 @@ import ca.charland.tanita.db.TanitaData;
  * @author mcharland
  * 
  */
-public class PersonDateActivityNoDatabase extends SingleDateValuesEnteredActivity {
+public class PersonDateActivityNoDatabase extends TanitaSingleDateValuesEnteredActivity {
 
 	private final TanitaData tanitaData;
 

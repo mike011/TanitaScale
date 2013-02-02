@@ -1,24 +1,18 @@
-package ca.charland.tanita.db;
+package ca.charland.db;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Context;
-import android.database.Cursor;
-import ca.charland.db.Data;
-import ca.charland.db.DataSource;
-import ca.charland.db.DatabaseConnection;
+import ca.charland.tanita.db.TanitaData;
+import ca.charland.tanita.db.TanitaDataTable;
 
-/**
- * Gets all the entries for a person.
- * 
- * @author mcharland
- */
+import android.database.Cursor;
+
 public class DateListDataSource extends DataSource {
 
-	public DateListDataSource(Context context) {
-		super(new DatabaseConnection(context, TanitaDatabaseConnection.DATABASE_NAME, TanitaDataTable.TABLE_NAME, TanitaDataTable.CREATE_DATABASE_TABLE));
+	public DateListDataSource(DatabaseConnection helper) {
+		super(helper);
 	}
 
 	@Override

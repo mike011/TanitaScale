@@ -17,11 +17,11 @@ import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
 @RunWith(TanitaMeRobolectricTestRunner.class)
 public class DateListDataSourceTest {
 
-	private DateListDataSource dateList;
+	private TanitaDateListDataSource dateList;
 
 	@Before
 	public void setup() {
-		dateList = new DateListDataSource(null);
+		dateList = new TanitaDateListDataSource(null);
 	}
 
 	@After
@@ -30,14 +30,15 @@ public class DateListDataSourceTest {
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.db.DateListDataSource#DateListDataSource(android.content.Context)}.
+	 * Test method for {@link ca.charland.tanita.db.TanitaDateListDataSource#DateListDataSource(android.content.Context)}.
 	 */
 	@Test
 	public void testDateListDataSource() {
 		assertNotNull(dateList);
 	}
+
 	/**
-	 * Test method for {@link ca.charland.tanita.db.DateListDataSource#convertToAbstractData(android.database.Cursor)}.
+	 * Test method for {@link ca.charland.tanita.db.TanitaDateListDataSource#convertToAbstractData(android.database.Cursor)}.
 	 */
 	@Test
 	public void testConvertToAbstractData() {
@@ -51,12 +52,12 @@ public class DateListDataSourceTest {
 		cursor.setLong(2, date);
 
 		Data data = dateList.convertToAbstractData(cursor);
-		
+
 		assertEquals(id, data.getId());
 	}
 
 	/**
-	 * Test method for {@link ca.charland.tanita.db.DateListDataSource#getAllColumns()}.
+	 * Test method for {@link ca.charland.tanita.db.TanitaDateListDataSource#getAllColumns()}.
 	 */
 	@Test
 	public void testGetAllColumns() {

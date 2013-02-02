@@ -1,13 +1,15 @@
 package ca.charland.tanita.db;
 
+import ca.charland.db.DataTable;
+
 /**
  * Tanita data related information.
  * 
  * @author mcharland
  */
-public class TanitaDataTable {
+public class TanitaDataTable implements DataTable {
 
-	static final String TABLE_NAME = "tanita_data";
+	public static final String TABLE_NAME = "tanita_data";
 
 	/**
 	 * Contains the column names and there index based off of the ordering they are defined.
@@ -17,11 +19,11 @@ public class TanitaDataTable {
 	public static enum Column {
 
 		/** The unique ID of the table. */
-		ID("_id"),
+		ID(ID_COLUMN_NAME),
 
-		PERSON("person"),
+		PERSON(PERSON_COLUMN_NAME),
 
-		DATE("date"),
+		DATE(DATE_COLUMN_NAME),
 
 		WEIGHT("weight"),
 
@@ -60,7 +62,7 @@ public class TanitaDataTable {
 		VISCERAL_FAT("visceral_fat"),
 
 		BONE_MASS("bone_mass");
-
+		
 		private final String name;
 
 		Column(String name) {
@@ -73,7 +75,7 @@ public class TanitaDataTable {
 		}
 	}
 
-	static final String CREATE_DATABASE_TABLE = getTanitaDataTable();
+	public static final String CREATE_DATABASE_TABLE = getTanitaDataTable();
 
 	private static String getTanitaDataTable() {
 		StringBuilder sql = new StringBuilder();

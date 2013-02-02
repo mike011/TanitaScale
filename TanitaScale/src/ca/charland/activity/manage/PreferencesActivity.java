@@ -12,9 +12,9 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import ca.charland.R;
+import ca.charland.db.BasicPersonData;
+import ca.charland.db.BasicPersonDataSource;
 import ca.charland.db.Data;
-import ca.charland.tanita.db.PersonData;
-import ca.charland.tanita.db.PersonDataSource;
 
 public class PreferencesActivity extends PreferenceActivity {
 
@@ -24,7 +24,7 @@ public class PreferencesActivity extends PreferenceActivity {
 
 	private CheckBoxPreference singleUser;
 
-	private PersonDataSource datasource;
+	private BasicPersonDataSource datasource;
 
 	private ListPreference people;
 
@@ -33,7 +33,7 @@ public class PreferencesActivity extends PreferenceActivity {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.preferences);
 
-		datasource = new PersonDataSource(this);
+		datasource = new BasicPersonDataSource(this);
 		datasource.openDatabaseConnection();
 
 		inflatePeopleList();
@@ -41,7 +41,7 @@ public class PreferencesActivity extends PreferenceActivity {
 
 		datasource.closeDatabaseConnection();
 	}
-
+	
 	private void createSingleUserCheckBox() {
 		singleUser = (CheckBoxPreference) this.findPreference(SINGLE_USER_KEY);
 		singleUser.setOnPreferenceClickListener(getClickListener());
@@ -61,7 +61,7 @@ public class PreferencesActivity extends PreferenceActivity {
 		CharSequence[] entries = new CharSequence[allValues.size()];
 		int x = 0;
 		for (Data data : allValues) {
-			PersonData pd = (PersonData) data;
+			BasicPersonData pd = (BasicPersonData) data;
 			entries[x++] = pd.getName();
 		}
 		return entries;
