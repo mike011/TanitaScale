@@ -10,12 +10,12 @@ import org.junit.runner.RunWith;
 
 import android.database.SQLException;
 import ca.charland.db.Data;
-import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.robolectric.TanitaRobolectricTestRunner;
 
 /**
  * @author mcharland
  */
-@RunWith(TanitaMeRobolectricTestRunner.class)
+@RunWith(TanitaRobolectricTestRunner.class)
 public class PersonDataHelperTest {
 
 	private static final String MALE = "Male";

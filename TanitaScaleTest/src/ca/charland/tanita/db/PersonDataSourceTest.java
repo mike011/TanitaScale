@@ -13,9 +13,9 @@ import org.junit.runner.RunWith;
 
 import ca.charland.db.CustomCursor;
 import ca.charland.db.Data;
-import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.robolectric.TanitaRobolectricTestRunner;
 
-@RunWith(TanitaMeRobolectricTestRunner.class)
+@RunWith(TanitaRobolectricTestRunner.class)
 public class PersonDataSourceTest {
 
 	private PersonDataSource pds;

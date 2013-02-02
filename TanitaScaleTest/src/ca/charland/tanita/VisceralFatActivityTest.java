@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.charland.R;
-import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.robolectric.TanitaRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
@@ -16,7 +16,7 @@ import com.google.inject.Inject;
 /**
  * @author mcharland
  */
-@RunWith(TanitaMeRobolectricTestRunner.class)
+@RunWith(TanitaRobolectricTestRunner.class)
 public class VisceralFatActivityTest {
 
 	private static class ActivityUnderTest extends VisceralFatActivity {

@@ -7,13 +7,13 @@ import java.util.Date;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.robolectric.TanitaRobolectricTestRunner;
 import ca.charland.utils.Email;
 
 /**
  * @author mcharland
  */
-@RunWith(TanitaMeRobolectricTestRunner.class)
+@RunWith(TanitaRobolectricTestRunner.class)
 public class EmailTest {
 
 	/**

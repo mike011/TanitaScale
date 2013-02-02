@@ -9,13 +9,13 @@ import org.junit.runner.RunWith;
 import android.widget.TextView;
 import ca.charland.R;
 import ca.charland.activity.BaseActivity;
-import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.robolectric.TanitaRobolectricTestRunner;
 
 
 /**
  * @author mcharland
  */
-@RunWith(TanitaMeRobolectricTestRunner.class)
+@RunWith(TanitaRobolectricTestRunner.class)
 public class BaseActivityTest {
 
 	private BaseActivity activity;
@@ -28,7 +28,7 @@ public class BaseActivityTest {
 
 	@Test
 	public void testOnCreateBundle() {
-		TextView next = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.next);
+		TextView next = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.next);
 		assertNotNull("Button not created", next);
 	}
 

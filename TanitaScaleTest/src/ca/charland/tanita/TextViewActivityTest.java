@@ -12,14 +12,14 @@ import android.content.ContentValues;
 import android.widget.TextView;
 import ca.charland.R;
 import ca.charland.activity.BaseActivity;
-import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.robolectric.TanitaRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
 /**
  * @author mcharland
  */
-@RunWith(TanitaMeRobolectricTestRunner.class)
+@RunWith(TanitaRobolectricTestRunner.class)
 public class TextViewActivityTest {
 
 	private BaseActivity activity;
@@ -33,7 +33,7 @@ public class TextViewActivityTest {
 
 	@Test
 	public void testEnterText() {
-		TextView enter = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.enter_your);
+		TextView enter = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.enter_your);
 		
 		assertNotNull("Enter not set", enter);
 		CharSequence text = enter.getText();
@@ -43,7 +43,7 @@ public class TextViewActivityTest {
 
 	@Test
 	public void testPreviousText() {
-		TextView previous = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.previous);
+		TextView previous = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.previous);
 
 		assertNotNull("Previous not set", previous);
 		CharSequence text = previous.getText();
@@ -53,7 +53,7 @@ public class TextViewActivityTest {
 
 	@Test
 	public void testAverageText() {
-		TextView average = (TextView)TanitaMeRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.average);
+		TextView average = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.average);
 		
 		assertNotNull("Average not set", average);
 		CharSequence text = average.getText();

@@ -12,12 +12,12 @@ import org.junit.runner.RunWith;
 
 import ca.charland.db.CustomCursor;
 import ca.charland.db.DatabaseConnection;
-import ca.charland.robolectric.TanitaMeRobolectricTestRunner;
+import ca.charland.robolectric.TanitaRobolectricTestRunner;
 
 /**
  * @author mcharland
  */
-@RunWith(TanitaMeRobolectricTestRunner.class)
+@RunWith(TanitaRobolectricTestRunner.class)
 public class TanitaDataSourceTest {
 
 	private TanitaDataSource tds;

@@ -51,6 +51,16 @@
 			<artifactId>junit</artifactId>
 			<version>4.8.2</version>
 		</dependency>
+		<dependency>
+			<groupId>ca.charland</groupId>
+			<artifactId>AndroidBase</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>ca.charland</groupId>
+			<artifactId>AndroidBaseTest</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 </project>
