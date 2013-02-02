@@ -5,9 +5,6 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-import ca.charland.R;
 import ca.charland.activity.manage.AllPeopleListActivity;
 import ca.charland.db.DataSource;
 import ca.charland.db.DataTable;
@@ -24,7 +21,7 @@ public abstract class NextButtonOnClickListener implements View.OnClickListener 
 	/** A unique identifier of a row in the table. */
 	static final String ID = "ROW_ID";
 	
-	private final BaseActivity activity;
+	protected final BaseActivity activity;
 	private final DataSource datasource;
 
 	protected NextButtonOnClickListener(BaseActivity activity, DataSource datasource) {
@@ -35,7 +32,7 @@ public abstract class NextButtonOnClickListener implements View.OnClickListener 
 	@Override
 	public void onClick(View v) {
 
-		if (!isTextValid()) {
+		if (!isContentValid()) {
 			return;
 		}
 		updateIDIfInserted();
@@ -98,23 +95,5 @@ public abstract class NextButtonOnClickListener implements View.OnClickListener 
 		return person;
 	}
 
-	private boolean isTextValid() {
-		TextView findViewById = (TextView) activity.findViewById(R.id.editTextEntry);
-		if (findViewById != null) {
-			CharSequence string = findViewById.getText();
-			if (string.length() == 0) {
-				getToast().show();
-				return false;
-			}
-		}
-		return true;
-	}
-
-	private Toast getToast() {
-		return Toast.makeText(activity.getBaseContext(), getGenericErrorMessage(), Toast.LENGTH_SHORT);
-	}
-
-	private String getGenericErrorMessage() {
-		return activity.getResources().getString(R.string.generic_error_message);
-	}
+	protected abstract boolean isContentValid();
 }
