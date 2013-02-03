@@ -49,8 +49,7 @@ import com.sun.star.util.XNumberFormatsSupplier;
 
 public class Exporter {
 
-	private static final String oooExeFolder = "D:/Program Files (x86)/LibreOffice 3.6/program";
-
+	private String oooExeFolder;
 	private XComponentContext context;
 	private XMultiComponentFactory serviceManager;
 	private XSpreadsheetDocument document;
@@ -61,7 +60,19 @@ public class Exporter {
 	private int intFormat;
 
 	public static void main(String args[]) {
-		parseFiles(args);
+		if (args[0].startsWith("Date")) {
+			parseSingleDay(args);
+		} else {
+			parseFiles(args);
+		}
+	}
+
+	private static void parseSingleDay(String[] args) {
+		Parser parser = new Parser();
+		Exporter content = new Exporter();
+		
+		Map<Column, String> values = parser.parseSingleDay(args);
+		content.printValues(values, 0);
 	}
 
 	private static void parseFiles(String[] args) {
@@ -69,18 +80,21 @@ public class Exporter {
 		Exporter content = new Exporter();
 		int y = 0;
 		for (String arg : args) {
-			Map<Column, String> values = parser.parseFile(LoadFile.load(arg));
+			Map<Column, String> values = parser.parseFileContents(LoadFile.load(arg));
 			content.printValues(values, y++);
 		}
 	}
 
 	public Exporter() {
+		
+		oooExeFolder = setLibreOfficeFolder();
+		
 		// get the remote office context. If necessary a new office
 		// process is started
 		try {
 			context = BootstrapSocketConnector.bootstrap(oooExeFolder);
 		} catch (BootstrapException e) {
-			throw new SpreadSheetException();
+			throw new SpreadSheetException(e);
 		}
 
 		System.out.println("Connected to a running office ...");
@@ -91,20 +105,28 @@ public class Exporter {
 		try {
 			aLoader = (XComponentLoader) UnoRuntime.queryInterface(XComponentLoader.class,
 					serviceManager.createInstanceWithContext("com.sun.star.frame.Desktop", context));
-		} catch (com.sun.star.uno.Exception e) {
-			throw new SpreadSheetException();
+		} catch (Exception e) {
+			throw new SpreadSheetException(e);
 		}
 
 		try {
 			document = (XSpreadsheetDocument) UnoRuntime.queryInterface(XSpreadsheetDocument.class,
 					aLoader.loadComponentFromURL("private:factory/scalc", "_blank", 0, new PropertyValue[0]));
 		} catch (Exception e) {
-			throw new SpreadSheetException();
+			throw new SpreadSheetException(e);
 		}
 		initSpreadsheet();
 		setKeyFormats();
 	}
 
+	private static String setLibreOfficeFolder() {
+		String os = System.getProperty("os.name");
+		if(os.contains("Linux")) {
+			return "/usr/lib/libreoffice/program";
+		}
+		return "D:/Program Files (x86)/LibreOffice 3.6/program";
+	}
+	
 	private void setKeyFormats() {
 		// Query the number formats supplier of the spreadsheet document
 		XNumberFormatsSupplier numberFormatsSupplier = (XNumberFormatsSupplier) UnoRuntime.queryInterface(XNumberFormatsSupplier.class, document);
@@ -247,7 +269,7 @@ public class Exporter {
 		try {
 			cell = sheet.getCellByPosition(x, y);
 		} catch (IndexOutOfBoundsException e) {
-			throw new SpreadSheetException();
+			throw new SpreadSheetException(e);
 		}
 		return cell;
 	}
@@ -260,7 +282,7 @@ public class Exporter {
 		try {
 			xCellProp.setPropertyValue("NumberFormat", format);
 		} catch (Exception e) {
-			throw new SpreadSheetException();
+			throw new SpreadSheetException(e);
 		}
 	}
 }

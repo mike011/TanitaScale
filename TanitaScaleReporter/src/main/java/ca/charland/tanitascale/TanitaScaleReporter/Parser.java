@@ -1,12 +1,26 @@
 package ca.charland.tanitascale.TanitaScaleReporter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class Parser {
 
-	public Map<Column, String> parseFile(List<String> contents) {
+	public Map<Column, String> parseSingleDay(String[] args) {
+		List<String> contents = new ArrayList<String>();
+		for (int x = 0; x < args.length; x++) {
+			StringBuffer line = new StringBuffer();
+			while (!args[x].equals("=")) {
+				line.append(args[x++]).append(' ');
+			}
+			line.append(args[x++]).append(' ').append(args[x]);
+			contents.add(line.toString());
+		}
+		return parseFileContents(contents);
+	}
+
+	public Map<Column, String> parseFileContents(List<String> contents) {
 		Map<Column, String> values = new TreeMap<Column, String>();
 		for (String line : contents) {
 			String[] vals = line.split(" = ");
@@ -33,5 +47,4 @@ public class Parser {
 		}
 		return trim;
 	}
-
 }
