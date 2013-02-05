@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
 
 import com.google.inject.Inject;
+
 /**
  * @author mcharland
  */
@@ -24,8 +26,8 @@ public class MuscleMassTrunkActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
-		
-		@Override 
+
+		@Override
 		protected TanitaDataSource getDataSource() {
 			return new TestTanitaDataSource();
 		}
@@ -34,7 +36,7 @@ public class MuscleMassTrunkActivityTest {
 		protected void setData() {
 		}
 	}
-	
+
 	@Inject
 	private ActivityUnderTest activity;
 
@@ -43,28 +45,18 @@ public class MuscleMassTrunkActivityTest {
 		activity.onCreate(null);
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassTrunkActivity#getResourceIDForLayout()}.
-	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.muscle_mass_trunk, activity.getResourceIDForLayout());
+		assertThat(activity.getResourceIDForLayout(), is(R.layout.muscle_mass_trunk));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassTrunkActivity#getColumnName()}.
-	 */
 	@Test
 	public void testGetColumnName() {
-		assertEquals(TanitaDataTable.Column.MUSCLE_MASS_TRUNK, activity.getColumnName());
+		assertThat(activity.getColumnName(), is(TanitaDataTable.Column.MUSCLE_MASS_TRUNK));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassTrunkActivity#getNextClass()}.
-	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(PhysicRatingActivity.class, activity.getNextClass());
+		assertThat(activity.getNextClass().toString(), is(PhysicRatingActivity.class.toString()));
 	}
-
 }

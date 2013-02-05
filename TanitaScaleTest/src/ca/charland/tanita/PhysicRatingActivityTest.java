@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +15,7 @@ import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
 
 import com.google.inject.Inject;
+
 /**
  * @author mcharland
  */
@@ -25,8 +27,8 @@ public class PhysicRatingActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
-		
-		@Override 
+
+		@Override
 		protected TanitaDataSource getDataSource() {
 			return new TestTanitaDataSource();
 		}
@@ -35,7 +37,7 @@ public class PhysicRatingActivityTest {
 		protected void setData() {
 		}
 	}
-	
+
 	@Inject
 	private ActivityUnderTest activity;
 
@@ -44,28 +46,18 @@ public class PhysicRatingActivityTest {
 		activity.onCreate(null);
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.PhysicRatingActivity#getResourceIDForLayout()}.
-	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.physic_rating, activity.getResourceIDForLayout());
+		assertThat(activity.getResourceIDForLayout(), is(R.layout.physic_rating));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.PhysicRatingActivity#getColumnName()}.
-	 */
 	@Test
 	public void testGetColumnName() {
-		assertEquals(TanitaDataTable.Column.PHYSIC_RATING, activity.getColumnName());
+		assertThat(activity.getColumnName(), is(TanitaDataTable.Column.PHYSIC_RATING));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.PhysicRatingActivity#getNextClass()}.
-	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(PersonHomeActivity.class, activity.getNextClass());
+		assertThat(activity.getNextClass().toString(), is(PersonHomeActivity.class.toString()));
 	}
-
 }

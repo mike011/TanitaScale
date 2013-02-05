@@ -1,7 +1,8 @@
 package ca.charland.tanita.db;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import java.sql.Date;
 import java.util.List;
@@ -29,8 +30,8 @@ public class TanitaDataSourceTest {
 
 	@Test
 	public void testTanitaDataSource() {
-		assertNotNull(tds);
-		assertNotNull(tds.getDatabaseHelper());
+		assertThat(tds, is(notNullValue()));
+		assertThat(tds.getDatabaseHelper(), is(notNullValue()));
 	}
 
 	@Test
@@ -89,67 +90,67 @@ public class TanitaDataSourceTest {
 		TanitaData td = tds.convertToAbstractData(cursor);
 
 		// Verify
-		assertNotNull(td);
-		assertEquals(id, td.getId());
-		assertEquals(person, td.getPerson(), 0.1);
-		assertEquals(date, td.getDate());
-		assertEquals(weight, td.getWeight(), 0.1);
-		assertEquals(dci, td.getDailyCaloricIntake());
+		assertThat(td, is(notNullValue()));
+		assertThat(td.getId(), is(id));
+		assertThat(td.getPerson(), is(person));
+		assertThat(td.getDate().toString(), is(date.toString()));
+		assertThat(td.getWeight(), is(weight));
+		assertThat(td.getDailyCaloricIntake(), is(dci));
 	}
 
 	@Test
 	public void testGetAllColumnsLength() {
 		List<String> allColumns = tds.getAllColumns();
-		assertNotNull(allColumns);
-		assertEquals(22, allColumns.size());
+		assertThat(allColumns, is(notNullValue()));
+		assertThat(allColumns.size(), is(22));
 	}
 
 	@Test
 	public void testGetAllColumnsID() {
 		List<String> allColumns = tds.getAllColumns();
-		assertEquals("_id", allColumns.get(0));
+		assertThat(allColumns.get(0), is("_id"));
 	}
 
 	@Test
 	public void testGetAllColumnsPerson() {
 		List<String> allColumns = tds.getAllColumns();
-		assertEquals("person", allColumns.get(1));
+		assertThat(allColumns.get(1), is("person"));
 	}
 
 	@Test
 	public void testGetAllColumnsDate() {
 		List<String> allColumns = tds.getAllColumns();
-		assertEquals("date", allColumns.get(2));
+		assertThat(allColumns.get(2), is("date"));
 	}
 
 	@Test
 	public void testGetAllColumnsWeight() {
 		List<String> allColumns = tds.getAllColumns();
-		assertEquals("weight", allColumns.get(3));
+		assertThat(allColumns.get(3), is("weight"));
 	}
 
 	@Test
 	public void testGetAllColumnsDCI() {
 		List<String> allColumns = tds.getAllColumns();
-		assertEquals("daily_caloric_intake", allColumns.get(4));
+		assertThat(allColumns.get(4), is("daily_caloric_intake"));
 	}
 
 	@Test
 	public void testGetDatabase() {
 		DatabaseConnection databaseHelper = tds.getDatabaseHelper();
-		assertEquals("tanita.db", databaseHelper.getDatabaseName());
+		assertThat(databaseHelper.getDatabaseName(), is("tanita.db"));
 	}
 
 	@Test
 	public void testGetTableNames() {
 		DatabaseConnection databaseHelper = tds.getDatabaseHelper();
-		assertEquals("tanita_data", databaseHelper.getTableName());
+		assertThat(databaseHelper.getTableName(), is("tanita_data"));
 	}
 
 	@Test
 	public void testGetCreateTableSQL() {
 		DatabaseConnection databaseHelper = tds.getDatabaseHelper();
 		String create = "create table tanita_data( _id integer primary key autoincrement, person integer not null, date integer, body_fat_total integer, body_fat_left_arm integer, body_fat_right_arm integer, body_fat_right_leg integer, body_fat_left_leg integer, body_fat_trunk integer, muscle_mass_total integer, muscle_mass_left_arm integer, muscle_mass_right_arm integer, muscle_mass_right_leg integer, muscle_mass_left_leg integer, muscle_trunk integer, physic_rating integer, weight integer, daily_caloric_intake integer, metabolic_age integer, body_water_percentage integer, visceral_fat integer, bone_mass integer);";
-		assertEquals(create, databaseHelper.getCreateTableSQL());
+		assertThat(databaseHelper.getCreateTableSQL(), is(create));
 	}
 }

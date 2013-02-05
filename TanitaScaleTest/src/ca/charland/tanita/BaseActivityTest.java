@@ -1,6 +1,8 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +12,6 @@ import android.widget.TextView;
 import ca.charland.R;
 import ca.charland.activity.BaseActivity;
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
-
 
 /**
  * @author mcharland
@@ -28,8 +29,8 @@ public class BaseActivityTest {
 
 	@Test
 	public void testOnCreateBundle() {
-		TextView next = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.next);
-		assertNotNull("Button not created", next);
+		TextView next = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.next);
+		assertThat("Button not created", next, is(notNullValue()));
 	}
 
 }

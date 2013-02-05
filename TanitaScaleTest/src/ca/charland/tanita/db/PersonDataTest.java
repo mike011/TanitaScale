@@ -1,6 +1,7 @@
 package ca.charland.tanita.db;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -17,7 +18,7 @@ public class PersonDataTest {
 		PersonData p = new PersonData();
 		int id = 1234;
 		p.setId(id);
-		assertEquals(id, p.getId());
+		assertThat(p.getId(), is(id));
 
 	}
 
@@ -29,7 +30,7 @@ public class PersonDataTest {
 		PersonData p = new PersonData();
 		String sex = "boy";
 		p.setSex(sex);
-		assertEquals(sex, p.getSex());
+		assertThat(p.getSex(), is(sex));
 	}
 
 	/**
@@ -40,6 +41,6 @@ public class PersonDataTest {
 		PersonData p = new PersonData();
 		String email = "a@b.ca";
 		p.setEmail(email);
-		assertEquals(email, p.getEmail());
+		assertThat(p.getEmail(), is(email));
 	}
 }

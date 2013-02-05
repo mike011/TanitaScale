@@ -1,12 +1,12 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.charland.R;
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
@@ -25,8 +25,8 @@ public class BodyFatRightArmActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
-		
-		@Override 
+
+		@Override
 		protected TanitaDataSource getDataSource() {
 			return new TestTanitaDataSource();
 		}
@@ -35,7 +35,7 @@ public class BodyFatRightArmActivityTest {
 		protected void setData() {
 		}
 	}
-	
+
 	@Inject
 	private ActivityUnderTest activity;
 
@@ -44,28 +44,18 @@ public class BodyFatRightArmActivityTest {
 		activity.onCreate(null);
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.BodyFatRightArmActivity#getResourceIDForLayout()}.
-	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.body_fat_right_arm, activity.getResourceIDForLayout());
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.BodyFatRightArmActivity#getColumnName()}.
-	 */
 	@Test
 	public void testGetColumnName() {
-		assertEquals(TanitaDataTable.Column.BODY_FAT_RIGHT_ARM, activity.getColumnName());
+		assertThat(activity.getColumnName(), is(TanitaDataTable.Column.BODY_FAT_RIGHT_ARM));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.BodyFatRightArmActivity#getNextClass()}.
-	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(BodyFatRightLegActivity.class, activity.getNextClass());
+		assertThat(activity.getNextClass().toString(), is(BodyFatRightLegActivity.class.toString()));
 	}
 
 }

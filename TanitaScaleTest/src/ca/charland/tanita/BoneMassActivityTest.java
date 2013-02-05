@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
 
 import com.google.inject.Inject;
+
 /**
  * @author mcharland
  */
@@ -24,8 +26,8 @@ public class BoneMassActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
-		
-		@Override 
+
+		@Override
 		protected TanitaDataSource getDataSource() {
 			return new TestTanitaDataSource();
 		}
@@ -34,7 +36,7 @@ public class BoneMassActivityTest {
 		protected void setData() {
 		}
 	}
-	
+
 	@Inject
 	private ActivityUnderTest activity;
 
@@ -43,28 +45,19 @@ public class BoneMassActivityTest {
 		activity.onCreate(null);
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.BoneMassActivity#getResourceIDForLayout()}.
-	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.bone_mass, activity.getResourceIDForLayout());
+		assertThat(activity.getResourceIDForLayout(), is(R.layout.bone_mass));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.BoneMassActivity#getColumnName()}.
-	 */
 	@Test
 	public void testGetColumnName() {
-		assertEquals(TanitaDataTable.Column.BONE_MASS, activity.getColumnName());
+		assertThat(activity.getColumnName(), is(TanitaDataTable.Column.BONE_MASS));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.BoneMassActivity#getNextClass()}.
-	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(BodyFatTotalActivity.class, activity.getNextClass());
+		assertThat(activity.getNextClass().toString(), is(BodyFatTotalActivity.class.toString()));
 	}
 
 }

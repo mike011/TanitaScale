@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,8 +26,8 @@ public class DailyCaloricIntakeActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
-		
-		@Override 
+
+		@Override
 		protected TanitaDataSource getDataSource() {
 			return new TestTanitaDataSource();
 		}
@@ -35,7 +36,7 @@ public class DailyCaloricIntakeActivityTest {
 		protected void setData() {
 		}
 	}
-	
+
 	@Inject
 	private ActivityUnderTest activity;
 
@@ -49,7 +50,7 @@ public class DailyCaloricIntakeActivityTest {
 	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.dci, activity.getResourceIDForLayout());
+		assertThat(activity.getResourceIDForLayout(), is(R.layout.dci));
 	}
 
 	/**
@@ -57,7 +58,7 @@ public class DailyCaloricIntakeActivityTest {
 	 */
 	@Test
 	public void testGetColumnName() {
-		assertEquals(TanitaDataTable.Column.DAILY_CALORIC_INTAKE, activity.getColumnName());
+		assertThat(activity.getColumnName(), is(TanitaDataTable.Column.DAILY_CALORIC_INTAKE));
 	}
 
 	/**
@@ -65,7 +66,7 @@ public class DailyCaloricIntakeActivityTest {
 	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(MetabolicAgeActivity.class, activity.getNextClass());
+		assertThat(activity.getNextClass().toString(), is(MetabolicAgeActivity.class.toString()));
 	}
 
 }

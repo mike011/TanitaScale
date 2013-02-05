@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,17 +27,17 @@ public class MetabolicAgeActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
-		
-		@Override 
+
+		@Override
 		protected TanitaDataSource getDataSource() {
 			return new TestTanitaDataSource();
 		}
-		
+
 		@Override
 		protected void setData() {
 		}
 	}
-	
+
 	@Inject
 	private ActivityUnderTest activity;
 
@@ -45,28 +46,19 @@ public class MetabolicAgeActivityTest {
 		activity.onCreate(null);
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MetabolicAgeActivity#getResourceIDForLayout()}.
-	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.metabolic_age, activity.getResourceIDForLayout());
+		assertThat(activity.getResourceIDForLayout(), is(R.layout.metabolic_age));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MetabolicAgeActivity#getColumnName()}.
-	 */
 	@Test
 	public void testGetColumnName() {
-		assertEquals(TanitaDataTable.Column.METABOLIC_AGE, activity.getColumnName());
+		assertThat(activity.getColumnName(), is(TanitaDataTable.Column.METABOLIC_AGE));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MetabolicAgeActivity#getNextClass()}.
-	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(BodyWaterPercentageActivity.class, activity.getNextClass());
+		assertThat(activity.getNextClass().toString(), is(BodyWaterPercentageActivity.class.toString()));
 	}
 
 }

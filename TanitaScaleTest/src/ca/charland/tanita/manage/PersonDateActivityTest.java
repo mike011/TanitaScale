@@ -1,6 +1,7 @@
 package ca.charland.tanita.manage;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,10 +22,7 @@ public class PersonDateActivityTest {
 
 	@Inject
 	private PersonDateActivityNoDatabase activity;
-	
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
+
 	@Test
 	public void testOnCreateWeight() {
 
@@ -32,14 +30,11 @@ public class PersonDateActivityTest {
 		td.setWeight(1234);
 
 		activity.onCreate(null);
-		
-		TextView weight = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.weight);
-		assertEquals("1234.0", weight.getText().toString());
+
+		TextView weight = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.weight);
+		assertThat(weight.getText().toString(), is("1234.0"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateDCI() {
 
@@ -48,13 +43,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView dci = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.dci);
-		assertEquals("4019", dci.getText().toString());
+		TextView dci = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.dci);
+		assertThat(dci.getText().toString(), is("4019"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateMetabolicAge() {
 
@@ -63,28 +55,22 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView metabolicAge = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.metabolic_age);
-		assertEquals("18", metabolicAge.getText().toString());
+		TextView metabolicAge = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.metabolic_age);
+		assertThat(metabolicAge.getText().toString(), is("18"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateBodyWaterPercentage() {
-		
+
 		TanitaData td = activity.getTanitaData();
 		td.setBodyWaterPercentage(54);
 
 		activity.onCreate(null);
-		
-		TextView bodyWaterPercentage = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_water_percentage);
-		assertEquals("54.0", bodyWaterPercentage.getText().toString());
+
+		TextView bodyWaterPercentage = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_water_percentage);
+		assertThat(bodyWaterPercentage.getText().toString(), is("54.0"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateVisceralFat() {
 
@@ -93,13 +79,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView visceralFat = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.visceral_fat);
-		assertEquals("5", visceralFat.getText().toString());
+		TextView visceralFat = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.visceral_fat);
+		assertThat(visceralFat.getText().toString(), is("5"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateBoneMass() {
 
@@ -108,13 +91,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView boneMass = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.bone_mass);
-		assertEquals("8.3", boneMass.getText().toString());
+		TextView boneMass = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.bone_mass);
+		assertThat(boneMass.getText().toString(), is("8.3"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateBodyFatTotal() {
 
@@ -123,13 +103,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView bodyFatTotal = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_total);
-		assertEquals("16.3", bodyFatTotal.getText().toString());
+		TextView bodyFatTotal = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_total);
+		assertThat(bodyFatTotal.getText().toString(), is("16.3"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateBodyFatLeftArm() {
 
@@ -138,13 +115,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView bodyfatArmLeft = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_arm_left);
-		assertEquals("16.1", bodyfatArmLeft.getText().toString());
+		TextView bodyfatArmLeft = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_arm_left);
+		assertThat(bodyfatArmLeft.getText().toString(), is("16.1"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateBodyFatRightArm() {
 
@@ -153,13 +127,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView bodyFatArmRight = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_arm_right);
-		assertEquals("4.3", bodyFatArmRight.getText().toString());
+		TextView bodyFatArmRight = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_arm_right);
+		assertThat(bodyFatArmRight.getText().toString(), is("4.3"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateBodyFatLeftLeg() {
 
@@ -168,13 +139,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView bodyFatLegLeft = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_leg_left);
-		assertEquals("3.9", bodyFatLegLeft.getText().toString());
+		TextView bodyFatLegLeft = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_leg_left);
+		assertThat(bodyFatLegLeft.getText().toString(), is("3.9"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateBodyFatRightLeg() {
 
@@ -183,13 +151,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView bodyFatLegRight = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_leg_right);
-		assertEquals("9.2", bodyFatLegRight.getText().toString());
+		TextView bodyFatLegRight = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_leg_right);
+		assertThat(bodyFatLegRight.getText().toString(), is("9.2"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateBodyFatTrunk() {
 
@@ -198,13 +163,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView bodyFatTrunk = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_trunk);
-		assertEquals("19.2", bodyFatTrunk.getText().toString());
+		TextView bodyFatTrunk = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.body_fat_trunk);
+		assertThat(bodyFatTrunk.getText().toString(), is("19.2"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateMuscleMassTotal() {
 
@@ -213,13 +175,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView muscleMassTotal = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_total);
-		assertEquals("123.3", muscleMassTotal.getText().toString());
+		TextView muscleMassTotal = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_total);
+		assertThat(muscleMassTotal.getText().toString(), is("123.3"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateMuscleMassLeftArm() {
 
@@ -228,13 +187,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView muscleMassArmLeft = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_arm_left);
-		assertEquals("8.2", muscleMassArmLeft.getText().toString());
+		TextView muscleMassArmLeft = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_arm_left);
+		assertThat(muscleMassArmLeft.getText().toString(), is("8.2"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateMuscleMassRightArm() {
 
@@ -243,13 +199,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView muscleMassArmRight = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_arm_right);
-		assertEquals("8.1", muscleMassArmRight.getText().toString());
+		TextView muscleMassArmRight = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_arm_right);
+		assertThat(muscleMassArmRight.getText().toString(), is("8.1"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateMuscleMassLeftLeg() {
 
@@ -258,13 +211,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView muscleMassLegLeft = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_leg_left);
-		assertEquals("15.3", muscleMassLegLeft.getText().toString());
+		TextView muscleMassLegLeft = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_leg_left);
+		assertThat(muscleMassLegLeft.getText().toString(), is("15.3"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateMuscleMassRightLeg() {
 
@@ -273,13 +223,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView muscleMassLegRight = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_leg_right);
-		assertEquals("26.7", muscleMassLegRight.getText().toString());
+		TextView muscleMassLegRight = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_leg_right);
+		assertThat(muscleMassLegRight.getText().toString(), is("26.7"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreateMuscleMassTrunk() {
 
@@ -288,13 +235,10 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView muscleMassTrunk = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_trunk);
-		assertEquals("89.9", muscleMassTrunk.getText().toString());
+		TextView muscleMassTrunk = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.muscle_mass_trunk);
+		assertThat(muscleMassTrunk.getText().toString(), is("89.9"));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.activity.manage.SingleDateValuesEnteredActivity#onCreate(android.os.Bundle)}.
-	 */
 	@Test
 	public void testOnCreatePhysicRating() {
 
@@ -303,7 +247,7 @@ public class PersonDateActivityTest {
 
 		activity.onCreate(null);
 
-		TextView physicRating = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.physic_rating);
-		assertEquals("3", physicRating.getText().toString());
+		TextView physicRating = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.physic_rating);
+		assertThat(physicRating.getText().toString(), is("3"));
 	}
 }

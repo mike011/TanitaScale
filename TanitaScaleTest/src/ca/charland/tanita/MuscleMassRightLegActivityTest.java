@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -44,28 +45,19 @@ public class MuscleMassRightLegActivityTest {
 		activity.onCreate(null);
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassRightLegActivity#getResourceIDForLayout()}.
-	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.muscle_mass_right_leg, activity.getResourceIDForLayout());
+		assertThat(activity.getResourceIDForLayout(), is(R.layout.muscle_mass_right_leg));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassRightLegActivity#getColumnName()}.
-	 */
 	@Test
 	public void testGetColumnName() {
-		assertEquals(TanitaDataTable.Column.MUSCLE_MASS_RIGHT_LEG, activity.getColumnName());
+		assertThat(activity.getColumnName(), is(TanitaDataTable.Column.MUSCLE_MASS_RIGHT_LEG));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassRightLegActivity#getNextClass()}.
-	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(MuscleMassLeftLegActivity.class, activity.getNextClass());
+		assertThat(activity.getNextClass().toString(), is(MuscleMassLeftLegActivity.class.toString()));
 	}
 
 }

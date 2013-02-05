@@ -1,8 +1,9 @@
 package ca.charland.tanita.db;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
@@ -30,37 +31,25 @@ public class PersonDataSourceTest {
 		pds.closeDatabaseConnection();
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#PersonDataSource(android.content.Context)} .
-	 */
 	@Test
 	public void testPersonDataSource() {
-		assertNotNull(pds);
+		assertThat(pds, is(notNullValue()));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#create(java.lang.String, String)} .
-	 */
 	@Test
 	public void testCreatePerson() {
 		pds.openDatabaseConnection();
 		long create = pds.create("bob", "a@b.ca", "boy");
-		assertTrue(create != 0);
+		assertThat(create, is(not((long) 0)));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#getAllValues()}.
-	 */
 	@Test
 	public void testGetAllPeople() {
 		pds.openDatabaseConnection();
 		List<Data> allPeople = pds.getAllValues();
-		assertNotNull(allPeople);
+		assertThat(allPeople, is(notNullValue()));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#convertToAbstractData(android.database.Cursor)} .
-	 */
 	@Test
 	public void testCursorConverter() {
 		int id = 5;
@@ -73,22 +62,19 @@ public class PersonDataSourceTest {
 		cursor.setString(2, email);
 
 		PersonData person = pds.convertToAbstractData(cursor);
-		
-		assertEquals(id, person.getId());
-		assertEquals(name, person.getName());
-		assertEquals(email, person.getEmail());
+
+		assertThat(person.getId(), is(id));
+		assertThat(person.getName(), is(name));
+		assertThat(person.getEmail(), is(email));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.PersonDataSource#getAllColumns()} .
-	 */
 	@Test
 	public void testGetAllColumns() {
 		List<String> allColumns = pds.getAllColumns();
-		assertEquals(4, allColumns.size());
-		assertEquals("_id", allColumns.get(0));
-		assertEquals("name", allColumns.get(1));
-		assertEquals("email", allColumns.get(2));
-		assertEquals("sex", allColumns.get(3));
+		assertThat(allColumns.size(), is(4));
+		assertThat(allColumns.get(0), is("_id"));
+		assertThat(allColumns.get(1), is("name"));
+		assertThat(allColumns.get(2), is("email"));
+		assertThat(allColumns.get(3), is("sex"));
 	}
 }

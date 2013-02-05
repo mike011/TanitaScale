@@ -1,6 +1,7 @@
 package ca.charland.tanita.db;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,7 @@ public class PersonDataHelperTest {
 	public void testGetSexNull() {
 		NoDbPersonDataSource pds = new NoDbPersonDataSource();
 		String result = PersonDataHelper.getSex(pds, DONT_CARE_ABOUT);
-		assertEquals(MALE, result);
+		assertThat(result, is(MALE));
 	}
 
 	@Test
@@ -58,7 +59,7 @@ public class PersonDataHelperTest {
 		NoDbPersonDataSource pds = new NoDbPersonDataSource();
 		pds.setQueryResult(new ArrayList<Data>());
 		String result = PersonDataHelper.getSex(pds, DONT_CARE_ABOUT);
-		assertEquals(MALE, result);
+		assertThat(result, is(MALE));
 	}
 
 	@Test
@@ -70,9 +71,9 @@ public class PersonDataHelperTest {
 		data.add(pd);
 		pds.setQueryResult(data);
 		String result = PersonDataHelper.getSex(pds, DONT_CARE_ABOUT);
-		assertEquals(FEMALE, result);
+		assertThat(result, is(FEMALE));
 	}
-	
+
 	@Test
 	public void testGetSexMale() {
 		NoDbPersonDataSource pds = new NoDbPersonDataSource();
@@ -82,7 +83,6 @@ public class PersonDataHelperTest {
 		data.add(pd);
 		pds.setQueryResult(data);
 		String result = PersonDataHelper.getSex(pds, DONT_CARE_ABOUT);
-		assertEquals(MALE, result);
+		assertThat(result, is(MALE));
 	}
-
 }

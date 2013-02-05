@@ -1,8 +1,8 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -35,30 +35,30 @@ public class TextViewActivityTest {
 	public void testEnterText() {
 		TextView enter = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.enter_your);
 		
-		assertNotNull("Enter not set", enter);
+		assertThat("Enter not set", enter, is(notNullValue()));
 		CharSequence text = enter.getText();
-		assertNotNull("Enter text not set", text);
-		assertEquals("Enter your Body Fat for your Left Arm", text.toString());
+		assertThat("Enter text not set", text, is(notNullValue()));
+		assertThat(text.toString(), is("Enter your Body Fat for your Left Arm"));
 	}
 
 	@Test
 	public void testPreviousText() {
 		TextView previous = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.previous);
 
-		assertNotNull("Previous not set", previous);
+		assertThat("Previous not set", previous, is(notNullValue()));
 		CharSequence text = previous.getText();
-		assertNotNull("Previous text not set", text);
-		assertEquals("0.00", text.toString());
+		assertThat("Previous text not set", text, is(notNullValue()));
+		assertThat(text.toString(), is("0.00"));
 	}
 
 	@Test
 	public void testAverageText() {
 		TextView average = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.average);
 		
-		assertNotNull("Average not set", average);
+		assertThat("Average not set", average, is(notNullValue()));
 		CharSequence text = average.getText();
-		assertNotNull("Average text not set", text);
-		assertEquals("0.00",text.toString());
+		assertThat("Average text not set", text, is(notNullValue()));
+		assertThat(text.toString(), is("0.00"));
 	}
 
 	private static class BodyFatLeftArmActivityUnderTest extends BodyFatLeftArmActivity {
@@ -83,12 +83,11 @@ public class TextViewActivityTest {
 		BodyFatLeftArmActivityUnderTest activity = new BodyFatLeftArmActivityUnderTest();
 		activity.onCreate(null);
 
-		assertNotNull(activity);
+		assertThat(activity, is(notNullValue()));
 		ContentValues values = activity.getValues();
-		assertEquals(1, values.size());
+		assertThat(values.size(), is(1));
 
-		assertTrue(values.containsKey(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()));
-		assertEquals("", values.get(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()));
+		assertThat(values.containsKey(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()), is(true));
+		assertThat(values.get(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()).toString(), is(""));
 	}
-
 }

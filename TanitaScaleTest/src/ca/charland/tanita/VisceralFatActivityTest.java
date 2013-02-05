@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
 
 import com.google.inject.Inject;
+
 /**
  * @author mcharland
  */
@@ -24,8 +26,8 @@ public class VisceralFatActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
-		
-		@Override 
+
+		@Override
 		protected TanitaDataSource getDataSource() {
 			return new TestTanitaDataSource();
 		}
@@ -34,7 +36,7 @@ public class VisceralFatActivityTest {
 		protected void setData() {
 		}
 	}
-	
+
 	@Inject
 	private ActivityUnderTest activity;
 
@@ -43,28 +45,19 @@ public class VisceralFatActivityTest {
 		activity.onCreate(null);
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.VisceralFatActivity#getResourceIDForLayout()}.
-	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.visceral_fat, activity.getResourceIDForLayout());
+		assertThat(activity.getResourceIDForLayout(), is(R.layout.visceral_fat));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.VisceralFatActivity#getColumnName()}.
-	 */
 	@Test
 	public void testGetColumnName() {
-		assertEquals(TanitaDataTable.Column.VISCERAL_FAT, activity.getColumnName());
+		assertThat(activity.getColumnName(), is(TanitaDataTable.Column.VISCERAL_FAT));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.VisceralFatActivity#getNextClass()}.
-	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(BoneMassActivity.class, activity.getNextClass());
+		assertThat(activity.getNextClass().toString(), is(BoneMassActivity.class.toString()));
 	}
 
 }

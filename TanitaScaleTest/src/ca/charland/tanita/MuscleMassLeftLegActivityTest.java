@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,8 +26,8 @@ public class MuscleMassLeftLegActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
-		
-		@Override 
+
+		@Override
 		protected TanitaDataSource getDataSource() {
 			return new TestTanitaDataSource();
 		}
@@ -35,7 +36,7 @@ public class MuscleMassLeftLegActivityTest {
 		protected void setData() {
 		}
 	}
-	
+
 	@Inject
 	private ActivityUnderTest activity;
 
@@ -44,28 +45,19 @@ public class MuscleMassLeftLegActivityTest {
 		activity.onCreate(null);
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassLeftLegActivity#getResourceIDForLayout()}.
-	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.muscle_mass_left_leg, activity.getResourceIDForLayout());
+		assertThat(activity.getResourceIDForLayout(), is(R.layout.muscle_mass_left_leg));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassLeftLegActivity#getColumnName()}.
-	 */
 	@Test
 	public void testGetColumnName() {
-		assertEquals(TanitaDataTable.Column.MUSCLE_MASS_LEFT_LEG, activity.getColumnName());
+		assertThat(activity.getColumnName(), is(TanitaDataTable.Column.MUSCLE_MASS_LEFT_LEG));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.MuscleMassLeftLegActivity#getNextClass()}.
-	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(MuscleMassTrunkActivity.class, activity.getNextClass());
+		assertThat(activity.getNextClass().toString(), is(MuscleMassTrunkActivity.class.toString()));
 	}
 
 }

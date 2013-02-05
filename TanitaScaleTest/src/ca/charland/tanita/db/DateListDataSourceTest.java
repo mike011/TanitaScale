@@ -1,7 +1,8 @@
 package ca.charland.tanita.db;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
@@ -29,17 +30,11 @@ public class DateListDataSourceTest {
 		dateList.closeDatabaseConnection();
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDateListDataSource#DateListDataSource(android.content.Context)}.
-	 */
 	@Test
 	public void testDateListDataSource() {
-		assertNotNull(dateList);
+		assertThat(dateList, is(notNullValue()));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDateListDataSource#convertToAbstractData(android.database.Cursor)}.
-	 */
 	@Test
 	public void testConvertToAbstractData() {
 		int id = 5;
@@ -53,18 +48,15 @@ public class DateListDataSourceTest {
 
 		Data data = dateList.convertToAbstractData(cursor);
 
-		assertEquals(id, data.getId());
+		assertThat(data.getId(), is(id));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.db.TanitaDateListDataSource#getAllColumns()}.
-	 */
 	@Test
 	public void testGetAllColumns() {
 		List<String> allColumns = dateList.getAllColumns();
-		assertEquals(3, allColumns.size());
-		assertEquals("_id", allColumns.get(0));
-		assertEquals("person", allColumns.get(1));
-		assertEquals("date", allColumns.get(2));
+		assertThat(allColumns.size(), is(3));
+		assertThat(allColumns.get(0), is("_id"));
+		assertThat(allColumns.get(1), is("person"));
+		assertThat(allColumns.get(2), is("date"));
 	}
 }

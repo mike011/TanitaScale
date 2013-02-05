@@ -1,6 +1,7 @@
 package ca.charland.tanita;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
 
 import com.google.inject.Inject;
+
 /**
  * @author mcharland
  */
@@ -43,28 +45,19 @@ public class BodyFatTotalActivityTest {
 		activity.onCreate(null);
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.BodyFatTotalActivity#getResourceIDForLayout()}.
-	 */
 	@Test
 	public void testGetLayoutResID() {
-		assertEquals(R.layout.body_fat_total, activity.getResourceIDForLayout());
+		assertThat(activity.getResourceIDForLayout(), is(R.layout.body_fat_total));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.BodyFatTotalActivity#getColumnName()}.
-	 */
 	@Test
 	public void testGetColumnName() {
-		assertEquals(TanitaDataTable.Column.BODY_FAT_TOTAL, activity.getColumnName());
+		assertThat(activity.getColumnName(), is(TanitaDataTable.Column.BODY_FAT_TOTAL));
 	}
 
-	/**
-	 * Test method for {@link ca.charland.tanita.BodyFatTotalActivity#getNextClass()}.
-	 */
 	@Test
 	public void testGetNextClass() {
-		assertEquals(BodyFatLeftArmActivity.class, activity.getNextClass());
+		assertThat(activity.getNextClass().toString(), is(BodyFatLeftArmActivity.class.toString()));
 	}
 
 }
