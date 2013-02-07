@@ -40,7 +40,13 @@
 		<link>
 			<name>androidbase/src</name>
 			<type>2</type>
-			<location>D:/Users/mcharland/git/AndroidBase/AndroidBase/src/main/java</location>
+			<locationURI>ANDROID_BASE_HOME/AndroidBase/src/main/java</locationURI>
 		</link>
 	</linkedResources>
+	<variableList>
+		<variable>
+			<name>ANDROID_BASE_HOME</name>
+			<value>file:/D:/Users/mcharland/git/AndroidBase</value>
+		</variable>
+	</variableList>
 </projectDescription>

@@ -7,6 +7,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 import ca.charland.R;
 import ca.charland.activity.manage.AddANewPersonActivity;
+import ca.charland.db.BasicPersonDataSource;
 import ca.charland.tanita.db.PersonDataSource;
 
 public class TanitaAddANewPersonActivity extends AddANewPersonActivity {
@@ -19,7 +20,7 @@ public class TanitaAddANewPersonActivity extends AddANewPersonActivity {
 
 	
 	@Override
-	protected PersonDataSource getDataSource() {
+	protected BasicPersonDataSource getDataSource() {
 		return new PersonDataSource(this);
 	}
 	

@@ -11,7 +11,7 @@ import org.junit.runners.model.InitializationError;
 public class TanitaRobolectricTestRunner extends AndroidBaseRobolectricTestRunner {
 
 	public TanitaRobolectricTestRunner(Class<?> testClass) throws InitializationError {
-		super(testClass, "TanitaScale");
+		super(testClass, "..\\TanitaScale");
 	}
 	
 }

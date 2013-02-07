@@ -2,7 +2,7 @@ package ca.charland.tanita.manage;
 
 import ca.charland.activity.manage.AllPeopleListActivity;
 import ca.charland.db.AbstractPersonDataSource;
-import ca.charland.db.BasicPersonDataSource;
+import ca.charland.tanita.db.PersonDataSource;
 
 public class TanitaAllPeopleListActivity extends AllPeopleListActivity {
 
@@ -13,7 +13,7 @@ public class TanitaAllPeopleListActivity extends AllPeopleListActivity {
 
 	@Override
 	protected AbstractPersonDataSource getPersonDataSource() {
-		return new BasicPersonDataSource(this);
+		return new PersonDataSource(this);
 	}
 
 	@Override
