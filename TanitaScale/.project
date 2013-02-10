@@ -46,7 +46,7 @@
 	<variableList>
 		<variable>
 			<name>ANDROID_BASE_HOME</name>
-			<value>file:/D:/Users/mcharland/git/AndroidBase</value>
+			<value>file:/E:/git/AndroidBase/</value>
 		</variable>
 	</variableList>
 </projectDescription>

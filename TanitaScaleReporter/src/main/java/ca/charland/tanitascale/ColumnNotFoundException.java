@@ -1,4 +1,4 @@
-package ca.charland.tanitascale.TanitaScaleReporter;
+package ca.charland.tanitascale;
 
 public class ColumnNotFoundException extends RuntimeException {
 

@@ -1,27 +1,4 @@
-package ca.charland.tanitascale.TanitaScaleReporter;
-
-/**************************************************************
- * 
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- * 
- *   http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- * 
- *************************************************************/
-
-// __________ Imports __________
+package ca.charland.tanitascale;
 
 import java.util.Map;
 
@@ -47,7 +24,7 @@ import com.sun.star.util.NumberFormat;
 import com.sun.star.util.XNumberFormats;
 import com.sun.star.util.XNumberFormatsSupplier;
 
-public class Exporter {
+public class Reporter {
 
 	private String oooExeFolder;
 	private XComponentContext context;
@@ -69,7 +46,7 @@ public class Exporter {
 
 	private static void parseSingleDay(String[] args) {
 		Parser parser = new Parser();
-		Exporter content = new Exporter();
+		Reporter content = new Reporter();
 		
 		Map<Column, String> values = parser.parseSingleDay(args);
 		content.printValues(values, 0);
@@ -77,7 +54,7 @@ public class Exporter {
 
 	private static void parseFiles(String[] args) {
 		Parser parser = new Parser();
-		Exporter content = new Exporter();
+		Reporter content = new Reporter();
 		int y = 0;
 		for (String arg : args) {
 			Map<Column, String> values = parser.parseFileContents(LoadFile.load(arg));
@@ -85,7 +62,7 @@ public class Exporter {
 		}
 	}
 
-	public Exporter() {
+	public Reporter() {
 		
 		oooExeFolder = setLibreOfficeFolder();
 		
