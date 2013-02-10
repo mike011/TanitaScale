@@ -1,4 +1,4 @@
-package ca.charland.tanitascale.TanitaScaleReporter;
+package ca.charland.tanitascale;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
