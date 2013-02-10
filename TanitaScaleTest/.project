@@ -24,11 +24,7 @@
 		<link>
 			<name>androidbasetest/src</name>
 			<type>2</type>
-<<<<<<< HEAD
 			<location>/home/tron/Desktop/D::/Users/mcharland/git/AndroidBase/AndroidBaseTest/src/main/java</location>
-=======
-			<location>E:/git/AndroidBase/AndroidBaseTest/src/main/java</location>
->>>>>>> 8ace915a31c8eda8290e8f7c6f30c1bec02b9a92
 		</link>
 	</linkedResources>
 </projectDescription>

@@ -16,7 +16,7 @@
         android:theme="@android:style/Theme.Black" >
         <activity android:name=".activity.manage.PreferencesActivity" />
         <activity
-            android:name=".tanita.manage.TanitaFirstActivity"
+            android:name=".tanita.manage.FirstActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,11 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tanita.manage.TanitaPersonHomeActivity" />
-        <activity android:name=".tanita.manage.TanitaAddANewPersonActivity" />
-        <activity android:name=".tanita.manage.TanitaDateListOfPreviousEntriesActivity" />
-        <activity android:name=".tanita.manage.TanitaAllPeopleListActivity" />
-        <activity android:name=".tanita.manage.TanitaSingleDateValuesEnteredActivity" />
+        <activity android:name=".tanita.manage.PersonHomeActivity" />
+        <activity android:name=".tanita.manage.AddANewPersonActivity" />
+        <activity android:name=".tanita.manage.DateValuesEnteredActivity"/>"
+        <activity android:name=".tanita.manage.DateListOfPreviousEntriesActivity" />
+        <activity android:name=".tanita.manage.AllPeopleListActivity" />
+        <activity android:name=".tanita.manage.SingleDateValuesEnteredActivity" />
         <activity android:name=".tanita.BodyFatLeftArmActivity" />
         <activity android:name=".tanita.BodyFatLeftLegActivity" />
         <activity android:name=".tanita.BodyFatRightArmActivity" />
@@ -38,6 +39,7 @@
         <activity android:name=".tanita.BodyWaterPercentageActivity" />
         <activity android:name=".tanita.BoneMassActivity" />
         <activity android:name=".tanita.DailyCaloricIntakeActivity" />
+        <activity android:name=".tanita.DateAndTimeActivity" />
         <activity android:name=".tanita.MetabolicAgeActivity" />
         <activity android:name=".tanita.MuscleMassLeftArmActivity" />
         <activity android:name=".tanita.MuscleMassLeftLegActivity" />
@@ -46,7 +48,6 @@
         <activity android:name=".tanita.MuscleMassTotalActivity" />
         <activity android:name=".tanita.MuscleMassTrunkActivity" />
         <activity android:name=".tanita.PhysicRatingActivity" />
-        <activity android:name=".tanita.TanitaDateAndTimeActivity" />
         <activity android:name=".tanita.VisceralFatActivity" />
         <activity
             android:name=".tanita.WeightActivity"

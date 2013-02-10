@@ -1,7 +1,9 @@
 package ca.charland.tanita.manage;
 
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -106,11 +108,9 @@ public class EmailButtonOnClickListener implements OnClickListener {
 	}
 
 	private String getDate() {
-		Date date = tanitadata.getDate();
-		int year = date.getYear();
-		int month = date.getMonth();
-		int day = date.getDay();
-		return year + "/" + month + "/" + day;
+		DateFormat df = new SimpleDateFormat("yyyy - MM - dd", Locale.US);
+		String date = df.format(tanitadata.getDate());
+		return date;
 	}
 
 	private String getTextFromResource(int id) {

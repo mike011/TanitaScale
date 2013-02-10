@@ -15,7 +15,7 @@ import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TanitaDatabaseConnection;
 
-public class TanitaSingleDateValuesEnteredActivity extends BaseSingleDateValuesEnteredActivity {
+public class DateValuesEnteredActivity extends BaseSingleDateValuesEnteredActivity {
 
 	@InjectView(R.id.weight)
 	private TextView weight;

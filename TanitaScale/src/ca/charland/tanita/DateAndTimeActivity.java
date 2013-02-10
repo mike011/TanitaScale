@@ -1,10 +1,10 @@
 package ca.charland.tanita;
 
-import ca.charland.activity.DateAndTimeActivity;
+import ca.charland.activity.BaseDateAndTimeActivity;
 import ca.charland.activity.NextButtonOnClickListener;
 import ca.charland.db.DataSource;
 
-public class TanitaDateAndTimeActivity extends DateAndTimeActivity {
+public class DateAndTimeActivity extends BaseDateAndTimeActivity {
 
 	@Override
 	protected NextButtonOnClickListener getNextButtonOnClickListener() {

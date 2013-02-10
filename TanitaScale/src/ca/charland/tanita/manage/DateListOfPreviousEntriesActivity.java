@@ -12,6 +12,6 @@ public class DateListOfPreviousEntriesActivity extends BaseDateListOfPreviousEnt
 
 	@Override
 	protected Class<?> getPreviousEntryClass() {
-		return TanitaSingleDateValuesEnteredActivity.class;
+		return DateValuesEnteredActivity.class;
 	}
 }

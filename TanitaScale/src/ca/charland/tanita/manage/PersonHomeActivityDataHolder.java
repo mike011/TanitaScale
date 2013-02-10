@@ -1,13 +1,13 @@
 package ca.charland.tanita.manage;
 
 import ca.charland.activity.manage.BasePersonHomeActivityDataHolder;
-import ca.charland.tanita.TanitaDateAndTimeActivity;
+import ca.charland.tanita.DateAndTimeActivity;
 
 public class PersonHomeActivityDataHolder extends BasePersonHomeActivityDataHolder {
 
 	@Override
 	public Class<?> getNextAddClass() {
-		return TanitaDateAndTimeActivity.class;
+		return DateAndTimeActivity.class;
 	}
 
 	@Override
