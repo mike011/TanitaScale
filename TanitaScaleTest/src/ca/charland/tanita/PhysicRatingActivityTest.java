@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.charland.R;
-import ca.charland.activity.manage.PersonHomeActivity;
+import ca.charland.activity.manage.BasePersonHomeActivity;
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
@@ -58,6 +58,6 @@ public class PhysicRatingActivityTest {
 
 	@Test
 	public void testGetNextClass() {
-		assertThat(activity.getNextClass().toString(), is(PersonHomeActivity.class.toString()));
+		assertThat(activity.getNextClass().toString(), is(BasePersonHomeActivity.class.toString()));
 	}
 }

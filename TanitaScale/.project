@@ -40,7 +40,7 @@
 		<link>
 			<name>androidbase/src</name>
 			<type>2</type>
-			<locationURI>ANDROID_BASE_HOME/AndroidBase/src/main/java</locationURI>
+			<location>/home/tron/git/AndroidBase/AndroidBase/src/main/java</location>
 		</link>
 	</linkedResources>
 	<variableList>

@@ -1,9 +1,9 @@
 package ca.charland.tanita.manage;
 
-import ca.charland.activity.manage.DateListOfPreviousEntriesActivity;
+import ca.charland.activity.manage.BaseDateListOfPreviousEntriesActivity;
 import ca.charland.tanita.db.TanitaDateListDataSource;
 
-public class TanitaDateListOfPreviousEntriesActivity extends DateListOfPreviousEntriesActivity {
+public class DateListOfPreviousEntriesActivity extends BaseDateListOfPreviousEntriesActivity {
 
 	@Override
 	protected TanitaDateListDataSource getDateListDataSource() {

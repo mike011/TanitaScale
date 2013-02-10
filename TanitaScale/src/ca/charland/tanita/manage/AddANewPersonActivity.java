@@ -6,18 +6,17 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import ca.charland.R;
-import ca.charland.activity.manage.AddANewPersonActivity;
+import ca.charland.activity.manage.BaseAddANewPersonActivity;
 import ca.charland.db.BasicPersonDataSource;
 import ca.charland.tanita.db.PersonDataSource;
 
-public class TanitaAddANewPersonActivity extends AddANewPersonActivity {
+public class AddANewPersonActivity extends BaseAddANewPersonActivity {
 
 	@InjectView(R.id.email)
 	private EditText email;
 
 	@InjectView(R.id.sex)
 	private RadioGroup sex;
-
 	
 	@Override
 	protected BasicPersonDataSource getDataSource() {

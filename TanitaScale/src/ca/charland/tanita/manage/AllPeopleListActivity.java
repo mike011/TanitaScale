@@ -1,14 +1,14 @@
 package ca.charland.tanita.manage;
 
-import ca.charland.activity.manage.AllPeopleListActivity;
+import ca.charland.activity.manage.BaseAllPeopleListActivity;
 import ca.charland.db.AbstractPersonDataSource;
 import ca.charland.tanita.db.PersonDataSource;
 
-public class TanitaAllPeopleListActivity extends AllPeopleListActivity {
+public class AllPeopleListActivity extends BaseAllPeopleListActivity {
 
 	@Override
 	protected Class<?> getFirstClass() {
-		return TanitaFirstActivity.class;
+		return FirstActivity.class;
 	}
 
 	@Override
@@ -18,6 +18,6 @@ public class TanitaAllPeopleListActivity extends AllPeopleListActivity {
 
 	@Override
 	protected Class<?> getHomeActivity() {
-		return TanitaPersonHomeActivity.class;
+		return PersonHomeActivity.class;
 	}
 }

@@ -16,7 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import ca.charland.R;
-import ca.charland.activity.manage.AllPeopleListActivity;
+import ca.charland.activity.manage.BaseAllPeopleListActivity;
 import ca.charland.db.Data;
 import ca.charland.tanita.db.PersonDataHelper;
 import ca.charland.tanita.db.PersonDataSource;
@@ -94,7 +94,7 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 		Intent intent = getIntent();
 		if (intent != null) {
 			Bundle extras = intent.getExtras();
-			id = extras.getInt(AllPeopleListActivity.PERSON_ID);
+			id = extras.getInt(BaseAllPeopleListActivity.PERSON_ID);
 		}
 		return id;
 	}
@@ -138,7 +138,7 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 		if (intent != null) {
 			// Don't know how inject extras in testing.
 			Bundle extras = intent.getExtras();
-			person = extras.getInt(AllPeopleListActivity.PERSON_ID.toString());
+			person = extras.getInt(BaseAllPeopleListActivity.PERSON_ID.toString());
 		}
 		return person;
 	}

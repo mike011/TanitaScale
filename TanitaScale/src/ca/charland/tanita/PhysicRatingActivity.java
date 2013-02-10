@@ -1,10 +1,10 @@
 package ca.charland.tanita;
 
 import ca.charland.R;
-import ca.charland.activity.manage.FirstActivity;
-import ca.charland.activity.manage.PersonHomeActivity;
+import ca.charland.activity.manage.BasePersonHomeActivity;
 import ca.charland.activity.manage.PreferencesActivity;
 import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.tanita.manage.FirstActivity;
 /**
  * @author mcharland
  */
@@ -20,7 +20,7 @@ public class PhysicRatingActivity extends TextViewActivity {
 		if (PreferencesActivity.isSingleUserModeSet(this)) {
 			return FirstActivity.class;
 		} else {
-			return PersonHomeActivity.class;
+			return BasePersonHomeActivity.class;
 		}
 	}
 

@@ -7,15 +7,15 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import ca.charland.R;
-import ca.charland.activity.manage.DateListOfPreviousEntriesActivity;
-import ca.charland.activity.manage.SingleDateValuesEnteredActivity;
+import ca.charland.activity.manage.BaseDateListOfPreviousEntriesActivity;
+import ca.charland.activity.manage.BaseSingleDateValuesEnteredActivity;
 import ca.charland.db.Data;
 import ca.charland.tanita.db.TanitaData;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TanitaDatabaseConnection;
 
-public class TanitaSingleDateValuesEnteredActivity extends SingleDateValuesEnteredActivity {
+public class TanitaSingleDateValuesEnteredActivity extends BaseSingleDateValuesEnteredActivity {
 
 	@InjectView(R.id.weight)
 	private TextView weight;
@@ -109,7 +109,7 @@ public class TanitaSingleDateValuesEnteredActivity extends SingleDateValuesEnter
 
 	private String getSelection() {
 		Bundle extras = getIntent().getExtras();
-		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(DateListOfPreviousEntriesActivity.ID);
+		String selection = TanitaDataTable.Column.ID.toString() + " = " + extras.getInt(BaseDateListOfPreviousEntriesActivity.ID);
 		return selection;
 	}
 
