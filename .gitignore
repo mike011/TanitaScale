@@ -7,3 +7,7 @@ tmp/
 hs_err*
 TanitaScale/local.properties
 target
+/target
+.DS_Store
+.classpath
+.project
