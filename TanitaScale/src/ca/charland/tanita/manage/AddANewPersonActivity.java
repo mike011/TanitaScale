@@ -4,7 +4,6 @@ import roboguice.inject.InjectView;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 import ca.charland.R;
 import ca.charland.activity.manage.BaseAddANewPersonActivity;
 import ca.charland.db.BasicPersonDataSource;
@@ -23,28 +22,20 @@ public class AddANewPersonActivity extends BaseAddANewPersonActivity {
 		return new PersonDataSource(this);
 	}
 	
-	@Override
-	protected void handleSaveOnClick() {
-		String nameString = name.getText().toString();
-		int messageResourceID = R.string.valid_name;
-		if (nameString.length() == 0 || sex.getCheckedRadioButtonId() == -1) {
-			messageResourceID = R.string.generic_error_message;
-		} else {
-			PersonDataSource pds = (PersonDataSource)datasource;
-			pds.create(nameString, getEmail(), getSex());
-			clearFields();
-		}
-		Toast.makeText(getBaseContext(), getMessageString(messageResourceID), Toast.LENGTH_SHORT).show();
+	protected void saveContent() {
+		PersonDataSource pds = (PersonDataSource)datasource;
+		pds.create(getNameString(), getEmail(), getSex());
+		clearFields();
 	}
 
-	private String getMessageString(int message) {
-		return getResources().getString(message);
+	protected boolean isContentValid() {
+		return super.isContentValid() ||  sex.getCheckedRadioButtonId() == -1;
 	}
 
 	private String getEmail() {
 		return email.getText().toString();
 	}
-
+	
 	private String getSex() {
 		// Returns an integer which represents the selected radio button's ID
 		int selected = sex.getCheckedRadioButtonId();
@@ -56,8 +47,9 @@ public class AddANewPersonActivity extends BaseAddANewPersonActivity {
 		return b.getText().toString();
 	}
 
-	private void clearFields() {
-		name.setText("");
+	@Override
+	protected void clearFields() {
+		super.clearFields();
 		email.setText("");
 		sex.clearCheck();
 	}
