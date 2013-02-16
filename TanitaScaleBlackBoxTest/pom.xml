@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ca.charland.tanitascale</groupId>
-	<artifactId>TanitaScale</artifactId>
+	<artifactId>TanitaScaleBlackBoxTests</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>apk</packaging>
-	<name>TanitaScale</name>
+	<name>TanitaScaleBlackBoxTests</name>
 
 	<dependencies>
 		<dependency>
@@ -24,6 +24,11 @@
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.android.robotium</groupId>
+			<artifactId>robotium-solo</artifactId>
+			<version>3.6</version>
 		</dependency>
 	</dependencies>
 
@@ -54,7 +59,7 @@
 				<configuration>
 					<sdk>
 						<!-- platform or api level (api level 4 = platform 1.6) -->
-						<platform>8</platform>
+						<platform>10</platform>
 					</sdk>
 				</configuration>
 			</plugin>
