@@ -1,7 +1,7 @@
 package ca.charland.tanita;
 
 import android.os.Bundle;
-import ca.charland.R;
+import ca.charland.tanita.R;
 
 /**
  * @author mcharland

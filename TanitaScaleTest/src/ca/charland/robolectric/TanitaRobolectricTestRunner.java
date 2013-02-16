@@ -1,5 +1,7 @@
 package ca.charland.robolectric;
 
+import java.io.File;
+
 import org.junit.runners.model.InitializationError;
 
 /**
@@ -11,7 +13,6 @@ import org.junit.runners.model.InitializationError;
 public class TanitaRobolectricTestRunner extends BaseRobolectricTestRunner {
 
 	public TanitaRobolectricTestRunner(Class<?> testClass) throws InitializationError {
-		super(testClass, "..\\TanitaScale");
+		super(testClass, ".." + File.separator + "TanitaScale");
 	}
-	
 }

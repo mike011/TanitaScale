@@ -12,7 +12,7 @@ import android.content.res.Resources;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
-import ca.charland.R;
+import ca.charland.tanita.R;
 import ca.charland.db.Data;
 import ca.charland.tanita.db.PersonData;
 import ca.charland.tanita.db.PersonDataSource;

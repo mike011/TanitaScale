@@ -3,7 +3,7 @@ package ca.charland.tanita;
 import android.app.Activity;
 import android.widget.TextView;
 import android.widget.Toast;
-import ca.charland.R;
+import ca.charland.tanita.R;
 import ca.charland.activity.BaseActivity;
 import ca.charland.activity.NextButtonOnClickListener;
 import ca.charland.db.DataSource;

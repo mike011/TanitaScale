@@ -1,6 +1,6 @@
 package ca.charland.tanita;
 
-import ca.charland.R;
+import ca.charland.tanita.R;
 import ca.charland.activity.manage.BaseFirstActivity;
 import ca.charland.activity.manage.BasePersonHomeActivity;
 import ca.charland.activity.manage.PreferencesActivity;

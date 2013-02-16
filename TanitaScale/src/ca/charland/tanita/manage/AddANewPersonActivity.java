@@ -4,7 +4,7 @@ import roboguice.inject.InjectView;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import ca.charland.R;
+import ca.charland.tanita.R;
 import ca.charland.activity.manage.BaseAddANewPersonActivity;
 import ca.charland.db.BasicPersonDataSource;
 import ca.charland.tanita.db.PersonDataSource;

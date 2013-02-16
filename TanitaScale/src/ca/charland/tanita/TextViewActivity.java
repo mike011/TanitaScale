@@ -15,7 +15,7 @@ import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import ca.charland.R;
+import ca.charland.tanita.R;
 import ca.charland.activity.manage.BaseAllPeopleListActivity;
 import ca.charland.db.Data;
 import ca.charland.tanita.db.PersonDataHelper;

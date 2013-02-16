@@ -6,7 +6,7 @@ import roboguice.inject.InjectView;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-import ca.charland.R;
+import ca.charland.tanita.R;
 import ca.charland.activity.manage.BaseDateListOfPreviousEntriesActivity;
 import ca.charland.activity.manage.BaseSingleDateValuesEnteredActivity;
 import ca.charland.db.Data;

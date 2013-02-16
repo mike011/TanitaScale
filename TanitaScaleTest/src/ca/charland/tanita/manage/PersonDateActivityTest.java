@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import android.widget.TextView;
-import ca.charland.R;
+import ca.charland.tanita.R;
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
 import ca.charland.tanita.db.TanitaData;
 
