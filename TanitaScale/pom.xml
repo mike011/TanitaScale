@@ -29,6 +29,7 @@
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
+		<sourceDirectory>src</sourceDirectory>
 		<pluginManagement>
 			<plugins>
 				<plugin>
