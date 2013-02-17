@@ -41,12 +41,12 @@ public class FirstActivityTest extends ActivityInstrumentationTestCase2<FirstAct
 
 	public void testOpenAddANewPerson() throws Exception {
 		solo.clickOnMenuItem("Add a New Person");
-		solo.assertCurrentActivity("Expected Add a new Person activity", "PreferencesActivity"); 
+		solo.assertCurrentActivity("Expected Add a new Person activity", "AddANewPersonActivity"); 
 	}
 
 	public void testOpenViewAPerson() throws Exception {
 		solo.clickOnMenuItem("View a Person");
-		solo.assertCurrentActivity("Expected View a Person activity", "PreferencesActivity"); 
+		solo.assertCurrentActivity("Expected View a Person activity", "AllPeopleListActivity"); 
 	}
 	
 	public void testOpenSettings() throws Exception {

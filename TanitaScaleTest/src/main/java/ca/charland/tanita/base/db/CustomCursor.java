@@ -1,4 +1,4 @@
-package ca.charland.db;
+package ca.charland.tanita.base.db;
 
 import java.util.Map;
 import java.util.TreeMap;

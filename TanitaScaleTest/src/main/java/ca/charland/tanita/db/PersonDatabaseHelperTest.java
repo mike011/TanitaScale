@@ -7,8 +7,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.charland.db.DatabaseConnection;
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
+import ca.charland.tanita.base.db.DatabaseConnection;
 
 /**
  * @author mcharland

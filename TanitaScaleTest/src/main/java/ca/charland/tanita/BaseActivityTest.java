@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 
 import android.widget.TextView;
 import ca.charland.tanita.R;
-import ca.charland.activity.BaseActivity;
+import ca.charland.tanita.base.activity.BaseActivity;
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
 
 /**

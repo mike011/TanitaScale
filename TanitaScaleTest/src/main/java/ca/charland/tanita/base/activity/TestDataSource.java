@@ -1,10 +1,10 @@
-package ca.charland.activity;
+package ca.charland.tanita.base.activity;
 
 import java.util.List;
 
 import android.database.Cursor;
-import ca.charland.db.Data;
-import ca.charland.db.DataSource;
+import ca.charland.tanita.base.db.Data;
+import ca.charland.tanita.base.db.DataSource;
 
 public class TestDataSource extends DataSource {
 

@@ -1,7 +1,7 @@
 package ca.charland.tanita.db;
 
 import android.content.Context;
-import ca.charland.db.DatabaseConnection;
+import ca.charland.tanita.base.db.DatabaseConnection;
 
 public class TestDatabaseHelper extends DatabaseConnection {
 

@@ -11,9 +11,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.charland.db.CustomCursor;
-import ca.charland.db.DatabaseConnection;
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
+import ca.charland.tanita.base.db.CustomCursor;
+import ca.charland.tanita.base.db.DatabaseConnection;
 
 /**
  * @author mcharland

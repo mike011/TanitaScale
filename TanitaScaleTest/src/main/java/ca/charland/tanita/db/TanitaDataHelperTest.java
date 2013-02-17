@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ca.charland.db.Data;
+import ca.charland.tanita.base.db.Data;
 import ca.charland.tanita.db.TanitaDataTable.Column;
 
 public class TanitaDataHelperTest {

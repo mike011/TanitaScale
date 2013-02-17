@@ -10,8 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import android.database.SQLException;
-import ca.charland.db.Data;
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
+import ca.charland.tanita.base.db.Data;
 
 /**
  * @author mcharland

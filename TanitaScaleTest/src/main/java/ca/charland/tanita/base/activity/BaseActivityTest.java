@@ -1,4 +1,4 @@
-package ca.charland.activity;
+package ca.charland.tanita.base.activity;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -14,8 +14,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.SQLException;
 import ca.charland.tanita.R;
-import ca.charland.db.Data;
-import ca.charland.db.DataSource;
+import ca.charland.tanita.base.db.Data;
+import ca.charland.tanita.base.db.DataSource;
 import ca.charland.robolectric.BaseRobolectricTestRunner;
 
 @RunWith(BaseRobolectricTestRunner.class)

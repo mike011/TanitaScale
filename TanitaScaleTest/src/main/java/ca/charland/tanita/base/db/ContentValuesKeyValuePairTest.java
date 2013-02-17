@@ -1,4 +1,4 @@
-package ca.charland.db;
+package ca.charland.tanita.base.db;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

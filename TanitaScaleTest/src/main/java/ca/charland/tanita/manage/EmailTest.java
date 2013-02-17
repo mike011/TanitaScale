@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
-import ca.charland.utils.Email;
+import ca.charland.tanita.base.utils.Email;
 
 /**
  * @author mcharland

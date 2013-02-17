@@ -1,4 +1,4 @@
-package ca.charland.activity;
+package ca.charland.tanita.base.activity;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
@@ -12,9 +12,9 @@ import org.junit.runner.RunWith;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import ca.charland.db.DataSource;
-import ca.charland.db.DataTable;
 import ca.charland.robolectric.BaseRobolectricTestRunner;
+import ca.charland.tanita.base.db.DataSource;
+import ca.charland.tanita.base.db.DataTable;
 
 import com.google.inject.Inject;
 

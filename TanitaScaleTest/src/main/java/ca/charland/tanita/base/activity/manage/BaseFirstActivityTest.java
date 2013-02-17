@@ -1,4 +1,4 @@
-package ca.charland.activity.manage;
+package ca.charland.tanita.base.activity.manage;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
