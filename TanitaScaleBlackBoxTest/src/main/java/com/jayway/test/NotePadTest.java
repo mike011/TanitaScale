@@ -12,18 +12,17 @@
 
 package com.jayway.test;
 
+import android.test.ActivityInstrumentationTestCase2;
 import ca.charland.tanita.manage.FirstActivity;
 
 import com.jayway.android.robotium.solo.Solo;
-import android.test.ActivityInstrumentationTestCase2;
 
 public class NotePadTest extends ActivityInstrumentationTestCase2<FirstActivity>{
 
 	private Solo solo;
 
 	public NotePadTest() {
-		super(FirstActivity.class);
-
+		super("ca.charland.tanita.manage", FirstActivity.class);
 	}
 	
 	@Override
@@ -42,9 +41,9 @@ public class NotePadTest extends ActivityInstrumentationTestCase2<FirstActivity>
 
 
 	public void testAddNote() throws Exception {
-		solo.clickOnMenuItem("Add note");
+		solo.clickOnMenuItem("Settings");
 		//Assert that NoteEditor activity is opened
-		solo.assertCurrentActivity("Expected NoteEditor activity", "NoteEditor"); 
+		solo.assertCurrentActivity("Expected Settings activity", "Settings"); 
 		//In text field 0, add Note 1
 		solo.enterText(0, "Note 1");
 		solo.goBack(); 

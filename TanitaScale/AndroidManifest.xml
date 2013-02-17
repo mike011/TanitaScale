@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Black" >
         <activity
-            android:name="ca.charland.tanita.manage.FirstActivity"
+            android:name=".manage.FirstActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,34 +23,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ca.charland.activity.manage.PreferencesActivity" />
-        <activity android:name="ca.charland.tanita.manage.PersonHomeActivity" />
-        <activity android:name="ca.charland.tanita.manage.AddANewPersonActivity" />
-        <activity android:name="ca.charland.tanita.manage.DateValuesEnteredActivity"/>"
-        <activity android:name="ca.charland.tanita.manage.DateListOfPreviousEntriesActivity" />
-        <activity android:name="ca.charland.tanita.manage.AllPeopleListActivity" />
-        <activity android:name="ca.charland.tanita.manage.SingleDateValuesEnteredActivity" />
-        <activity android:name="ca.charland.tanita.BodyFatLeftArmActivity" />
-        <activity android:name="ca.charland.tanita.BodyFatLeftLegActivity" />
-        <activity android:name="ca.charland.tanita.BodyFatRightArmActivity" />
-        <activity android:name="ca.charland.tanita.BodyFatRightLegActivity" />
-        <activity android:name="ca.charland.tanita.BodyFatTotalActivity" />
-        <activity android:name="ca.charland.tanita.BodyFatTrunkActivity" />
-        <activity android:name="ca.charland.tanita.BodyWaterPercentageActivity" />
-        <activity android:name="ca.charland.tanita.BoneMassActivity" />
-        <activity android:name="ca.charland.tanita.DailyCaloricIntakeActivity" />
-        <activity android:name="ca.charland.tanita.DateAndTimeActivity" />
-        <activity android:name="ca.charland.tanita.MetabolicAgeActivity" />
-        <activity android:name="ca.charland.tanita.MuscleMassLeftArmActivity" />
-        <activity android:name="ca.charland.tanita.MuscleMassLeftLegActivity" />
-        <activity android:name="ca.charland.tanita.MuscleMassRightArmActivity" />
-        <activity android:name="ca.charland.tanita.MuscleMassRightLegActivity" />
-        <activity android:name="ca.charland.tanita.MuscleMassTotalActivity" />
-        <activity android:name="ca.charland.tanita.MuscleMassTrunkActivity" />
-        <activity android:name="ca.charland.tanita.PhysicRatingActivity" />
-        <activity android:name="ca.charland.tanita.VisceralFatActivity" />
+        <activity android:name=".base.activity.manage.PreferencesActivity" />
+        <activity android:name=".manage.PersonHomeActivity" />
+        <activity android:name=".manage.AddANewPersonActivity" />
+        <activity android:name=".manage.DateValuesEnteredActivity"/>"
+        <activity android:name=".manage.DateListOfPreviousEntriesActivity" />
+        <activity android:name=".manage.AllPeopleListActivity" />
+        <activity android:name=".manage.SingleDateValuesEnteredActivity" />
+        <activity android:name=".BodyFatLeftArmActivity" />
+        <activity android:name=".BodyFatLeftLegActivity" />
+        <activity android:name=".BodyFatRightArmActivity" />
+        <activity android:name=".BodyFatRightLegActivity" />
+        <activity android:name=".BodyFatTotalActivity" />
+        <activity android:name=".BodyFatTrunkActivity" />
+        <activity android:name=".BodyWaterPercentageActivity" />
+        <activity android:name=".BoneMassActivity" />
+        <activity android:name=".DailyCaloricIntakeActivity" />
+        <activity android:name=".DateAndTimeActivity" />
+        <activity android:name=".MetabolicAgeActivity" />
+        <activity android:name=".MuscleMassLeftArmActivity" />
+        <activity android:name=".MuscleMassLeftLegActivity" />
+        <activity android:name=".MuscleMassRightArmActivity" />
+        <activity android:name=".MuscleMassRightLegActivity" />
+        <activity android:name=".MuscleMassTotalActivity" />
+        <activity android:name=".MuscleMassTrunkActivity" />
+        <activity android:name=".PhysicRatingActivity" />
+        <activity android:name=".VisceralFatActivity" />
         <activity
-            android:name="ca.charland.tanita.WeightActivity"
+            android:name=".WeightActivity"
             android:windowSoftInputMode="stateAlwaysVisible" />
     </application>
 
