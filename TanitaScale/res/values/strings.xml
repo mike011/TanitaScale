@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="hello">Enter and view your Tanita Scale relate info</string>
     <string name="app_name">Tanita Scale</string>
     <string name="add_new_person">Add a New Person</string>
@@ -41,9 +40,7 @@
     <string name="female">Female</string>
     <string name="contentDescription">Image to put meaning to the numbers.</string>
     <string name="averageText">Average</string>
-    <string name="averageValue"></string>
     <string name="previousText">Previous</string>
-    <string name="previousValue"></string>
     <string name="settingsButton">Settings</string>
     <string name="singleUser">Enable Single User Mode?</string>
 </resources>
