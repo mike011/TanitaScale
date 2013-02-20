@@ -32,6 +32,7 @@ public class Reporter {
 	private XSpreadsheetDocument document;
 	private XSpreadsheet sheet;
 	private int percentageFormat;
+	private int percentageTwoDigitFormat;
 	private int doubleFormat;
 	private int dateFormat;
 	private int intFormat;
@@ -117,6 +118,7 @@ public class Reporter {
 		try {
 			dateFormat = numberFormats.addNew("MMM D", aLocale);
 			percentageFormat = numberFormats.addNew("##.0%", aLocale);
+			percentageTwoDigitFormat = numberFormats.addNew("##.00%", aLocale);
 			doubleFormat = numberFormats.addNew("##.0", aLocale);
 			intFormat = numberFormats.addNew("##.#", aLocale);
 		} catch (MalformedNumberFormatException e) {
@@ -221,7 +223,7 @@ public class Reporter {
 	}
 
 	private void setMuscleMassPercentageOfTotalWeightFormula(int x, int y) {
-		setFormula(getMuscleMassPercentageOfTotalWeightFormula(y + 1), x, y, percentageFormat);
+		setFormula(getMuscleMassPercentageOfTotalWeightFormula(y + 1), x, y, percentageTwoDigitFormat);
 	}
 
 	private String getMuscleMassPercentageOfTotalWeightFormula(int row) {
