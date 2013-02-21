@@ -24,19 +24,10 @@ import com.xtremelabs.robolectric.shadows.ShadowResources;
  */
 public class BaseRobolectricTestRunner extends RobolectricTestRunner {
 
-	private static final String ANDROID_BASE_HOME = "ANDROID_BASE_HOME";
 	private Injector injector;
 
 	public BaseRobolectricTestRunner(Class<?> testClass) throws InitializationError {
-		this(testClass, getAndroidBaseFolder() + File.separator + "AndroidBase");
-	}
-
-	private static String getAndroidBaseFolder() {
-		String getenv = System.getenv(ANDROID_BASE_HOME);
-		if(getenv == null) {
-			throw new IllegalArgumentException(ANDROID_BASE_HOME + " not set.");
-		}
-		return getenv;
+		this(testClass, ".." + File.separator + "TanitaScale");
 	}
 
 	public BaseRobolectricTestRunner(Class<?> testClass, String configFile) throws InitializationError {
