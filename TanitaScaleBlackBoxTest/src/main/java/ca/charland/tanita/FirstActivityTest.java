@@ -1,15 +1,3 @@
-/*
- * This is an example test project created in Eclipse to test NotePad which is a sample 
- * project located in AndroidSDK/samples/android-11/NotePad
- * 
- * 
- * You can run these test cases either on the emulator or on device. Right click
- * the test project and select Run As --> Run As Android JUnit Test
- * 
- * @author Renas Reda, renas.reda@jayway.com
- * 
- */
-
 package ca.charland.tanita;
 
 import android.test.ActivityInstrumentationTestCase2;
