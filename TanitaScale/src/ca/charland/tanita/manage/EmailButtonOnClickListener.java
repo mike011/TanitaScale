@@ -108,7 +108,7 @@ public class EmailButtonOnClickListener implements OnClickListener {
 	}
 
 	private String getDate() {
-		DateFormat df = new SimpleDateFormat("yyyy - MM - dd", Locale.US);
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 		String date = df.format(tanitadata.getDate());
 		return date;
 	}
