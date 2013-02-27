@@ -19,13 +19,10 @@ import ca.charland.tanita.base.db.Data;
 public class PreferencesActivity extends PreferenceActivity {
 
 	private static final String SINGLE_USER_KEY = "singleUser";
-
 	private static final String PEOPLE_KEY = "people";
 
 	private CheckBoxPreference singleUser;
-
 	private BasicPersonDataSource datasource;
-
 	private ListPreference people;
 
 	@Override
