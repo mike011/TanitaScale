@@ -1,5 +1,6 @@
 package ca.charland.tanita.base.db;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -13,13 +14,10 @@ import android.util.Log;
 public class DatabaseConnection extends SQLiteOpenHelper {
 
 	private static final int DATABASE_VERSION = 1;
-
 	public static final String DATABASE_NAME = "application.db";
 
 	private final String databaseName;
-	
 	private final String tableName;
-
 	private final String createTableSQL;
 
 	public DatabaseConnection(Context context, String database, String table, String createTableSQL) {
@@ -60,6 +58,7 @@ public class DatabaseConnection extends SQLiteOpenHelper {
 		return msg.toString();
 	}
 	
+	@SuppressLint("Override")
 	public String getDatabaseName() {
 		return databaseName;
 	}

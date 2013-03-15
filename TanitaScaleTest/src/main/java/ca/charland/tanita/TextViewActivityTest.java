@@ -4,18 +4,26 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
 import android.widget.TextView;
-import ca.charland.tanita.R;
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
 import ca.charland.tanita.base.activity.BaseActivity;
+import ca.charland.tanita.base.db.Data;
+import ca.charland.tanita.base.db.DataSource;
+import ca.charland.tanita.base.db.DatabaseConnection;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
+
 /**
  * @author mcharland
  */
@@ -33,8 +41,8 @@ public class TextViewActivityTest {
 
 	@Test
 	public void testEnterText() {
-		TextView enter = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.enter_your);
-		
+		TextView enter = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.enter_your);
+
 		assertThat("Enter not set", enter, is(notNullValue()));
 		CharSequence text = enter.getText();
 		assertThat("Enter text not set", text, is(notNullValue()));
@@ -43,7 +51,7 @@ public class TextViewActivityTest {
 
 	@Test
 	public void testPreviousText() {
-		TextView previous = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.previous);
+		TextView previous = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.previous);
 
 		assertThat("Previous not set", previous, is(notNullValue()));
 		CharSequence text = previous.getText();
@@ -53,8 +61,8 @@ public class TextViewActivityTest {
 
 	@Test
 	public void testAverageText() {
-		TextView average = (TextView)TanitaRobolectricTestRunner.getViewFromShadowActivity(activity,R.id.average);
-		
+		TextView average = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.average);
+
 		assertThat("Average not set", average, is(notNullValue()));
 		CharSequence text = average.getText();
 		assertThat("Average text not set", text, is(notNullValue()));
@@ -66,12 +74,12 @@ public class TextViewActivityTest {
 		@Override
 		protected void setSex(int id, int female) {
 		}
-		
-		@Override 
+
+		@Override
 		protected TanitaDataSource getDataSource() {
 			return new TestTanitaDataSource();
 		}
-		
+
 		@Override
 		protected void setData() {
 		}
@@ -89,5 +97,39 @@ public class TextViewActivityTest {
 
 		assertThat(values.containsKey(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()), is(true));
 		assertThat(values.get(TanitaDataTable.Column.BODY_FAT_LEFT_ARM.toString()).toString(), is(""));
+	}
+
+	private static class EmptyDataSource extends DataSource {
+
+		public EmptyDataSource() {
+			super(new DatabaseConnection(null, null, null, null));
+			// database = ShadowSQLiteDatabase.openDatabase("", null, 0);
+		}
+
+		@Override
+		protected Data convertToAbstractData(Cursor cursor) {
+			return null;
+		}
+
+		@Override
+		protected List<String> getAllColumns() {
+			return new ArrayList<String>();
+		}
+
+	}
+
+	private static class TextViewActivityWithNoDB extends BodyFatLeftArmActivity {
+
+		@Override
+		protected DataSource getDataSource() {
+			return new EmptyDataSource();
+		}
+	}
+
+	@Test(expected = ExtrasNotSetException.class)
+	public void testExtrasNotSet() {
+		TextViewActivity activity = new TextViewActivityWithNoDB();
+		activity.setIntent(new Intent());
+		activity.onCreate(null);
 	}
 }

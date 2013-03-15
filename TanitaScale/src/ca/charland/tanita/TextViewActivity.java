@@ -56,12 +56,12 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 		setData();
 		setPrevious();
 		setAverage();
-		
+
 		datasource.closeDatabaseConnection();
 	}
 
 	protected void setData() {
-		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + getID();
+		String selection = TanitaDataTable.Column.PERSON.toString() + " = " + getPersonID();
 		tanitaData = datasource.query(selection);
 	}
 
@@ -80,7 +80,7 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 		double avg = TanitaDataHelper.getAverage(tanitaData, getColumnName());
 		average.setText(format(avg));
 	}
-	
+
 	private String format(double prev) {
 		Formatter formatter = new Formatter();
 		Formatter format = formatter.format("%1.2f", prev);
@@ -89,11 +89,14 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 		return string;
 	}
 
-	private int getID() {
+	private int getPersonID() {
 		int id = -1;
 		Intent intent = getIntent();
 		if (intent != null) {
 			Bundle extras = intent.getExtras();
+			if (extras == null || !extras.containsKey(BaseAllPeopleListActivity.PERSON_ID)) {
+				throw new ExtrasNotSetException("Please add the PERSON_ID in the extras of the Intent");
+			}
 			id = extras.getInt(BaseAllPeopleListActivity.PERSON_ID);
 		}
 		return id;
@@ -130,16 +133,5 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 			Bitmap newImage = BitmapFactory.decodeResource(getResources(), female);
 			image.setImageBitmap(newImage);
 		}
-	}
-	
-	private int getPersonID() {
-		int person = -1;
-		Intent intent = getIntent();
-		if (intent != null) {
-			// Don't know how inject extras in testing.
-			Bundle extras = intent.getExtras();
-			person = extras.getInt(BaseAllPeopleListActivity.PERSON_ID.toString());
-		}
-		return person;
 	}
 }
