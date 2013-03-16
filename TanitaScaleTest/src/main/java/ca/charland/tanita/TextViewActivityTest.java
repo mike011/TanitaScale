@@ -103,7 +103,6 @@ public class TextViewActivityTest {
 
 		public EmptyDataSource() {
 			super(new DatabaseConnection(null, null, null, null));
-			// database = ShadowSQLiteDatabase.openDatabase("", null, 0);
 		}
 
 		@Override

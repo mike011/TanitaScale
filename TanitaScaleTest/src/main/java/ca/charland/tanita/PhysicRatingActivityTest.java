@@ -7,14 +7,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.charland.tanita.R;
+import android.content.SharedPreferences;
 import ca.charland.robolectric.TanitaRobolectricTestRunner;
-import ca.charland.tanita.base.activity.manage.BasePersonHomeActivity;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDataTable;
 import ca.charland.tanita.db.TestTanitaDataSource;
+import ca.charland.tanita.manage.FirstActivity;
+import ca.charland.tanita.manage.PersonHomeActivity;
 
 import com.google.inject.Inject;
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.shadows.ShadowPreferenceManager;
 
 /**
  * @author mcharland
@@ -58,6 +61,14 @@ public class PhysicRatingActivityTest {
 
 	@Test
 	public void testGetNextClass() {
-		assertThat(activity.getNextClass().toString(), is(BasePersonHomeActivity.class.toString()));
+		assertThat(activity.getNextClass().toString(), is(PersonHomeActivity.class.toString()));
+	}
+	
+	@Test
+	public void testGetNextClassSingleUser() {
+		SharedPreferences sharedPreferences = ShadowPreferenceManager.getDefaultSharedPreferences(Robolectric.application.getApplicationContext());
+		sharedPreferences.edit().putBoolean("singleUser", true).commit();
+		
+		assertThat(activity.getNextClass().toString(), is(FirstActivity.class.toString()));
 	}
 }
