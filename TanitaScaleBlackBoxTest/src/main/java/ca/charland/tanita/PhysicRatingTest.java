@@ -38,7 +38,7 @@ public class PhysicRatingTest extends ActivityInstrumentationTestCase2<PhysicRat
 		solo.enterText(0, "5");
 		solo.clickOnButton("Next");
 		solo.sleep(5000);
-		solo.assertCurrentActivity("Expected Add a new Person activity", "AddANewPersonActivity");
+		solo.assertCurrentActivity("Expected Add a new Person activity", "FirstActivity");
 	}
 
 }
