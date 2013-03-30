@@ -1,5 +1,6 @@
 package ca.charland.tanitascale;
 
+import java.io.File;
 import java.util.Map;
 
 import ooo.connector.BootstrapSocketConnector;
@@ -40,6 +41,8 @@ public class Reporter {
 	public static void main(String args[]) {
 		if (args[0].startsWith("Date")) {
 			parseSingleDay(args);
+		} else if(new File(args[0]).isDirectory()) {
+			parseDirectory(args[0]);
 		} else {
 			parseFiles(args);
 		}
@@ -62,6 +65,19 @@ public class Reporter {
 			content.printValues(values, y++);
 		}
 	}
+	
+
+	private static void parseDirectory(String dir) {
+		Parser parser = new Parser();
+		Reporter content = new Reporter();
+		String args[] = new File(dir).list();
+		int y = 0;
+		for (String arg : args) {
+			Map<Column, String> values = parser.parseFileContents(LoadFile.load(dir + arg));
+			content.printValues(values, y++);
+		}
+	}
+
 
 	public Reporter() {
 		
@@ -102,7 +118,7 @@ public class Reporter {
 		if(os.contains("Linux")) {
 			return "/usr/lib/libreoffice/program";
 		}
-		return "D:/Program Files (x86)/LibreOffice 3.6/program";
+		return "C:/Program Files (x86)/LibreOffice 4.0/program";
 	}
 	
 	private void setKeyFormats() {
