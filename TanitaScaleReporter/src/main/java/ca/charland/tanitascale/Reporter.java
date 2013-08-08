@@ -76,6 +76,7 @@ public class Reporter {
 		for (String arg : args) {
 			DayData values = parser.parseFileContents(LoadFile.load(dir + arg));
 			days.add(values);
+			new File(dir + arg).delete();
 		}
 
 		int y = 0;
