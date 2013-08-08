@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 public class Parser {
 
-	public Map<Column, String> parseSingleDay(String[] args) {
+	public DayData parseSingleDay(String[] args) {
 		List<String> contents = new ArrayList<String>();
 		for (int x = 0; x < args.length; x++) {
 			StringBuffer line = new StringBuffer();
@@ -20,7 +20,7 @@ public class Parser {
 		return parseFileContents(contents);
 	}
 
-	public Map<Column, String> parseFileContents(List<String> contents) {
+	public DayData parseFileContents(List<String> contents) {
 		Map<Column, String> values = new TreeMap<Column, String>();
 		for (String line : contents) {
 			String[] vals = line.split(" = ");
@@ -35,7 +35,7 @@ public class Parser {
 			}
 			values.put(keyColumn, getString(vals));
 		}
-		return values;
+		return new DayData(values);
 	}
 
 	private static String getString(String[] vals) {

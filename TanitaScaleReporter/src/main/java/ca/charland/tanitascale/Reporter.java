@@ -1,7 +1,8 @@
 package ca.charland.tanitascale;
 
 import java.io.File;
-import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import ooo.connector.BootstrapSocketConnector;
 
@@ -41,7 +42,7 @@ public class Reporter {
 	public static void main(String args[]) {
 		if (args[0].startsWith("Date")) {
 			parseSingleDay(args);
-		} else if(new File(args[0]).isDirectory()) {
+		} else if (new File(args[0]).isDirectory()) {
 			parseDirectory(args[0]);
 		} else {
 			parseFiles(args);
@@ -51,38 +52,42 @@ public class Reporter {
 	private static void parseSingleDay(String[] args) {
 		Parser parser = new Parser();
 		Reporter content = new Reporter();
-		
-		Map<Column, String> values = parser.parseSingleDay(args);
+
+		DayData values = parser.parseSingleDay(args);
 		content.printValues(values, 0);
 	}
 
 	private static void parseFiles(String[] args) {
 		Parser parser = new Parser();
 		Reporter content = new Reporter();
-		int y = 0;
-		for (String arg : args) {
-			Map<Column, String> values = parser.parseFileContents(LoadFile.load(arg));
-			content.printValues(values, y++);
-		}
+		printDates("", parser, content, args);
 	}
-	
 
 	private static void parseDirectory(String dir) {
 		Parser parser = new Parser();
 		Reporter content = new Reporter();
 		String args[] = new File(dir).list();
-		int y = 0;
+		printDates(dir, parser, content, args);
+	}
+
+	private static void printDates(String dir, Parser parser, Reporter content, String[] args) {
+
+		Set<DayData> days = new TreeSet<DayData>();
 		for (String arg : args) {
-			Map<Column, String> values = parser.parseFileContents(LoadFile.load(dir + arg));
-			content.printValues(values, y++);
+			DayData values = parser.parseFileContents(LoadFile.load(dir + arg));
+			days.add(values);
+		}
+
+		int y = 0;
+		for (DayData d : days) {
+			content.printValues(d, y++);
 		}
 	}
 
-
 	public Reporter() {
-		
+
 		oooExeFolder = setLibreOfficeFolder();
-		
+
 		// get the remote office context. If necessary a new office
 		// process is started
 		try {
@@ -115,12 +120,12 @@ public class Reporter {
 
 	private static String setLibreOfficeFolder() {
 		String os = System.getProperty("os.name");
-		if(os.contains("Linux")) {
+		if (os.contains("Linux")) {
 			return "/usr/lib/libreoffice/program";
 		}
 		return "C:/Program Files (x86)/LibreOffice 4.0/program";
 	}
-	
+
 	private void setKeyFormats() {
 		// Query the number formats supplier of the spreadsheet document
 		XNumberFormatsSupplier numberFormatsSupplier = (XNumberFormatsSupplier) UnoRuntime.queryInterface(XNumberFormatsSupplier.class, document);
@@ -154,7 +159,7 @@ public class Reporter {
 		}
 	}
 
-	public void printValues(Map<Column, String> values, int y) {
+	public void printValues(DayData values, int y) {
 
 		int x = 0;
 		for (Column col : values.keySet()) {
