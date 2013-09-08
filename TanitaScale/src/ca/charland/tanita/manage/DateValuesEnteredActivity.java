@@ -3,9 +3,14 @@ package ca.charland.tanita.manage;
 import java.util.List;
 
 import roboguice.inject.InjectView;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import ca.charland.tanita.R;
 import ca.charland.tanita.base.activity.manage.BaseDateListOfPreviousEntriesActivity;
 import ca.charland.tanita.base.activity.manage.BaseSingleDateValuesEnteredActivity;
@@ -136,5 +141,34 @@ public class DateValuesEnteredActivity extends BaseSingleDateValuesEnteredActivi
 		muscleMassTrunk.setText(String.valueOf(td.getMuscleMassTrunk()));
 
 		physicRating.setText(String.valueOf(td.getPhysicRating()));
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater menuInflater = getMenuInflater();
+		menuInflater.inflate(R.menu.date_values_entered, menu);
+		return true;
+	}
+
+	/**
+	 * Event Handling for Individual menu item selected Identify single menu item by it's id
+	 * */
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		switch (item.getItemId()) {
+		case R.id.delete:
+			Toast.makeText(this, "deleted", Toast.LENGTH_SHORT).show();
+
+			TanitaDataSource datasource = new TanitaDataSource(new TanitaDatabaseConnection(this));
+			datasource.openDatabaseConnection();
+			datasource.removeTableRow(getSelection());
+			datasource.closeDatabaseConnection();
+			
+			finishActivity(Intent.FLAG_ACTIVITY_NO_HISTORY);
+			finish();
+			return true;
+		}
+		return false;
 	}
 }

@@ -16,9 +16,9 @@ public class BasicPersonDataSource extends AbstractPersonDataSource {
 		super(context, database, table, createPeopleTableSQL);
 	}
 	
-	public long create(String name) {
+	public long add(String name) {
 		populateContentValuesKeyValuePairs(new String[] { name});
-		return super.create();
+		return super.add();
 	}
 
 	@Override

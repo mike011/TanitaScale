@@ -21,7 +21,7 @@ public class PersonDataSource extends BasicPersonDataSource {
 
 	public long create(String name, String email, String sex) {
 		populateContentValuesKeyValuePairs(new String[] { name, email, sex });
-		return super.create();
+		return super.add();
 	}
 
 	@Override

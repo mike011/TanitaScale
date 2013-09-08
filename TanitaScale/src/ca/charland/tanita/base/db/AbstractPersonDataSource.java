@@ -15,7 +15,7 @@ public abstract class AbstractPersonDataSource extends DataSource {
 		pairs = new ArrayList<ContentValuesKeyValuePair>();
 	}
 
-	public final long create() {
+	public final long add() {
 		return insertTableRow(getContentValues());
 	}
 

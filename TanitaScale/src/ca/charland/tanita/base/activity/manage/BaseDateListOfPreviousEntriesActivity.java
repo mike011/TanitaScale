@@ -31,15 +31,19 @@ public abstract class BaseDateListOfPreviousEntriesActivity extends RoboListActi
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		populateList();
+
+		datasource.closeDatabaseConnection();
+	}
+
+	protected void populateList() {
 		datasource = getDateListDataSource();
 		datasource.openDatabaseConnection();
 
-		final List<Data> data = datasource.queryWithOrdering(getSelection(), getOrderBy());
+		List<Data> data = datasource.queryWithOrdering(getSelection(), getOrderBy());
 
 		setListAdapter(data);
 		setupListView(data);
-
-		datasource.closeDatabaseConnection();
 	}
 
 	protected abstract DateListDataSource getDateListDataSource();

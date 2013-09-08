@@ -53,6 +53,11 @@ public abstract class DataSource {
 		long insert = database.insert(databaseHelper.getTableName(), null, values);
 		return insert;
 	}
+	
+	public long removeTableRow(String whereClause) {
+		long rowsEffected = database.delete(databaseHelper.getTableName(), whereClause, null);
+		return rowsEffected;
+	}
 
 	public long updateTableRow(String id, Object idValue, ContentValues values) {
 		long effected = database.update(databaseHelper.getTableName(), values, id + '=' + idValue, null);

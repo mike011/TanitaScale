@@ -72,7 +72,7 @@ public class BaseAddANewPersonActivity extends RoboActivity {
 	}
 
 	protected void saveContent() {
-		datasource.create(getNameString());
+		datasource.add(getNameString());
 	}
 
 	protected boolean isContentValid() {

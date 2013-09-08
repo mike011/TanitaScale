@@ -14,4 +14,10 @@ public class DateListOfPreviousEntriesActivity extends BaseDateListOfPreviousEnt
 	protected Class<?> getPreviousEntryClass() {
 		return DateValuesEnteredActivity.class;
 	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		populateList();
+	}
 }
