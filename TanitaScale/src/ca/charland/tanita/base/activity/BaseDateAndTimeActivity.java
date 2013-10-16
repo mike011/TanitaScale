@@ -4,6 +4,8 @@ import java.util.Date;
 
 import android.content.ContentValues;
 import android.os.Bundle;
+import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import ca.charland.tanita.R;
@@ -18,9 +20,7 @@ import ca.charland.tanita.base.db.DateListDataSource;
 public abstract class BaseDateAndTimeActivity extends BaseActivity {
 
 	private static final int SECONDS = 0;
-
 	private DatePicker datePicker;
-
 	private TimePicker timePicker;
 
 	@Override
@@ -34,7 +34,7 @@ public abstract class BaseDateAndTimeActivity extends BaseActivity {
 		datePicker = (DatePicker) findViewById(R.id.entry_date);
 		timePicker = (TimePicker) findViewById(R.id.entry_time);
 	}
-
+	
 	@Override
 	protected ContentValues getValues() {
 		ContentValues content = new ContentValues();
@@ -89,8 +89,13 @@ public abstract class BaseDateAndTimeActivity extends BaseActivity {
 	}
 
 	@Override
-	protected NextButtonOnClickListener getNextButtonOnClickListener() {
+	protected OnClickListener getNextButtonOnClickListener() {
 		return new NextButtonOnClickListener(this, datasource);
+	}
+	
+	@Override
+	protected OnKeyListener getNextButtonOnKeyListener() {
+		return new NextButtonOnKeyListener(this, datasource);
 	}
 
 	@Override

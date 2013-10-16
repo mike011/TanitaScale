@@ -12,10 +12,10 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import ca.charland.tanita.R;
 import ca.charland.tanita.base.activity.manage.BaseAllPeopleListActivity;
 import ca.charland.tanita.base.db.Data;
 import ca.charland.tanita.db.PersonDataHelper;
@@ -50,7 +50,6 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		text = (TextView) findViewById(R.id.editTextEntry);
 		setEnterText();
 
 		setData();
@@ -58,6 +57,12 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 		setAverage();
 
 		datasource.closeDatabaseConnection();
+	}
+	
+	@Override
+	protected View getButtonForKeyPress() {
+		text = (TextView) findViewById(R.id.editTextEntry);
+		return text;
 	}
 
 	protected void setData() {

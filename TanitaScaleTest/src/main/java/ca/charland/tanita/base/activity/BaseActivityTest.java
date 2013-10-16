@@ -13,10 +13,12 @@ import org.junit.runner.RunWith;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
+import ca.charland.robolectric.BaseRobolectricTestRunner;
 import ca.charland.tanita.R;
 import ca.charland.tanita.base.db.Data;
 import ca.charland.tanita.base.db.DataSource;
-import ca.charland.robolectric.BaseRobolectricTestRunner;
 
 @RunWith(BaseRobolectricTestRunner.class)
 public class BaseActivityTest {
@@ -25,8 +27,8 @@ public class BaseActivityTest {
 
 	private static class TestDataSource extends DataSource {
 
-		boolean open;
-		boolean closed;
+		private boolean open;
+		private boolean closed;
 
 		public TestDataSource() {
 			super(null);
@@ -71,10 +73,15 @@ public class BaseActivityTest {
 		}
 
 		@Override
-		protected NextButtonOnClickListener getNextButtonOnClickListener() {
+		protected OnClickListener getNextButtonOnClickListener() {
 			return new NextButtonOnClickListener(activity, datasource);
 		}
 
+		@Override
+		protected OnKeyListener getNextButtonOnKeyListener() {
+			return new NextButtonOnKeyListener(activity, datasource);
+		}
+		
 		@Override
 		protected DataSource getDataSource() {
 			return datasource;
@@ -125,6 +132,12 @@ public class BaseActivityTest {
 	public void testGetNextButtonOnClickListener() {
 		assertThat(activity.getNextButtonOnClickListener(), is(notNullValue()));
 	}
+	
+	@Test
+	public void testGetNextButtonOnKeyListener() {
+		assertThat(activity.getNextButtonOnKeyListener(), is(notNullValue()));
+	}
+	
 
 	@Test
 	public void testGetDataSource() {

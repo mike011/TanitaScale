@@ -1,8 +1,10 @@
 package ca.charland.tanita;
 
 import android.content.Context;
+import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import ca.charland.tanita.base.activity.BaseActivity;
-import ca.charland.tanita.base.activity.NextButtonOnClickListener;
+import ca.charland.tanita.base.activity.NextButtonOnKeyListener;
 import ca.charland.tanita.base.db.DataSource;
 import ca.charland.tanita.db.TanitaDataSource;
 import ca.charland.tanita.db.TanitaDatabaseConnection;
@@ -22,7 +24,12 @@ public abstract class TanitaBaseActivity extends BaseActivity {
 	}
 	
 	@Override
-	protected NextButtonOnClickListener getNextButtonOnClickListener() {
+	protected OnClickListener getNextButtonOnClickListener() {
 		return new TanitaNextButtonOnClickListener(this, datasource);
+	}
+	
+	@Override
+	protected OnKeyListener getNextButtonOnKeyListener() {
+		return new NextButtonOnKeyListener(this, datasource);
 	}
 }
