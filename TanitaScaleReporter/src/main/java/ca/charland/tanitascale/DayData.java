@@ -30,14 +30,15 @@ public class DayData implements Comparable<DayData>{
 	}
 
 	private Date getDate(DayData values) {
+		Date result = null;
 		String date = values.get(Column.DATE);
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
          try {
-			return simpleDateFormat.parse(date);
+        	 result = simpleDateFormat.parse(date);
 		} catch (ParseException e) {
-			e.printStackTrace();
+			throw new IllegalArgumentException(e);
 		}
-		return null;
+		return result;
 	}
 
 }
