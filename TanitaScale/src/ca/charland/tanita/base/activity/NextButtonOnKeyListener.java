@@ -12,8 +12,11 @@ public class NextButtonOnKeyListener extends NextButtonListener implements OnKey
 	}
 	
 	@Override
-	public boolean onKey(View v, int arg1, KeyEvent arg2) {
-		return super.click(v);
+	public boolean onKey(View v, int keyCode, KeyEvent arg2) {
+		if (keyCode == KeyEvent.KEYCODE_ENTER) {
+			return super.click(v);
+		}
+		return false;
 	}
 
 }
