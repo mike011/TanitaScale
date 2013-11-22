@@ -53,9 +53,12 @@ public abstract class BaseActivity extends RoboActivity {
 	@Override
 	protected void onResume() {
 		datasource.openDatabaseConnection();
+		fillInDataIfSet();
 		super.onResume();
 	}
 
+	protected abstract void fillInDataIfSet();
+	
 	@Override
 	protected void onPause() {
 		datasource.closeDatabaseConnection();

@@ -91,6 +91,10 @@ public class BaseActivityTest {
 		protected Class<?> getNextClass() {
 			return BaseRobolectricTestRunner.class;
 		}
+
+		@Override
+		protected void fillInDataIfSet() {
+		}
 	}
 
 	@Before

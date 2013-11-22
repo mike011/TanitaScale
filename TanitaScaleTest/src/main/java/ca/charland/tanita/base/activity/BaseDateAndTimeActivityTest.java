@@ -35,6 +35,10 @@ public class BaseDateAndTimeActivityTest {
 		protected Class<?> getNextClass() {
 			return null;
 		}
+
+		@Override
+		protected void fillInDataIfSet() {
+		}
 	}
 	
 	@Inject

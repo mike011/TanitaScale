@@ -96,11 +96,14 @@ public abstract class DataSource {
 	protected abstract List<String> getAllColumns();
 
 	public void closeDatabaseConnection() {
-		databaseHelper.close();
-		if(database != null) {
-			database.close();	
+		if(open) 
+		{
+			databaseHelper.close();
+			if(database != null) {
+				database.close();	
+			}
+			open = false;
 		}
-		open = false;
 	}
 
 	public boolean isDatabaseConnectionOpen() {

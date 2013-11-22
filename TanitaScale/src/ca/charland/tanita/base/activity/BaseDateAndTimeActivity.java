@@ -1,6 +1,7 @@
 package ca.charland.tanita.base.activity;
 
 import java.util.Date;
+import java.util.List;
 
 import android.content.ContentValues;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import ca.charland.tanita.R;
 import ca.charland.tanita.base.activity.manage.BaseAllPeopleListActivity;
+import ca.charland.tanita.base.db.Data;
 import ca.charland.tanita.base.db.DataSource;
 import ca.charland.tanita.base.db.DataTable;
 import ca.charland.tanita.base.db.DateListDataSource;
@@ -23,6 +25,11 @@ public abstract class BaseDateAndTimeActivity extends BaseActivity {
 	private DatePicker datePicker;
 	private TimePicker timePicker;
 
+
+	@Override
+	protected void fillInDataIfSet() {
+	}
+	
 	@Override
 	protected int getResourceIDForLayout() {
 		return R.layout.date_view;

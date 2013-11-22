@@ -20,6 +20,7 @@ import ca.charland.tanita.base.activity.manage.BaseAllPeopleListActivity;
 import ca.charland.tanita.base.db.Data;
 import ca.charland.tanita.db.PersonDataHelper;
 import ca.charland.tanita.db.PersonDataSource;
+import ca.charland.tanita.db.TanitaData;
 import ca.charland.tanita.db.TanitaDataHelper;
 import ca.charland.tanita.db.TanitaDataTable;
 
@@ -57,6 +58,24 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 		setAverage();
 
 		datasource.closeDatabaseConnection();
+	}
+	
+
+	@Override
+	protected void fillInDataIfSet() {
+		TanitaData d = getLatestValue();
+		double value = d.get(getColumnName());
+		if(value != 0D) 
+		{
+			text.setText(String.valueOf(value));
+		}
+	}
+
+
+	private TanitaData getLatestValue() {
+		List<Data> allValues = datasource.getAllValues();
+		TanitaData d = (TanitaData)allValues.get(allValues.size()-1);
+		return d;
 	}
 	
 	@Override
