@@ -1,7 +1,6 @@
 package ca.charland.tanita.base.activity;
 
 import java.util.Date;
-import java.util.List;
 
 import android.content.ContentValues;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.widget.DatePicker;
 import android.widget.TimePicker;
 import ca.charland.tanita.R;
 import ca.charland.tanita.base.activity.manage.BaseAllPeopleListActivity;
-import ca.charland.tanita.base.db.Data;
 import ca.charland.tanita.base.db.DataSource;
 import ca.charland.tanita.base.db.DataTable;
 import ca.charland.tanita.base.db.DateListDataSource;
