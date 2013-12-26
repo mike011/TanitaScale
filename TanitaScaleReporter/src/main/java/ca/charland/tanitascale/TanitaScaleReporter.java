@@ -45,14 +45,22 @@ public class TanitaScaleReporter {
 
 		Set<DayData> days = new TreeSet<DayData>();
 		for (String arg : args) {
-			DayData values = parser.parseFileContents(LoadFile.load(dir + arg));
+			DayData values = parser.parseFileContents(LoadFile.load(getFolder(dir, arg)));
 			days.add(values);
-			new File(dir + arg).delete();
+			new File(getFolder(dir, arg)).delete();
 		}
 
 		int y = 0;
 		for (DayData d : days) {
 			content.printValues(d, y++);
 		}
+	}
+
+	private static String getFolder(String dir, String arg) {
+		String folder = dir;
+		if(!dir.endsWith(File.separator)) {
+			folder += File.separator;
+		}
+		return folder + arg;
 	}
 }
