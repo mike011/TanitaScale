@@ -1,13 +1,20 @@
 package ca.charland.tanita;
 
+import android.os.Bundle;
 import ca.charland.tanita.R;
 import ca.charland.tanita.db.TanitaDataTable;
 
 /**
  * @author mcharland
  */
-public class BodyFatRightLegActivity extends BodyFatBaseActivity {
+public class BodyFatRightLegActivity extends TextViewActivity {
 
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setSex(R.id.body_fat_image, R.drawable.body_fat_female_right_leg);
+	}
+	
 	@Override
 	protected int getResourceIDForLayout() {
 		return R.layout.body_fat_right_leg;

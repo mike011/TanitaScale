@@ -11,6 +11,7 @@ Version 1.0
 - If you pick a person you go to the add a new entry / view old entries
 --For the add entry path each entry will be one screen
 --Viewing old entries will be simple table with values.
+--Ability to see if you've already sent an email of the data
 
 Version 2.0
 - Add graphs when viewing data. Not sure what graph!

@@ -1,5 +1,6 @@
 package ca.charland.tanita;
 
+import android.os.Bundle;
 import ca.charland.tanita.R;
 import ca.charland.tanita.db.TanitaDataTable;
 
@@ -8,6 +9,12 @@ import ca.charland.tanita.db.TanitaDataTable;
  */
 public class BodyFatTrunkActivity extends TextViewActivity {
 
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setSex(R.id.body_fat_image, R.drawable.body_fat_female_trunk);
+	}
+	
 	@Override
 	protected int getResourceIDForLayout() {
 		return R.layout.body_fat_trunk;
