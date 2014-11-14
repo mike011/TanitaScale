@@ -68,7 +68,7 @@ public class BaseActivityTest {
 		}
 
 		@Override
-		protected ContentValues getValues() {
+		public ContentValues getValues() {
 			return contentValues;
 		}
 

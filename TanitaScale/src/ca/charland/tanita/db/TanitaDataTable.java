@@ -61,7 +61,9 @@ public class TanitaDataTable extends DataTable {
 
 		VISCERAL_FAT("visceral_fat"),
 
-		BONE_MASS("bone_mass");
+		BONE_MASS("bone_mass"), 
+		
+		EMAILS_SENT("emailed");
 		
 		private final String name;
 
@@ -101,7 +103,8 @@ public class TanitaDataTable extends DataTable {
 		sql.append(Column.METABOLIC_AGE).append(" integer, ");
 		sql.append(Column.BODY_WATER_PERCENTAGE).append(" integer, ");
 		sql.append(Column.VISCERAL_FAT).append(" integer, ");
-		sql.append(Column.BONE_MASS).append(" integer");
+		sql.append(Column.BONE_MASS).append(" integer, ");
+		sql.append(Column.EMAILS_SENT).append(" integer");
 		sql.append(");");
 		String string = sql.toString();
 		return string;

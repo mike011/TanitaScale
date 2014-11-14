@@ -93,7 +93,7 @@ public abstract class BaseDateListOfPreviousEntriesActivity extends RoboListActi
 	
 	@Override
 	protected void onResume() {
-		datasource.openDatabaseConnection();
+		//datasource.openDatabaseConnection();
 		super.onResume();
 	}
 

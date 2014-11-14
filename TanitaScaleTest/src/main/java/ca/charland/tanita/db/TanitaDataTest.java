@@ -331,6 +331,11 @@ public class TanitaDataTest {
 	public void testGetPerson() {
 		assertThat(data.get(Column.PERSON), is(-1d));
 	}
+	
+	@Test
+	public void testEmail() {
+		assertThat(data.get(Column.EMAILS_SENT), is(0d));
+	}
 
 	@Test
 	public void testToString() {

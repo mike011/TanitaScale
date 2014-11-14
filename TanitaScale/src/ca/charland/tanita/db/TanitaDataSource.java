@@ -46,6 +46,7 @@ public class TanitaDataSource extends DataSource {
 		td.setPhysicRating(cursor.getInt(TanitaDataTable.Column.PHYSIC_RATING.ordinal()));
 		td.setBodyWaterPercentage(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.BODY_WATER_PERCENTAGE.ordinal())));
 		td.setBoneMass(Double.valueOf(cursor.getDouble(TanitaDataTable.Column.BONE_MASS.ordinal())));
+		td.setEmailsSent(Double.valueOf(cursor.getInt(TanitaDataTable.Column.EMAILS_SENT.ordinal())));
 
 		return td;
 	}
@@ -75,6 +76,7 @@ public class TanitaDataSource extends DataSource {
 		allColumns.add(TanitaDataTable.Column.BODY_WATER_PERCENTAGE.toString());
 		allColumns.add(TanitaDataTable.Column.VISCERAL_FAT.toString());
 		allColumns.add(TanitaDataTable.Column.BONE_MASS.toString());
+		allColumns.add(TanitaDataTable.Column.EMAILS_SENT.toString());
 		return allColumns;
 	}
 }

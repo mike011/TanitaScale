@@ -23,7 +23,7 @@ public abstract class BaseActivity extends RoboActivity {
 	protected DataSource datasource;
 	
 	protected abstract int getResourceIDForLayout();
-	protected abstract ContentValues getValues();
+	public abstract ContentValues getValues();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

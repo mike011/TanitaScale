@@ -38,7 +38,8 @@ public class TanitaDataTableTest {
 		expected.append("metabolic_age integer, ");
 		expected.append("body_water_percentage integer, ");
 		expected.append("visceral_fat integer, ");
-		expected.append("bone_mass integer);");
+		expected.append("bone_mass integer, ");
+		expected.append("emailed integer);");
 		assertThat(TanitaDataTable.CREATE_DATABASE_TABLE, is(expected.toString()));
 	}
 }

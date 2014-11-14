@@ -13,42 +13,25 @@ import ca.charland.tanita.base.db.BaseData;
 public class TanitaData extends BaseData {
 
 	private double bodyFatTotal;
-
 	private double bodyFatLeftArm;
-
 	private double bodyFatRightArm;
-
 	private double bodyFatRightLeg;
-
 	private double bodyFatLeftLeg;
-
 	private double bodyFatTrunk;
-
 	private double muscleMassTotal;
-
 	private double muscleMassLeftArm;
-
 	private double muscleMassRightArm;
-
 	private double muscleMassRightLeg;
-
 	private double muscleMassLeftLeg;
-
 	private double muscleMassTrunk;
-
 	private int physicRating;
-
 	private double weight;
-
 	private int dailyCaloricIntake;
-
 	private int metabolicAge;
-
 	private double bodyWaterPercentage;
-
 	private int visceralFat;
-
 	private double boneMass;
+	private int emailsSent;
 
 	public double getBodyFatTotal() {
 		return bodyFatTotal;
@@ -201,6 +184,18 @@ public class TanitaData extends BaseData {
 	public void setBoneMass(double boneMass) {
 		this.boneMass = boneMass;
 	}
+	
+	public int getEmailsSent() {
+		return emailsSent;
+	}
+	
+	public void setEmailsSent(double emails) {
+		this.emailsSent = (int) emails;
+	}
+	
+	public void incrementEmailsSent() {
+		emailsSent++;
+	}
 
 	public double get(TanitaDataTable.Column column) {
 		switch (column) {
@@ -259,6 +254,10 @@ public class TanitaData extends BaseData {
 
 		case WEIGHT:
 			return getWeight();
+			
+		case EMAILS_SENT:
+			return getEmailsSent();
+			
 		default:
 			break;
 		}
@@ -271,5 +270,4 @@ public class TanitaData extends BaseData {
 		DateFormat df = new SimpleDateFormat("MMM dd, yyyy h:mmaa");
 		return df.format(getDate());
 	}
-
 }

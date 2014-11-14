@@ -142,7 +142,7 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 	protected abstract TanitaDataTable.Column getColumnName();
 
 	@Override
-	protected final ContentValues getValues() {
+	public final ContentValues getValues() {
 		ContentValues values = new ContentValues();
 		values.put(getColumnName().toString(), text.getText().toString());
 		return values;

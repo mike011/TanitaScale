@@ -44,4 +44,5 @@
     <string name="settingsButton">Settings</string>
     <string name="singleUser">Enable Single User Mode?</string>
     <string name="delete">Delete</string>
+    <string name="emailsSent">Number of emails sent</string>
 </resources>

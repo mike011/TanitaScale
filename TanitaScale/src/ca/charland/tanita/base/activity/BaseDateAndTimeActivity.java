@@ -41,7 +41,7 @@ public abstract class BaseDateAndTimeActivity extends BaseActivity {
 	}
 	
 	@Override
-	protected ContentValues getValues() {
+	public ContentValues getValues() {
 		ContentValues content = new ContentValues();
 		addPerson(content);
 		content.put(DataTable.DATE_COLUMN_NAME, getTime());

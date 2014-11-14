@@ -1,6 +1,6 @@
 package ca.charland.tanita.base.db;
 
-import android.annotation.SuppressLint;
+import ca.charland.tanita.db.TanitaDataTable;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -13,7 +13,7 @@ import android.util.Log;
  */
 public class DatabaseConnection extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 3;
 	public static final String DATABASE_NAME = "application.db";
 
 	private final String databaseName;
@@ -36,16 +36,19 @@ public class DatabaseConnection extends SQLiteOpenHelper {
 		database.execSQL(createTableSQL);
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		Log.w(DatabaseConnection.class.getName(), getMessage(oldVersion, newVersion));
+		// If you need to add a column
+		if (newVersion > oldVersion) {
+			db.execSQL("ALTER TABLE " + TanitaDataTable.TABLE_NAME + " ADD COLUMN " + TanitaDataTable.Column.EMAILS_SENT + " INTEGER DEFAULT 0");
+		}
 		dropTables(db);
 		onCreate(db);
 	}
 
 	private void dropTables(SQLiteDatabase db) {
-		db.execSQL("DROP TABLE IF EXISTS" + getTableName());
+		db.execSQL("DROP TABLE IF EXISTS " + getTableName());
 	}
 
 	private String getMessage(int oldVersion, int newVersion) {
@@ -57,8 +60,7 @@ public class DatabaseConnection extends SQLiteOpenHelper {
 		msg.append(", which will destroy all old data");
 		return msg.toString();
 	}
-	
-	@SuppressLint("Override")
+
 	public String getDatabaseName() {
 		return databaseName;
 	}
@@ -66,7 +68,7 @@ public class DatabaseConnection extends SQLiteOpenHelper {
 	public String getTableName() {
 		return tableName;
 	}
-	
+
 	public String getCreateTableSQL() {
 		return createTableSQL;
 	}

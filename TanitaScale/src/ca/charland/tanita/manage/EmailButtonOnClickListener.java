@@ -7,18 +7,25 @@ import java.util.Locale;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 import android.widget.Toast;
 import ca.charland.tanita.R;
+import ca.charland.tanita.base.activity.BaseActivity;
 import ca.charland.tanita.base.db.Data;
+import ca.charland.tanita.base.db.DataTable;
 import ca.charland.tanita.base.utils.Email;
 import ca.charland.tanita.db.PersonData;
 import ca.charland.tanita.db.PersonDataSource;
 import ca.charland.tanita.db.PersonDataTable;
 import ca.charland.tanita.db.TanitaData;
+import ca.charland.tanita.db.TanitaDataSource;
+import ca.charland.tanita.db.TanitaDataTable;
+import ca.charland.tanita.db.TanitaDatabaseConnection;
 
 /**
  * The listener interface for receiving emailButtonOnClick events. The class that is interested in processing a emailButtonOnClick event implements
@@ -31,19 +38,40 @@ import ca.charland.tanita.db.TanitaData;
  */
 public class EmailButtonOnClickListener implements OnClickListener {
 
-	private Activity activity;
-
-	private final TanitaData tanitadata;
+	private final Activity activity;
+	private final TanitaData tanitaData;
 
 	public EmailButtonOnClickListener(Activity activity, TanitaData td) {
 		this.activity = activity;
-		this.tanitadata = td;
+		this.tanitaData = td;
+		setEmailSentAmount();
 	}
 
 	@Override
 	public void onClick(View v) {
 		Intent intent = getEmail();
 		sendEmail(intent);
+		incrementEmailValue();
+	}
+
+	private void incrementEmailValue() {
+		tanitaData.incrementEmailsSent();
+		
+		int id = tanitaData.getId();
+		
+		TanitaDataSource datasource = new TanitaDataSource(new TanitaDatabaseConnection(activity));
+		datasource.openDatabaseConnection();
+		ContentValues values = new ContentValues();
+		values.put(TanitaDataTable.Column.EMAILS_SENT.toString(), tanitaData.getEmailsSent());
+		datasource.updateTableRow(DataTable.ID_COLUMN_NAME, id, values);
+		datasource.closeDatabaseConnection();
+		
+		setEmailSentAmount();
+	}
+
+	private void setEmailSentAmount() {
+		TextView inc = (TextView) activity.findViewById(R.id.emailSentAmount);
+		inc.setText(String.valueOf(tanitaData.getEmailsSent()));
 	}
 
 	private Intent getEmail() {
@@ -76,40 +104,40 @@ public class EmailButtonOnClickListener implements OnClickListener {
 	}
 
 	private String getSelection() {
-		long person = tanitadata.getPerson();
+		long person = tanitaData.getPerson();
 		return PersonDataTable.Column.ID.toString() + " = " + person;
 	}
 
 	private void setEmailBody(Email email) {
 
 		email.addToBody(getTextFromResource(R.string.date), getDate());
-		email.addToBodyDouble(getTextFromResource(R.string.weight), tanitadata.getWeight());
-		email.addToBodyInteger(getTextFromResource(R.string.dci), tanitadata.getDailyCaloricIntake());
-		email.addToBodyInteger(getTextFromResource(R.string.metabolic_age), tanitadata.getMetabolicAge());
-		email.addToBodyPercent(getTextFromResource(R.string.body_water_percentage), tanitadata.getBodyWaterPercentage());
-		email.addToBodyInteger(getTextFromResource(R.string.visceral_fat), tanitadata.getVisceralFat());
-		email.addToBodyDouble(getTextFromResource(R.string.bone_mass), tanitadata.getBoneMass());
+		email.addToBodyDouble(getTextFromResource(R.string.weight), tanitaData.getWeight());
+		email.addToBodyInteger(getTextFromResource(R.string.dci), tanitaData.getDailyCaloricIntake());
+		email.addToBodyInteger(getTextFromResource(R.string.metabolic_age), tanitaData.getMetabolicAge());
+		email.addToBodyPercent(getTextFromResource(R.string.body_water_percentage), tanitaData.getBodyWaterPercentage());
+		email.addToBodyInteger(getTextFromResource(R.string.visceral_fat), tanitaData.getVisceralFat());
+		email.addToBodyDouble(getTextFromResource(R.string.bone_mass), tanitaData.getBoneMass());
 
-		email.addToBodyPercent(getTextFromResource(R.string.body_fat_total), tanitadata.getBodyFatTotal());
-		email.addToBodyPercent(getTextFromResource(R.string.body_fat_arm_left), tanitadata.getBodyFatLeftArm());
-		email.addToBodyPercent(getTextFromResource(R.string.body_fat_arm_right), tanitadata.getBodyFatRightArm());
-		email.addToBodyPercent(getTextFromResource(R.string.body_fat_leg_left), tanitadata.getBodyFatLeftLeg());
-		email.addToBodyPercent(getTextFromResource(R.string.body_fat_leg_right), tanitadata.getBodyFatRightLeg());
-		email.addToBodyPercent(getTextFromResource(R.string.body_fat_trunk), tanitadata.getBodyFatTrunk());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_total), tanitaData.getBodyFatTotal());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_arm_left), tanitaData.getBodyFatLeftArm());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_arm_right), tanitaData.getBodyFatRightArm());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_leg_left), tanitaData.getBodyFatLeftLeg());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_leg_right), tanitaData.getBodyFatRightLeg());
+		email.addToBodyPercent(getTextFromResource(R.string.body_fat_trunk), tanitaData.getBodyFatTrunk());
 
-		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_total), tanitadata.getMuscleMassTotal());
-		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_arm_left), tanitadata.getMuscleMassLeftArm());
-		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_arm_right), tanitadata.getMuscleMassRightArm());
-		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_leg_right), tanitadata.getMuscleMassRightLeg());
-		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_leg_left), tanitadata.getMuscleMassLeftLeg());
-		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_trunk), tanitadata.getMuscleMassTrunk());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_total), tanitaData.getMuscleMassTotal());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_arm_left), tanitaData.getMuscleMassLeftArm());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_arm_right), tanitaData.getMuscleMassRightArm());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_leg_right), tanitaData.getMuscleMassRightLeg());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_leg_left), tanitaData.getMuscleMassLeftLeg());
+		email.addToBodyDouble(getTextFromResource(R.string.muscle_mass_trunk), tanitaData.getMuscleMassTrunk());
 
-		email.addToBodyInteger(getTextFromResource(R.string.physic_rating), tanitadata.getPhysicRating());
+		email.addToBodyInteger(getTextFromResource(R.string.physic_rating), tanitaData.getPhysicRating());
 	}
 
 	private String getDate() {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-		String date = df.format(tanitadata.getDate());
+		String date = df.format(tanitaData.getDate());
 		return date;
 	}
 
@@ -120,7 +148,7 @@ public class EmailButtonOnClickListener implements OnClickListener {
 	}
 
 	private String getSubject() {
-		return tanitadata.toString();
+		return tanitaData.toString();
 	}
 
 }
