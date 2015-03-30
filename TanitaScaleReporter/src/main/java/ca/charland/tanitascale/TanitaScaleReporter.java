@@ -47,12 +47,15 @@ public class TanitaScaleReporter {
 		for (String arg : args) {
 			DayData values = parser.parseFileContents(LoadFile.load(getFolder(dir, arg)));
 			days.add(values);
-			new File(getFolder(dir, arg)).delete();
 		}
 
 		int y = 0;
 		for (DayData d : days) {
 			content.printValues(d, y++);
+		}
+		
+		for (String arg : args) {
+			new File(getFolder(dir, arg)).delete();
 		}
 	}
 

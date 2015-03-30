@@ -74,7 +74,7 @@ public class Reporter {
 		if (os.contains("Linux")) {
 			return "/usr/lib/libreoffice/program";
 		}
-		return "C:/Program Files (x86)/LibreOffice 4.0/program";
+		return "D:/Program Files (x86)/LibreOffice 4/program";
 	}
 
 	private void setKeyFormats() {
