@@ -4,6 +4,10 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="10" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -11,11 +15,8 @@
         <uses-library android:name="android.test.runner" />
     </application>
 
-    <uses-sdk
-        android:minSdkVersion="10"
-        android:targetSdkVersion="10" />
-
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="ca.charland.tanita" />
-</manifest>
+
+</manifest>
