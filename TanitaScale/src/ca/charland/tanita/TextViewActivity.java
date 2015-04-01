@@ -74,7 +74,10 @@ public abstract class TextViewActivity extends TanitaBaseActivity {
 
 	private TanitaData getLatestValue() {
 		List<Data> allValues = datasource.getAllValues();
-		TanitaData d = (TanitaData)allValues.get(allValues.size()-1);
+		TanitaData d = new TanitaData();
+		if(!allValues.isEmpty()) {
+			d= (TanitaData)allValues.get(allValues.size()-1);
+		}
 		return d;
 	}
 	
