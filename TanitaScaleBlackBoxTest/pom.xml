@@ -38,8 +38,6 @@
 			<groupId>com.jayway.android.robotium</groupId>
 			<artifactId>robotium-solo</artifactId>
 			<version>3.6</version>
-			<scope>provided</scope>
-			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>ca.charland.tanitascale</groupId>
