@@ -3,7 +3,7 @@ package ca.charland.tanita;
 import android.test.ActivityInstrumentationTestCase2;
 import ca.charland.tanita.manage.AllPeopleListActivity;
 
-import com.jayway.android.robotium.solo.Solo;
+import com.robotium.solo.Solo;
 
 public class ViewAllPersonsTest extends ActivityInstrumentationTestCase2<AllPeopleListActivity>{
 
@@ -18,6 +18,7 @@ public class ViewAllPersonsTest extends ActivityInstrumentationTestCase2<AllPeop
 		//setUp() is run before a test case is started. 
 		//This is where the solo object is created.
 		solo = new Solo(getInstrumentation(), getActivity());
+		solo.unlockScreen();
 	}
 	
 	@Override

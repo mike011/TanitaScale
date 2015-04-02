@@ -5,7 +5,7 @@ import android.preference.ListPreference;
 import android.test.ActivityInstrumentationTestCase2;
 import ca.charland.tanita.base.activity.manage.PreferencesActivity;
 
-import com.jayway.android.robotium.solo.Solo;
+import com.robotium.solo.Solo;
 
 public class SettingsTest extends ActivityInstrumentationTestCase2<PreferencesActivity>{
 
@@ -20,6 +20,7 @@ public class SettingsTest extends ActivityInstrumentationTestCase2<PreferencesAc
 		//setUp() is run before a test case is started. 
 		//This is where the solo object is created.
 		solo = new Solo(getInstrumentation(), getActivity());
+		solo.unlockScreen();
 	}
 	
 	@Override
@@ -30,7 +31,9 @@ public class SettingsTest extends ActivityInstrumentationTestCase2<PreferencesAc
 	}
 
 	public void testCantPressYet() throws Exception {
-		ListPreference people = (ListPreference) getActivity().findPreference("people");
+		Object activity2 = solo.getCurrentActivity();
+		PreferencesActivity activity = (PreferencesActivity)activity2;
+		ListPreference people = (ListPreference) activity.findPreference("people");
 		SystemClock.sleep(500);
 		assertFalse(people.isEnabled());
 	}
