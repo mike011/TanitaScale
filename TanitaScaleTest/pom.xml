@@ -5,7 +5,7 @@
 	<artifactId>TanitaScaleTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<build>
-	 	<sourceDirectory>src/test/java</sourceDirectory>
+		<sourceDirectory>../TanitaScale/src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -13,6 +13,17 @@
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<includes>
+						<include>${project.build.directory}/generated-classes/**/*.class</include>
+					</includes>
 				</configuration>
 			</plugin>
 		</plugins>
