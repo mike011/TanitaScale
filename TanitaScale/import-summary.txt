@@ -1,0 +1,176 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* build.xml
+* pom.xml
+* proguard-project.txt
+* project_fix.bat
+* project_fix.sh
+* target\
+* target\R.txt
+* target\TanitaScale.ap_
+* target\TanitaScale.apk
+* target\TanitaScale.jar
+* target\classes.dex
+* target\classes\
+* target\classes\ca\
+* target\classes\ca\charland\
+* target\classes\ca\charland\tanita\
+* target\classes\ca\charland\tanita\BodyFatLeftArmActivity.class
+* target\classes\ca\charland\tanita\BodyFatLeftLegActivity.class
+* target\classes\ca\charland\tanita\BodyFatRightArmActivity.class
+* target\classes\ca\charland\tanita\BodyFatRightLegActivity.class
+* target\classes\ca\charland\tanita\BodyFatTotalActivity.class
+* target\classes\ca\charland\tanita\BodyFatTrunkActivity.class
+* target\classes\ca\charland\tanita\BodyWaterPercentageActivity.class
+* target\classes\ca\charland\tanita\BoneMassActivity.class
+* target\classes\ca\charland\tanita\BuildConfig.class
+* target\classes\ca\charland\tanita\DailyCaloricIntakeActivity.class
+* target\classes\ca\charland\tanita\DateAndTimeActivity.class
+* target\classes\ca\charland\tanita\ExtrasNotSetException.class
+* target\classes\ca\charland\tanita\MetabolicAgeActivity.class
+* target\classes\ca\charland\tanita\MuscleMassLeftArmActivity.class
+* target\classes\ca\charland\tanita\MuscleMassLeftLegActivity.class
+* target\classes\ca\charland\tanita\MuscleMassRightArmActivity.class
+* target\classes\ca\charland\tanita\MuscleMassRightLegActivity.class
+* target\classes\ca\charland\tanita\MuscleMassTotalActivity.class
+* target\classes\ca\charland\tanita\MuscleMassTrunkActivity.class
+* target\classes\ca\charland\tanita\PhysicRatingActivity.class
+* target\classes\ca\charland\tanita\R$array.class
+* target\classes\ca\charland\tanita\R$attr.class
+* target\classes\ca\charland\tanita\R$drawable.class
+* target\classes\ca\charland\tanita\R$id.class
+* target\classes\ca\charland\tanita\R$layout.class
+* target\classes\ca\charland\tanita\R$menu.class
+* target\classes\ca\charland\tanita\R$string.class
+* target\classes\ca\charland\tanita\R$xml.class
+* target\classes\ca\charland\tanita\R.class
+* target\classes\ca\charland\tanita\TanitaBaseActivity.class
+* target\classes\ca\charland\tanita\TanitaNextButtonOnClickListener.class
+* target\classes\ca\charland\tanita\TextViewActivity.class
+* target\classes\ca\charland\tanita\VisceralFatActivity.class
+* target\classes\ca\charland\tanita\WeightActivity.class
+* target\classes\ca\charland\tanita\base\
+* target\classes\ca\charland\tanita\base\activity\
+* target\classes\ca\charland\tanita\base\activity\BaseActivity.class
+* target\classes\ca\charland\tanita\base\activity\BaseDateAndTimeActivity.class
+* target\classes\ca\charland\tanita\base\activity\NextButtonListener.class
+* target\classes\ca\charland\tanita\base\activity\NextButtonOnClickListener.class
+* target\classes\ca\charland\tanita\base\activity\NextButtonOnKeyListener.class
+* target\classes\ca\charland\tanita\base\activity\manage\
+* target\classes\ca\charland\tanita\base\activity\manage\BaseAddANewPersonActivity$1.class
+* target\classes\ca\charland\tanita\base\activity\manage\BaseAddANewPersonActivity$SaveOnClickListener.class
+* target\classes\ca\charland\tanita\base\activity\manage\BaseAddANewPersonActivity.class
+* target\classes\ca\charland\tanita\base\activity\manage\BaseAllPeopleListActivity$1.class
+* target\classes\ca\charland\tanita\base\activity\manage\BaseAllPeopleListActivity.class
+* target\classes\ca\charland\tanita\base\activity\manage\BaseDateListOfPreviousEntriesActivity$1.class
+* target\classes\ca\charland\tanita\base\activity\manage\BaseDateListOfPreviousEntriesActivity.class
+* target\classes\ca\charland\tanita\base\activity\manage\BaseFirstActivity$1.class
+* target\classes\ca\charland\tanita\base\activity\manage\BaseFirstActivity.class
+* target\classes\ca\charland\tanita\base\activity\manage\BaseFirstActivityDataHolder.class
+* target\classes\ca\charland\tanita\base\activity\manage\BasePersonHomeActivity$1.class
+* target\classes\ca\charland\tanita\base\activity\manage\BasePersonHomeActivity.class
+* target\classes\ca\charland\tanita\base\activity\manage\BasePersonHomeActivityDataHolder.class
+* target\classes\ca\charland\tanita\base\activity\manage\BaseSingleDateValuesEnteredActivity.class
+* target\classes\ca\charland\tanita\base\activity\manage\MultipleActivityData.class
+* target\classes\ca\charland\tanita\base\activity\manage\PreferencesActivity$1.class
+* target\classes\ca\charland\tanita\base\activity\manage\PreferencesActivity.class
+* target\classes\ca\charland\tanita\base\db\
+* target\classes\ca\charland\tanita\base\db\AbstractPersonDataSource.class
+* target\classes\ca\charland\tanita\base\db\BaseData.class
+* target\classes\ca\charland\tanita\base\db\BasicPersonData.class
+* target\classes\ca\charland\tanita\base\db\BasicPersonDataSource.class
+* target\classes\ca\charland\tanita\base\db\BasicPersonDataTable$Column.class
+* target\classes\ca\charland\tanita\base\db\BasicPersonDataTable.class
+* target\classes\ca\charland\tanita\base\db\ContentValuesKeyValuePair.class
+* target\classes\ca\charland\tanita\base\db\Data.class
+* target\classes\ca\charland\tanita\base\db\DataSource.class
+* target\classes\ca\charland\tanita\base\db\DataTable$Column.class
+* target\classes\ca\charland\tanita\base\db\DataTable.class
+* target\classes\ca\charland\tanita\base\db\DatabaseConnection.class
+* target\classes\ca\charland\tanita\base\db\DateListDataSource.class
+* target\classes\ca\charland\tanita\base\utils\
+* target\classes\ca\charland\tanita\base\utils\Email$Pair.class
+* target\classes\ca\charland\tanita\base\utils\Email.class
+* target\classes\ca\charland\tanita\db\
+* target\classes\ca\charland\tanita\db\PersonData.class
+* target\classes\ca\charland\tanita\db\PersonDataHelper.class
+* target\classes\ca\charland\tanita\db\PersonDataSource.class
+* target\classes\ca\charland\tanita\db\PersonDataTable$Column.class
+* target\classes\ca\charland\tanita\db\PersonDataTable.class
+* target\classes\ca\charland\tanita\db\TanitaData$1.class
+* target\classes\ca\charland\tanita\db\TanitaData.class
+* target\classes\ca\charland\tanita\db\TanitaDataHelper.class
+* target\classes\ca\charland\tanita\db\TanitaDataSource.class
+* target\classes\ca\charland\tanita\db\TanitaDataTable$Column.class
+* target\classes\ca\charland\tanita\db\TanitaDataTable.class
+* target\classes\ca\charland\tanita\db\TanitaDatabaseConnection.class
+* target\classes\ca\charland\tanita\db\TanitaDateListDataSource.class
+* target\classes\ca\charland\tanita\manage\
+* target\classes\ca\charland\tanita\manage\AddANewPersonActivity.class
+* target\classes\ca\charland\tanita\manage\AllPeopleListActivity.class
+* target\classes\ca\charland\tanita\manage\DateListOfPreviousEntriesActivity.class
+* target\classes\ca\charland\tanita\manage\DateValuesEnteredActivity.class
+* target\classes\ca\charland\tanita\manage\EmailButtonOnClickListener.class
+* target\classes\ca\charland\tanita\manage\FirstActivity.class
+* target\classes\ca\charland\tanita\manage\FirstActivityDataHolder.class
+* target\classes\ca\charland\tanita\manage\PersonHomeActivity.class
+* target\classes\ca\charland\tanita\manage\PersonHomeActivityDataHolder.class
+* target\generated-sources\
+* target\generated-sources\r\
+* target\generated-sources\r\ca\
+* target\generated-sources\r\ca\charland\
+* target\generated-sources\r\ca\charland\tanita\
+* target\generated-sources\r\ca\charland\tanita\BuildConfig.java
+* target\generated-sources\r\ca\charland\tanita\R.java
+* target\maven-archiver\
+* target\maven-archiver\pom.properties
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+robotium-solo-5.3.1-javadoc.jar => com.jayway.android.robotium:robotium-solo:5.3.1
+robotium-solo-5.3.1.jar => com.jayway.android.robotium:robotium-solo:5.3.1
+android-support-v4.jar => com.android.support:support-v4:18.0.0
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app\src\main\AndroidManifest.xml
+* lint.xml => app\lint.xml
+* res\ => app\src\main\res\
+* src\ => app\src\main\java\
+* BlackBoxTest\libs\robotium-solo-5.3.1-javadoc.jar => app\libs\robotium-solo-5.3.1-javadoc.jar
+* BlackBoxTest\libs\robotium-solo-5.3.1.jar => app\libs\robotium-solo-5.3.1.jar
+* BlackBoxTest\res\ => app\src\androidTest\res\
+* BlackBoxTest\src\ => app\src\androidTest\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

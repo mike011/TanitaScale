@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Settings" >
+
+    <CheckBoxPreference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:key="singleUser"
+        android:title="@string/singleUser" />
+
+    <ListPreference
+        android:defaultValue="not set"
+        android:dialogTitle=""
+        android:entries="@array/PeopleNames"
+        android:entryValues="@array/PeopleValues"
+        android:key="people"
+        android:title="Please choose a person" />
+
+</PreferenceScreen>

@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 10
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "ca.charland.tanita"
+        minSdkVersion 10
+        targetSdkVersion 17
+
+        testApplicationId "ca.charland.tanita.blackbox"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:18.0.0'
+    compile 'org.roboguice:roboguice:3.+'
+    provided 'org.roboguice:roboblender:3.+'
+    androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.3.1'
+    androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.3.1'
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\git\TanitaScale\TanitaScale\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="29dc829939f2e6242a6799e8b8da133c70a6ffc3">
+        <dex dex="E:\git\TanitaScale\TanitaScale\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_0cc2513d6348e855f26d7bba4c091cd614eb81aa\classes.dex" />
+    </item>
+    <item
+        jar="E:\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="E:\git\TanitaScale\TanitaScale\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_f0ab625e2aa242d01aa2cd3c4d39a3cf5323d1f8\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\cyclo\.gradle\caches\modules-2\files-2.1\org.roboguice\roboguice\3.0.1\24e814f35d5cc28eaa7e9f07a50ea69deeb2b544\roboguice-3.0.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="24e814f35d5cc28eaa7e9f07a50ea69deeb2b544">
+        <dex dex="E:\git\TanitaScale\TanitaScale\app\build\intermediates\transforms\dex\debug\folders\1000\10\roboguice-3.0.1_37bf3eac42214421fef83f0914ea565df8161ced\classes.dex" />
+    </item>
+    <item
+        jar="E:\git\TanitaScale\TanitaScale\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="80ac20ac7c8aa21c5a1ddd9706429b391edd80fb">
+        <dex dex="E:\git\TanitaScale\TanitaScale\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_aa84844bf29e14d1f43c06b809276345a909bb87\classes.dex" />
+    </item>
+
+</items>
