@@ -1,36 +1,43 @@
 package ca.charland.tanita;
 
+import android.app.Activity;
+import android.widget.TextView;
+
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
+import org.robolectric.annotation.Config;
+
+import ca.charland.tanita.base.activity.BaseActivity;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import android.widget.TextView;
-import ca.charland.tanita.R;
-import ca.charland.tanita.base.activity.BaseActivity;
-import ca.charland.robolectric.TanitaRobolectricTestRunner;
-
 /**
  * @author mcharland
  */
-@RunWith(TanitaRobolectricTestRunner.class)
-public class BaseActivityTest {
+@RunWith(RobolectricGradleTestRunner.class)
+@Config(constants = BuildConfig.class)
+public class BaseActivityTest
+{
+    private TextView next;
 
-	private BaseActivity activity;
+    @Before
+    public void setUp()
+    {
+        Activity activity = Robolectric.setupActivity(BaseActivity.class);
+        next = (TextView) activity.findViewById(R.id.next);
+    }
 
-	@Before
-	public void setUp() throws Exception {
-		activity = new TestBaseActivity();
-		activity.onCreate(null);
-	}
-
-	@Test
-	public void testOnCreateBundle() {
-		TextView next = (TextView) TanitaRobolectricTestRunner.getViewFromShadowActivity(activity, R.id.next);
-		assertThat("Button not created", next, is(notNullValue()));
-	}
+    @Ignore
+    @Test
+    public void testOnCreateBundle()
+    {
+        assertThat("Button not created", next, is(notNullValue()));
+    }
 
 }
